@@ -27,19 +27,23 @@ class Categories
 		$categories = apply_filters(
 			'wpe/elementor/categories',
 			[
-				'wpessential'        => [
+				'wpessential'            => [
 					'title' => __( 'WPEssential', 'wpessential' ),
 					'icon'  => 'wpe-icons wpe',
 				],
-				'wpessential-wc'     => [
+				'wpessential-wc'         => [
 					'title' => __( 'WPEssential WC', 'wpessential' ),
 					'icon'  => 'wpe-icons wpe',
 				],
-				'wpessential-form'   => [
+				'wpessential-wc-archive' => [
+					'title' => __( 'WPEssential WC Archive', 'wpessential' ),
+					'icon'  => 'wpe-icons wpe',
+				],
+				'wpessential-form'       => [
 					'title' => __( 'WPEssential Form', 'wpessential' ),
 					'icon'  => 'wpe-icons wpe',
 				],
-				'wpessential-slider' => [
+				'wpessential-slider'     => [
 					'title' => __( 'WPEssential Slider', 'wpessential' ),
 					'icon'  => 'wpe-icons wpe',
 				]

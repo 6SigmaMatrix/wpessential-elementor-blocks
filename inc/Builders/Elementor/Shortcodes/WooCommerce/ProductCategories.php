@@ -8,7 +8,7 @@ if ( ! \defined( 'ABSPATH' ) ) {
 
 use WPEssential\Plugins\Builders\Fields\RawHtml;
 
-class Categories extends WCCategory
+class ProductCategories extends WCCategory
 {
 	/**
 	 * Set widget keywords.
@@ -21,7 +21,7 @@ class Categories extends WCCategory
 	 */
 	public function set_keywords ()
 	{
-		return [ 'categories', 'woocommerce categories', 'woocommerce' ];
+		return [ 'woocommerce-elements', 'shop', 'store', 'categories', 'product' ];
 	}
 
 	/**
@@ -42,7 +42,7 @@ class Categories extends WCCategory
 		);
 
 		$opt = RawHtml::make( __( 'WooCommerce', 'wpessential' ) )
-		              ->data( __( 'There is no option found.', 'wpessential' ), )
+		              ->data( __( 'There are no option found. If you want more options, then please try the Pro version.', 'wpessential' ), )
 		              ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
@@ -60,11 +60,6 @@ class Categories extends WCCategory
 	 */
 	public function render ()
 	{
-		$settings = $this->get_settings_for_display();
-		/*$settings[ 'wpe_st_post_info_data_list' ] = urlencode( json_encode( $settings[ 'wpe_st_post_info_data_list' ] ) );
-		$settings[ 'wpe_st_post_button_icon' ]    = urlencode( json_encode( $settings[ 'wpe_st_post_button_icon' ] ) );*/
-		//wpe_error( $settings );
-		$settings = wpe_collect( $settings );
 		echo do_shortcode( "[product_categories]" );
 	}
 }

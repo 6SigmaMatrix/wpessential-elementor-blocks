@@ -6,7 +6,6 @@ if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\BlogPost\Post;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\CalderaForm;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\ContactForm7;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\FormidableForm;
@@ -14,13 +13,13 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\Mc4W
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\NinjaForm;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\WPForm;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\Cart;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\Categories;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\MyAccount;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\OrderTrack;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductAddToCart;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductCategories;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\Products;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductSingle;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Heading;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Image;
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
 
@@ -104,11 +103,12 @@ final class Widgets implements ShortcodeInit
 			return;
 		}
 
-		self::$list[ 'Cart' ]          = Cart::class;
-		self::$list[ 'Categories' ]    = Categories::class;
-		self::$list[ 'MyAccount' ]     = MyAccount::class;
-		self::$list[ 'OrderTrack' ]    = OrderTrack::class;
-		self::$list[ 'Products' ]      = Products::class;
-		self::$list[ 'ProductSingle' ] = ProductSingle::class;
+		self::$list[ 'Cart' ]              = Cart::class;
+		self::$list[ 'MyAccount' ]         = MyAccount::class;
+		self::$list[ 'OrderTrack' ]        = OrderTrack::class;
+		self::$list[ 'ProductAddToCart' ]  = ProductAddToCart::class;
+		self::$list[ 'ProductCategories' ] = ProductCategories::class;
+		self::$list[ 'ProductSingle' ]     = ProductSingle::class;
+		self::$list[ 'Products' ]          = Products::class;
 	}
 }

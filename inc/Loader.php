@@ -15,10 +15,10 @@ final class Loader
 
 	public static function constructor ()
 	{
-
+		do_action( 'wpessential_el_blocks_loaded' );
 		self::load_files();
 		self::start();
-		add_action( 'wpessential_init', [ __CLASS__, 'init' ] );
+		add_action( 'wpessential_init', [ __CLASS__, 'init' ], 100 );
 	}
 
 	public static function load_files ()

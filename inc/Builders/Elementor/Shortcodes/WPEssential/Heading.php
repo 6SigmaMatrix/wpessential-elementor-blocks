@@ -7,17 +7,13 @@ if ( ! \defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Typography;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Builders\Fields\Choose;
-use WPEssential\Plugins\Builders\Fields\Color;
-use WPEssential\Plugins\Builders\Fields\CommonTypography;
 use WPEssential\Plugins\Builders\Fields\PopoverToggle;
 use WPEssential\Plugins\Builders\Fields\Select;
 use WPEssential\Plugins\Builders\Fields\Textarea;
+use WPEssential\Plugins\Builders\Fields\Typography;
 use WPEssential\Plugins\Builders\Fields\Url;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
 
 class Heading extends Base implements Shortcodes
@@ -117,49 +113,18 @@ class Heading extends Base implements Shortcodes
 			]
 		);
 
-		$opt = Color::make( __( 'Text Color', 'wpessential' ) );
-		$opt->wrap_selectors( [ '.wpe-heading-title, .wpe-heading-title > a' => 'color: {{VALUE}};' ] );
-		$this->add_control( $opt->key, $opt->toArray() );
-
 		$opt = PopoverToggle::make( __( 'Typography', 'wpessential' ) );
-		$opt->global( true );
 		$this->add_control( $opt->key, $opt->toArray() );
-
 		$this->start_popover();
 
-		$opts = CommonTypography::make( __( 'typography', 'wpessential' ) );
-		$opts->common_key( 'typography' );
-		$opts->typography();
+		$opts = Typography::make();
+		$opts->wrap_selector( '.wpe-heading-title' );
+		$opts = $opts->typography();
 		foreach ( $opts as $opt ) {
-			wpe_error( $opt->toArray() );
 			$this->add_control( $opt->key, $opt->toArray() );
 		}
 
 		$this->end_popover();
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'typography',
-				'global'   => [
-					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
-				],
-				'selector' => '{{WRAPPER}} .wpe-heading-title',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
-				'name'     => 'text_shadow',
-				'selector' => '{{WRAPPER}} .wpe-heading-title',
-			]
-		);
-
-		$opt = Select::make( __( 'Blend Mode', 'wpessential' ) );
-		$opts->options( wpe_blend_mode() );
-		$opts->wrap_selectors( [ '.wpe-heading-title' => 'mix-blend-mode: {{VALUE}}' ] );
-		$this->add_control( $opt->key, $opt->toArray() );
 
 		$this->end_controls_section();
 	}

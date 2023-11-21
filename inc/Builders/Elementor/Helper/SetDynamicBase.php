@@ -11,7 +11,7 @@ trait SetDynamicBase
 
 	public function set_name ()
 	{
-		return 'WPEssential' . substr( strrchr( get_class( $this ), "\\" ), 1 );
+		return 'WPEssential' . substr( strrchr( \get_class( $this ), "\\" ), 1 );
 	}
 
 	public function set_title ()
