@@ -52,6 +52,8 @@ class Tabs extends Base implements Shortcodes
 	public function register_controls ()
 	{
 		
+
+		
 			
 	}
 
@@ -67,4 +69,5 @@ class Tabs extends Base implements Shortcodes
 	{
 		
 	}
+	
 }
