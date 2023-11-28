@@ -19,9 +19,9 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerc
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductCategories;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\Products;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductSingle;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\GoogleMaps;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Heading;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
-
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
 
@@ -42,8 +42,9 @@ final class Widgets implements ShortcodeInit
 			'wpe/elementor/shortcodes',
 			[
 				//	'Post'    => Post::class,
-				'Heading' => Heading::class,
+				'Heading'    => Heading::class,
 				'TextEditor' => TextEditor::class,
+				'GoogleMaps' => GoogleMaps::class,
 				//'Image'   => Image::class
 			]
 		);

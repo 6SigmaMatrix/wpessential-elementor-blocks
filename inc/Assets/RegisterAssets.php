@@ -17,6 +17,11 @@ class RegisterAssets
 				'dep'  => false,
 				'ver'  => WPEELBLOCK_VERSION,
 			],
+			'wpessential-elementor-blocks' => [
+				'link' => WPEELBLOCK_URL . 'assets/js/wpessential-elementor-blocks',
+				'dep'  => false,
+				'ver'  => WPEELBLOCK_VERSION,
+			],
 		], $list );
 	}
 }
