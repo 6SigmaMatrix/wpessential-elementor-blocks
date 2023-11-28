@@ -45,7 +45,7 @@ class ProductAddToCart extends WCCategory
 		$this->add_control(
 			'product_id',
 			[
-				'label'   => esc_html__( 'Product', 'elementor-pro' ),
+				'label'   => esc_html__( 'Product', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => wpe_get_posts( [ 'post_type' => 'product', 'posts_per_page' => - 1 ] ),
 			]

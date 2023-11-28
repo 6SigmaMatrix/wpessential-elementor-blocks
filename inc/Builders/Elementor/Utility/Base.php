@@ -93,7 +93,7 @@ abstract class Base extends Widget_Base
 			$skin_options = [];
 
 			if ( $this->_has_template_content ) {
-				$skin_options[ '' ] = __( 'Default', 'elementor' );
+				$skin_options[ '' ] = __( 'Default', 'wpessential-elementor-blocks' );
 			}
 
 			foreach ( $skins as $skin_id => $skin ) {
@@ -108,7 +108,7 @@ abstract class Base extends Widget_Base
 				$this->add_control(
 					'style',
 					[
-						'label'   => __( 'Skin', 'elementor' ),
+						'label'   => __( 'Skin', 'wpessential-elementor-blocks' ),
 						'type'    => 'hidden',
 						'default' => $default_value,
 					]
@@ -118,7 +118,7 @@ abstract class Base extends Widget_Base
 				$this->add_control(
 					'style',
 					[
-						'label'   => __( 'Skin', 'elementor' ),
+						'label'   => __( 'Skin', 'wpessential-elementor-blocks' ),
 						'type'    => 'select',
 						'default' => $default_value,
 						'options' => $skin_options,

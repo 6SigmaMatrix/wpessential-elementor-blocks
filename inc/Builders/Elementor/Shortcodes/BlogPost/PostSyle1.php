@@ -18,7 +18,7 @@ class PostSyle1 extends Skin_Base implements Skin
 
 	public function get_title ()
 	{
-		return __( 'Style 1', 'elementor-pro' );
+		return __( 'Style 1', 'wpessential-elementor-blocks' );
 	}
 
 	public function _register_controls_actions ()
