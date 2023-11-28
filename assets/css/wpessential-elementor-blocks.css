@@ -1,0 +1,34 @@
+.wpe-widget-GoogleMaps .wpe-custom-embed {
+	line-height: 0;
+}
+
+.wpe-widget-TextEditor.wpe-drop-cap-view-stacked .wpe-drop-cap {
+	background-color: #69727D;
+	color: #fff;
+}
+
+.wpe-widget-TextEditor.wpe-drop-cap-view-framed .wpe-drop-cap {
+	color: #69727D;
+	border: 3px solid;
+	background-color: transparent;
+}
+
+.wpe-widget-TextEditor:not(.wpe-drop-cap-view-default) .wpe-drop-cap {
+	margin-top: 8px;
+}
+
+.wpe-widget-TextEditor:not(.wpe-drop-cap-view-default) .wpe-drop-cap-letter {
+	width: 1em;
+	height: 1em;
+}
+
+.wpe-widget-TextEditor .wpe-drop-cap {
+	float: left;
+	text-align: center;
+	line-height: 1;
+	font-size: 50px;
+}
+
+.wpe-widget-TextEditor .wpe-drop-cap-letter {
+	display: inline-block;
+}
