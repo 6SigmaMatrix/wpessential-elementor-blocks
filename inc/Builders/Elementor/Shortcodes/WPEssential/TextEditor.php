@@ -3,7 +3,7 @@
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if (!\defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -37,9 +37,9 @@ class TextEditor extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @public
 	 */
-	public function set_keywords ()
+	public function set_keywords()
 	{
-		return [ 'TextEditor', 'title', 'text' ];
+		return ['TextEditor', 'title', 'text'];
 	}
 
 	/**
@@ -50,17 +50,18 @@ class TextEditor extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls ()
+	public function register_controls()
 	{
 
 		$this->start_controls_section(
 			'wpe_st_anchor_style',
 			[
-				'label' => esc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Anchor Style', 'wpessential-elementor-blocks'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
+		$this->anchor_style();
 
 
 		$this->end_controls_section();
@@ -70,8 +71,8 @@ class TextEditor extends Base implements Shortcodes
 
 
 
-		
-			
+
+
 	}
 
 	/**
@@ -82,12 +83,22 @@ class TextEditor extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function render ()
+	public function render()
 	{
-		
+
 	}
 
-	private function anchor_style(){
+	private function anchor_style()
+	{
+		 // this will set condtion for normal or hover
+		 $this->start_controls_tabs('tabs_button_style');
+		 // for normal controls 
+		$this->start_controls_tab(
+			'tab_button_normal',
+			[
+				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+			]
+		);
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -99,22 +110,22 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
-				
+
 			]
 		);
 		$this->add_control(
 			'wpe_st_margin',
 			[
-				'label' => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
 				'range' => [
 					'px' => [
 						'min' => 10,
@@ -141,16 +152,7 @@ class TextEditor extends Base implements Shortcodes
 			]
 		);
 
-		$this->add_control(
-			'custom_text_shadow',
-			[
-				'label' => esc_html__( 'Text Shadow', 'textdomain' ),
-				'type' => \Elementor\Controls_Manager::TEXT_SHADOW,
-				'selectors' => [
-					'{{SELECTOR}}' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
-				],
-			]
-		);
+		
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Stroke::get_type(),
@@ -161,9 +163,9 @@ class TextEditor extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'text_color',
+			'wpe_st_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'textdomain' ),
+				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .your-class' => 'color: {{VALUE}}',
@@ -175,7 +177,7 @@ class TextEditor extends Base implements Shortcodes
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'background',
-				'types' => [ 'classic', 'gradient', 'video' ],
+				'types' => ['classic', 'gradient', 'video'],
 				'selector' => '{{WRAPPER}} .your-class',
 			]
 		);
@@ -187,16 +189,19 @@ class TextEditor extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .your-class',
 			]
 		);
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
+		$this->add_control(
+			'wpe_st_text_shadow',
 			[
-				'name' => 'text_shadow',
-				'selector' => '{{WRAPPER}} .your-class',
+				'label' => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type' => \Elementor\Controls_Manager::TEXT_SHADOW,
+				'selectors' => [
+					'{{SELECTOR}}' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
 			]
 		);
 
 		$this->add_responsive_control(
-			'border_radius',
+			'wpe_st_border_radius',
 			[
 				'label' => esc_html__('Border Radius', 'wpessential-elementor-modal'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
@@ -206,6 +211,89 @@ class TextEditor extends Base implements Shortcodes
 				],
 			]
 		);
+		$this->add_control(
+			'wpe_st_text_decoration',
+			[
+				'label' => esc_html__('Text Decoration', 'wpessential-elementor-modal'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'none' => esc_html__('None', 'textdomain'),
+					'underline' => esc_html__('Underline', 'textdomain'),
+					'overline' => esc_html__('Overline', 'textdomain'),
+					'line-through' => esc_html__('Line Through', 'textdomain'),
+				],
+				'default' => 'none',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_button_hover',
+			[
+				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_hover_text_color',
+			[
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .your-class' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'wpe_st_hover_background',
+				'types' => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'wpe_st_hover_border',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+		$this->add_control(
+			'wpe_st_hover_text_decoration',
+			[
+				'label' => esc_html__('Text Decoration', 'wpessential-elementor-modal'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'none' => esc_html__('None', 'textdomain'),
+					'underline' => esc_html__('Underline', 'textdomain'),
+					'overline' => esc_html__('Overline', 'textdomain'),
+					'line-through' => esc_html__('Line Through', 'textdomain'),
+				],
+				'default' => 'none',
+			]
+		);
+		$this->add_control(
+			'wpe_st_hover_text_shadow',
+			[
+				'label' => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type' => \Elementor\Controls_Manager::TEXT_SHADOW,
+				'selectors' => [
+					'{{SELECTOR}}' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'wpe_st_hover_content_typography',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+
+
+		$this->end_controls_tab();
 
 
 	}
