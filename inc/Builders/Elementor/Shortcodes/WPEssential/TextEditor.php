@@ -60,65 +60,62 @@ class TextEditor extends Base implements Shortcodes
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
-	// function removefuntion(){
-	// 	$opt = Wysiwyg::make( __( 'Text Editor', 'wpessential-elementor-blocks' ) );
-	// 	$opt->label_block( true );
-	// 	$opt->default( '<p>' . __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ) . '</p>' );
-	// 	$this->add_control( $opt->key, $opt->toArray() );
+		$opt = Wysiwyg::make( __( 'Text Editor', 'wpessential-elementor-blocks' ) );
+		$opt->label_block( true );
+		$opt->default( '<p>' . __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ) . '</p>' );
+		$this->add_control( $opt->key, $opt->toArray() );
 
-	// 	$opt = Switcher::make( __( 'Drop Cap', 'wpessential-elementor-blocks' ) );
-	// 	$opt->label_off( esc_html__( 'Off', 'elementor' ) );
-	// 	$opt->label_on( esc_html__( 'On', 'elementor' ) );
-	// 	$opt->prefix_class( 'wpe-drop-cap-' );
-	// 	$this->add_control( $opt->key, $opt->toArray() );
+		$opt = Switcher::make( __( 'Drop Cap', 'wpessential-elementor-blocks' ) );
+		$opt->label_off( esc_html__( 'Off', 'elementor' ) );
+		$opt->label_on( esc_html__( 'On', 'elementor' ) );
+		$opt->prefix_class( 'wpe-drop-cap-' );
+		$this->add_control( $opt->key, $opt->toArray() );
 
-	// 	$text_columns       = range( 1, 10 );
-	// 	$text_columns       = array_combine( $text_columns, $text_columns );
-	// 	$text_columns[ '' ] = esc_html__( 'Default', 'elementor' );
+		$text_columns       = range( 1, 10 );
+		$text_columns       = array_combine( $text_columns, $text_columns );
+		$text_columns[ '' ] = esc_html__( 'Default', 'elementor' );
 
-	// 	$this->add_responsive_control(
-	// 		'text_columns',
-	// 		[
-	// 			'label'     => esc_html__( 'Columns', 'elementor' ),
-	// 			'type'      => Controls_Manager::SELECT,
-	// 			'separator' => 'before',
-	// 			'options'   => $text_columns,
-	// 			'selectors' => [
-	// 				'{{WRAPPER}}' => 'columns: {{VALUE}};',
-	// 			],
-	// 		]
-	// 	);
+		$this->add_responsive_control(
+			'text_columns',
+			[
+				'label'     => esc_html__( 'Columns', 'elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'separator' => 'before',
+				'options'   => $text_columns,
+				'selectors' => [
+					'{{WRAPPER}}' => 'columns: {{VALUE}};',
+				],
+			]
+		);
 
-	// 	$this->add_responsive_control(
-	// 		'column_gap',
-	// 		[
-	// 			'label'      => esc_html__( 'Columns Gap', 'elementor' ),
-	// 			'type'       => Controls_Manager::SLIDER,
-	// 			'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-	// 			'range'      => [
-	// 				'px' => [
-	// 					'max' => 100,
-	// 				],
-	// 				'%'  => [
-	// 					'max'  => 10,
-	// 					'step' => 0.1,
-	// 				],
-	// 				'vw' => [
-	// 					'max'  => 10,
-	// 					'step' => 0.1,
-	// 				],
-	// 				'em' => [
-	// 					'max'  => 10,
-	// 					'step' => 0.1,
-	// 				],
-	// 			],
-	// 			'selectors'  => [
-	// 				'{{WRAPPER}}' => 'column-gap: {{SIZE}}{{UNIT}};',
-	// 			],
-	// 		]
-	// 	);
-
-	// }
+		$this->add_responsive_control(
+			'column_gap',
+			[
+				'label'      => esc_html__( 'Columns Gap', 'elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
+					'px' => [
+						'max' => 100,
+					],
+					'%'  => [
+						'max'  => 10,
+						'step' => 0.1,
+					],
+					'vw' => [
+						'max'  => 10,
+						'step' => 0.1,
+					],
+					'em' => [
+						'max'  => 10,
+						'step' => 0.1,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}}' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 		// For anchor styles

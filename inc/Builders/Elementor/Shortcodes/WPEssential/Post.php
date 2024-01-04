@@ -15,6 +15,10 @@ use WPEssential\Plugins\Builders\Fields\Typography;
 use WPEssential\Plugins\Builders\Fields\Url;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+// added by me 4/1/2024
+use WPEssential\Plugins\Builders\Fields\Switcher;
+use WPEssential\Plugins\Builders\Fields\Wysiwyg;
+
 
 class Post extends Base implements Shortcodes
 {
@@ -41,6 +45,11 @@ class Post extends Base implements Shortcodes
 		return [ 'Post', 'title', 'text' ];
 	}
 
+	public function set_widget_icon ()
+	{
+		return 'eicon-post';
+	}
+
 	/**
 	 * Register widget controls.
 	 *
@@ -51,7 +60,15 @@ class Post extends Base implements Shortcodes
 	 */
 	public function register_controls ()
 	{
-		
+		$this->start_controls_section(
+			'wpe_st_content',
+			[
+				'label' => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->end_controls_section();
 			
 	}
 
