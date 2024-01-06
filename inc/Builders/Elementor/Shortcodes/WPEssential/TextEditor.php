@@ -528,7 +528,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_anchor_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -539,13 +539,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_anchor_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -563,7 +563,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_anchor_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'color: {{VALUE}}',
@@ -588,13 +588,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_anchor_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -606,6 +606,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor a' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_anchor_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -738,7 +749,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_paragraph_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -749,13 +760,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_paragraph_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -773,7 +784,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_paragraph_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor p' => 'color: {{VALUE}}',
@@ -798,13 +809,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_paragraph_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -816,6 +827,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor p' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_paragraph_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -948,7 +970,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -959,13 +981,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_button_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -983,7 +1005,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_button_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor button' => 'color: {{VALUE}}',
@@ -1008,13 +1030,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_button_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1029,6 +1051,18 @@ class TextEditor extends Base implements Shortcodes
 				],
 			]
 		);
+
+		$this->add_responsive_control(
+			'wpe_st_button_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -1036,6 +1070,7 @@ class TextEditor extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor button',
 			]
 		);
+
 	
 
 
@@ -1159,7 +1194,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_heading_1_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -1170,13 +1205,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_1_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1194,7 +1229,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_1_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor h1' => 'color: {{VALUE}}',
@@ -1219,13 +1254,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_1_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1237,6 +1272,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor h1' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_1_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1370,7 +1416,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_heading_2_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -1381,13 +1427,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_2_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1405,7 +1451,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_2_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor h2' => 'color: {{VALUE}}',
@@ -1430,13 +1476,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_2_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1448,6 +1494,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor h2' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_2_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h2' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1581,7 +1638,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_heading_3_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -1592,13 +1649,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_3_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1616,7 +1673,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_3_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor h3' => 'color: {{VALUE}}',
@@ -1641,13 +1698,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_3_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1659,6 +1716,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor h3' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_3_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1792,7 +1860,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_heading_4_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -1803,13 +1871,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_4_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1827,7 +1895,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_4_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor h4' => 'color: {{VALUE}}',
@@ -1852,13 +1920,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_4_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1870,6 +1938,18 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor h4' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_heading_4_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h4' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2003,7 +2083,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_heading_5_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -2014,13 +2094,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_5_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2038,7 +2118,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_5_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor h5' => 'color: {{VALUE}}',
@@ -2063,13 +2143,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_5_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2081,6 +2161,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor h5' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_5_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h5' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2214,7 +2305,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_heading_6_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -2225,13 +2316,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_6_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2249,7 +2340,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_6_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor h6' => 'color: {{VALUE}}',
@@ -2274,13 +2365,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_heading_6_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2292,6 +2383,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor h6' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_6_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h6' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2425,7 +2527,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_pre_tag_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -2436,13 +2538,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_pre_tag_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2460,7 +2562,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_pre_tag_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor pre' => 'color: {{VALUE}}',
@@ -2485,13 +2587,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_pre_tag_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2503,6 +2605,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor pre' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_pre_tag_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor pre' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2636,7 +2749,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_figure_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -2647,13 +2760,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_figure_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2671,7 +2784,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_figure_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor figure' => 'color: {{VALUE}}',
@@ -2696,13 +2809,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_figure_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2714,6 +2827,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor figure' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_figure_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor figure' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2847,7 +2971,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_data_list_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -2858,13 +2982,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_data_list_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2882,7 +3006,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_data_list_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor dl' => 'color: {{VALUE}}',
@@ -2907,13 +3031,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_data_list_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -2925,6 +3049,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor dl' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_data_list_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor dl' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -3057,7 +3192,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_block_qoute_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -3068,13 +3203,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_block_qoute_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3092,7 +3227,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_block_qoute_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor block-qoute' => 'color: {{VALUE}}',
@@ -3117,13 +3252,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_block_qoute_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3267,7 +3402,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_table_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -3278,13 +3413,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_table_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3302,7 +3437,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_table_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor table' => 'color: {{VALUE}}',
@@ -3327,13 +3462,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_table_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3345,6 +3480,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor table' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_table_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor table' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -3478,7 +3624,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_order_list_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -3489,13 +3635,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_order_list_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3513,7 +3659,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_order_list_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor ol' => 'color: {{VALUE}}',
@@ -3538,13 +3684,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_order_list_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3556,6 +3702,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor ol' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_order_list_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor ol' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -3688,7 +3845,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_unorder_list_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -3699,13 +3856,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_unorder_list_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3723,7 +3880,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_unorder_list_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor ul' => 'color: {{VALUE}}',
@@ -3748,13 +3905,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_unorder_list_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3766,6 +3923,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor ul' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_unorder_list_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor ul' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -3899,7 +4067,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -3910,13 +4078,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3934,7 +4102,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'color: {{VALUE}}',
@@ -3959,13 +4127,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -3977,6 +4145,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor img' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_image_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -4112,7 +4291,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_address_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -4123,13 +4302,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_address_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4147,7 +4326,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_address_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor address' => 'color: {{VALUE}}',
@@ -4172,13 +4351,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_address_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4190,6 +4369,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor address' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_address_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor address' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -4326,7 +4516,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_fig_caption_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -4337,13 +4527,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_fig_caption_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4361,7 +4551,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_fig_caption_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor fig_caption' => 'color: {{VALUE}}',
@@ -4386,13 +4576,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_fig_caption_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4404,6 +4594,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor fig_caption' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_fig_caption_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor fig_caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -4539,7 +4740,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_sub_script_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -4550,13 +4751,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_sub_script_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4574,7 +4775,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_sub_script_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor sub' => 'color: {{VALUE}}',
@@ -4599,13 +4800,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_sub_script_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4617,6 +4818,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor sub' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_sub_script_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor sub' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -4752,7 +4964,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_super_script_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -4763,13 +4975,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_super_script_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4787,7 +4999,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_super_script_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor sup' => 'color: {{VALUE}}',
@@ -4812,13 +5024,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_super_script_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -4830,6 +5042,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor sup' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_super_script_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor sup' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -4852,12 +5075,7 @@ class TextEditor extends Base implements Shortcodes
 	private function audio_style ()
 	{
 		
-		// $this->start_controls_tab(
-		// 	'tab_audio_normal',
-		// 	[
-		// 		'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
-		// 	]
-		// );
+		
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -4961,7 +5179,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_audio_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -4972,19 +5190,18 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_audio_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
 		);
 
-		// $this->end_controls_tab();
 
 		
 		
@@ -4995,12 +5212,7 @@ class TextEditor extends Base implements Shortcodes
 	private function video_style ()
 	{
 		
-		// $this->start_controls_tab(
-		// 	'tab_video_normal',
-		// 	[
-		// 		'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
-		// 	]
-		// );
+		
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -5104,7 +5316,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -5115,20 +5327,19 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
 		);
 
-		// $this->end_controls_tab();
-
+	
 		
 		
 
@@ -5138,12 +5349,7 @@ class TextEditor extends Base implements Shortcodes
 	private function iframe_style ()
 	{
 		
-		// $this->start_controls_tab(
-		// 	'tab_iframe_normal',
-		// 	[
-		// 		'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
-		// 	]
-		// );
+		
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -5247,7 +5453,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_iframe_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -5258,20 +5464,19 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_iframe_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
 		);
 
-		// $this->end_controls_tab();
-
+		
 		
 		
 
@@ -5392,7 +5597,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_hr_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
@@ -5403,13 +5608,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_hr_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -5427,7 +5632,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_hr_hover_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor hr' => 'color: {{VALUE}}',
@@ -5452,13 +5657,13 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_hr_hover_text_decoration',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -5470,6 +5675,17 @@ class TextEditor extends Base implements Shortcodes
 				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor hr' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_hr_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor hr' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -5610,7 +5826,7 @@ class TextEditor extends Base implements Shortcodes
 	// 	$this->add_responsive_control(
 	// 		'wpe_st_abc_border_radius',
 	// 		[
-	// 			'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-modal' ),
+	// 			'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
 	// 			'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 	// 			'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 	// 			'selectors'  => [
@@ -5621,13 +5837,13 @@ class TextEditor extends Base implements Shortcodes
 	// 	$this->add_control(
 	// 		'wpe_st_abc_text_decoration',
 	// 		[
-	// 			'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+	// 			'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 	// 			'type'    => \Elementor\Controls_Manager::SELECT,
 	// 			'options' => [
-	// 				'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-	// 				'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-	// 				'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-	// 				'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+	// 				'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+	// 				'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+	// 				'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+	// 				'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 	// 			],
 	// 			'default' => 'none',
 	// 		]
@@ -5645,7 +5861,7 @@ class TextEditor extends Base implements Shortcodes
 	// 	$this->add_control(
 	// 		'wpe_st_abc_hover_text_color',
 	// 		[
-	// 			'label'     => esc_html__( 'Text Color', 'wpessential-elementor-modal' ),
+	// 			'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 	// 			'type'      => \Elementor\Controls_Manager::COLOR,
 	// 			'selectors' => [
 	// 				'{{WRAPPER}} .wpe-text-editor test' => 'color: {{VALUE}}',
@@ -5670,13 +5886,13 @@ class TextEditor extends Base implements Shortcodes
 	// 	$this->add_control(
 	// 		'wpe_st_abc_hover_text_decoration',
 	// 		[
-	// 			'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-modal' ),
+	// 			'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 	// 			'type'    => \Elementor\Controls_Manager::SELECT,
 	// 			'options' => [
-	// 				'none'         => esc_html__( 'None', 'wpessential-elementor-modal' ),
-	// 				'underline'    => esc_html__( 'Underline', 'wpessential-elementor-modal' ),
-	// 				'overline'     => esc_html__( 'Overline', 'wpessential-elementor-modal' ),
-	// 				'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-modal' ),
+	// 				'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+	// 				'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+	// 				'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+	// 				'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 	// 			],
 	// 			'default' => 'none',
 	// 		]
