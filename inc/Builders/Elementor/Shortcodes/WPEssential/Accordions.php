@@ -16,6 +16,11 @@ use WPEssential\Plugins\Builders\Fields\Url;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
 
+
+use WPEssential\Plugins\Builders\Fields\Switcher;
+use WPEssential\Plugins\Builders\Fields\Wysiwyg;
+
+
 class Accordions extends Base implements Shortcodes
 {
 	/**
@@ -41,6 +46,11 @@ class Accordions extends Base implements Shortcodes
 		return [ 'Accordions', 'title', 'text' ];
 	}
 
+	public function set_widget_icon()
+	{
+		return 'eicon-accordion';
+	}
+
 	/**
 	 * Register widget controls.
 	 *
@@ -52,6 +62,17 @@ class Accordions extends Base implements Shortcodes
 	public function register_controls ()
 	{
 		
+		// For anchor styles
+		$this->start_controls_section(
+			'wpe_st_anchor_style',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->title_style();
+		$this->end_controls_section();
+
 			
 	}
 
@@ -65,6 +86,23 @@ class Accordions extends Base implements Shortcodes
 	 */
 	public function render ()
 	{
+		// this code is entered by basit , copied from text editor
+		$settings = wpe_gen_attr( $this->get_settings_for_display() );
+		echo do_shortcode( "[{$this->get_base_name()} {$settings}']" );
 		
 	}
+
+	private function title_style(){
+		$this->add_control(
+			'hover_animation',
+			[
+				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+	
+
+	}
 }
+
+

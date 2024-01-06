@@ -22,7 +22,7 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerc
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\GoogleMaps;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Heading;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
-//use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Post;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Accordions;
 
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
@@ -47,7 +47,7 @@ final class Widgets implements ShortcodeInit
 				'Heading'    => Heading::class,
 				'TextEditor' => TextEditor::class,
 				'GoogleMaps' => GoogleMaps::class,
-				//'Post' => Post::class,
+				'Accordions' => Accordions::class,
 				//'Image'   => Image::class
 			]
 		);
