@@ -38,7 +38,7 @@ class Counter extends Base implements Shortcodes
 	 */
 	public function set_keywords ()
 	{
-		return [ 'Counter', 'title', 'text' ];
+		return [ 'counter', 'title', 'text' ];
 	}
 
 	/**

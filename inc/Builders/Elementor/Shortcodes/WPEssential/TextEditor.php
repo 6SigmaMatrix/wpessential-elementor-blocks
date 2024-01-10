@@ -807,7 +807,7 @@ class TextEditor extends Base implements Shortcodes
 			]
 		);
 		$this->add_control(
-			'wpe_st_paragraph_text_decoration',
+			'wpe_st_paragraph_hover_text_decoration',
 			[
 				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
@@ -1028,7 +1028,7 @@ class TextEditor extends Base implements Shortcodes
 			]
 		);
 		$this->add_control(
-			'wpe_st_button_text_decoration',
+			'wpe_st_button_hover_text_decoration',
 			[
 				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
@@ -3827,7 +3827,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_order_list_border',
+				'name'     => 'wpe_st_unorder_list_border',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ul',
 			]
 		);

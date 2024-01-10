@@ -23,6 +23,10 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Heading;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Accordions;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Button;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Counter;
+
+
 
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
@@ -48,6 +52,8 @@ final class Widgets implements ShortcodeInit
 				'TextEditor' => TextEditor::class,
 				'GoogleMaps' => GoogleMaps::class,
 				'Accordions' => Accordions::class,
+				'Button' => Button::class,
+				'Counter' => Counter::class,
 				//'Image'   => Image::class
 			]
 		);

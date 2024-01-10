@@ -73,7 +73,7 @@ class Accordions extends Base implements Shortcodes
 		$this->accordion_style();
 		$this->end_controls_section();
 			
-		
+
 		// For anchor styles
 		$this->start_controls_section(
 			'wpe_st_title_style',
@@ -196,6 +196,17 @@ class Accordions extends Base implements Shortcodes
 				],
 				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+			]
+		);
+		$this->add_control(
+			'wpe_st_title_text_color_normal',
+			[
+				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
 			]
 		);
@@ -394,6 +405,18 @@ class Accordions extends Base implements Shortcodes
 			[
 				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_title_text_color_hover',
+			[
+				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
+				],
 			]
 		);
 		$this->add_control(
@@ -601,6 +624,7 @@ class Accordions extends Base implements Shortcodes
 				],
 			]
 		);
+		
 
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
@@ -930,12 +954,23 @@ class Accordions extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'wpe_st_content_text_color_normal',
+			'wpe_st_content_color_normal',
 			[
 				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type'      => \Elementor\Controls_Manager::COLOR,
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'wpe_st_content_text_color_normal',
+			[
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
 			]
 		);
@@ -1139,6 +1174,7 @@ class Accordions extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
+		
 
 		$this->add_control(
 			'wpe_st_content_border_width_hover',
@@ -1194,7 +1230,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_title_border_hover',
+				'name'     => 'wpe_st_content_border_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 			
