@@ -41,6 +41,11 @@ class Divider extends Base implements Shortcodes
 		return [ 'Divider', 'title', 'text' ];
 	}
 
+	public function set_widget_icon()
+	{
+		return 'eicon-divider';
+	}
+
 	/**
 	 * Register widget controls.
 	 *

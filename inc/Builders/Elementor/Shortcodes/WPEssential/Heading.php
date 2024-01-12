@@ -41,6 +41,10 @@ class Heading extends Base implements Shortcodes
 		return [ 'heading', 'title', 'text' ];
 	}
 
+	public function get_icon() {
+		return 'eicon-t-letter';
+	}
+
 	/**
 	 * Register widget controls.
 	 *
@@ -127,6 +131,17 @@ class Heading extends Base implements Shortcodes
 		$this->end_popover();
 
 		$this->end_controls_section();
+
+
+		$this->start_controls_section(
+			'wpe_st_title_style',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->title_style();
+		$this->end_controls_section();
 	}
 
 	/**
@@ -142,4 +157,227 @@ class Heading extends Base implements Shortcodes
 		$settings = wpe_gen_attr( $this->get_settings_for_display() );
 		echo do_shortcode( "[{$this->get_base_name()} {$settings}']" );
 	}
+
+	private function title_style ()
+	{
+		// this will set condtion for normal or hover
+		$this->start_controls_tabs( 'tabs_heading_style' );
+		// for normal controls 
+		$this->start_controls_tab(
+			'tab_heading_normal',
+			[
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name'     => 'wpe_st_heading_typography',
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_heading_text_padding',
+			[
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'separator'  => 'before',
+
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_margin',
+			[
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
+					'px' => [
+						'min'  => 10,
+						'max'  => 50,
+						'step' => 5,
+					],
+					'em' => [
+						'min'  => 1,
+						'max'  => 5,
+						'step' => 0.5,
+					],
+				],
+				'default'    => [
+					'top'      => 2,
+					'right'    => 0,
+					'bottom'   => 2,
+					'left'     => 0,
+					'unit'     => 'em',
+					'isLinked' => false,
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name'     => 'wpe_st_heading_text_stroke',
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_heading_text_color',
+			[
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name'     => 'wpe_st_heading_background',
+				'types'    => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name'     => 'wpe_st_heading_border',
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+		$this->add_control(
+			'wpe_st_heading_text_shadow',
+			[
+				'label'     => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
+				'selectors' => [
+					'{{SELECTOR}} .wpe-text-editor h1' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_heading_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_control(
+			'wpe_st_heading_text_decoration',
+			[
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'none',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'wpe_st_tab_heading_hover',
+			[
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_heading_hover_text_color',
+			[
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name'     => 'wpe_st_heading_hover_background',
+				'types'    => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name'     => 'wpe_st_heading_hover_border',
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+		$this->add_control(
+			'wpe_st_heading_hover_text_decoration',
+			[
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'none',
+			]
+		);
+		$this->add_control(
+			'wpe_st_heading_hover_text_shadow',
+			[
+				'label'     => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
+				'selectors' => [
+					'{{SELECTOR}} .wpe-text-editor h1' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'wpe_st_heading_hover_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor h1' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name'     => 'wpe_st_heading_hover_typography',
+				'selector' => '{{WRAPPER}} .wpe-text-editor h1',
+			]
+		);
+	
+
+
+		$this->end_controls_tab();
+		$this->end_controls_tabs();
+
+
+	}
+
 }

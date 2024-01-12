@@ -21,6 +21,9 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use WPEssential\Plugins\Builders\Fields\Switcher;
 use WPEssential\Plugins\Builders\Fields\Wysiwyg;
 
+use Elementor\Repeater;
+
+
 
 class Accordions extends Base implements Shortcodes
 {
@@ -63,6 +66,9 @@ class Accordions extends Base implements Shortcodes
 	public function register_controls ()
 	{
 		
+
+		
+	
 		$this->start_controls_section(
 			'wpe_st_accordion_style',
 			[
@@ -74,9 +80,9 @@ class Accordions extends Base implements Shortcodes
 		$this->end_controls_section();
 			
 
-		// For anchor styles
+		
 		$this->start_controls_section(
-			'wpe_st_title_style',
+			'wpe_st_titlewpe_st_title_style',
 			[
 				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,

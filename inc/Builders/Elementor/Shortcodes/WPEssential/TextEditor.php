@@ -404,16 +404,6 @@ class TextEditor extends Base implements Shortcodes
 
 
 
-
-
-
-
-
-
-
-
-
-
 	private function anchor_style ()
 	{
 		// this will set condtion for normal or hover
