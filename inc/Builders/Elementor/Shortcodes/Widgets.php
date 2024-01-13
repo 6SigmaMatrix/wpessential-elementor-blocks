@@ -25,6 +25,8 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Accordions;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Button;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Counter;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Tabs;
+
 
 
 
@@ -54,6 +56,7 @@ final class Widgets implements ShortcodeInit
 				'Accordions' => Accordions::class,
 				'Button' => Button::class,
 				'Counter' => Counter::class,
+				'Tabs' => Tabs::class,
 				//'Image'   => Image::class
 			]
 		);
