@@ -50,7 +50,7 @@ class Tabs extends Base implements Shortcodes
 	}
 
 	public function get_title() {
-		return esc_html__( 'Tabs', 'wpessential-elementor-blocks' );
+		return esc_html__( 'Tabsooo', 'wpessential-elementor-blocks' );
 	}
 
 	/**
@@ -126,7 +126,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_tab_navigation_width_normal',
 			[
-				'label' => esc_html__( 'Navigation Width', 'elementor' ),
+				'label' => esc_html__( 'Navigation Width', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -149,7 +149,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_tab_border_width_normal',
 			[
-				'label' => esc_html__( 'Border Width', 'elementor' ),
+				'label' => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default' => [
@@ -172,7 +172,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_tab_border_color_normal',
 			[
-				'label' => esc_html__( 'Border Color', 'elementor' ),
+				'label' => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-mobile-title, {{WRAPPER}} .elementor-tab-desktop-title.elementor-active, {{WRAPPER}} .elementor-tab-title:before, {{WRAPPER}} .elementor-tab-title:after, {{WRAPPER}} .elementor-tab-content, {{WRAPPER}} .elementor-tabs-content-wrapper' => 'border-color: {{VALUE}};',
@@ -232,7 +232,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_normal',
 			[
-				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -441,7 +441,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_hover',
 			[
-				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -922,7 +922,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'hover_primary_color',
 			[
-				'label' => esc_html__( 'Primary Color', 'elementor' ),
+				'label' => esc_html__( 'Primary Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -969,15 +969,15 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_align_normal',
 			[
-				'label' => esc_html__( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Start', 'elementor' ),
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => esc_html__( 'End', 'elementor' ),
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -990,7 +990,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_color_normal',
 			[
-				'label' => esc_html__( 'Color', 'elementor' ),
+				'label' => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
@@ -1003,7 +1003,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
 			[
-				'label' => esc_html__( 'Active Color', 'elementor' ),
+				'label' => esc_html__( 'Active Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title.elementor-active .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
@@ -1015,7 +1015,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_icon_spacing_normal',
 			[
-				'label' => esc_html__( 'Spacing', 'elementor' ),
+				'label' => esc_html__( 'Spacing', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1066,7 +1066,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
 			[
-				'label' => esc_html__( 'Size', 'elementor' ),
+				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range' => [
@@ -1086,11 +1086,11 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_fit_to_size_normal',
 			[
-				'label' => esc_html__( 'Fit to Size', 'elementor' ),
+				'label' => esc_html__( 'Fit to Size', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SWITCHER,
 				'description' => 'Avoid gaps around icons when width and height aren\'t equal',
-				'label_off' => esc_html__( 'Off', 'elementor' ),
-				'label_on' => esc_html__( 'On', 'elementor' ),
+				'label_off' => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__( 'On', 'wpessential-elementor-blocks' ),
 				'condition' => [
 					'selected_icon[library]' => 'svg',
 				],
@@ -1103,7 +1103,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_padding_normal',
 			[
-				'label' => esc_html__( 'Padding', 'elementor' ),
+				'label' => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
@@ -1235,7 +1235,7 @@ class Tabs extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_icon_rotate_hover',
 			[
-				'label' => esc_html__( 'Rotate', 'elementor' ),
+				'label' => esc_html__( 'Rotate', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'deg', 'grad', 'rad', 'turn', 'custom' ],
 				'default' => [

@@ -208,7 +208,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_normal',
 			[
-				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -417,7 +417,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_hover',
 			[
-				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -554,7 +554,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'hover_primary_color',
 			[
-				'label' => esc_html__( 'Primary Color', 'elementor' ),
+				'label' => esc_html__( 'Primary Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -601,15 +601,15 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_align_normal',
 			[
-				'label' => esc_html__( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Start', 'elementor' ),
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => esc_html__( 'End', 'elementor' ),
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -622,7 +622,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_color_normal',
 			[
-				'label' => esc_html__( 'Color', 'elementor' ),
+				'label' => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
@@ -635,7 +635,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
 			[
-				'label' => esc_html__( 'Active Color', 'elementor' ),
+				'label' => esc_html__( 'Active Color', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title.elementor-active .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
@@ -647,7 +647,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_icon_spacing_normal',
 			[
-				'label' => esc_html__( 'Spacing', 'elementor' ),
+				'label' => esc_html__( 'Spacing', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -698,7 +698,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
 			[
-				'label' => esc_html__( 'Size', 'elementor' ),
+				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range' => [
@@ -718,11 +718,11 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_fit_to_size_normal',
 			[
-				'label' => esc_html__( 'Fit to Size', 'elementor' ),
+				'label' => esc_html__( 'Fit to Size', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SWITCHER,
 				'description' => 'Avoid gaps around icons when width and height aren\'t equal',
-				'label_off' => esc_html__( 'Off', 'elementor' ),
-				'label_on' => esc_html__( 'On', 'elementor' ),
+				'label_off' => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__( 'On', 'wpessential-elementor-blocks' ),
 				'condition' => [
 					'selected_icon[library]' => 'svg',
 				],
@@ -735,7 +735,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon_padding_normal',
 			[
-				'label' => esc_html__( 'Padding', 'elementor' ),
+				'label' => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
@@ -867,7 +867,7 @@ class Accordions extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_icon_rotate_hover',
 			[
-				'label' => esc_html__( 'Rotate', 'elementor' ),
+				'label' => esc_html__( 'Rotate', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'deg', 'grad', 'rad', 'turn', 'custom' ],
 				'default' => [
