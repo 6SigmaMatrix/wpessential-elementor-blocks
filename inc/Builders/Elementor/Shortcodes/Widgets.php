@@ -27,7 +27,9 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Counter;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Tabs;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Icons;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\List;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Lists;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\ImageBox;
+use WpEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Image;
 
 
 
@@ -63,7 +65,7 @@ final class Widgets implements ShortcodeInit
 				'Tabs' => Tabs::class,
 				'Icons' => Icons::class,
 				'Lists' => Lists::class,
-				//'Image'   => Image::class
+				'ImageBox'   => ImageBox::class
 			]
 		);
 

@@ -82,7 +82,7 @@ class Accordions extends Base implements Shortcodes
 
 		
 		$this->start_controls_section(
-			'wpe_st_titlewpe_st_title_style',
+			'wpe_st_title_style',
 			[
 				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,

@@ -3962,6 +3962,171 @@ class TextEditor extends Base implements Shortcodes
 			]
 		);
 
+		
+		$this->add_responsive_control(
+			'wpe_st_image_width_normal',
+			[
+				'label'          => esc_html__( 'Width', 'wpessential' ),
+				'type'           => Controls_Manager::SLIDER,
+				'default'        => [
+					'unit' => '%',
+				],
+				'tablet_default' => [
+					'unit' => '%',
+				],
+				'mobile_default' => [
+					'unit' => '%',
+				],
+				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'          => [
+					'%'  => [
+						'min' => 1,
+						'max' => 100,
+					],
+					'px' => [
+						'min' => 1,
+						'max' => 1000,
+					],
+					'vw' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_space_normal',
+			[
+				'label'          => esc_html__( 'Max Width', 'wpessential' ),
+				'type'           => Controls_Manager::SLIDER,
+				'default'        => [
+					'unit' => '%',
+				],
+				'tablet_default' => [
+					'unit' => '%',
+				],
+				'mobile_default' => [
+					'unit' => '%',
+				],
+				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'          => [
+					'%'  => [
+						'min' => 1,
+						'max' => 100,
+					],
+					'px' => [
+						'min' => 1,
+						'max' => 1000,
+					],
+					'vw' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} img' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_height_normal',
+			[
+				'label'      => esc_html__( 'Height', 'wpessential' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
+				'range'      => [
+					'px' => [
+						'min' => 1,
+						'max' => 500,
+					],
+					'vh' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}} img' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_object_fit_normal',
+			[
+				'label'     => esc_html__( 'Object Fit', 'wpessential' ),
+				'type'      => Controls_Manager::SELECT,
+				'condition' => [
+					'height[size]!' => '',
+				],
+				'options'   => [
+					''        => esc_html__( 'Default', 'wpessential' ),
+					'fill'    => esc_html__( 'Fill', 'wpessential' ),
+					'cover'   => esc_html__( 'Cover', 'wpessential' ),
+					'contain' => esc_html__( 'Contain', 'wpessential' ),
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} img' => 'object-fit: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_object_position_normal',
+			[
+				'label'     => esc_html__( 'Object Position', 'wpessential' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'center center' => esc_html__( 'Center Center', 'wpessential' ),
+					'center left'   => esc_html__( 'Center Left', 'wpessential' ),
+					'center right'  => esc_html__( 'Center Right', 'wpessential' ),
+					'top center'    => esc_html__( 'Top Center', 'wpessential' ),
+					'top left'      => esc_html__( 'Top Left', 'wpessential' ),
+					'top right'     => esc_html__( 'Top Right', 'wpessential' ),
+					'bottom center' => esc_html__( 'Bottom Center', 'wpessential' ),
+					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential' ),
+					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential' ),
+				],
+				'default'   => 'center center',
+				'selectors' => [
+					'{{WRAPPER}} img' => 'object-position: {{VALUE}};',
+				],
+				'condition' => [
+					'object-fit' => 'cover',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_image_seperator_panel_style_normal',
+			[
+				'type'  => Controls_Manager::DIVIDER,
+				'style' => 'thick',
+			]
+		);
+		$this->add_control(
+			'wpe_st_image_opacity_normal',
+			[
+				'label' => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 1,
+						'min' => 0.10,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-image-box-img img' => 'opacity: {{SIZE}};',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'wpe_st_image_text_padding',
 			[
@@ -4089,6 +4254,201 @@ class TextEditor extends Base implements Shortcodes
 			]
 		);
 
+		
+		$this->add_responsive_control(
+			'wpe_st_image_width_hover',
+			[
+				'label'          => esc_html__( 'Width', 'wpessential' ),
+				'type'           => Controls_Manager::SLIDER,
+				'default'        => [
+					'unit' => '%',
+				],
+				'tablet_default' => [
+					'unit' => '%',
+				],
+				'mobile_default' => [
+					'unit' => '%',
+				],
+				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'          => [
+					'%'  => [
+						'min' => 1,
+						'max' => 100,
+					],
+					'px' => [
+						'min' => 1,
+						'max' => 1000,
+					],
+					'vw' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_space_hover',
+			[
+				'label'          => esc_html__( 'Max Width', 'wpessential' ),
+				'type'           => Controls_Manager::SLIDER,
+				'default'        => [
+					'unit' => '%',
+				],
+				'tablet_default' => [
+					'unit' => '%',
+				],
+				'mobile_default' => [
+					'unit' => '%',
+				],
+				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'          => [
+					'%'  => [
+						'min' => 1,
+						'max' => 100,
+					],
+					'px' => [
+						'min' => 1,
+						'max' => 1000,
+					],
+					'vw' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} img' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_height_hover',
+			[
+				'label'      => esc_html__( 'Height', 'wpessential' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
+				'range'      => [
+					'px' => [
+						'min' => 1,
+						'max' => 500,
+					],
+					'vh' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}} img' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_object_fit_hover',
+			[
+				'label'     => esc_html__( 'Object Fit', 'wpessential' ),
+				'type'      => Controls_Manager::SELECT,
+				'condition' => [
+					'height[size]!' => '',
+				],
+				'options'   => [
+					''        => esc_html__( 'Default', 'wpessential' ),
+					'fill'    => esc_html__( 'Fill', 'wpessential' ),
+					'cover'   => esc_html__( 'Cover', 'wpessential' ),
+					'contain' => esc_html__( 'Contain', 'wpessential' ),
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} img' => 'object-fit: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_image_object_position_hover',
+			[
+				'label'     => esc_html__( 'Object Position', 'wpessential' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'center center' => esc_html__( 'Center Center', 'wpessential' ),
+					'center left'   => esc_html__( 'Center Left', 'wpessential' ),
+					'center right'  => esc_html__( 'Center Right', 'wpessential' ),
+					'top center'    => esc_html__( 'Top Center', 'wpessential' ),
+					'top left'      => esc_html__( 'Top Left', 'wpessential' ),
+					'top right'     => esc_html__( 'Top Right', 'wpessential' ),
+					'bottom center' => esc_html__( 'Bottom Center', 'wpessential' ),
+					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential' ),
+					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential' ),
+				],
+				'default'   => 'center center',
+				'selectors' => [
+					'{{WRAPPER}} img' => 'object-position: {{VALUE}};',
+				],
+				'condition' => [
+					'object-fit' => 'cover',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_image_seperator_panel_style_hover',
+			[
+				'type'  => Controls_Manager::DIVIDER,
+				'style' => 'thick',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_image_hover_animation_hover',
+			[
+				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+		$this->add_control(
+			'wpe_st_image_opacity_hover',
+			[
+				'label' => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 1,
+						'min' => 0.10,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-image-box-img img' => 'opacity: {{SIZE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_image_transion_hover',
+			[
+				'label' => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'step' => 0.1,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-image-box-img img' => 'transition-duration: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
 		$this->add_control(
 			'wpe_st_image_hover_text_color',
 			[
@@ -4175,6 +4535,7 @@ class TextEditor extends Base implements Shortcodes
 				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
+		
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),

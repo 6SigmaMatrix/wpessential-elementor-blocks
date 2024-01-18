@@ -435,14 +435,6 @@ class Button extends Base implements Shortcodes
 
 
 
-
-
-
-
-
-
-
-
 	private function icon_style(){
 		$this->start_controls_tabs( 'tabs_iocn_style' );/* this will create a tab in which we can make two tabs 
 		normal and hover*/
