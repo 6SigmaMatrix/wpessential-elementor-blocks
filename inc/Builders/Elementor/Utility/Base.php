@@ -2,14 +2,17 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use Elementor\Controls_Stack;
+use Elementor\Plugin;
 use Elementor\Widget_Base;
 use WPEssential\Plugins\Helper\ElementRender;
 use WPEssential\Plugins\Helper\GetShortcodeBase;
 use WPEssential\Plugins\Implement\Shortcodes;
+use function defined;
 
 abstract class Base extends Widget_Base
 {
@@ -30,7 +33,7 @@ abstract class Base extends Widget_Base
 	public function shortcode ()
 	{
 		$widget = get_class( $this );
-		\Elementor\Plugin::instance()->widgets_manager->register( new $widget() );
+		Plugin::instance()->widgets_manager->register( new $widget() );
 	}
 
 	/**
@@ -66,7 +69,7 @@ abstract class Base extends Widget_Base
 	 */
 	public function start_controls_section ( $section_id, array $args = [] )
 	{
-		\Elementor\Controls_Stack::start_controls_section( $section_id, $args );
+		Controls_Stack::start_controls_section( $section_id, $args );
 
 		static $is_first_section = true;
 

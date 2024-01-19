@@ -1,8 +1,8 @@
 <?php
 
-namespace WPEssential\Plugins\ElementorBlocksPro\Builders\Elementor\Shortcodes;
+namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -12,10 +12,6 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\Form
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\Mc4Wp;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\NinjaForm;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms\WPForm;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders\LayerSlider;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders\MasterSlider;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders\RevolutionSlider;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders\SmartSlider;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\Cart;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\MyAccount;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\OrderTrack;
@@ -35,83 +31,101 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Lists;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Tabs;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
+use WPEssential\Plugins\Implement\ShortcodeInit;
+use WPEssential\Plugins\Loader;
+use function class_exists;
+use function defined;
+use function function_exists;
 
-final class Widgets
+
+final class Widgets implements ShortcodeInit
 {
-	private static $list = [];
+	protected static $list;
 
 	public static function constructor ()
 	{
-		add_filter( 'wpe/elementor/shortcodes', [ __CLASS__, 'widgets' ], 20 );
+		self::register_widget();
 	}
 
-
-	public static function widgets ( $list )
+	public static function register_widget ( $list = '' )
 	{
-		self::$list = [
-			//	'Post'    => Post::class,
-			'Heading'    => Heading::class,
-			'TextEditor' => TextEditor::class,
-			'GoogleMaps' => GoogleMaps::class,
-			'Accordions' => Accordions::class,
-			'Button'     => Button::class,
-			'Counter'    => Counter::class,
-			'Tabs'       => Tabs::class,
-			'Icons'      => Icons::class,
-			'Lists'      => Lists::class,
-			'ImageBox'   => ImageBox::class,
-			'Image'      => Image::class,
-			'Gallery'    => Gallery::class,
-		];
+		Loader::editor( 'elementor' );
+
+		self::$list = apply_filters(
+			'wpe/elementor/shortcodes',
+			[
+				//	'Post'    => Post::class,
+				'Heading'    => Heading::class,
+				'TextEditor' => TextEditor::class,
+				'GoogleMaps' => GoogleMaps::class,
+				'Accordions' => Accordions::class,
+				'Button'     => Button::class,
+				'Counter'    => Counter::class,
+				'Tabs'       => Tabs::class,
+				'Icons'      => Icons::class,
+				'Lists'      => Lists::class,
+				'ImageBox'   => ImageBox::class,
+				'Image'      => Image::class,
+				'Gallery'    => Gallery::class,
+			]
+		);
 
 		self::form_widget();
 		self::slider_widget();
 		self::woo_widget();
 
-		return wp_parse_args( $list, $list );
+		if ( ! empty( self::$list ) ) {
+			sort( self::$list );
+			foreach ( self::$list as $class_name ) {
+				if ( class_exists( $class_name ) ) {
+					new $class_name();
+				}
+			}
+		}
+		wpe_error( self::$list );
 	}
 
 	private static function form_widget ()
 	{
-		if ( \class_exists( 'wpcf7' ) ) {
+		if ( class_exists( 'wpcf7' ) ) {
 			self::$list[ 'ContactForm7' ] = ContactForm7::class;
 		}
-		if ( \function_exists( 'load_formidable_forms' ) ) {
+		if ( function_exists( 'load_formidable_forms' ) ) {
 			self::$list[ 'FormidableForm' ] = FormidableForm::class;
 		}
-		if ( \function_exists( 'caldera_forms_load' ) ) {
+		if ( function_exists( 'caldera_forms_load' ) ) {
 			self::$list[ 'CalderaForm' ] = CalderaForm::class;
 		}
-		if ( \function_exists( 'ninja_forms_three_table_exists' ) ) {
+		if ( function_exists( 'ninja_forms_three_table_exists' ) ) {
 			self::$list[ 'NinjaForm' ] = NinjaForm::class;
 		}
-		if ( \function_exists( 'wpforms' ) ) {
+		if ( function_exists( 'wpforms' ) ) {
 			self::$list[ 'WPForm' ] = WPForm::class;
 		}
-		if ( \function_exists( '_mc4wp_load_plugin' ) ) {
+		if ( function_exists( '_mc4wp_load_plugin' ) ) {
 			self::$list[ 'Mc4Wp' ] = Mc4Wp::class;
 		}
 	}
 
 	private static function slider_widget ()
 	{
-		if ( \class_exists( 'LS_Shortcode' ) ) {
-			self::$list[ 'LayerSlider' ] = LayerSlider::class;
+		if ( class_exists( 'LS_Shortcode' ) ) {
+			self::$list[ 'LayerSlider' ] = 'WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Slider\LayerSlider';
 		}
-		if ( \class_exists( 'Master_Slider' ) ) {
-			self::$list[ 'MasterSlider' ] = MasterSlider::class;
+		if ( class_exists( 'Master_Slider' ) ) {
+			self::$list[ 'MasterSlider' ] = 'WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Slider\MasterSlider';
 		}
-		if ( \class_exists( 'RevSliderFront' ) ) {
-			self::$list[ 'RevolutionSlider' ] = RevolutionSlider::class;
+		if ( class_exists( 'RevSliderFront' ) ) {
+			self::$list[ 'RevolutionSlider' ] = 'WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Slider\RevolutionSlider';
 		}
-		if ( \class_exists( 'Master_Slider' ) ) {
-			self::$list[ 'SmartSlider' ] = SmartSlider::class;
+		if ( class_exists( 'Master_Slider' ) ) {
+			self::$list[ 'SmartSlider' ] = 'WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Slider\SmartSlider';
 		}
 	}
 
 	private static function woo_widget ()
 	{
-		if ( ! \function_exists( 'WC' ) ) {
+		if ( ! function_exists( 'WC' ) ) {
 			return;
 		}
 

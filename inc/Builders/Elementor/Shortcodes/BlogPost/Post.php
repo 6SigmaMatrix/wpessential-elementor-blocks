@@ -2,15 +2,14 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\BlogPost;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Builders\Fields\Number;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\BlogPost\PostSyle1;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\BlogPost\PostSyle2;
+use function defined;
 
 class Post extends Base implements Shortcodes
 {

@@ -2,7 +2,10 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+use Elementor\Controls_Manager;
+use function defined;
+
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -33,7 +36,7 @@ final class Tabs
 
 		if ( ! empty( $categories ) ) {
 			foreach ( $categories as $key => $name ) {
-				\Elementor\Controls_Manager::add_tab( $key, $name );
+				Controls_Manager::add_tab( $key, $name );
 			}
 		}
 	}

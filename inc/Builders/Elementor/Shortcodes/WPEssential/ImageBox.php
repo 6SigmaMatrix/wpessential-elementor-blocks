@@ -2,21 +2,21 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
-use WPEssential\Plugins\Builders\Fields\Choose;
-use WPEssential\Plugins\Builders\Fields\PopoverToggle;
-use WPEssential\Plugins\Builders\Fields\Select;
-use WPEssential\Plugins\Builders\Fields\Textarea;
-use WPEssential\Plugins\Builders\Fields\Typography;
-use WPEssential\Plugins\Builders\Fields\Url;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Text_Stroke;
+use Elementor\Group_Control_Typography;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use function defined;
 
 
 class ImageBox extends Base implements Shortcodes
@@ -41,10 +41,11 @@ class ImageBox extends Base implements Shortcodes
 	 */
 	public function set_keywords ()
 	{
-		return [ 'ImageBox', 'title', 'text' ,'Image'];
+		return [ 'ImageBox', 'title', 'text', 'Image' ];
 	}
 
-    public function get_icon() {
+	public function get_icon ()
+	{
 		return 'eicon-image-box';
 	}
 
@@ -77,7 +78,7 @@ class ImageBox extends Base implements Shortcodes
 		);
 		$this->image_style();
 		$this->end_controls_section();
-			
+
 		$this->start_controls_section(
 			'wpe_st_content_style',
 			[
@@ -90,49 +91,36 @@ class ImageBox extends Base implements Shortcodes
 
 	}
 
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render ()
+	private function box_style ()
 	{
-		
-	}
-
-    private function box_style(){
 
 
-
-		$this->start_controls_tabs( 'tabs_button_styles' );/* this will create a tab in which we can make two tabs 
+		$this->start_controls_tabs( 'tabs_button_styles' );/* this will create a tab in which we can make two tabs
 		normal and hover*/
-		// for normal controls 
-		
-        $this->add_control(
+		// for normal controls
+
+		$this->add_control(
 			'wpe_st_image_position_normal',
 			[
-				'label' => esc_html__( 'Image Position', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'top',
-				'options' => [
-					'left' => [
+				'label'        => esc_html__( 'Image Position', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'default'      => 'top',
+				'options'      => [
+					'left'  => [
 						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-h-align-left',
+						'icon'  => 'eicon-h-align-left',
 					],
-					'top' => [
+					'top'   => [
 						'title' => esc_html__( 'Top', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-v-align-top',
+						'icon'  => 'eicon-v-align-top',
 					],
 					'right' => [
 						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-h-align-right',
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'prefix_class' => 'elementor-position-',
-				'toggle' => true,
+				'toggle'       => true,
 				// 'condition' => [
 				// 	'image[url]!' => '',
 				// ],
@@ -142,24 +130,24 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_vertical_alignment_normal',
 			[
-				'label' => esc_html__( 'Vertical Alignment', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'top' => [
+				'label'        => esc_html__( 'Vertical Alignment', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					'top'    => [
 						'title' => esc_html__( 'Top', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-v-align-top',
+						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' => [
 						'title' => esc_html__( 'Middle', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-v-align-middle',
+						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' => [
 						'title' => esc_html__( 'Bottom', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-v-align-bottom',
+						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
-				'default' => 'top',
-				'toggle' => false,
+				'default'      => 'top',
+				'toggle'       => false,
 				'prefix_class' => 'elementor-vertical-align-',
 				// 'condition' => [
 				// 	'position!' => 'top',
@@ -167,18 +155,16 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 
-		
-	
 
-		
 		$this->end_controls_tabs();
 
 	}
 
-	private function image_style(){
+	private function image_style ()
+	{
 		// this will be contain two tabs normal and hover inside
 		$this->start_controls_tabs( 'tabs_image_style' );
-		// this is the start of normal tab 
+		// this is the start of normal tab
 		$this->start_controls_tab(
 			'tab_image_normal',
 			[
@@ -187,11 +173,10 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 
-		
 		$this->add_responsive_control(
 			'wpe_st_image_width_normal',
 			[
-				'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks'),
+				'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => [
 					'unit' => '%',
@@ -226,7 +211,7 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_space_normal',
 			[
-				'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks'),
+				'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => [
 					'unit' => '%',
@@ -261,7 +246,7 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_height_normal',
 			[
-				'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks'),
+				'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
 				'range'      => [
@@ -283,16 +268,16 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_object_fit_normal',
 			[
-				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks'),
+				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::SELECT,
 				'condition' => [
 					'height[size]!' => '',
 				],
 				'options'   => [
-					''        => esc_html__( 'Default', 'wpessential-elementor-blocks'),
-					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks'),
-					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks'),
-					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks'),
+					''        => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks' ),
+					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks' ),
+					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks' ),
 				],
 				'default'   => '',
 				'selectors' => [
@@ -304,18 +289,18 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_object_position_normal',
 			[
-				'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks'),
+				'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks'),
-					'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks'),
-					'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks'),
-					'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks'),
-					'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks'),
-					'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks'),
-					'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks'),
-					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks'),
-					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks'),
+					'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
+					'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
+					'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
+					'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
+					'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
+					'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks' ),
+					'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks' ),
+					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks' ),
+					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks' ),
 				],
 				'default'   => 'center center',
 				'selectors' => [
@@ -337,12 +322,12 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_opacity_nomral',
 			[
-				'label' => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
-						'max' => 1,
-						'min' => 0.10,
+						'max'  => 1,
+						'min'  => 0.10,
 						'step' => 0.01,
 					],
 				],
@@ -353,7 +338,7 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'wpe_st_image_typography_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
@@ -377,7 +362,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_margin',
 			[
 				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'      => [
 					'px' => [
@@ -406,17 +391,16 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_image_box_shadow_normal',
+				'name'     => 'wpe_st_image_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
 
 
-
 		$this->add_group_control(
-			\Elementor\Group_Control_Text_Stroke::get_type(),
+			Group_Control_Text_Stroke::get_type(),
 			[
 				'name'     => 'wpe_st_image_text_stroke',
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
@@ -427,7 +411,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_text_color',
 			[
 				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type'      => \Elementor\Controls_Manager::COLOR,
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'color: {{VALUE}}',
 				],
@@ -435,7 +419,7 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+			Group_Control_Background::get_type(),
 			[
 				'name'     => 'wpe_st_image_background',
 				'types'    => [ 'classic', 'gradient', 'video' ],
@@ -444,7 +428,7 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
+			Group_Control_Border::get_type(),
 			[
 				'name'     => 'wpe_st_image_border',
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
@@ -454,7 +438,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_text_shadow',
 			[
 				'label'     => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
-				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
+				'type'      => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor img' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -465,7 +449,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -476,7 +460,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_text_decoration',
 			[
 				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
 					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
@@ -496,11 +480,11 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 
-			
+
 		$this->add_responsive_control(
 			'wpe_st_image_width_hover',
 			[
-				'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks'),
+				'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => [
 					'unit' => '%',
@@ -535,7 +519,7 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_space_hover',
 			[
-				'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks'),
+				'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => [
 					'unit' => '%',
@@ -570,7 +554,7 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_height_hover',
 			[
-				'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks'),
+				'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
 				'range'      => [
@@ -592,16 +576,16 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_object_fit_hover',
 			[
-				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks'),
+				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::SELECT,
 				'condition' => [
 					'height[size]!' => '',
 				],
 				'options'   => [
-					''        => esc_html__( 'Default', 'wpessential-elementor-blocks'),
-					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks'),
-					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks'),
-					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks'),
+					''        => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks' ),
+					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks' ),
+					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks' ),
 				],
 				'default'   => '',
 				'selectors' => [
@@ -613,18 +597,18 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_image_object_position_hover',
 			[
-				'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks'),
+				'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks'),
-					'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks'),
-					'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks'),
-					'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks'),
-					'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks'),
-					'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks'),
-					'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks'),
-					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks'),
-					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks'),
+					'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
+					'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
+					'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
+					'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
+					'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
+					'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks' ),
+					'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks' ),
+					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks' ),
+					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks' ),
 				],
 				'default'   => 'center center',
 				'selectors' => [
@@ -644,9 +628,9 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_image_box_shadow_hover',
+				'name'     => 'wpe_st_image_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -655,19 +639,19 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_hover_animation_hover',
 			[
 				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::HOVER_ANIMATION,
+				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_image_opacity_hover',
 			[
-				'label' => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
-						'max' => 1,
-						'min' => 0.10,
+						'max'  => 1,
+						'min'  => 0.10,
 						'step' => 0.01,
 					],
 				],
@@ -680,14 +664,14 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_transion_hover',
 			[
-				'label' => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'     => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 					'size' => 0.3,
 				],
-				'range' => [
+				'range'     => [
 					'px' => [
-						'max' => 3,
+						'max'  => 3,
 						'step' => 0.1,
 					],
 				],
@@ -700,14 +684,14 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_hover_text_color',
 			[
 				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type'      => \Elementor\Controls_Manager::COLOR,
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'color: {{VALUE}}',
 				],
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+			Group_Control_Background::get_type(),
 			[
 				'name'     => 'wpe_st_image_hover_background',
 				'types'    => [ 'classic', 'gradient', 'video' ],
@@ -715,7 +699,7 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
+			Group_Control_Border::get_type(),
 			[
 				'name'     => 'wpe_st_image_hover_border',
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
@@ -725,7 +709,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_hover_text_decoration',
 			[
 				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
 					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
@@ -739,7 +723,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_hover_text_shadow',
 			[
 				'label'     => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
-				'type'      => \Elementor\Controls_Manager::TEXT_SHADOW,
+				'type'      => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}.wpe-text-editor img' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -749,7 +733,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_image_hover_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -757,13 +741,12 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'wpe_st_image_hover_typography',
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
 			]
 		);
-	
 
 
 		$this->end_controls_tab();
@@ -772,11 +755,12 @@ class ImageBox extends Base implements Shortcodes
 
 	}
 
-	private function content_style(){
+	private function content_style ()
+	{
 
-		$this->start_controls_tabs( 'tabs_content_style' );/* this will create a tab in which we can make two tabs 
+		$this->start_controls_tabs( 'tabs_content_style' );/* this will create a tab in which we can make two tabs
 		normal and hover*/
-		// for normal controls 
+		// for normal controls
 		$this->start_controls_tab(
 			'tab_content_normal',
 			[
@@ -784,7 +768,7 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+			Group_Control_Background::get_type(),
 			[
 				'name'     => 'wpe_st_content_background_normal',
 				'types'    => [ 'classic', 'gradient', 'video' ],
@@ -805,36 +789,36 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_text_color_normal',
 			[
-				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'wpe_st_content_typograpgy_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-		
+
 		$this->add_group_control(
-			\Elementor\Group_Control_Text_Shadow::get_type(),
+			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_content_text_shadow_normal',
+				'name'     => 'wpe_st_content_text_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_content_padding_normal',
 			[
-				'label' => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -843,7 +827,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_content_margin_normal',
 			[
 				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'      => [
 					'px' => [
@@ -871,25 +855,25 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Text_Stroke::get_type(),
+			Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'wpe_st_content_text_stroke_normal',
+				'name'     => 'wpe_st_content_text_stroke_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
+			Group_Control_Border::get_type(),
 			[
 				'name'     => 'wpe_st_content_border_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
-			
+
 		);
 		$this->add_responsive_control(
 			'wpe_st_content_border_radius_normal',
 			[
 				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -900,7 +884,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_content_text_decoration_noraml',
 			[
 				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
 					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
@@ -914,10 +898,10 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_border_width_normal',
 			[
-				'label' => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range' => [
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -925,9 +909,9 @@ class ImageBox extends Base implements Shortcodes
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -936,47 +920,47 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_border_color_normal',
 			[
-				'label' => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_content_box_shadow_normal',
+				'name'     => 'wpe_st_content_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_content_alignment_normal',
 			[
-				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
+				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'    => [
 						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
-					'center' => [
+					'center'  => [
 						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
+					'right'   => [
 						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-justify',
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
-				'default' => '',
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
@@ -985,7 +969,7 @@ class ImageBox extends Base implements Shortcodes
 
 		$this->end_controls_tab();
 
-		
+
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_content_hover',
 			[
@@ -995,33 +979,33 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_text_color_hover',
 			[
-				'label' => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion-icon, {{WRAPPER}} .elementor-accordion-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-icon svg'                                     => 'fill: {{VALUE}};',
 				],
-				'global' => [
+				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Text_Shadow::get_type(),
+			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_content_text_shadow_hover',
+				'name'     => 'wpe_st_content_text_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-		
+
 
 		$this->add_control(
 			'wpe_st_content_border_width_hover',
 			[
-				'label' => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range' => [
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1029,9 +1013,9 @@ class ImageBox extends Base implements Shortcodes
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1040,25 +1024,25 @@ class ImageBox extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_border_color_hover',
 			[
-				'label' => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Text_Stroke::get_type(),
+			Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'wpe_st_content_text_stroke_hover',
+				'name'     => 'wpe_st_content_text_stroke_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+			Group_Control_Background::get_type(),
 			[
 				'name'     => 'wpe_st_content_background_hover',
 				'types'    => [ 'classic', 'gradient', 'video' ],
@@ -1067,18 +1051,18 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
+			Group_Control_Border::get_type(),
 			[
 				'name'     => 'wpe_st_content_border_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
-			
+
 		);
 		$this->add_responsive_control(
 			'wpe_st_content_border_radius_hover',
 			[
 				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -1089,7 +1073,7 @@ class ImageBox extends Base implements Shortcodes
 			'wpe_st_content_text_decoration_hover',
 			[
 				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
 					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
@@ -1101,19 +1085,27 @@ class ImageBox extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_content_box_shadow_hover',
+				'name'     => 'wpe_st_content_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
-
-		
 
 
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
 	}
+
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {}
 
 }

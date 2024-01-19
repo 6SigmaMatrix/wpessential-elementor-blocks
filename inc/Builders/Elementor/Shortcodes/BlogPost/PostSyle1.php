@@ -2,12 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\BlogPost;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Skin_Base;
 use WPEssential\Plugins\Implement\Skin;
+use function defined;
 
 class PostSyle1 extends Skin_Base implements Skin
 {

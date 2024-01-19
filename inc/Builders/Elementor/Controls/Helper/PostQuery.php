@@ -5,11 +5,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls\Helper;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Widget_Base;
+use WP_Query;
+use function defined;
 
 class PostQuery
 {
@@ -77,7 +79,7 @@ class PostQuery
 			add_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1, 2 );
 		}
 
-		$query = new \WP_Query( $this->query_args );
+		$query = new WP_Query( $this->query_args );
 
 		remove_action( 'pre_get_posts', [ $this, 'pre_get_posts_query_filter' ] );
 		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );

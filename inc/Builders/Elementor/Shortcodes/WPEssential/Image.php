@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -18,6 +18,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Utils;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+use function defined;
 
 class Image extends Base implements Shortcodes
 {
@@ -596,47 +597,6 @@ class Image extends Base implements Shortcodes
 	}
 
 	/**
-	 * Check if the current widget has caption
-	 *
-	 * @access private
-	 *
-	 * @param array $settings
-	 *
-	 * @return boolean
-	 * @since  2.3.0
-	 *
-	 */
-	private function has_caption ( $settings )
-	{
-		return ( ! empty( $settings[ 'caption_source' ] ) && 'none' !== $settings[ 'caption_source' ] );
-	}
-
-	/**
-	 * Get the caption for current widget.
-	 *
-	 * @access private
-	 *
-	 * @param $settings
-	 *
-	 * @return string
-	 * @since  2.3.0
-	 */
-	private function get_caption ( $settings )
-	{
-		$caption = '';
-		if ( ! empty( $settings[ 'caption_source' ] ) ) {
-			switch ( $settings[ 'caption_source' ] ) {
-				case 'attachment':
-					$caption = wp_get_attachment_caption( $settings[ 'image' ][ 'id' ] );
-					break;
-				case 'custom':
-					$caption = ! Utils::is_empty( $settings[ 'caption' ] ) ? $settings[ 'caption' ] : '';
-			}
-		}
-		return $caption;
-	}
-
-	/**
 	 * Render image widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -677,5 +637,46 @@ class Image extends Base implements Shortcodes
 		return [
 			'url' => $settings[ 'image' ][ 'url' ],
 		];
+	}
+
+	/**
+	 * Check if the current widget has caption
+	 *
+	 * @access private
+	 *
+	 * @param array $settings
+	 *
+	 * @return bool
+	 * @since  2.3.0
+	 *
+	 */
+	private function has_caption ( $settings )
+	{
+		return ( ! empty( $settings[ 'caption_source' ] ) && 'none' !== $settings[ 'caption_source' ] );
+	}
+
+	/**
+	 * Get the caption for current widget.
+	 *
+	 * @access private
+	 *
+	 * @param $settings
+	 *
+	 * @return string
+	 * @since  2.3.0
+	 */
+	private function get_caption ( $settings )
+	{
+		$caption = '';
+		if ( ! empty( $settings[ 'caption_source' ] ) ) {
+			switch ( $settings[ 'caption_source' ] ) {
+				case 'attachment':
+					$caption = wp_get_attachment_caption( $settings[ 'image' ][ 'id' ] );
+					break;
+				case 'custom':
+					$caption = ! Utils::is_empty( $settings[ 'caption' ] ) ? $settings[ 'caption' ] : '';
+			}
+		}
+		return $caption;
 	}
 }

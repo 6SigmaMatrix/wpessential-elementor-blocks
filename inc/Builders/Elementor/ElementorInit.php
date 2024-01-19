@@ -2,16 +2,20 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use Exception;
+use WP_Query;
+use WP_User_Query;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls\ControlsInit;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\DynamicTag\DynamicTagInit;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Widgets;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Categories;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\PageTemplates;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Tabs;
+use function defined;
 
 final class ElementorInit
 {
@@ -70,7 +74,7 @@ final class ElementorInit
 
 			case 'by_id':
 			case 'post':
-				$query = new \WP_Query(
+				$query = new WP_Query(
 					[
 						'post_type'      => 'any',
 						'post__in'       => $ids,
@@ -94,7 +98,7 @@ final class ElementorInit
 					'include'             => $ids,
 				];
 
-				$user_query = new \WP_User_Query( $query_params );
+				$user_query = new WP_User_Query( $query_params );
 
 				foreach ( $user_query->get_results() as $author ) {
 					$results[ $author->ID ] = $author->display_name;
@@ -110,7 +114,7 @@ final class ElementorInit
 	public static function ajax_posts_filter_autocomplete ( array $data )
 	{
 		if ( empty( $data[ 'filter_type' ] ) || empty( $data[ 'q' ] ) ) {
-			throw new \Exception( 'Bad Request' );
+			throw new Exception( 'Bad Request' );
 		}
 
 		$results = [];
@@ -156,7 +160,7 @@ final class ElementorInit
 					$query_params[ 'post_status' ] = 'inherit';
 				}
 
-				$query = new \WP_Query( $query_params );
+				$query = new WP_Query( $query_params );
 
 				foreach ( $query->posts as $post ) {
 					$post_type_obj = get_post_type_object( $post->post_type );
@@ -189,7 +193,7 @@ final class ElementorInit
 					],
 				];
 
-				$user_query = new \WP_User_Query( $query_params );
+				$user_query = new WP_User_Query( $query_params );
 
 				foreach ( $user_query->get_results() as $author ) {
 					$results[] = [

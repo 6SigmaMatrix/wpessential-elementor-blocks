@@ -2,11 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls\Helper;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Widget_Base;
+use WP_Query;
+use function defined;
 
 class RelatedQuery extends PostQuery
 {
@@ -76,7 +78,7 @@ class RelatedQuery extends PostQuery
 		$this->set_fallback_arg_by_settings( 'posts_per_page', $original_query->query_vars[ 'posts_per_page' ] );
 		$this->fallback_args = apply_filters( 'wpessneital/query/fallback_query_args', $this->fallback_args, $this->widget );
 
-		return new \WP_Query( $this->fallback_args );
+		return new WP_Query( $this->fallback_args );
 	}
 
 	protected function set_fallback_query_args ()

@@ -2,11 +2,12 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\RawHtml;
+use function defined;
 
 class ProductCategories extends WCCategory
 {
@@ -60,6 +61,6 @@ class ProductCategories extends WCCategory
 	 */
 	public function render ()
 	{
-		echo do_shortcode( "[product_categories]" );
+		echo do_shortcode( '[product_categories]' );
 	}
 }

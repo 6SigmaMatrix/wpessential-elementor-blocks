@@ -2,11 +2,12 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\RawHtml;
+use function defined;
 
 class MyAccount extends WCCategory
 {
@@ -65,6 +66,6 @@ class MyAccount extends WCCategory
 		$settings[ 'wpe_st_post_button_icon' ]    = urlencode( json_encode( $settings[ 'wpe_st_post_button_icon' ] ) );*/
 		//wpe_error( $settings );
 		$settings = wpe_collect( $settings );
-		echo do_shortcode( "[woocommerce_my_account]" );
+		echo do_shortcode( '[woocommerce_my_account]' );
 	}
 }

@@ -2,19 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use Elementor\Controls_Manager;
-use WPEssential\Plugins\Builders\Fields\Choose;
-use WPEssential\Plugins\Builders\Fields\PopoverToggle;
-use WPEssential\Plugins\Builders\Fields\Select;
-use WPEssential\Plugins\Builders\Fields\Textarea;
-use WPEssential\Plugins\Builders\Fields\Typography;
-use WPEssential\Plugins\Builders\Fields\Url;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+use function defined;
 
 class Divider extends Base implements Shortcodes
 {
@@ -41,7 +35,7 @@ class Divider extends Base implements Shortcodes
 		return [ 'Divider', 'title', 'text' ];
 	}
 
-	public function set_widget_icon()
+	public function set_widget_icon ()
 	{
 		return 'eicon-divider';
 	}
@@ -54,11 +48,7 @@ class Divider extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls ()
-	{
-		
-			
-	}
+	public function register_controls () {}
 
 	/**
 	 * Render widget output on the frontend.
@@ -68,8 +58,5 @@ class Divider extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function render ()
-	{
-		
-	}
+	public function render () {}
 }

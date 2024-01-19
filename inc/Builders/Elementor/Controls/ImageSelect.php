@@ -2,11 +2,12 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Base_Data_Control;
+use function defined;
 
 class ImageSelect extends Base_Data_Control
 {
@@ -75,8 +76,8 @@ class ImageSelect extends Base_Data_Control
 
 				<# } ); #>
 			</div>
-		</div>		<# if ( data.description ) { #>
-		<div class="elementor-control-field-description">{{{ data.description }}}</div>		<# } #>
+		</div>        <# if ( data.description ) { #>
+		<div class="elementor-control-field-description">{{{ data.description }}}</div>        <# } #>
 		<?php
 	}
 

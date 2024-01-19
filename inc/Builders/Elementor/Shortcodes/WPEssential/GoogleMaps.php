@@ -2,11 +2,12 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 use Elementor\Plugin;
@@ -17,9 +18,7 @@ use WPEssential\Plugins\Builders\Fields\Text;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
 use WPEssential\Plugins\Loader;
-
-
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use function defined;
 
 
 class GoogleMaps extends Base implements Shortcodes
@@ -171,19 +170,19 @@ class GoogleMaps extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-custom-embed > iframe',
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'width',
 			[
-				'label' => esc_html__( 'Width', 'elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range' => [
+				'label'          => esc_html__( 'Width', 'elementor' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'          => [
 					'px' => [
 						'max' => 1000,
 					],
 				],
-				'default' => [
+				'default'        => [
 					'size' => 100,
 					'unit' => '%',
 				],
@@ -193,7 +192,7 @@ class GoogleMaps extends Base implements Shortcodes
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'selectors' => [
+				'selectors'      => [
 					'{{WRAPPER}} .elementor-divider-separator' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -201,24 +200,24 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
+				'label'     => esc_html__( 'Alignment', 'elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'   => [
 						'title' => esc_html__( 'Left', 'elementor' ),
-						'icon' => 'eicon-text-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => esc_html__( 'Center', 'elementor' ),
-						'icon' => 'eicon-text-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
+					'right'  => [
 						'title' => esc_html__( 'Right', 'elementor' ),
-						'icon' => 'eicon-text-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-divider' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .elementor-divider'           => 'text-align: {{VALUE}}',
 					'{{WRAPPER}} .elementor-divider-separator' => 'margin: 0 auto; margin-{{VALUE}}: 0',
 				],
 			]
@@ -227,7 +226,7 @@ class GoogleMaps extends Base implements Shortcodes
 			'wpe_st_map_border_radius_normal',
 			[
 				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -235,12 +234,12 @@ class GoogleMaps extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
+			Group_Control_Border::get_type(),
 			[
 				'name'     => 'wpe_st_map_border_type_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
-			
+
 		);
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
@@ -286,7 +285,7 @@ class GoogleMaps extends Base implements Shortcodes
 			'wpe_st_map_border_radius_hover',
 			[
 				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -294,12 +293,12 @@ class GoogleMaps extends Base implements Shortcodes
 			]
 		);
 		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
+			Group_Control_Border::get_type(),
 			[
 				'name'     => 'wpe_st_map_border_type_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
-			
+
 		);
 
 		$this->end_controls_tab();
@@ -309,7 +308,6 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->end_controls_section();
 
 
-	
 	}
 
 	/**
@@ -357,5 +355,4 @@ class GoogleMaps extends Base implements Shortcodes
 	}
 
 
-	
 }

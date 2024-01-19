@@ -5,12 +5,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls\Group;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Base;
+use function defined;
 
 class Query extends Group_Control_Base
 {

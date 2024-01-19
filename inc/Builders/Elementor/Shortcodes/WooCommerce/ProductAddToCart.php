@@ -2,12 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
 use WPEssential\Plugins\Builders\Fields\RawHtml;
+use function defined;
 
 class ProductAddToCart extends WCCategory
 {

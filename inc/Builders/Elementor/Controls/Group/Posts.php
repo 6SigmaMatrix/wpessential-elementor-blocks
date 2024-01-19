@@ -5,23 +5,163 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls\Group;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Base;
+use function defined;
 
 class Posts extends Group_Control_Base
 {
 
-	const INLINE_MAX_RESULTS = 15;
+	public const INLINE_MAX_RESULTS = 15;
 
 	protected static $fields;
 
 	public static function get_type ()
 	{
 		return 'posts';
+	}
+
+	protected function init_fields ()
+	{
+		$fields = [];
+
+		$fields[ 'post_type' ] = [
+			'label' => __( 'Source', 'tci-uet' ),
+			'type'  => Controls_Manager::SELECT,
+		];
+
+		$fields[ 'posts_ids' ] = [
+			'label'       => __( 'Search & Select', 'tci-uet' ),
+			'type'        => 'query',
+			'post_type'   => '',
+			'options'     => [],
+			'label_block' => true,
+			'multiple'    => true,
+			'filter_type' => 'by_id',
+			'condition'   => [
+				'post_type' => 'by_id',
+			],
+			'export'      => false,
+		];
+
+		$fields[ 'authors' ] = [
+			'label'       => __( 'Author', 'tci-uet' ),
+			'label_block' => true,
+			'type'        => 'query',
+			'multiple'    => true,
+			'default'     => [],
+			'options'     => [],
+			'filter_type' => 'author',
+			'condition'   => [
+				'post_type!' => [
+					'by_id',
+					'current_query',
+				],
+			],
+			'export'      => false,
+		];
+
+		return $fields;
+	}
+
+	protected function prepare_fields ( $fields )
+	{
+		$args = $this->get_args();
+
+		$post_type_args = [];
+		if ( ! empty( $args[ 'post_type' ] ) ) {
+			$post_type_args[ 'post_type' ] = $args[ 'post_type' ];
+		}
+
+		$post_types = wpe_get_post_type_list( $post_type_args );//TCI_Utils::get_public_post_types( $post_type_args );
+
+		$post_types_options = $post_types;
+
+		$post_types_options[ 'by_id' ]         = __( 'Manual Selection', 'tci-uet' );
+		$post_types_options[ 'current_query' ] = __( 'Current Query', 'tci-uet' );
+
+		$fields[ 'post_type' ][ 'options' ] = $post_types_options;
+
+		$fields[ 'post_type' ][ 'default' ] = key( $post_types );
+
+		$fields[ 'posts_ids' ][ 'object_type' ] = array_keys( $post_types );
+
+		$taxonomy_filter_args = [
+			'show_in_nav_menus' => true,
+		];
+
+		$taxonomies = get_taxonomies( $taxonomy_filter_args, 'objects' );
+
+		// bypass bug in WP_List_Util::filter() causing wrong array comparison
+		// when a taxonomy belongs to several post-types (e.g. when using woocommerce-product-add-ons)
+		// ( using simple '==' rather than in_array() or array_intersect() ).
+		$filtered_taxonomies = [];
+		if ( ! empty( $args[ 'post_type' ] ) ) {
+			foreach ( $taxonomies as $taxonomy => $obj ) {
+				$tax_array = (array) $obj;
+				if ( in_array( $args[ 'post_type' ], $tax_array[ 'object_type' ] ) ) {
+					$filtered_taxonomies[ $taxonomy ] = $obj;
+				}
+			}
+		}
+		else {
+			$filtered_taxonomies = $taxonomies;
+		}
+
+		foreach ( $filtered_taxonomies as $taxonomy => $object ) {
+			$taxonomy_args = [
+				'label'       => $object->label,
+				'type'        => 'query',
+				'label_block' => true,
+				'multiple'    => true,
+				'object_type' => $taxonomy,
+				'options'     => [],
+				'condition'   => [
+					'post_type' => $object->object_type,
+				],
+				'export'      => false,
+			];
+
+			$count = wp_count_terms( $taxonomy );
+
+			$options = [];
+
+			// For large websites, use Ajax to search
+			if ( $count > self::INLINE_MAX_RESULTS ) {
+				$taxonomy_args[ 'type' ] = 'query';
+
+				$taxonomy_args[ 'filter_type' ] = 'taxonomy';
+			}
+			else {
+				$taxonomy_args[ 'type' ] = Controls_Manager::SELECT2;
+
+				$terms = get_terms( [
+					'taxonomy'   => $taxonomy,
+					'hide_empty' => false,
+				] );
+
+				foreach ( $terms as $term ) {
+					$options[ $term->term_id ] = $term->name;
+				}
+
+				$taxonomy_args[ 'options' ] = $options;
+			}
+
+			$fields[ $taxonomy . '_ids' ] = $taxonomy_args;
+		}
+
+		return parent::prepare_fields( $fields );
+	}
+
+	protected function get_default_options ()
+	{
+		return [
+			'popover' => false,
+		];
 	}
 
 	/**
@@ -182,144 +322,5 @@ class Posts extends Group_Control_Base
 		}
 
 		return $query_args;
-	}
-
-	protected function init_fields ()
-	{
-		$fields = [];
-
-		$fields[ 'post_type' ] = [
-			'label' => __( 'Source', 'tci-uet' ),
-			'type'  => Controls_Manager::SELECT,
-		];
-
-		$fields[ 'posts_ids' ] = [
-			'label'       => __( 'Search & Select', 'tci-uet' ),
-			'type'        => 'query',
-			'post_type'   => '',
-			'options'     => [],
-			'label_block' => true,
-			'multiple'    => true,
-			'filter_type' => 'by_id',
-			'condition'   => [
-				'post_type' => 'by_id',
-			],
-			'export'      => false,
-		];
-
-		$fields[ 'authors' ] = [
-			'label'       => __( 'Author', 'tci-uet' ),
-			'label_block' => true,
-			'type'        => 'query',
-			'multiple'    => true,
-			'default'     => [],
-			'options'     => [],
-			'filter_type' => 'author',
-			'condition'   => [
-				'post_type!' => [
-					'by_id',
-					'current_query',
-				],
-			],
-			'export'      => false,
-		];
-
-		return $fields;
-	}
-
-	protected function prepare_fields ( $fields )
-	{
-		$args = $this->get_args();
-
-		$post_type_args = [];
-		if ( ! empty( $args[ 'post_type' ] ) ) {
-			$post_type_args[ 'post_type' ] = $args[ 'post_type' ];
-		}
-
-		$post_types = wpe_get_post_type_list( $post_type_args );//TCI_Utils::get_public_post_types( $post_type_args );
-
-		$post_types_options = $post_types;
-
-		$post_types_options[ 'by_id' ]         = __( 'Manual Selection', 'tci-uet' );
-		$post_types_options[ 'current_query' ] = __( 'Current Query', 'tci-uet' );
-
-		$fields[ 'post_type' ][ 'options' ] = $post_types_options;
-
-		$fields[ 'post_type' ][ 'default' ] = key( $post_types );
-
-		$fields[ 'posts_ids' ][ 'object_type' ] = array_keys( $post_types );
-
-		$taxonomy_filter_args = [
-			'show_in_nav_menus' => true,
-		];
-
-		$taxonomies = get_taxonomies( $taxonomy_filter_args, 'objects' );
-
-		// bypass bug in WP_List_Util::filter() causing wrong array comparison
-		// when a taxonomy belongs to several post-types (e.g. when using woocommerce-product-add-ons)
-		// ( using simple '==' rather than in_array() or array_intersect() ).
-		$filtered_taxonomies = [];
-		if ( ! empty( $args[ 'post_type' ] ) ) {
-			foreach ( $taxonomies as $taxonomy => $obj ) {
-				$tax_array = (array) $obj;
-				if ( in_array( $args[ 'post_type' ], $tax_array[ 'object_type' ] ) ) {
-					$filtered_taxonomies[ $taxonomy ] = $obj;
-				}
-			}
-		}
-		else {
-			$filtered_taxonomies = $taxonomies;
-		}
-
-		foreach ( $filtered_taxonomies as $taxonomy => $object ) {
-			$taxonomy_args = [
-				'label'       => $object->label,
-				'type'        => 'query',
-				'label_block' => true,
-				'multiple'    => true,
-				'object_type' => $taxonomy,
-				'options'     => [],
-				'condition'   => [
-					'post_type' => $object->object_type,
-				],
-				'export'      => false,
-			];
-
-			$count = wp_count_terms( $taxonomy );
-
-			$options = [];
-
-			// For large websites, use Ajax to search
-			if ( $count > self::INLINE_MAX_RESULTS ) {
-				$taxonomy_args[ 'type' ] = 'query';
-
-				$taxonomy_args[ 'filter_type' ] = 'taxonomy';
-			}
-			else {
-				$taxonomy_args[ 'type' ] = Controls_Manager::SELECT2;
-
-				$terms = get_terms( [
-					'taxonomy'   => $taxonomy,
-					'hide_empty' => false,
-				] );
-
-				foreach ( $terms as $term ) {
-					$options[ $term->term_id ] = $term->name;
-				}
-
-				$taxonomy_args[ 'options' ] = $options;
-			}
-
-			$fields[ $taxonomy . '_ids' ] = $taxonomy_args;
-		}
-
-		return parent::prepare_fields( $fields );
-	}
-
-	protected function get_default_options ()
-	{
-		return [
-			'popover' => false,
-		];
 	}
 }
