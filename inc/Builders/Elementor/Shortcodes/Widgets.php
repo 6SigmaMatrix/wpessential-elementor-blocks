@@ -1,6 +1,6 @@
 <?php
 
-namespace WPEssential\Plugins\ElementorBlocksPro\Builders\Elementor\Shortcodes;
+namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes;
 
 if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -35,19 +35,23 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Lists;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Tabs;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
+use WPEssential\Plugins\Implement\ShortcodeInit;
+use WPEssential\Plugins\Loader;
 
-final class Widgets
+final class Widgets implements ShortcodeInit
 {
 	private static $list = [];
 
 	public static function constructor ()
 	{
-		add_filter( 'wpe/elementor/shortcodes', [ __CLASS__, 'widgets' ], 20 );
+		self::register_widget( '' );
 	}
 
 
-	public static function widgets ( $list )
+	public static function register_widget ( $list = '' )
 	{
+		Loader::editor( 'elementor' );
+
 		self::$list = [
 			//	'Post'    => Post::class,
 			'Heading'    => Heading::class,
@@ -68,7 +72,16 @@ final class Widgets
 		self::slider_widget();
 		self::woo_widget();
 
-		return wp_parse_args( $list, $list );
+		self::$list = apply_filters( 'wpe/elementor/shortcodes', self::$list );
+
+		if ( ! empty( self::$list ) ) {
+			sort( self::$list );
+			foreach ( self::$list as $class_name ) {
+				if ( class_exists( $class_name ) ) {
+					new $class_name();
+				}
+			}
+		}
 	}
 
 	private static function form_widget ()
