@@ -30,6 +30,7 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Lists;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\ImageBox;
 use WpEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Image;
+use WpEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Gallery;
 
 
 
@@ -65,7 +66,9 @@ final class Widgets implements ShortcodeInit
 				'Tabs' => Tabs::class,
 				'Icons' => Icons::class,
 				'Lists' => Lists::class,
-				'ImageBox'   => ImageBox::class
+				'ImageBox'   => ImageBox::class,
+				'Image'=> Image::class,
+				'Gallery' => Gallery::class,
 			]
 		);
 
@@ -81,6 +84,7 @@ final class Widgets implements ShortcodeInit
 				}
 			}
 		}
+		wpe_error(self::$list);
 	}
 
 	private static function form_widget ()
