@@ -90,6 +90,20 @@ class ImageBox extends Base implements Shortcodes
 		$this->end_controls_section();
 
 	}
+	
+	
+	
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {
+		
+	}
 
 	private function box_style ()
 	{
@@ -1098,14 +1112,6 @@ class ImageBox extends Base implements Shortcodes
 
 	}
 
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render () {}
+	
 
 }

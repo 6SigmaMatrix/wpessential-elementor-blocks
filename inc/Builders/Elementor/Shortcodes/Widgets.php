@@ -35,9 +35,9 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Lists;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Tabs;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\PriceTable;
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
-
 final class Widgets implements ShortcodeInit
 {
 	private static $list = [];
@@ -66,8 +66,8 @@ final class Widgets implements ShortcodeInit
 			'ImageBox'   => ImageBox::class,
 			'Image'      => Image::class,
 			'Gallery'    => Gallery::class,
+			'PriceTable' => PriceTable::class,
 		];
-
 		self::form_widget();
 		self::slider_widget();
 		self::woo_widget();
