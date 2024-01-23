@@ -36,6 +36,8 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Tabs;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\PriceTable;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Table;
+
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
 final class Widgets implements ShortcodeInit
@@ -67,6 +69,7 @@ final class Widgets implements ShortcodeInit
 			'Image'      => Image::class,
 			'Gallery'    => Gallery::class,
 			'PriceTable' => PriceTable::class,
+			'Table'      => Table::class,
 		];
 		self::form_widget();
 		self::slider_widget();

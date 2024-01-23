@@ -419,7 +419,7 @@ class Button extends Base implements Shortcodes
 			]
 		);
 		$this->add_control(
-			'hover_primary_color',
+			'icon_primary_color',
 			[
 				'label'     => esc_html__( 'Primary Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
