@@ -970,14 +970,12 @@ normal and hover*/
 			]
 		);
 
-		$this->add_control(
-			'wpe_st_price_section_background_normal',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label' => esc_html__('Background Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .elementor-price-table__price' => 'background-color: {{VALUE}}',
-				],
+				'name' => 'wpe_st_price_section_background_normal',
+				'types' => ['classic', 'gradient', 'video'],
+				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
 		$this->add_responsive_control(
@@ -1085,14 +1083,12 @@ normal and hover*/
 				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
 			]
 		);
-		$this->add_control(
-			'wpe_st_price_section_background_hover',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label' => esc_html__('Background Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .elementor-price-table__price' => 'background-color: {{VALUE}}',
-				],
+				'name' => 'wpe_st_price_section_background_hover',
+				'types' => ['classic', 'gradient', 'video'],
+				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
 	
@@ -2065,17 +2061,7 @@ normal and hover*/
 				// ],
 			]
 		);
-		$this->add_control(
-			'wpe_st_fraction_price_text_color_normal',
-			[
-				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
-				],
-			]
-		);
+		
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -3493,20 +3479,7 @@ normal and hover*/
 				],
 			]
 		);
-		$this->add_control(
-			'wpe_st_footer_active_color_normal',
-			[
-				'label' => esc_html__('Active Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .elementor-active .elementor-accordion-icon, {{WRAPPER}} .elementor-active .elementor-accordion-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-active .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
-				],
-				'global' => [
-					'default' => Global_Colors::COLOR_ACCENT,
-				],
-			]
-		);
+	
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
