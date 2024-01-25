@@ -899,7 +899,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_responsive_control(
-			'wpe_st_image_text_padding_normal',
+			'wpe_st_image_padding_normal',
 			[
 				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
 				'type'       => Controls_Manager::DIMENSIONS,

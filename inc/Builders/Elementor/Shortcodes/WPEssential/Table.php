@@ -1248,7 +1248,7 @@ normal and hover*/
 	}
 
 
-	// start body drom next day  
+	
 
 
 }

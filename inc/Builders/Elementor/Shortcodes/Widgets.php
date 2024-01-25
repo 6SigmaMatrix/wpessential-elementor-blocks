@@ -37,6 +37,9 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\TextEditor;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\PriceTable;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Table;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Share;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Video;
+
 
 use WPEssential\Plugins\Implement\ShortcodeInit;
 use WPEssential\Plugins\Loader;
@@ -70,6 +73,8 @@ final class Widgets implements ShortcodeInit
 			'Gallery'    => Gallery::class,
 			'PriceTable' => PriceTable::class,
 			'Table'      => Table::class,
+			'Share'      => Share::class,
+			'Video'      => Video::class
 		];
 		self::form_widget();
 		self::slider_widget();
