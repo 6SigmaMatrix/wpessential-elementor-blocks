@@ -406,13 +406,7 @@ class Video extends Base implements Shortcodes
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'     => 'wpe_st_video_border',
-				'selector' => '{{WRAPPER}} .wpe-text-editor img',
-			]
-		);
+	
 
 		$this->add_responsive_control(
 			'wpe_st_video_border_radius_normal',

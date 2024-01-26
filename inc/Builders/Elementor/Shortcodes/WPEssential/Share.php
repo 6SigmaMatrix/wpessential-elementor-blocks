@@ -272,6 +272,26 @@ normal and hover*/
 				'separator' => 'before',
 			]
 		);
+		$this->add_responsive_control(
+			'wpe_st_icon_rotate_normal',
+			[
+				'label' => esc_html__('Rotate', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['deg', 'grad', 'rad', 'turn', 'custom'],
+				'default' => [
+					'unit' => 'deg',
+				],
+				'tablet_default' => [
+					'unit' => 'deg',
+				],
+				'mobile_default' => [
+					'unit' => 'deg',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-icon i, {{WRAPPER}} .elementor-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
+				],
+			]
+		);
 
 		$this->add_control(
 			'wpe_st_icon_fit_to_size_normal',
@@ -281,35 +301,26 @@ normal and hover*/
 				'description' => 'Avoid gaps around icons when width and height aren\'t equal',
 				'label_off' => esc_html__('Off', 'wpessential-elementor-blocks'),
 				'label_on' => esc_html__('On', 'wpessential-elementor-blocks'),
-				'condition' => [
-					'selected_icon[library]' => 'svg',
-				],
+				// 'condition' => [
+				// 	'selected_icon[library]' => 'svg',
+				// ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon-wrapper svg' => 'width: 100%;',
 				],
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'wpe_st_icon_padding_normal',
 			[
-				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'selectors' => [
-					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
-				],
-				'range' => [
-					'em' => [
-						'min' => 0,
-						'max' => 5,
-					],
-				],
-				'condition' => [
-					'view!' => 'default',
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
-	
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),

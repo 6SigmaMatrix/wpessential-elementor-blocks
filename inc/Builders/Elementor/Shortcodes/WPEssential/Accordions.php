@@ -943,17 +943,7 @@ class Accordions extends Base implements Shortcodes
 				],
 			]
 		);
-		$this->add_control(
-			'wpe_st_content_text_color_normal',
-			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
-				],
-			]
-		);
+	
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
