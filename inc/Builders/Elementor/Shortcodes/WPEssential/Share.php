@@ -50,7 +50,7 @@ class Share extends Base implements Shortcodes
 	}
 
 	public function get_icon() {
-		return 'eicon-share';
+		return 'eicon-share-arrow';
 	}
 
 	/**

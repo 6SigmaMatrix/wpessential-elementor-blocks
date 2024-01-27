@@ -43,6 +43,9 @@ class Lists extends Base implements Shortcodes
 		return [ 'list', 'title', 'text', 'image' ];
 	}
 
+	public function get_icon() {
+		return 'eicon-editor-list-ol';
+	}
 	/**
 	 * Register widget controls.
 	 *

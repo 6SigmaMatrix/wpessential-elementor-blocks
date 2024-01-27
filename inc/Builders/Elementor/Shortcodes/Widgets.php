@@ -23,6 +23,8 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerc
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductCategories;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\Products;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce\ProductSingle;
+
+
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Accordions;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Button;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Counter;
@@ -40,6 +42,9 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Share;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Video;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Slider;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Navigation;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Search;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\BreadCrumbs;
 
 
 
@@ -78,7 +83,13 @@ final class Widgets implements ShortcodeInit
 			'Share'      => Share::class,
 			'Video'      => Video::class,
 			'Slider'     => Slider::class,
+			'Navigation' => Navigation::class,
+			'Search'     => Search::class,
+			'BreadCrumbs'=> BreadCrumbs::class,
 		];
+
+
+		
 		self::form_widget();
 		self::slider_widget();
 		self::woo_widget();

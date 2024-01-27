@@ -35,6 +35,10 @@ class BreadCrumbs extends Base implements Shortcodes
 		return [ 'BreadCrumbs', 'title', 'text' ];
 	}
 
+	public function get_icon() {
+		return 'eicon-breadcrumbs';
+	}
+
 	/**
 	 * Register widget controls.
 	 *

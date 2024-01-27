@@ -51,7 +51,7 @@ class Slider extends Base implements Shortcodes
 
 	public function get_icon()
 	{
-		return 'eicon-slider';
+		return 'eicon-slider-3d';
 	}
 
 

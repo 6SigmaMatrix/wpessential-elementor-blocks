@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -38,17 +38,19 @@ class Video extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @public
 	 */
-	public function set_keywords ()
+	public function set_keywords()
 	{
-		return [ 'Video', 'title', 'text' ];
+		return ['Video', 'title', 'text'];
 	}
 
-	public function get_icon() {
-		return 'eicon-Video';
+	public function get_icon()
+	{
+		return 'eicon-slider-video';
 	}
 
-	public function get_keywords() {
-		return [ 'video', 'player', 'embed', 'youtube', 'vimeo', 'dailymotion', 'videopress' ];
+	public function get_keywords()
+	{
+		return ['video', 'player', 'embed', 'youtube', 'vimeo', 'dailymotion', 'videopress'];
 	}
 	/**
 	 * Register widget controls.
@@ -58,13 +60,14 @@ class Video extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls () {
+	public function register_controls()
+	{
 
 		$this->start_controls_section(
 			'wpe_st_video_style',
 			[
-				'label' => esc_html__( 'Video', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__('Video', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->video_style();
@@ -79,24 +82,26 @@ class Video extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function render () {}
+	public function render()
+	{
+	}
 
-	private function video_style() 
+	private function video_style()
 	{
 		// this will be contain two tabs normal and hover inside
-		$this->start_controls_tabs( 'tabs_video_style' );
+		$this->start_controls_tabs('tabs_video_style');
 		// this is the start of normal tab
 		$this->start_controls_tab(
 			'tab_video_normal',
 			[
-				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_video_aspect_ratio_normal',
 			[
-				'label' => esc_html__( 'Aspect Ratio', 'elementor' ),
+				'label' => esc_html__('Aspect Ratio', 'elementor'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'169' => '16:9',
@@ -158,13 +163,13 @@ class Video extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'      => 'wpe_st_video_border_type_normal',
-				'selector'  => '{{WRAPPER}} .elementor-button',
+				'name' => 'wpe_st_video_border_type_normal',
+				'selector' => '{{WRAPPER}} .elementor-button',
 				'separator' => 'before',
 				//'condition' => $args['section_condition'],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Css_Filter::get_type(),
 			[
@@ -176,9 +181,9 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_width_normal',
 			[
-				'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
+				'label' => esc_html__('Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
 					'unit' => '%',
 				],
 				'tablet_default' => [
@@ -187,9 +192,9 @@ class Video extends Base implements Shortcodes
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'          => [
-					'%'  => [
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
+					'%' => [
 						'min' => 1,
 						'max' => 100,
 					],
@@ -202,7 +207,7 @@ class Video extends Base implements Shortcodes
 						'max' => 100,
 					],
 				],
-				'selectors'      => [
+				'selectors' => [
 					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -211,9 +216,9 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_space_normal',
 			[
-				'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
+				'label' => esc_html__('Max Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
 					'unit' => '%',
 				],
 				'tablet_default' => [
@@ -222,9 +227,9 @@ class Video extends Base implements Shortcodes
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'          => [
-					'%'  => [
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
+					'%' => [
 						'min' => 1,
 						'max' => 100,
 					],
@@ -237,7 +242,7 @@ class Video extends Base implements Shortcodes
 						'max' => 100,
 					],
 				],
-				'selectors'      => [
+				'selectors' => [
 					'{{WRAPPER}} img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -246,12 +251,12 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_shape_normal',
 			[
-				'label' => esc_html__( 'Shape', 'elementor-pro' ),
+				'label' => esc_html__('Shape', 'elementor-pro'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'square' => esc_html__( 'Square', 'elementor-pro' ),
-					'rounded' => esc_html__( 'Rounded', 'elementor-pro' ),
-					'circle' => esc_html__( 'Circle', 'elementor-pro' ),
+					'square' => esc_html__('Square', 'elementor-pro'),
+					'rounded' => esc_html__('Rounded', 'elementor-pro'),
+					'circle' => esc_html__('Circle', 'elementor-pro'),
 				],
 				'default' => 'square',
 				'prefix_class' => 'elementor-share-buttons--shape-',
@@ -262,10 +267,10 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_height_normal',
 			[
-				'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Height', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vh', 'custom'],
+				'range' => [
 					'px' => [
 						'min' => 1,
 						'max' => 500,
@@ -275,7 +280,7 @@ class Video extends Base implements Shortcodes
 						'max' => 100,
 					],
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -284,18 +289,18 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_object_fit_normal',
 			[
-				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SELECT,
+				'label' => esc_html__('Object Fit', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
 				'condition' => [
 					'height[size]!' => '',
 				],
-				'options'   => [
-					''        => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
-					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks' ),
-					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks' ),
-					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks' ),
+				'options' => [
+					'' => esc_html__('Default', 'wpessential-elementor-blocks'),
+					'fill' => esc_html__('Fill', 'wpessential-elementor-blocks'),
+					'cover' => esc_html__('Cover', 'wpessential-elementor-blocks'),
+					'contain' => esc_html__('Contain', 'wpessential-elementor-blocks'),
 				],
-				'default'   => '',
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} img' => 'object-fit: {{VALUE}};',
 				],
@@ -305,20 +310,20 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_object_position_normal',
 			[
-				'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
-					'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
-					'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
-					'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
-					'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
-					'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks' ),
-					'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks' ),
-					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks' ),
-					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Object Position', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'center center' => esc_html__('Center Center', 'wpessential-elementor-blocks'),
+					'center left' => esc_html__('Center Left', 'wpessential-elementor-blocks'),
+					'center right' => esc_html__('Center Right', 'wpessential-elementor-blocks'),
+					'top center' => esc_html__('Top Center', 'wpessential-elementor-blocks'),
+					'top left' => esc_html__('Top Left', 'wpessential-elementor-blocks'),
+					'top right' => esc_html__('Top Right', 'wpessential-elementor-blocks'),
+					'bottom center' => esc_html__('Bottom Center', 'wpessential-elementor-blocks'),
+					'bottom left' => esc_html__('Bottom Left', 'wpessential-elementor-blocks'),
+					'bottom right' => esc_html__('Bottom Right', 'wpessential-elementor-blocks'),
 				],
-				'default'   => 'center center',
+				'default' => 'center center',
 				'selectors' => [
 					'{{WRAPPER}} img' => 'object-position: {{VALUE}};',
 				],
@@ -331,54 +336,54 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_seperator_panel_style_normal',
 			[
-				'type'  => Controls_Manager::DIVIDER,
+				'type' => Controls_Manager::DIVIDER,
 				'style' => 'thick',
 			]
 		);
-	
 
-	
+
+
 
 		$this->add_responsive_control(
 			'wpe_st_video_padding_normal',
 			[
-				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'separator'  => 'before',
+				'separator' => 'before',
 
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_video_margin_normal',
 			[
-				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'range' => [
 					'px' => [
-						'min'  => 10,
-						'max'  => 50,
+						'min' => 10,
+						'max' => 50,
 						'step' => 5,
 					],
 					'em' => [
-						'min'  => 1,
-						'max'  => 5,
+						'min' => 1,
+						'max' => 5,
 						'step' => 0.5,
 					],
 				],
-				'default'    => [
-					'top'      => 2,
-					'right'    => 0,
-					'bottom'   => 2,
-					'left'     => 0,
-					'unit'     => 'em',
+				'default' => [
+					'top' => 2,
+					'right' => 0,
+					'bottom' => 2,
+					'left' => 0,
+					'unit' => 'em',
 					'isLinked' => false,
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -387,7 +392,7 @@ class Video extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_video_box_shadow_normal',
+				'name' => 'wpe_st_video_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -400,21 +405,21 @@ class Video extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'wpe_st_video_background',
-				'types'    => [ 'classic', 'gradient', 'video' ],
+				'name' => 'wpe_st_video_background',
+				'types' => ['classic', 'gradient', 'video'],
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
 			]
 		);
 
-	
+
 
 		$this->add_responsive_control(
 			'wpe_st_video_border_radius_normal',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -426,16 +431,16 @@ class Video extends Base implements Shortcodes
 		$this->start_controls_tab(
 			'wpe_st_tab_video_hover',
 			[
-				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
 			]
 		);
 
 
-		
+
 		$this->add_control(
 			'wpe_st_video_aspect_ratio_hover',
 			[
-				'label' => esc_html__( 'Aspect Ratio', 'elementor' ),
+				'label' => esc_html__('Aspect Ratio', 'elementor'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'169' => '16:9',
@@ -459,7 +464,7 @@ class Video extends Base implements Shortcodes
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Css_Filter::get_type(),
 			[
@@ -470,9 +475,9 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_width_hover',
 			[
-				'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
+				'label' => esc_html__('Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
 					'unit' => '%',
 				],
 				'tablet_default' => [
@@ -481,9 +486,9 @@ class Video extends Base implements Shortcodes
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'          => [
-					'%'  => [
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
+					'%' => [
 						'min' => 1,
 						'max' => 100,
 					],
@@ -496,7 +501,7 @@ class Video extends Base implements Shortcodes
 						'max' => 100,
 					],
 				],
-				'selectors'      => [
+				'selectors' => [
 					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -505,9 +510,9 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_space_hover',
 			[
-				'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
+				'label' => esc_html__('Max Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
 					'unit' => '%',
 				],
 				'tablet_default' => [
@@ -516,9 +521,9 @@ class Video extends Base implements Shortcodes
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'          => [
-					'%'  => [
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
+					'%' => [
 						'min' => 1,
 						'max' => 100,
 					],
@@ -531,7 +536,7 @@ class Video extends Base implements Shortcodes
 						'max' => 100,
 					],
 				],
-				'selectors'      => [
+				'selectors' => [
 					'{{WRAPPER}} img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -540,12 +545,12 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_shape_hover',
 			[
-				'label' => esc_html__( 'Shape', 'elementor-pro' ),
+				'label' => esc_html__('Shape', 'elementor-pro'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'square' => esc_html__( 'Square', 'elementor-pro' ),
-					'rounded' => esc_html__( 'Rounded', 'elementor-pro' ),
-					'circle' => esc_html__( 'Circle', 'elementor-pro' ),
+					'square' => esc_html__('Square', 'elementor-pro'),
+					'rounded' => esc_html__('Rounded', 'elementor-pro'),
+					'circle' => esc_html__('Circle', 'elementor-pro'),
 				],
 				'default' => 'square',
 				'prefix_class' => 'elementor-share-buttons--shape-',
@@ -555,10 +560,10 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_height_hover',
 			[
-				'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Height', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vh', 'custom'],
+				'range' => [
 					'px' => [
 						'min' => 1,
 						'max' => 500,
@@ -568,7 +573,7 @@ class Video extends Base implements Shortcodes
 						'max' => 100,
 					],
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -577,18 +582,18 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_object_fit_hover',
 			[
-				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SELECT,
+				'label' => esc_html__('Object Fit', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
 				'condition' => [
 					'height[size]!' => '',
 				],
-				'options'   => [
-					''        => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
-					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks' ),
-					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks' ),
-					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks' ),
+				'options' => [
+					'' => esc_html__('Default', 'wpessential-elementor-blocks'),
+					'fill' => esc_html__('Fill', 'wpessential-elementor-blocks'),
+					'cover' => esc_html__('Cover', 'wpessential-elementor-blocks'),
+					'contain' => esc_html__('Contain', 'wpessential-elementor-blocks'),
 				],
-				'default'   => '',
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} img' => 'object-fit: {{VALUE}};',
 				],
@@ -598,20 +603,20 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_object_position_hover',
 			[
-				'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
-					'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
-					'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
-					'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
-					'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
-					'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks' ),
-					'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks' ),
-					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks' ),
-					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Object Position', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'center center' => esc_html__('Center Center', 'wpessential-elementor-blocks'),
+					'center left' => esc_html__('Center Left', 'wpessential-elementor-blocks'),
+					'center right' => esc_html__('Center Right', 'wpessential-elementor-blocks'),
+					'top center' => esc_html__('Top Center', 'wpessential-elementor-blocks'),
+					'top left' => esc_html__('Top Left', 'wpessential-elementor-blocks'),
+					'top right' => esc_html__('Top Right', 'wpessential-elementor-blocks'),
+					'bottom center' => esc_html__('Bottom Center', 'wpessential-elementor-blocks'),
+					'bottom left' => esc_html__('Bottom Left', 'wpessential-elementor-blocks'),
+					'bottom right' => esc_html__('Bottom Right', 'wpessential-elementor-blocks'),
 				],
-				'default'   => 'center center',
+				'default' => 'center center',
 				'selectors' => [
 					'{{WRAPPER}} img' => 'object-position: {{VALUE}};',
 				],
@@ -624,14 +629,14 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_seperator_panel_style_hover',
 			[
-				'type'  => Controls_Manager::DIVIDER,
+				'type' => Controls_Manager::DIVIDER,
 				'style' => 'thick',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_video_box_shadow_hover',
+				'name' => 'wpe_st_video_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -639,20 +644,20 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_hover_animation_hover',
 			[
-				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
-				'type'  => Controls_Manager::HOVER_ANIMATION,
+				'label' => esc_html__('Hover Animation', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_video_opacity_hover',
 			[
-				'label'     => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label' => esc_html__('Opacity', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
 					'px' => [
-						'max'  => 1,
-						'min'  => 0.10,
+						'max' => 1,
+						'min' => 0.10,
 						'step' => 0.01,
 					],
 				],
@@ -665,14 +670,14 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_transion_hover',
 			[
-				'label'     => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
+				'label' => esc_html__('Transition Duration', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
 					'size' => 0.3,
 				],
-				'range'     => [
+				'range' => [
 					'px' => [
-						'max'  => 3,
+						'max' => 3,
 						'step' => 0.1,
 					],
 				],
@@ -685,15 +690,15 @@ class Video extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'wpe_st_video_hover_background',
-				'types'    => [ 'classic', 'gradient', 'video' ],
+				'name' => 'wpe_st_video_hover_background',
+				'types' => ['classic', 'gradient', 'video'],
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_video_hover_border',
+				'name' => 'wpe_st_video_hover_border',
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
 			]
 		);
@@ -702,10 +707,10 @@ class Video extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_video_hover_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -749,8 +754,8 @@ class Video extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'      => 'wpe_st_video_border_type_hover',
-				'selector'  => '{{WRAPPER}} .elementor-button',
+				'name' => 'wpe_st_video_border_type_hover',
+				'selector' => '{{WRAPPER}} .elementor-button',
 				'separator' => 'before',
 				//'condition' => $args['section_condition'],
 			]
