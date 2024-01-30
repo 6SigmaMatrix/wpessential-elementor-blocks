@@ -3859,6 +3859,28 @@ normal and hover*/
 			]
 		);
 
+		
+		$this->add_control(
+			'wpe_st_button_border_width_normal',
+			[
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
+					'px' => [
+						'max' => 20,
+					],
+					'em' => [
+						'max' => 2,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -4019,6 +4041,28 @@ normal and hover*/
 			]
 		);
 
+		
+		$this->add_control(
+			'wpe_st_button_border_width_hover',
+			[
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
+					'px' => [
+						'max' => 20,
+					],
+					'em' => [
+						'max' => 2,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
 		$this->add_control(
 			'wpe_st_button_animation_hover',

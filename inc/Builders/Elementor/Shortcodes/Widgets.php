@@ -45,6 +45,7 @@ use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssentia
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Navigation;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Search;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\BreadCrumbs;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential\Modal;
 
 
 
@@ -86,6 +87,7 @@ final class Widgets implements ShortcodeInit
 			'Navigation' => Navigation::class,
 			'Search'     => Search::class,
 			'BreadCrumbs'=> BreadCrumbs::class,
+			'Modal'      => Modal::class,
 		];
 
 
