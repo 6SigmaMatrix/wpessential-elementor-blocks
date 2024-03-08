@@ -14,6 +14,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper\TextEditor;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
 use function defined;
@@ -21,6 +22,7 @@ use function defined;
 
 class Accordions extends Base implements Shortcodes
 {
+	use TextEditor;
 	/**
 	 * Set widget skings.
 	 *
