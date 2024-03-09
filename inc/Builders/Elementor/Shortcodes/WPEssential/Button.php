@@ -60,6 +60,196 @@ class Button extends Base implements Shortcodes
 	 */
 	public function register_controls ()
 	{
+		
+
+		$this->start_controls_section(
+			'wpe_st_button_tab_content',
+			[
+				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$args = [] ;
+		$default_args = [
+			'section_condition' => [],
+			'button_default_text' => esc_html__( 'Click here', 'wpessential-elementor-blocks' ),
+			'text_control_label' => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
+			'alignment_control_prefix_class' => 'wpessential-elementor-blocks%s-align-',
+			'alignment_default' => '',
+			'icon_exclude_inline_options' => [],
+		];
+
+		
+		$args = wp_parse_args( $args, $default_args ); 
+		$this->add_control(
+			'button_type',
+			[
+				'label' => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => '',
+				'options' => [
+					'' => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'info' => esc_html__( 'Info', 'wpessential-elementor-blocks' ),
+					'success' => esc_html__( 'Success', 'wpessential-elementor-blocks' ),
+					'warning' => esc_html__( 'Warning', 'wpessential-elementor-blocks' ),
+					'danger' => esc_html__( 'Danger', 'wpessential-elementor-blocks' ),
+				],
+				'prefix_class' => 'elementor-button-',
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_control(
+			'text',
+			[
+				'label' => $args['text_control_label'],
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => $args['button_default_text'],
+				'placeholder' => $args['button_default_text'],
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_control(
+			'link',
+			[
+				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => [
+					'url' => '#',
+				],
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_responsive_control(
+			'align',
+			[
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left'    => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				'prefix_class' => $args['alignment_control_prefix_class'],
+				'default' => $args['alignment_default'],
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_control(
+			'size',
+			[
+				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'sm',
+				//'options' => self::get_button_sizes(),
+				'style_transfer' => true,
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_control(
+			'selected_icon',
+			[
+				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'skin' => 'inline',
+				'label_block' => false,
+				//'condition' => $args['section_condition'],
+				'icon_exclude_inline_options' => $args['icon_exclude_inline_options'],
+			]
+		);
+
+		$this->add_control(
+			'icon_align',
+			[
+				'label' => esc_html__( 'Icon Position', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left' => esc_html__( 'Before', 'wpessential-elementor-blocks' ),
+					'right' => esc_html__( 'After', 'wpessential-elementor-blocks' ),
+				],
+				//'condition' => array_merge( $args['section_condition'], [ 'selected_icon[value]!' => '' ] ),
+			]
+		);
+
+		$this->add_control(
+			'icon_indent',
+			[
+				'label' => esc_html__( 'Icon Spacing', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-button .elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-button .elementor-align-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_control(
+			'view',
+			[
+				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HIDDEN,
+				'default' => 'traditional',
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->add_control(
+			'button_css_id',
+			[
+				'label' => esc_html__( 'Button ID', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
+				],
+				'default' => '',
+				'title' => esc_html__( 'Add your custom id WITHOUT the Pound key. e.g: my-id', 'wpessential-elementor-blocks' ),
+				'description' => sprintf(
+					esc_html__( 'Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows %1$sA-z 0-9%2$s & underscore chars without spaces.', 'wpessential-elementor-blocks' ),
+					'<code>',
+					'</code>'
+				),
+				'separator' => 'before',
+				//'condition' => $args['section_condition'],
+			]
+		);
+
+		$this->end_controls_section();
+
+
 
 		$this->start_controls_section(
 			'wpe_st_button_style',

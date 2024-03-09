@@ -48,7 +48,16 @@ class Divider extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls () {}
+	public function register_controls () {
+		$this->start_controls_section(
+			'section_divider',
+			[
+				'label' => esc_html__( 'Divider', 'elementor' ),
+			]
+		);
+		$this->divider_content();
+		$this->end_controls_section();
+	}
 
 	/**
 	 * Render widget output on the frontend.
@@ -59,4 +68,9 @@ class Divider extends Base implements Shortcodes
 	 * @access public
 	 */
 	public function render () {}
+	private function divider_content(){
+
+
+		
+	}
 }
