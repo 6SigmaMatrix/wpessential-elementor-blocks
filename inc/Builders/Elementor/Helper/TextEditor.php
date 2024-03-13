@@ -17,6 +17,15 @@ trait TextEditor
 {
     private function anchor_style($prefix = '', $css_selector = '.wpe-text-editor a', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_anchor_style{$prefix}",
+			[
+				'label' => esc_html__( 'Anchor', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_anchor_style{$prefix}");
         // for normal controls
@@ -237,12 +246,39 @@ trait TextEditor
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
-
-
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_anchor_style{$prefix}",
+			[
+				'label' => esc_html__( 'Anchor', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+        $this->add_control(
+			'anchor_heading',
+			[
+				'label' => esc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+        $this->end_controls_section();
+    }
     }
 
     private function paragraph_style($prefix = '', $css_selector = '.wpe-text-editor p', $show_section = false)
-    {
+    { 
+        if($show_section==true){
+		// For Paragraph styles
+		$this->start_controls_section(
+			"wpe_st_paragraph_style{$prefix}",
+			[
+				'label' => esc_html__( 'Paragraph', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_paragraph_style{$prefix}");
         // for normal controls
@@ -466,10 +502,37 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
     }
+    else{
+        $this->start_controls_section(
+			"wpe_st_paragraph_style{$prefix}",
+			[
+				'label' => esc_html__( 'Paragraph', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'paragraph_heading',
+                [
+                    'label' => esc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }}
 
     private function button_style($prefix = '', $css_selector = '.wpe-text-editor btn', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_button_style{$prefix}",
+			[
+				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_button_style{$prefix}");
         // for normal controls
@@ -666,7 +729,7 @@ trait TextEditor
                 'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
-                    '{{WRAPPER}} .wpe-text-editor button' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
+                    "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
                 ],
             ]
         );
@@ -694,11 +757,39 @@ trait TextEditor
         $this->end_controls_tab();
         $this->end_controls_tabs();
 
-
+        $this->end_controls_section();
+     
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_button_style{$prefix}",
+			[
+				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'button_heading',
+                [
+                    'label' => esc_html__( 'Button Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function heading_1_style($prefix = '', $css_selector = '.wpe-text-editor h1', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_heading_1_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 1', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_heading_1_style{$prefix}");
         // for normal controls
@@ -922,10 +1013,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_h1_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 1', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'h1_heading',
+                [
+                    'label' => esc_html__( 'Heading 1 Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function heading_2_style($prefix = '', $css_selector = '.wpe-text-editor h2', $show_section = false)
-    {
+    { 
+        if($show_section==true){
+        $this->start_controls_section(
+        "wpe_st_heading_2_style{$prefix}",
+        [
+            'label' => esc_html__( 'Heading 2', 'wpessential-elementor-blocks' ),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]
+    );
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_heading_2_style{$prefix}");
         // for normal controls
@@ -1149,10 +1268,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_h2_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 2', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'h2_heading',
+                [
+                    'label' => esc_html__( 'Heading 2 Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function heading_3_style($prefix = '', $css_selector = '.wpe-text-editor h3', $show_section = false)
     {
+         if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_heading_3_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 3', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_heading_3_style{$prefix}");
         // for normal controls
@@ -1225,7 +1372,7 @@ trait TextEditor
         );
 
         $this->add_control(
-            'wpe_st_heading_3_text_color',
+            "wpe_st_heading_3_text_color{$prefix}",
             [
                 'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
                 'type' => Controls_Manager::COLOR,
@@ -1375,11 +1522,38 @@ trait TextEditor
         $this->end_controls_tab();
         $this->end_controls_tabs();
 
-
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_h3_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 3', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'h3_heading',
+                [
+                    'label' => esc_html__( 'Heading 3 Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function heading_4_style($prefix = '', $css_selector = '.wpe-text-editor h4', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_heading_4_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 4', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_heading_4_style{$prefix}");
         // for normal controls
@@ -1604,10 +1778,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_h4_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 4', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'h4_heading',
+                [
+                    'label' => esc_html__( 'Heading 4 Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function heading_5_style($prefix = '', $css_selector = '.wpe-text-editor h5', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_heading_5_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 5', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_heading_5_style{$prefix}");
         // for normal controls
@@ -1831,10 +2033,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_h5_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 5', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'h5_heading',
+                [
+                    'label' => esc_html__( 'Heading 5 Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function heading_6_style($prefix = '', $css_selector = '.wpe-text-editor h6', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_heading_6_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 6', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_heading_6_style{$prefix}");
         // for normal controls
@@ -2058,10 +2288,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_h6_style{$prefix}",
+			[
+				'label' => esc_html__( 'Heading 6', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'h5_heading',
+                [
+                    'label' => esc_html__( 'Heading 6 Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function pre_tag_style($prefix = '', $css_selector = '.wpe-text-editor pre', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_pre_tag_style{$prefix}",
+			[
+				'label' => esc_html__( 'Pre tag', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_pre_tag_style{$prefix}");
         // for normal controls
@@ -2285,10 +2543,39 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+     }
+      else{
+        $this->start_controls_section(
+			"wpe_st_pre_style{$prefix}",
+			[
+				'label' => esc_html__( 'Pre', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'pre_heading',
+                [
+                    'label' => esc_html__( 'Pre Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function figure_style($prefix = '', $css_selector = '.wpe-text-editor figure', $show_section = false)
     {
+        
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_figure_style{$prefix}",
+			[
+				'label' => esc_html__( 'Figure', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_figure_style{$prefix}");
         // for normal controls
@@ -2512,10 +2799,37 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
-    }
+        $this->end_controls_section();
+    }else{
+        $this->start_controls_section(
+			"wpe_st_fig_style{$prefix}",
+			[
+				'label' => esc_html__( 'Figure', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'fig_heading',
+                [
+                    'label' => esc_html__( 'Figure Caption Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
+     }
 
     private function data_list_style($prefix = '', $css_selector = '.wpe-text-editor dl', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_data_list_style{$prefix}",
+			[
+				'label' => esc_html__( 'Data list', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_data_list_style{$prefix}");
         // for normal controls
@@ -2739,10 +3053,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_dl_style{$prefix}",
+			[
+				'label' => esc_html__( 'Data List', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'dl_heading',
+                [
+                    'label' => esc_html__( 'Data List Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function order_list_style($prefix = '', $css_selector = '.wpe-text-editor ol', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_order_list_style{$prefix}",
+			[
+				'label' => esc_html__( 'Order List', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_order_list_style{$prefix}");
         // this is the start of normal tab
@@ -2967,10 +3309,40 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
+    
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_ol_style{$prefix}",
+			[
+				'label' => esc_html__( 'Order List', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'ol_heading',
+                [
+                    'label' => esc_html__( 'Oder List Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function unorder_list_style($prefix = '', $css_selector = '.wpe-text-editor ul', $show_section = false)
     {
+        
+        if($show_section==true){
+		$this->start_controls_section(
+			"wpe_st_unorder_list_style{$prefix}",
+			[
+				'label' => esc_html__( 'Unorder List', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_unorder_list_style{$prefix}");
         // this is the start of normal tab
@@ -3195,10 +3567,38 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_ul_style{$prefix}",
+			[
+				'label' => esc_html__( 'Onorder List', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'unorder_heading',
+                [
+                    'label' => esc_html__( 'Unorder Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function image_style($prefix = '', $css_selector = '.wpe-text-editor img', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_image_style{$prefix}",
+			[
+				'label' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_image_style{$prefix}");
         // this is the start of normal tab
@@ -3783,10 +4183,38 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_image_style{$prefix}",
+			[
+				'label' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'image_heading',
+                [
+                    'label' => esc_html__( 'Image Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function address_style($prefix = '', $css_selector = '.wpe-text-editor address', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_address_style{$prefix}",
+			[
+				'label' => esc_html__( 'Address', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_address_style{$prefix}");
         // this is the start of normal tab
@@ -4013,10 +4441,39 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
+   
     }
+    else{
+        $this->start_controls_section(
+			"wpe_st_address_style{$prefix}",
+			[
+				'label' => esc_html__( 'Address', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'address_heading',
+                [
+                    'label' => esc_html__( 'Address Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
+     }
 
     private function fig_caption_style($prefix = '', $css_selector = '.wpe-text-editor fig_caption', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_fig_caption_style{$prefix}",
+			[
+				'label' => esc_html__( 'Fig caption', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_fig_caption_style{$prefix}");
         // this is the start of normal tab
@@ -4242,10 +4699,38 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_fig_cap_style{$prefix}",
+			[
+				'label' => esc_html__( 'Figure Caption', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'fig_caption_heading',
+                [
+                    'label' => esc_html__( 'Figure Caption Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function sub_script_style($prefix = '', $css_selector = '.wpe-text-editor sub', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_sub_script_style{$prefix}",
+			[
+				'label' => esc_html__( 'Sub script', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_sub_script_style{$prefix}");
         // this is the start of normal tab
@@ -4471,10 +4956,37 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
+    }else{
+        $this->start_controls_section(
+			"wpe_st_sub_style{$prefix}",
+			[
+				'label' => esc_html__( 'Sub Script', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'sub_heading',
+                [
+                    'label' => esc_html__( 'Sub Script Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function super_script_style($prefix = '', $css_selector = '.wpe-text-editor sup', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_super_script_style{$prefix}",
+			[
+				'label' => esc_html__( 'Super script', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_super_script_style{$prefix}");
         // this is the start of normal tab
@@ -4700,12 +5212,38 @@ trait TextEditor
 
         $this->end_controls_tabs();
 
+        $this->end_controls_section();
     }
+    else{
+        $this->start_controls_section(
+			"wpe_st_sup_style{$prefix}",
+			[
+				'label' => esc_html__( 'Super Script', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'sup_heading',
+                [
+                    'label' => esc_html__( 'Super Script Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
+     }
 
     private function audio_style($prefix = '', $css_selector = '.wpe-text-editor audio', $show_section = false)
     {
-
-
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_audio_style{$prefix}",
+			[
+				'label' => esc_html__( 'Audio', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -4836,12 +5374,38 @@ trait TextEditor
         );
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_audio_style{$prefix}",
+			[
+				'label' => esc_html__( 'Audio', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'audio_heading',
+                [
+                    'label' => esc_html__( 'Audio Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function video_style($prefix = '', $css_selector = '.wpe-text-editor video', $show_section = false)
     {
-
-
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_video_style{$prefix}",
+			[
+				'label' => esc_html__( 'Video', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -4972,12 +5536,38 @@ trait TextEditor
         );
 
 
+        $this->end_controls_section();
+    }else{
+        $this->start_controls_section(
+			"wpe_st_video_style{$prefix}",
+			[
+				'label' => esc_html__( 'Video', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'video_heading',
+                [
+                    'label' => esc_html__( 'Video Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function iframe_style($prefix = '', $css_selector = '.wpe-text-editor iframe', $show_section = false)
     {
-
-
+        if($show_section==true){
+        
+		$this->start_controls_section(
+			"wpe_st_iframe_style{$prefix}",
+			[
+				'label' => esc_html__( 'iframe', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -5108,10 +5698,38 @@ trait TextEditor
         );
 
 
+        $this->end_controls_section();
+     }
+      else{
+        $this->start_controls_section(
+			"wpe_st_iframe_style{$prefix}",
+			[
+				'label' => esc_html__( 'iFrame', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'iframe_heading',
+                [
+                    'label' => esc_html__( 'iframe Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function block_qoute_style($prefix = '', $css_selector = '.wpe-text-editor block-qoute', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_block_qoute_style{$prefix}",
+			[
+				'label' => esc_html__( 'Block Qoute', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_block_qoute_style{$prefix}");
         // for normal controls
@@ -5324,10 +5942,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
     }
+    else{
+        $this->start_controls_section(
+			"wpe_st_block_qoute_style{$prefix}",
+			[
+				'label' => esc_html__( 'Block Qoute', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'block_qoute_heading',
+                [
+                    'label' => esc_html__( 'Block Qoute Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
+     }
 
     private function hr_style($prefix = '', $css_selector = '.wpe-text-editor hr', $show_section = false)
     {
+        if($show_section==true){
+        $this->start_controls_section(
+			"wpe_st_hr_style{$prefix}",
+			[
+				'label' => esc_html__( 'hr', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will set condtion for normal or hover
         $this->start_controls_tabs("tabs_hr_style{$prefix}");
         // for normal controls
@@ -5551,10 +6197,38 @@ trait TextEditor
         $this->end_controls_tabs();
 
 
+        $this->end_controls_section();
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_hr_style{$prefix}",
+			[
+				'label' => esc_html__( 'Hr', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'hr_heading',
+                [
+                    'label' => esc_html__( 'Hr Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
     private function table_style($prefix = '', $css_selector = '.wpe-text-editor table', $show_section = false)
     {
+        if($show_section==true){
+		$this->start_controls_section(
+			"wpe_st_table_style{$prefix}",
+			[
+				'label' => esc_html__( 'Table', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
         // this will be contain two tabs normal and hover inside
         $this->start_controls_tabs("tabs_table_style{$prefix}");
         // this is the start of normal tab
@@ -5677,7 +6351,7 @@ trait TextEditor
             ]
         );
         $this->add_control(
-            'wpe_st_table_text_decoration',
+            "wpe_st_table_text_decoration{$prefix}",
             [
                 'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
                 'type' => Controls_Manager::SELECT,
@@ -5776,7 +6450,27 @@ trait TextEditor
         $this->end_controls_tab();
 
         $this->end_controls_tabs();
-
+        $this->end_controls_section();
+        
+    }
+    else{
+        $this->start_controls_section(
+			"wpe_st_table_style{$prefix}",
+			[
+				'label' => esc_html__( 'Table', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+            $this->add_control(
+                'table_heading',
+                [
+                    'label' => esc_html__( 'Table Style', 'wpessential-elementor-blocks' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->end_controls_section();
+        }
     }
 
 }

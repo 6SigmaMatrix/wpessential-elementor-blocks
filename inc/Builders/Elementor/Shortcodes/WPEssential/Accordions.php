@@ -62,13 +62,28 @@ class Accordions extends Base implements Shortcodes
 	public function register_controls ()
 	{
 
+		$accordions = new Accordions;
+		
 		$this->start_controls_section(
-			'wpe_st_content',
+			'wpe_st_accordion_content_tab',
 			[
-				'label' => esc_html__( 'Accordion', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__( 'Accordion Content', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
+		$this->accordion_content_tab();
+		$this->end_controls_section();
+
+		$accordions->anchor_style('ert','tuyt',false);
+
+	
+
+
+	}
+
+
+	private function accordion_content_tab(){
+		
 
 		$repeater = new \Elementor\Repeater();
 
@@ -193,53 +208,7 @@ class Accordions extends Base implements Shortcodes
 		$this->end_controls_section();
 
 
-		
-
-		$this->start_controls_section(
-			'wpe_st_accordion_style',
-			[
-				'label' => esc_html__( 'Accordion', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->accordion_style();
-		$this->end_controls_section();
-
-
-		$this->start_controls_section(
-			'wpe_st_title_style',
-			[
-				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->title_style();
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'wpe_st_icon_style',
-			[
-				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->icon_style();
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'wpe_st_content_style',
-			[
-				'label' => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->content_style();
-
-		$this->end_controls_section();
-
-
 	}
-
 	private function accordion_style ()
 	{
 		$this->add_control(

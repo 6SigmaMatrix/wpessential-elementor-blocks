@@ -67,36 +67,20 @@ class Image extends Base implements Shortcodes
 	 */
 	public function register_controls ()
 	{
-
-
-
-
-		$this->start_controls_section(
-			'wpe_st_image_style',
-			[
-				'label' => esc_html__( 'Image basit', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->image_style();
-		$this->end_controls_section();
-
-
-
 		///////////////////////////////////////////
-// Already added by sir Malik Muhammad Hannan khan Bappi  
+   // CONTENT TAB
 
 		$this->start_controls_section(
 			'section_image',
 			[
-				'label' => esc_html__( 'Image ', 'wpessential' ),
+				'label' => esc_html__( 'Image ', 'wpessential-elementor-blocks' ),
 			]
 		);
 
 		$this->add_control(
 			'image',
 			[
-				'label'   => esc_html__( 'Choose Image', 'wpessential' ),
+				'label'   => esc_html__( 'Choose Image', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -119,19 +103,19 @@ class Image extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => esc_html__( 'Alignment', 'wpessential' ),
+				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'   => [
-						'title' => esc_html__( 'Left', 'wpessential' ),
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'wpessential' ),
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'  => [
-						'title' => esc_html__( 'Right', 'wpessential' ),
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -144,12 +128,12 @@ class Image extends Base implements Shortcodes
 		$this->add_control(
 			'caption_source',
 			[
-				'label'   => esc_html__( 'Caption', 'wpessential' ),
+				'label'   => esc_html__( 'Caption', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none'       => esc_html__( 'None', 'wpessential' ),
-					'attachment' => esc_html__( 'Attachment Caption', 'wpessential' ),
-					'custom'     => esc_html__( 'Custom Caption', 'wpessential' ),
+					'none'       => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'attachment' => esc_html__( 'Attachment Caption', 'wpessential-elementor-blocks' ),
+					'custom'     => esc_html__( 'Custom Caption', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -158,10 +142,10 @@ class Image extends Base implements Shortcodes
 		$this->add_control(
 			'caption',
 			[
-				'label'       => esc_html__( 'Custom Caption', 'wpessential' ),
+				'label'       => esc_html__( 'Custom Caption', 'wpessential-elementor-blocks' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
-				'placeholder' => esc_html__( 'Enter your image caption', 'wpessential' ),
+				'placeholder' => esc_html__( 'Enter your image caption', 'wpessential-elementor-blocks' ),
 				'condition'   => [
 					'caption_source' => 'custom',
 				],
@@ -174,13 +158,13 @@ class Image extends Base implements Shortcodes
 		$this->add_control(
 			'link_to',
 			[
-				'label'   => esc_html__( 'Link', 'wpessential' ),
+				'label'   => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none'   => esc_html__( 'None', 'wpessential' ),
-					'file'   => esc_html__( 'Media File', 'wpessential' ),
-					'custom' => esc_html__( 'Custom URL', 'wpessential' ),
+					'none'   => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'file'   => esc_html__( 'Media File', 'wpessential-elementor-blocks' ),
+					'custom' => esc_html__( 'Custom URL', 'wpessential-elementor-blocks' ),
 				],
 			]
 		);
@@ -188,7 +172,7 @@ class Image extends Base implements Shortcodes
 		$this->add_control(
 			'link',
 			[
-				'label'      => esc_html__( 'Link', 'wpessential' ),
+				'label'      => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type'       => Controls_Manager::URL,
 				'dynamic'    => [
 					'active' => true,
@@ -203,19 +187,19 @@ class Image extends Base implements Shortcodes
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label'       => esc_html__( 'Lightbox', 'wpessential' ),
+				'label'       => esc_html__( 'Lightbox', 'wpessential-elementor-blocks' ),
 				'type'        => Controls_Manager::SELECT,
 				'description' => sprintf(
 				/* translators: 1: Link open tag, 2: Link close tag. */
-					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'wpessential' ),
+					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'wpessential-elementor-blocks' ),
 					'<a href="javascript: $e.run( \'panel/global/open\' ).then( () => $e.route( \'panel/global/settings-lightbox\' ) )">',
 					'</a>'
 				),
 				'default'     => 'default',
 				'options'     => [
-					'default' => esc_html__( 'Default', 'wpessential' ),
-					'yes'     => esc_html__( 'Yes', 'wpessential' ),
-					'no'      => esc_html__( 'No', 'wpessential' ),
+					'default' => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'yes'     => esc_html__( 'Yes', 'wpessential-elementor-blocks' ),
+					'no'      => esc_html__( 'No', 'wpessential-elementor-blocks' ),
 				],
 				'condition'   => [
 					'link_to' => 'file',
@@ -226,7 +210,7 @@ class Image extends Base implements Shortcodes
 		$this->add_control(
 			'view',
 			[
-				'label'   => esc_html__( 'View', 'wpessential' ),
+				'label'   => esc_html__( 'View', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
@@ -234,396 +218,411 @@ class Image extends Base implements Shortcodes
 
 		$this->end_controls_section();
 
+
+
+
+		//   FOT STYLE TAB
 		$this->start_controls_section(
-			'section_style_image',
+			'wpe_st_image_style',
 			[
-				'label' => esc_html__( 'Image cto', 'wpessential' ),
+				'label' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
-
-		$this->add_responsive_control(
-			'width',
-			[
-				'label'          => esc_html__( 'Width', 'wpessential' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
-					'unit' => '%',
-				],
-				'tablet_default' => [
-					'unit' => '%',
-				],
-				'mobile_default' => [
-					'unit' => '%',
-				],
-				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'          => [
-					'%'  => [
-						'min' => 1,
-						'max' => 100,
-					],
-					'px' => [
-						'min' => 1,
-						'max' => 1000,
-					],
-					'vw' => [
-						'min' => 1,
-						'max' => 100,
-					],
-				],
-				'selectors'      => [
-					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'space',
-			[
-				'label'          => esc_html__( 'Max Width', 'wpessential' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
-					'unit' => '%',
-				],
-				'tablet_default' => [
-					'unit' => '%',
-				],
-				'mobile_default' => [
-					'unit' => '%',
-				],
-				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'          => [
-					'%'  => [
-						'min' => 1,
-						'max' => 100,
-					],
-					'px' => [
-						'min' => 1,
-						'max' => 1000,
-					],
-					'vw' => [
-						'min' => 1,
-						'max' => 100,
-					],
-				],
-				'selectors'      => [
-					'{{WRAPPER}} img' => 'max-width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'height',
-			[
-				'label'      => esc_html__( 'Height', 'wpessential' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
-				'range'      => [
-					'px' => [
-						'min' => 1,
-						'max' => 500,
-					],
-					'vh' => [
-						'min' => 1,
-						'max' => 100,
-					],
-				],
-				'selectors'  => [
-					'{{WRAPPER}} img' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'object-fit',
-			[
-				'label'     => esc_html__( 'Object Fit', 'wpessential' ),
-				'type'      => Controls_Manager::SELECT,
-				'condition' => [
-					'height[size]!' => '',
-				],
-				'options'   => [
-					''        => esc_html__( 'Default', 'wpessential' ),
-					'fill'    => esc_html__( 'Fill', 'wpessential' ),
-					'cover'   => esc_html__( 'Cover', 'wpessential' ),
-					'contain' => esc_html__( 'Contain', 'wpessential' ),
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} img' => 'object-fit: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'object-position',
-			[
-				'label'     => esc_html__( 'Object Position', 'wpessential' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					'center center' => esc_html__( 'Center Center', 'wpessential' ),
-					'center left'   => esc_html__( 'Center Left', 'wpessential' ),
-					'center right'  => esc_html__( 'Center Right', 'wpessential' ),
-					'top center'    => esc_html__( 'Top Center', 'wpessential' ),
-					'top left'      => esc_html__( 'Top Left', 'wpessential' ),
-					'top right'     => esc_html__( 'Top Right', 'wpessential' ),
-					'bottom center' => esc_html__( 'Bottom Center', 'wpessential' ),
-					'bottom left'   => esc_html__( 'Bottom Left', 'wpessential' ),
-					'bottom right'  => esc_html__( 'Bottom Right', 'wpessential' ),
-				],
-				'default'   => 'center center',
-				'selectors' => [
-					'{{WRAPPER}} img' => 'object-position: {{VALUE}};',
-				],
-				'condition' => [
-					'object-fit' => 'cover',
-				],
-			]
-		);
-
-		$this->add_control(
-			'separator_panel_style',
-			[
-				'type'  => Controls_Manager::DIVIDER,
-				'style' => 'thick',
-			]
-		);
-
-		$this->start_controls_tabs( 'image_effects' );
-
-		$this->start_controls_tab( 'normal',
-			[
-				'label' => esc_html__( 'Normal', 'wpessential' ),
-			]
-		);
-
-		$this->add_control(
-			'opacity',
-			[
-				'label'     => esc_html__( 'Opacity', 'wpessential' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'max'  => 1,
-						'min'  => 0.10,
-						'step' => 0.01,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} img' => 'opacity: {{SIZE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Css_Filter::get_type(),
-			[
-				'name'     => 'css_filters',
-				'selector' => '{{WRAPPER}} img',
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab( 'hover',
-			[
-				'label' => esc_html__( 'Hover', 'wpessential' ),
-			]
-		);
-
-		$this->add_control(
-			'opacity_hover',
-			[
-				'label'     => esc_html__( 'Opacity', 'wpessential' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'max'  => 1,
-						'min'  => 0.10,
-						'step' => 0.01,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}}:hover img' => 'opacity: {{SIZE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Css_Filter::get_type(),
-			[
-				'name'     => 'css_filters_hover',
-				'selector' => '{{WRAPPER}}:hover img',
-			]
-		);
-
-		$this->add_control(
-			'background_hover_transition',
-			[
-				'label'     => esc_html__( 'Transition Duration', 'wpessential' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'max'  => 3,
-						'step' => 0.1,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} img' => 'transition-duration: {{SIZE}}s',
-				],
-			]
-		);
-
-		$this->add_control(
-			'hover_animation',
-			[
-				'label' => esc_html__( 'Hover Animation', 'wpessential' ),
-				'type'  => Controls_Manager::HOVER_ANIMATION,
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'      => 'image_border',
-				'selector'  => '{{WRAPPER}} img',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_responsive_control(
-			'image_border_radius',
-			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
-					'{{WRAPPER}} img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name'     => 'image_box_shadow',
-				'exclude'  => [
-					'box_shadow_position',
-				],
-				'selector' => '{{WRAPPER}} img',
-			]
-		);
-
+		$this->image_style();
 		$this->end_controls_section();
 
-		$this->start_controls_section(
-			'section_style_caption',
-			[
-				'label'     => esc_html__( 'Caption', 'wpessential' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'caption_source!' => 'none',
-				],
-			]
-		);
+		
+		// $this->start_controls_section(
+		// 	'section_style_image',
+		// 	[
+		// 		'label' => esc_html__( 'Image cto', 'wpessential-elementor-blocks' ),
+		// 		'tab'   => Controls_Manager::TAB_STYLE,
+		// 	]
+		// );
 
-		$this->add_responsive_control(
-			'caption_align',
-			[
-				'label'     => esc_html__( 'Alignment', 'wpessential' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'    => [
-						'title' => esc_html__( 'Left', 'wpessential' ),
-						'icon'  => 'eicon-text-align-left',
-					],
-					'center'  => [
-						'title' => esc_html__( 'Center', 'wpessential' ),
-						'icon'  => 'eicon-text-align-center',
-					],
-					'right'   => [
-						'title' => esc_html__( 'Right', 'wpessential' ),
-						'icon'  => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpessential' ),
-						'icon'  => 'eicon-text-align-justify',
-					],
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
+		// $this->add_responsive_control(
+		// 	'width',
+		// 	[
+		// 		'label'          => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
+		// 		'type'           => Controls_Manager::SLIDER,
+		// 		'default'        => [
+		// 			'unit' => '%',
+		// 		],
+		// 		'tablet_default' => [
+		// 			'unit' => '%',
+		// 		],
+		// 		'mobile_default' => [
+		// 			'unit' => '%',
+		// 		],
+		// 		'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+		// 		'range'          => [
+		// 			'%'  => [
+		// 				'min' => 1,
+		// 				'max' => 100,
+		// 			],
+		// 			'px' => [
+		// 				'min' => 1,
+		// 				'max' => 1000,
+		// 			],
+		// 			'vw' => [
+		// 				'min' => 1,
+		// 				'max' => 100,
+		// 			],
+		// 		],
+		// 		'selectors'      => [
+		// 			'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
+		// 		],
+		// 	]
+		// );
 
-		$this->add_control(
-			'text_color',
-			[
-				'label'     => esc_html__( 'Text Color', 'wpessential' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
-				],
-				'global'    => [
-					'default' => Global_Colors::COLOR_TEXT,
-				],
-			]
-		);
+		// $this->add_responsive_control(
+		// 	'space',
+		// 	[
+		// 		'label'          => esc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
+		// 		'type'           => Controls_Manager::SLIDER,
+		// 		'default'        => [
+		// 			'unit' => '%',
+		// 		],
+		// 		'tablet_default' => [
+		// 			'unit' => '%',
+		// 		],
+		// 		'mobile_default' => [
+		// 			'unit' => '%',
+		// 		],
+		// 		'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+		// 		'range'          => [
+		// 			'%'  => [
+		// 				'min' => 1,
+		// 				'max' => 100,
+		// 			],
+		// 			'px' => [
+		// 				'min' => 1,
+		// 				'max' => 1000,
+		// 			],
+		// 			'vw' => [
+		// 				'min' => 1,
+		// 				'max' => 100,
+		// 			],
+		// 		],
+		// 		'selectors'      => [
+		// 			'{{WRAPPER}} img' => 'max-width: {{SIZE}}{{UNIT}};',
+		// 		],
+		// 	]
+		// );
 
-		$this->add_control(
-			'caption_background_color',
-			[
-				'label'     => esc_html__( 'Background Color', 'wpessential' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
-				],
-			]
-		);
+		// $this->add_responsive_control(
+		// 	'height',
+		// 	[
+		// 		'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
+		// 		'type'       => Controls_Manager::SLIDER,
+		// 		'size_units' => [ 'px', '%', 'em', 'rem', 'vh', 'custom' ],
+		// 		'range'      => [
+		// 			'px' => [
+		// 				'min' => 1,
+		// 				'max' => 500,
+		// 			],
+		// 			'vh' => [
+		// 				'min' => 1,
+		// 				'max' => 100,
+		// 			],
+		// 		],
+		// 		'selectors'  => [
+		// 			'{{WRAPPER}} img' => 'height: {{SIZE}}{{UNIT}};',
+		// 		],
+		// 	]
+		// );
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'caption_typography',
-				'selector' => '{{WRAPPER}} .widget-image-caption',
-				'global'   => [
-					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-				],
-			]
-		);
+		// $this->add_responsive_control(
+		// 	'object-fit',
+		// 	[
+		// 		'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::SELECT,
+		// 		'condition' => [
+		// 			'height[size]!' => '',
+		// 		],
+		// 		'options'   => [
+		// 			''        => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+		// 			'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks' ),
+		// 			'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks' ),
+		// 			'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks' ),
+		// 		],
+		// 		'default'   => '',
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} img' => 'object-fit: {{VALUE}};',
+		// 		],
+		// 	]
+		// );
 
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
-				'name'     => 'caption_text_shadow',
-				'selector' => '{{WRAPPER}} .widget-image-caption',
-			]
-		);
+		// $this->add_responsive_control(
+		// 	'object-position',
+		// 	[
+		// 		'label'     => esc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::SELECT,
+		// 		'options'   => [
+		// 			'center center' => esc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
+		// 			'center left'   => esc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
+		// 			'center right'  => esc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
+		// 			'top center'    => esc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
+		// 			'top left'      => esc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
+		// 			'top right'     => esc_html__( 'Top Right', 'wpessential-elementor-blocks' ),
+		// 			'bottom center' => esc_html__( 'Bottom Center', 'wpessential-elementor-blocks' ),
+		// 			'bottom left'   => esc_html__( 'Bottom Left', 'wpessential-elementor-blocks' ),
+		// 			'bottom right'  => esc_html__( 'Bottom Right', 'wpessential-elementor-blocks' ),
+		// 		],
+		// 		'default'   => 'center center',
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} img' => 'object-position: {{VALUE}};',
+		// 		],
+		// 		'condition' => [
+		// 			'object-fit' => 'cover',
+		// 		],
+		// 	]
+		// );
 
-		$this->add_responsive_control(
-			'caption_space',
-			[
-				'label'     => esc_html__( 'Spacing', 'wpessential' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'separator_panel_style',
+		// 	[
+		// 		'type'  => Controls_Manager::DIVIDER,
+		// 		'style' => 'thick',
+		// 	]
+		// );
 
-		$this->end_controls_section();
+		// $this->start_controls_tabs( 'image_effects' );
+
+		// $this->start_controls_tab( 'normal',
+		// 	[
+		// 		'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'opacity',
+		// 	[
+		// 		'label'     => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::SLIDER,
+		// 		'range'     => [
+		// 			'px' => [
+		// 				'max'  => 1,
+		// 				'min'  => 0.10,
+		// 				'step' => 0.01,
+		// 			],
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} img' => 'opacity: {{SIZE}};',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_group_control(
+		// 	Group_Control_Css_Filter::get_type(),
+		// 	[
+		// 		'name'     => 'css_filters',
+		// 		'selector' => '{{WRAPPER}} img',
+		// 	]
+		// );
+
+		// $this->end_controls_tab();
+
+		// $this->start_controls_tab( 'hover',
+		// 	[
+		// 		'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'opacity_hover',
+		// 	[
+		// 		'label'     => esc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::SLIDER,
+		// 		'range'     => [
+		// 			'px' => [
+		// 				'max'  => 1,
+		// 				'min'  => 0.10,
+		// 				'step' => 0.01,
+		// 			],
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}}:hover img' => 'opacity: {{SIZE}};',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_group_control(
+		// 	Group_Control_Css_Filter::get_type(),
+		// 	[
+		// 		'name'     => 'css_filters_hover',
+		// 		'selector' => '{{WRAPPER}}:hover img',
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'background_hover_transition',
+		// 	[
+		// 		'label'     => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::SLIDER,
+		// 		'range'     => [
+		// 			'px' => [
+		// 				'max'  => 3,
+		// 				'step' => 0.1,
+		// 			],
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} img' => 'transition-duration: {{SIZE}}s',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'hover_animation',
+		// 	[
+		// 		'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
+		// 		'type'  => Controls_Manager::HOVER_ANIMATION,
+		// 	]
+		// );
+
+		// $this->end_controls_tab();
+
+		// $this->end_controls_tabs();
+
+		// $this->add_group_control(
+		// 	Group_Control_Border::get_type(),
+		// 	[
+		// 		'name'      => 'image_border',
+		// 		'selector'  => '{{WRAPPER}} img',
+		// 		'separator' => 'before',
+		// 	]
+		// );
+
+		// $this->add_responsive_control(
+		// 	'image_border_radius',
+		// 	[
+		// 		'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+		// 		'type'       => Controls_Manager::DIMENSIONS,
+		// 		'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+		// 		'selectors'  => [
+		// 			'{{WRAPPER}} img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_group_control(
+		// 	Group_Control_Box_Shadow::get_type(),
+		// 	[
+		// 		'name'     => 'image_box_shadow',
+		// 		'exclude'  => [
+		// 			'box_shadow_position',
+		// 		],
+		// 		'selector' => '{{WRAPPER}} img',
+		// 	]
+		// );
+
+		// $this->end_controls_section();
+
+		// $this->start_controls_section(
+		// 	'section_style_caption',
+		// 	[
+		// 		'label'     => esc_html__( 'Caption', 'wpessential-elementor-blocks' ),
+		// 		'tab'       => Controls_Manager::TAB_STYLE,
+		// 		'condition' => [
+		// 			'caption_source!' => 'none',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_responsive_control(
+		// 	'caption_align',
+		// 	[
+		// 		'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::CHOOSE,
+		// 		'options'   => [
+		// 			'left'    => [
+		// 				'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+		// 				'icon'  => 'eicon-text-align-left',
+		// 			],
+		// 			'center'  => [
+		// 				'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+		// 				'icon'  => 'eicon-text-align-center',
+		// 			],
+		// 			'right'   => [
+		// 				'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+		// 				'icon'  => 'eicon-text-align-right',
+		// 			],
+		// 			'justify' => [
+		// 				'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
+		// 				'icon'  => 'eicon-text-align-justify',
+		// 			],
+		// 		],
+		// 		'default'   => '',
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'text_color',
+		// 	[
+		// 		'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::COLOR,
+		// 		'default'   => '',
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
+		// 		],
+		// 		'global'    => [
+		// 			'default' => Global_Colors::COLOR_TEXT,
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'caption_background_color',
+		// 	[
+		// 		'label'     => esc_html__( 'Background Color', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::COLOR,
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_group_control(
+		// 	Group_Control_Typography::get_type(),
+		// 	[
+		// 		'name'     => 'caption_typography',
+		// 		'selector' => '{{WRAPPER}} .widget-image-caption',
+		// 		'global'   => [
+		// 			'default' => Global_Typography::TYPOGRAPHY_TEXT,
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_group_control(
+		// 	Group_Control_Text_Shadow::get_type(),
+		// 	[
+		// 		'name'     => 'caption_text_shadow',
+		// 		'selector' => '{{WRAPPER}} .widget-image-caption',
+		// 	]
+		// );
+
+		// $this->add_responsive_control(
+		// 	'caption_space',
+		// 	[
+		// 		'label'     => esc_html__( 'Spacing', 'wpessential-elementor-blocks' ),
+		// 		'type'      => Controls_Manager::SLIDER,
+		// 		'range'     => [
+		// 			'px' => [
+		// 				'min' => 0,
+		// 				'max' => 100,
+		// 			],
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}};',
+		// 		],
+		// 	]
+		// );
+
+		// $this->end_controls_section();
 	}
 
 	/**

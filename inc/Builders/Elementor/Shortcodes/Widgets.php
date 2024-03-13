@@ -75,7 +75,7 @@ final class Widgets implements ShortcodeInit
 			'Counter'    => Counter::class,
 			'Tabs'       => Tabs::class,
 			'Icons'      => Icons::class,
-			'Lists'      => Lists::class,
+			//'Lists'      => Lists::class,
 			'ImageBox'   => ImageBox::class,
 			'Image'      => Image::class,
 			'Gallery'    => Gallery::class,

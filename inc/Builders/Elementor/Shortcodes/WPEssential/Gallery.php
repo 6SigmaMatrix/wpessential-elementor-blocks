@@ -64,7 +64,7 @@ class Gallery extends Base implements Shortcodes
 	public function register_controls ()
 	{
 		$this->start_controls_section(
-			'wpe_st_gallery_style',
+			'wpe_st_gallery_content_style',
 			[
 				'label' => esc_html__( 'Gallery', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,

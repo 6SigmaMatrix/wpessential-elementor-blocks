@@ -60,6 +60,16 @@ class ImageBox extends Base implements Shortcodes
 	public function register_controls ()
 	{
 		$this->start_controls_section(
+			'wpe_st_image_box_content_tab',
+			[
+				'label' => esc_html__( 'Image Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->image_box_content();
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'wpe_st_box_style',
 			[
 				'label' => esc_html__( 'Box', 'wpessential-elementor-blocks' ),
@@ -105,6 +115,96 @@ class ImageBox extends Base implements Shortcodes
 		
 	}
 
+
+	private function image_box_content()
+	{
+
+		$this->add_control(
+			'wpe_st_image',
+			[
+				'label' => esc_html__( 'Choose Image', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'wpe_st_thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
+				'default' => 'full',
+				'separator' => 'none',
+				'condition' => [
+					'image[url]!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_title_text',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'This is the heading', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__( 'Enter your title', 'wpessential-elementor-blocks' ),
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_description_text',
+			[
+				'label' => esc_html__( 'Description', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXTAREA,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__( 'Enter your description', 'wpessential-elementor-blocks' ),
+				'separator' => 'none',
+				'rows' => 10,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_link',
+			[
+				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_title_size',
+			[
+				'label' => esc_html__( 'Title HTML Tag', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => wpe_heading_tags (),
+				'default' => 'h3',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_view',
+			[
+				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HIDDEN,
+				'default' => 'traditional',
+			]
+		);
+	}
 	private function box_style ()
 	{
 

@@ -60,6 +60,15 @@ class Navigation extends Base implements Shortcodes
 	public function register_controls () {
 
 		$this->start_controls_section(
+			'wpe_st_navigation_content',
+			[
+				'label' => esc_html__( 'Navigation Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->navigation_content();
+		$this->end_controls_section();
+		$this->start_controls_section(
 			'wpe_st_label_style',
 			[
 				'label' => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
@@ -113,6 +122,150 @@ class Navigation extends Base implements Shortcodes
 	 */
 	public function render () {}
 
+	private function navigation_content(){
+		$this->add_control(
+			'wpe_st_show_label',
+			[
+				'label' => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_prev_label',
+			[
+				'label' => esc_html__( 'Previous Label', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'Previous', 'wpessential-elementor-blocks' ),
+				'condition' => [
+					'show_label' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_next_label',
+			[
+				'label' => esc_html__( 'Next Label', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Next', 'wpessential-elementor-blocks' ),
+				'condition' => [
+					'show_label' => 'yes',
+				],
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_arrow',
+			[
+				'label' => esc_html__( 'Arrows', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_arrow',
+			[
+				'label' => esc_html__( 'Arrows Type', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'fa fa-angle-left' => esc_html__( 'Angle', 'wpessential-elementor-blocks' ),
+					'fa fa-angle-double-left' => esc_html__( 'Double Angle', 'wpessential-elementor-blocks' ),
+					'fa fa-chevron-left' => esc_html__( 'Chevron', 'wpessential-elementor-blocks' ),
+					'fa fa-chevron-circle-left' => esc_html__( 'Chevron Circle', 'wpessential-elementor-blocks' ),
+					'fa fa-caret-left' => esc_html__( 'Caret', 'wpessential-elementor-blocks' ),
+					'fa fa-arrow-left' => esc_html__( 'Arrow', 'wpessential-elementor-blocks' ),
+					'fa fa-long-arrow-left' => esc_html__( 'Long Arrow', 'wpessential-elementor-blocks' ),
+					'fa fa-arrow-circle-left' => esc_html__( 'Arrow Circle', 'wpessential-elementor-blocks' ),
+					'fa fa-arrow-circle-o-left' => esc_html__( 'Arrow Circle Negative', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'fa fa-angle-left',
+				'condition' => [
+					'show_arrow' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_title',
+			[
+				'label' => esc_html__( 'Post Title', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_borders',
+			[
+				'label' => esc_html__( 'Borders', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'default' => 'yes',
+				'prefix_class' => 'elementor-post-navigation-borders-',
+			]
+		);
+
+		// Filter out post type without taxonomies
+		// $post_type_options = [];
+		// $post_type_taxonomies = [];
+		// foreach ( \Elementor\Utils::get_public_post_types() as $post_type => $post_type_label ) {
+		// 	$taxonomies = Utils::get_taxonomies( [ 'object_type' => $post_type ], false );
+		// 	if ( empty( $taxonomies ) ) {
+		// 		continue;
+		// 	}
+
+		// 	$post_type_options[ $post_type ] = $post_type_label;
+		// 	$post_type_taxonomies[ $post_type ] = [];
+		// 	foreach ( $taxonomies as $taxonomy ) {
+		// 		$post_type_taxonomies[ $post_type ][ $taxonomy->name ] = $taxonomy->label;
+		// 	}
+		// }
+
+		// $this->add_control(
+		// 	'in_same_term',
+		// 	[
+		// 		'label' => esc_html__( 'In same Term', 'wpessential-elementor-blocks' ),
+		// 		'type' => Controls_Manager::SELECT2,
+		// 		'options' => $post_type_options,
+		// 		'default' => '',
+		// 		'multiple' => true,
+		// 		'label_block' => true,
+		// 		'description' => esc_html__( 'Indicates whether next post must be within the same taxonomy term as the current post, this lets you set a taxonomy per each post type', 'wpessential-elementor-blocks' ),
+		// 	]
+		// );
+
+		// foreach ( $post_type_options as $post_type => $post_type_label ) {
+		// 	$this->add_control(
+		// 		$post_type . '_taxonomy',
+		// 		[
+		// 			'label' => $post_type_label . ' ' . esc_html__( 'Taxonomy', 'wpessential-elementor-blocks' ),
+		// 			'type' => Controls_Manager::SELECT,
+		// 			'options' => $post_type_taxonomies[ $post_type ],
+		// 			'default' => '',
+		// 			'condition' => [
+		// 				'in_same_term' => $post_type,
+		// 			],
+		// 		]
+		// 	);
+		// }
+	}
+	
 	private function title_style ()
 	{
 

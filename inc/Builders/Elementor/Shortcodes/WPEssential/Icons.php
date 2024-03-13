@@ -62,6 +62,16 @@ class Icons extends Base implements Shortcodes
 	{
 
 		$this->start_controls_section(
+			'wpe_st_icon_content',
+			[
+				'label' => esc_html__( 'Icon Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->icon_content();
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'wpe_st_icon_style',
 			[
 				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
@@ -73,6 +83,118 @@ class Icons extends Base implements Shortcodes
 
 	}
 
+	private function icon_content ()
+	{
+
+		$this->add_control(
+			'wpe_st_selected_icon',
+			[
+				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'fa-solid',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_view',
+			[
+				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'default' => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'stacked' => esc_html__( 'Stacked', 'wpessential-elementor-blocks' ),
+					'framed' => esc_html__( 'Framed', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'default',
+				'prefix_class' => 'elementor-view-',
+				'condition' => [
+					'selected_icon[value]!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_shape',
+			[
+				'label' => esc_html__( 'Shape', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'circle' => esc_html__( 'Circle', 'wpessential-elementor-blocks' ),
+					'square' => esc_html__( 'Square', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'circle',
+				'condition' => [
+					'view!' => 'default',
+					'selected_icon[value]!' => '',
+				],
+				'prefix_class' => 'elementor-shape-',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_title_text',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'This is the heading', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__( 'Enter your title', 'wpessential-elementor-blocks' ),
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_description_text',
+			[
+				'label' => esc_html__( 'Description', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXTAREA,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__( 'Enter your description', 'wpessential-elementor-blocks' ),
+				'rows' => 10,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_link',
+			[
+				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_title_size',
+			[
+				'label' => esc_html__( 'Title HTML Tag', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
+				],
+				'default' => 'h3',
+			]
+		);
+	}
 	private function icon_style ()
 	{
 		$this->start_controls_tabs( 'tabs_iocn_style' );/* this will create a tab in which we can make two tabs

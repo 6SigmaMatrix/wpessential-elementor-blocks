@@ -63,6 +63,10 @@ class PriceTable extends Base implements Shortcodes
 	public function register_controls()
 	{
 
+		// FOR PRICING TABLE Content  
+		$this->price_table_content();
+
+		// FOR STYLE 
 
 		$this->start_controls_section(
 			'wpe_st_header_style',
@@ -215,6 +219,346 @@ class PriceTable extends Base implements Shortcodes
 
 	}
 
+	private function price_table_content()
+	{
+		$this->start_controls_section(
+			'wpe_st_section_header',
+			[
+				'label' => esc_html__( 'Header', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_heading',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Enter your title', 'wpessential-elementor-blocks' ),
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_sub_heading',
+			[
+				'label' => esc_html__( 'Description', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Enter your description', 'wpessential-elementor-blocks' ),
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_heading_tag',
+			[
+				'label' => esc_html__( 'Title HTML Tag', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+				],
+				'default' => 'h3',
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'wpe_st_section_pricing',
+			[
+				'label' => esc_html__( 'Pricing', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_currency_symbol',
+			[
+				'label' => esc_html__( 'Currency Symbol', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'dollar' => '&#36; ' . _x( 'Dollar', 'Currency', 'wpessential-elementor-blocks' ),
+					'euro' => '&#128; ' . _x( 'Euro', 'Currency', 'wpessential-elementor-blocks' ),
+					'baht' => '&#3647; ' . _x( 'Baht', 'Currency', 'wpessential-elementor-blocks' ),
+					'franc' => '&#8355; ' . _x( 'Franc', 'Currency', 'wpessential-elementor-blocks' ),
+					'guilder' => '&fnof; ' . _x( 'Guilder', 'Currency', 'wpessential-elementor-blocks' ),
+					'krona' => 'kr ' . _x( 'Krona', 'Currency', 'wpessential-elementor-blocks' ),
+					'lira' => '&#8356; ' . _x( 'Lira', 'Currency', 'wpessential-elementor-blocks' ),
+					'peseta' => '&#8359 ' . _x( 'Peseta', 'Currency', 'wpessential-elementor-blocks' ),
+					'peso' => '&#8369; ' . _x( 'Peso', 'Currency', 'wpessential-elementor-blocks' ),
+					'pound' => '&#163; ' . _x( 'Pound Sterling', 'Currency', 'wpessential-elementor-blocks' ),
+					'real' => 'R$ ' . _x( 'Real', 'Currency', 'wpessential-elementor-blocks' ),
+					'ruble' => '&#8381; ' . _x( 'Ruble', 'Currency', 'wpessential-elementor-blocks' ),
+					'rupee' => '&#8360; ' . _x( 'Rupee', 'Currency', 'wpessential-elementor-blocks' ),
+					'indian_rupee' => '&#8377; ' . _x( 'Rupee (Indian)', 'Currency', 'wpessential-elementor-blocks' ),
+					'shekel' => '&#8362; ' . _x( 'Shekel', 'Currency', 'wpessential-elementor-blocks' ),
+					'yen' => '&#165; ' . _x( 'Yen/Yuan', 'Currency', 'wpessential-elementor-blocks' ),
+					'won' => '&#8361; ' . _x( 'Won', 'Currency', 'wpessential-elementor-blocks' ),
+					'custom' => esc_html__( 'Custom', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'dollar',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_currency_symbol_custom',
+			[
+				'label' => esc_html__( 'Custom Symbol', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'condition' => [
+					'currency_symbol' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_price',
+			[
+				'label' => esc_html__( 'Price', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => '39.99',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_currency_format',
+			[
+				'label' => esc_html__( 'Currency Format', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => '1,234.56 (Default)',
+					',' => '1.234,56',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_sale',
+			[
+				'label' => esc_html__( 'Sale', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'On', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
+				'default' => '',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_original_price',
+			[
+				'label' => esc_html__( 'Original Price', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => '59',
+				'condition' => [
+					'sale' => 'yes',
+				],
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_period',
+			[
+				'label' => esc_html__( 'Period', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'Monthly', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'wpe_st_section_features',
+			[
+				'label' => esc_html__( 'Features', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'wpe_st_item_text',
+			[
+				'label' => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => esc_html__( 'List Item', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$default_icon = [
+			'value' => 'far fa-check-circle',
+			'library' => 'fa-regular',
+		];
+
+		$repeater->add_control(
+			'wpe_st_selected_item_icon',
+			[
+				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::ICONS,
+				'fa4compatibility' => 'item_icon',
+				'default' => $default_icon,
+			]
+		);
+
+		$repeater->add_control(
+			'wpe_st_item_icon_color',
+			[
+				'label' => esc_html__( 'Icon Color', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} {{CURRENT_ITEM}} i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} svg' => 'fill: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_features_list',
+			[
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'item_text' => esc_html__( 'List Item #1', 'wpessential-elementor-blocks' ),
+						'selected_item_icon' => $default_icon,
+					],
+					[
+						'item_text' => esc_html__( 'List Item #2', 'wpessential-elementor-blocks' ),
+						'selected_item_icon' => $default_icon,
+					],
+					[
+						'item_text' => esc_html__( 'List Item #3', 'wpessential-elementor-blocks' ),
+						'selected_item_icon' => $default_icon,
+					],
+				],
+				'title_field' => '{{{ item_text }}}',
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'wpe_st_section_footer',
+			[
+				'label' => esc_html__( 'Footer', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_button_text',
+			[
+				'label' => esc_html__( 'Button Text', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Click Here', 'wpessential-elementor-blocks' ),
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_link',
+			[
+				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'wpessential-elementor-blocks' ),
+				'default' => [
+					'url' => '#',
+				],
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_footer_additional_info',
+			[
+				'label' => esc_html__( 'Additional Info', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXTAREA,
+				'default' => esc_html__( 'This is text element', 'wpessential-elementor-blocks' ),
+				'rows' => 3,
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'wpe_st_section_ribbon',
+			[
+				'label' => esc_html__( 'Ribbon', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_ribbon',
+			[
+				'label' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_ribbon_title',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Popular', 'wpessential-elementor-blocks' ),
+				'condition' => [
+					'show_ribbon' => 'yes',
+				],
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_ribbon_horizontal_position',
+			[
+				'label' => esc_html__( 'Position', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-h-align-left',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'condition' => [
+					'show_ribbon' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
 	private function title_style()
 	{
 
