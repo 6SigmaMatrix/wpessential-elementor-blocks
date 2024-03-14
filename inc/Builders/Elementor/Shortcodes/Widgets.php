@@ -75,20 +75,20 @@ final class Widgets implements ShortcodeInit
 			'Counter'    => Counter::class,
 			'Tabs'       => Tabs::class,
 			'Icons'      => Icons::class,
-			//'Lists'      => Lists::class,
+			'Lists'      => Lists::class,
 			'ImageBox'   => ImageBox::class,
 			'Image'      => Image::class,
 			'Gallery'    => Gallery::class,
 			'PriceTable' => PriceTable::class,
 			'Table'      => Table::class,
 			'Share'      => Share::class,
-			'Video'      => Video::class,
+		 	'Video'      => Video::class,
 			'Slider'     => Slider::class,
 			'Navigation' => Navigation::class,
 			'Search'     => Search::class,
 			'BreadCrumbs'=> BreadCrumbs::class,
 			'Modal'      => Modal::class,
-		];
+		 ];
 
 
 		

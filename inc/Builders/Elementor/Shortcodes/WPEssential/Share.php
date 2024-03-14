@@ -64,6 +64,16 @@ class Share extends Base implements Shortcodes
 	public function register_controls () {
 
 		$this->start_controls_section(
+			'wpe_st_share_content',
+			[
+				'label' => esc_html__( 'Share Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->share_content();
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'wpe_st_general_setting_style',
 			[
 				'label' => esc_html__( 'General', 'wpessential-elementor-blocks' ),
@@ -107,6 +117,211 @@ class Share extends Base implements Shortcodes
 	public function render () {}
 	
 
+	private function share_content()
+	{
+		$repeater = new \Elementor\Repeater();
+
+		// Kindly check this control the dropdown list of social icons names
+ 
+		// $repeater->add_control(
+		// 	'wpe_st_button',
+		// 	[
+		// 		'label' => esc_html__( 'Network', 'wpessential-elementor-blocks' ),
+		// 		'type' => Controls_Manager::SELECT,
+		// 		//'options' => array_reduce( $networks_names, function( $options, $network_name ) use ( $networks ) {
+		// 			$options[ $network_name ] = $networks[ $network_name ]['title'];
+
+		// 			return $options;
+		// 		}, [] ),
+		// 		'default' => 'facebook',
+		// 	]
+		// );
+
+		$repeater->add_control(
+			'wpe_st_text',
+			[
+				'label' => esc_html__( 'Custom Label', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_share_buttons',
+			[
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'button' => 'facebook',
+					],
+					[
+						'button' => 'twitter',
+					],
+					[
+						'button' => 'linkedin',
+					],
+				],
+				'title_field' => '<i class="{{ elementorPro.modules.shareButtons.getNetworkClass( button ) }}" aria-hidden="true"></i> {{{ elementorPro.modules.shareButtons.getNetworkTitle( obj ) }}}',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_view',
+			[
+				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'icon-text' => 'Icon & Text',
+					'icon' => 'Icon',
+					'text' => 'Text',
+				],
+				'default' => 'icon-text',
+				'separator' => 'before',
+				'prefix_class' => 'elementor-share-buttons--view-',
+				'render_type' => 'template',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_label',
+			[
+				'label' => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_view' => 'icon-text',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_skin',
+			[
+				'label' => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'gradient' => esc_html__( 'Gradient', 'wpessential-elementor-blocks' ),
+					'minimal' => esc_html__( 'Minimal', 'wpessential-elementor-blocks' ),
+					'framed' => esc_html__( 'Framed', 'wpessential-elementor-blocks' ),
+					'boxed' => esc_html__( 'Boxed Icon', 'wpessential-elementor-blocks' ),
+					'flat' => esc_html__( 'Flat', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'gradient',
+				'prefix_class' => 'elementor-share-buttons--skin-',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_shape',
+			[
+				'label' => esc_html__( 'Shape', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'square' => esc_html__( 'Square', 'wpessential-elementor-blocks' ),
+					'rounded' => esc_html__( 'Rounded', 'wpessential-elementor-blocks' ),
+					'circle' => esc_html__( 'Circle', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'square',
+				'prefix_class' => 'elementor-share-buttons--shape-',
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_columns',
+			[
+				'label' => esc_html__( 'Columns', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => '0',
+				'options' => [
+					'0' => 'Auto',
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+				],
+				'prefix_class' => 'elementor-grid%s-',
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_alignment',
+			[
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => esc_html__( 'Justify', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				/* TODO: `prefix_class` is redundant since v3.1.0
+				 * It is only here for backwards compatibility reasons.
+				 * It should be removed in the future.
+				 */
+				'prefix_class' => 'elementor-share-buttons%s--align-',
+				/*---------------------------------------------------*/
+				'condition' => [
+					'wpe_st_columns' => '0',
+				],
+				/* `selectors` was added on v3.1.0 as a superior alternative to the previous `prefix_class` solution */
+				'selectors' => [
+					'{{WRAPPER}}' => '--alignment: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_share_url_type',
+			[
+				'label' => esc_html__( 'Target URL', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'current_page' => esc_html__( 'Current Page', 'wpessential-elementor-blocks' ),
+					'custom' => esc_html__( 'Custom', 'wpessential-elementor-blocks' ),
+				],
+				'default' => 'current_page',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_share_url',
+			[
+				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'options' => false,
+				'placeholder' => esc_html__( 'https://your-link.com', 'wpessential-elementor-blocks' ),
+				'condition' => [
+					'wpe_st_share_url_type' => 'custom',
+				],
+				'show_label' => false,
+				'frontend_available' => true,
+			]
+		);
+
+	}
 	private function icon_style()
 	{
 		$this->start_controls_tabs('tabs_iocn_style'); /* this will create a tab in which we can make two tabs

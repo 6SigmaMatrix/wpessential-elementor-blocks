@@ -63,7 +63,7 @@ class Navigation extends Base implements Shortcodes
 			'wpe_st_navigation_content',
 			[
 				'label' => esc_html__( 'Navigation Content', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
 		$this->navigation_content();
@@ -144,7 +144,7 @@ class Navigation extends Base implements Shortcodes
 				],
 				'default' => esc_html__( 'Previous', 'wpessential-elementor-blocks' ),
 				'condition' => [
-					'show_label' => 'yes',
+					'wpe_st_show_label' => 'yes',
 				],
 			]
 		);
@@ -156,7 +156,7 @@ class Navigation extends Base implements Shortcodes
 				'type' => Controls_Manager::TEXT,
 				'default' => esc_html__( 'Next', 'wpessential-elementor-blocks' ),
 				'condition' => [
-					'show_label' => 'yes',
+					'wpe_st_show_label' => 'yes',
 				],
 				'dynamic' => [
 					'active' => true,
@@ -193,7 +193,7 @@ class Navigation extends Base implements Shortcodes
 				],
 				'default' => 'fa fa-angle-left',
 				'condition' => [
-					'show_arrow' => 'yes',
+					'wpe_st_show_arrow' => 'yes',
 				],
 			]
 		);

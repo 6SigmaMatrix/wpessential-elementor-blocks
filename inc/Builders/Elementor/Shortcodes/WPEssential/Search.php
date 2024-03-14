@@ -66,6 +66,16 @@ class Search extends Base implements Shortcodes
 	{
 
 		$this->start_controls_section(
+			'wpe_st_search_content',
+			[
+				'label' => esc_html__('Search Content', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->search_content();
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'wpe_st_input_style',
 			[
 				'label' => esc_html__('Input Field', 'wpessential-elementor-blocks'),
@@ -121,7 +131,189 @@ class Search extends Base implements Shortcodes
 	{
 	}
 
+	private function search_content()
+	{
+		$this->add_control(
+			'wpe_st_skin',
+			[
+				'label' => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'classic',
+				'options' => [
+					'classic' => esc_html__( 'Classic', 'wpessential-elementor-blocks' ),
+					'minimal' => esc_html__( 'Minimal', 'wpessential-elementor-blocks' ),
+					'full_screen' => esc_html__( 'Full Screen', 'wpessential-elementor-blocks' ),
+				],
+				'prefix_class' => 'elementor-search-form--skin-',
+				'render_type' => 'template',
+				'frontend_available' => true,
+			]
+		);
 
+		$this->add_control(
+			'wpe_st_placeholder',
+			[
+				'label' => esc_html__( 'Placeholder', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'separator' => 'before',
+				'default' => esc_html__( 'Search', 'wpessential-elementor-blocks' ) . '...',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_heading_button_content',
+			[
+				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'wpe_st_skin' => 'classic',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_button_type',
+			[
+				'label' => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'icon',
+				'options' => [
+					'icon' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+					'text' => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
+				],
+				'prefix_class' => 'elementor-search-form--button-type-',
+				'render_type' => 'template',
+				'condition' => [
+					'wpe_st_skin' => 'classic',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_button_text',
+			[
+				'label' => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Search', 'wpessential-elementor-blocks' ),
+				'condition' => [
+					'wpe_st_button_type' => 'text',
+					'wpe_st_skin' => 'classic',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_icon',
+			[
+				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'default' => 'search',
+				'options' => [
+					'search' => [
+						'title' => esc_html__( 'Search', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-search',
+					],
+					'arrow' => [
+						'title' => esc_html__( 'Arrow', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-arrow-right',
+					],
+				],
+				'render_type' => 'template',
+				'prefix_class' => 'elementor-search-form--icon-',
+				'condition' => [
+					'wpe_st_button_type' => 'icon',
+					'wpe_st_skin' => 'classic',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_size',
+			[
+				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
+				'default' => [
+					'wpe_st_size' => 50,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .elementor-search-form__submit' => 'min-width: {{SIZE}}{{UNIT}}',
+					'body:not(.rtl) {{WRAPPER}} .elementor-search-form__icon' => 'padding-left: calc({{SIZE}}{{UNIT}} / 3)',
+					'body.rtl {{WRAPPER}} .elementor-search-form__icon' => 'padding-right: calc({{SIZE}}{{UNIT}} / 3)',
+					'{{WRAPPER}} .elementor-search-form__input, {{WRAPPER}}.elementor-search-form--button-type-text .elementor-search-form__submit' => 'padding-left: calc({{SIZE}}{{UNIT}} / 3); padding-right: calc({{SIZE}}{{UNIT}} / 3)',
+				],
+				'condition' => [
+					'wpe_st_skin!' => 'full_screen',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_toggle_button_content',
+			[
+				'label' => esc_html__( 'Toggle', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'wpe_st_skin' => 'full_screen',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_toggle_align',
+			[
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'default' => 'center',
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-h-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-h-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-search-form' => 'text-align: {{VALUE}}',
+				],
+				'condition' => [
+					'wpe_st_skin' => 'full_screen',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_toggle_size',
+			[
+				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'wpe_st_size' => 33,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-search-form__toggle' => '--e-search-form-toggle-size: {{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'wpe_st_skin' => 'full_screen',
+				],
+			]
+		);
+
+	
+	}
 
 	private function input_style()
 	{
@@ -1117,8 +1309,6 @@ normal and hover*/
 
 	}
 
-
-
 	// If the user select to display the icon button it will show text biutton cntrols icon_button_style()
 
 	private function icon_button_style()
@@ -1516,8 +1706,5 @@ normal and hover*/
 		$this->end_controls_tab();
 		$this->end_controls_tabs(); // the tab in which normal and hover are present .that tab ends here
 	}
-
-
-
 
 }

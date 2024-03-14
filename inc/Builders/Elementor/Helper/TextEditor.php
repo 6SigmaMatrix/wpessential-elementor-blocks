@@ -2299,7 +2299,7 @@ trait TextEditor
 			]
 		);
             $this->add_control(
-                'h5_heading',
+                'h6_heading',
                 [
                     'label' => esc_html__( 'Heading 6 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,

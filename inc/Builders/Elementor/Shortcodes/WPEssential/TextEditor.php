@@ -16,11 +16,13 @@ use WPEssential\Plugins\Builders\Fields\Switcher;
 use WPEssential\Plugins\Builders\Fields\Wysiwyg;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-//use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper\TextEditor;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper\TextEditor as Text;
 use function defined;
 
 class TextEditor extends Base implements Shortcodes
 {
+	use Text; 
+	
 	/**
 	 * Set widget skings.
 	 *
@@ -57,8 +59,11 @@ class TextEditor extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
+
 	public function register_controls ()
 	{
+		$text = new TextEditor();
+
 		$this->start_controls_section(
 			'wpe_st_content',
 			[
@@ -124,6 +129,30 @@ class TextEditor extends Base implements Shortcodes
 		);
 
 		$this->end_controls_section();
+		
+		$text->anchor_style();
+		$text->paragraph_style();
+		$text->button_style();
+		$text->heading_1_style();
+		$text->heading_2_style();
+		$text->heading_3_style();
+		$text->heading_4_style();
+		$text->heading_5_style();
+		$text->heading_6_style();
+		$text->pre_tag_style();
+		$text->data_list_style();
+		$text->order_list_style();
+		$text->unorder_list_style();
+		$text->address_style();
+		$text->fig_caption_style();
+		$text->sub_script_style();
+		$text->super_script_style();
+		$text->audio_style();
+		$text->video_style();
+		$text->block_qoute_style();
+		$text->hr_style();
+		$text->table_style
+		();
 		
 
 	

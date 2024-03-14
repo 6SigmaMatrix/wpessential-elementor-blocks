@@ -168,25 +168,25 @@ class Lists extends Base implements Shortcodes
 		$repeater->add_control(
 			'wpe_st_show_image',
 			[
-				'label' => esc_html__( 'Show Image', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Show Image', 'wpessential-elementor-blocks'),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
 		);
-		
+
 		$repeater->add_control(
 			'wpe_st_image',
 			[
-				'label' => esc_html__( 'Choose Image', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Choose Image', 'wpessential-elementor-blocks'),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
 				],
 				'condition' => [
-					'wpe_st_show_image' => 'yes', 
+					'wpe_st_show_image' => 'yes',
 				],
 			]
 		);
@@ -250,12 +250,10 @@ class Lists extends Base implements Shortcodes
 			]
 		);
 
-		
+
 	}
 	public function list_style()
 	{
-
-
 		$this->add_responsive_control(
 			'wpe_st_list_space_between_normal',
 			[

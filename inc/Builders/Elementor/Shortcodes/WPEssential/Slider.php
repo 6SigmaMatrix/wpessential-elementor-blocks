@@ -66,6 +66,9 @@ class Slider extends Base implements Shortcodes
 	public function register_controls()
 	{
 
+		
+		$this->slider_content();
+	
 		$this->start_controls_section(
 			'wpe_st_image_style',
 			[
@@ -134,6 +137,395 @@ class Slider extends Base implements Shortcodes
 	}
 
 
+
+	private function slider_content( ) {
+		$this->start_controls_section(
+			'wpe_st_slider_content',
+			[
+				'label' => esc_html__('contnt', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_CONTENT
+			]
+		);
+		$this->add_control(
+			'wpe_st_skin',
+			[
+				'label' => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'carousel',
+				'options' => [
+					'carousel' => esc_html__( 'Carousel', 'wpessential-elementor-blocks' ),
+					'slideshow' => esc_html__( 'Slideshow', 'wpessential-elementor-blocks' ),
+					'coverflow' => esc_html__( 'Coverflow', 'wpessential-elementor-blocks' ),
+				],
+				'prefix_class' => 'elementor-skin-',
+				'render_type' => 'template',
+				'frontend_available' => true,
+			]
+		);
+
+		$repeater = new \Elementor\Repeater();
+		
+		$repeater->add_control(
+			'wpe_st_type',
+			[
+				'type' => Controls_Manager::CHOOSE,
+				'label' => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
+				'default' => 'image',
+				'options' => [
+					'image' => [
+						'title' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-image-bold',
+					],
+					'video' => [
+						'title' => esc_html__( 'Video', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-video-camera',
+					],
+				],
+				'toggle' => false,
+			]
+		);
+
+		$repeater->add_control(
+			'wpe_st_image',
+			[
+				'label' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'wpe_st_image_link_to_type',
+			[
+				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'file' => esc_html__( 'Media File', 'wpessential-elementor-blocks' ),
+					'custom' => esc_html__( 'Custom URL', 'wpessential-elementor-blocks' ),
+				],
+				'condition' => [
+					'wpe_st_type' => 'image',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'wpe_st_image_link_to',
+			[
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'placeholder' => esc_html__( 'https://your-link.com', 'wpessential-elementor-blocks' ),
+				'show_external' => 'true',
+				'condition' => [
+					'wpe_st_type' => 'image',
+					'wpe_st_image_link_to_type' => 'custom',
+				],
+				'separator' => 'none',
+				'show_label' => false,
+			]
+		);
+
+		$repeater->add_control(
+			'wpe_st_video',
+			[
+				'label' => esc_html__( 'Video Link', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'placeholder' => esc_html__( 'Enter your video link', 'wpessential-elementor-blocks' ),
+				'description' => esc_html__( 'YouTube or Vimeo link', 'wpessential-elementor-blocks' ),
+				'options' => false,
+				'condition' => [
+					'wpe_st_type' => 'video',
+				],
+			]
+		);
+
+		
+		$this->add_control(
+			'wpe_st_slider_slides',
+			[
+				'label' => esc_html__( 'Slides', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'wpe_st_type' => 'image', // Added default value for wpe_st_type
+						'slide' => 'slide #1',
+					],
+					[
+						'wpe_st_type' => 'image', // Added default value for wpe_st_type
+						'slide' => 'slide #2',
+					],
+					[
+						'wpe_st_type' => 'image', // Added default value for wpe_st_type
+						'slide' => 'slide #3',
+					],
+				],
+				'title_field' => '{{{ wpe_st_type}}}',
+			]
+		);
+
+		// Slideshow
+
+		$this->start_injection( [
+			'of' => 'wpe_st_effect',
+		] );
+
+		$this->add_responsive_control(
+			'slideshow_height',
+			[
+				'type' => Controls_Manager::SLIDER,
+				'label' => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
+				'size_units' => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'range' => [
+					'px' => [
+						'min' => 20,
+						'max' => 1000,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'wpe_st_skin' => 'slideshow',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_thumbs_title',
+			[
+				'label' => esc_html__( 'Thumbnails', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HEADING,
+				'condition' => [
+					'wpe_st_skin' => 'slideshow',
+				],
+			]
+		);
+
+		$this->end_injection();
+
+		$this->start_injection( [
+			'of' => 'wpe_st_slides_per_view',
+		] );
+
+		$this->add_control(
+			'wpe_st_thumbs_ratio',
+			[
+				'label' => esc_html__( 'Ratio', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'169' => '16:9',
+					'219' => '21:9',
+					'43' => '4:3',
+					'11' => '1:1',
+				],
+				'selectors_dictionary' => [
+					'169' => '16 / 9',
+					'219' => '21 / 9',
+					'43' => '4 / 3',
+					'11' => '1 / 1',
+				],
+				'default' => '219',
+				'condition' => [
+					'wpe_st_skin' => 'slideshow',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-thumbnails-swiper .elementor-carousel-image' => 'aspect-ratio: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_centered_slides',
+			[
+				'label' => esc_html__( 'Centered Slides', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'condition' => [
+					'wpe_st_skin' => 'slideshow',
+				],
+				'frontend_available' => true,
+			]
+		);
+		
+		$this->end_injection();
+
+		$this->start_injection( [
+			'of' => 'wpe_st_slides_per_view',
+		] );
+
+		$slides_per_view = range( 1, 10 );
+
+		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+
+		$this->add_responsive_control(
+			'wpe_st_slideshow_slides_per_view',
+			[
+				'type' => Controls_Manager::SELECT,
+				'label' => esc_html__( 'Slides Per View', 'wpessential-elementor-blocks' ),
+				'options' => [ '' => esc_html__( 'Default', 'wpessential-elementor-blocks' ) ] + $slides_per_view,
+				'condition' => [
+					'wpe_st_skin' => 'slideshow',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->end_injection();
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'wpe_st_section_additional_options',
+			[
+				'label' => esc_html__( 'Additional Options', 'wpessential-elementor-blocks' ),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_arrows',
+			[
+				'type' => Controls_Manager::SWITCHER,
+				'label' => esc_html__( 'Arrows', 'wpessential-elementor-blocks' ),
+				'default' => 'yes',
+				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'prefix_class' => 'elementor-arrows-',
+				'render_type' => 'template',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_pagination',
+			[
+				'label' => esc_html__( 'Pagination', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'bullets',
+				'options' => [
+					'' => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'bullets' => esc_html__( 'Dots', 'wpessential-elementor-blocks' ),
+					'fraction' => esc_html__( 'Fraction', 'wpessential-elementor-blocks' ),
+					'progressbar' => esc_html__( 'Progress', 'wpessential-elementor-blocks' ),
+				],
+				'prefix_class' => 'elementor-pagination-type-',
+				'render_type' => 'template',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_speed',
+			[
+				'label' => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 500,
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_autoplay',
+			[
+				'label' => esc_html__( 'Autoplay', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'separator' => 'before',
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_autoplay_speed',
+			[
+				'label' => esc_html__( 'Autoplay Speed', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 5000,
+				'condition' => [
+					'wpe_st_autoplay' => 'yes',
+				],
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_loop',
+			[
+				'label' => esc_html__( 'Infinite Loop', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_pause_on_hover',
+			[
+				'label' => esc_html__( 'Pause on Hover', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_autoplay' => 'yes',
+				],
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_pause_on_interaction',
+			[
+				'label' => esc_html__( 'Pause on Interaction', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_autoplay' => 'yes',
+				],
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'wpe_st_image_size',
+				'default' => 'full',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_lazyload',
+			[
+				'label' => esc_html__( 'Lazyload', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SWITCHER,
+				'separator' => 'before',
+				'frontend_available' => true,
+			]
+		);
+		$this->end_controls_section();
+
+
+
+	
+
+
+
+
+
+
+
+	}
 
 	private function image_style()
 	{
@@ -2145,7 +2537,7 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_pagination_active_color',
 			[
-				'label' => esc_html__('Active Color', 'elementor-pro'),
+				'label' => esc_html__('Active Color', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .swiper-pagination-bullet-active, {{WRAPPER}} .swiper-pagination-progressbar-fill' => 'background-color: {{VALUE}}',

@@ -5,7 +5,7 @@ namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEs
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-
+use Elementor\Modules\DynamicTags\Module as TagsModule;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
 use function defined;
@@ -63,6 +63,10 @@ class Video extends Base implements Shortcodes
 	public function register_controls()
 	{
 
+		
+		$this->video_content();
+	
+
 		$this->start_controls_section(
 			'wpe_st_video_style',
 			[
@@ -86,6 +90,630 @@ class Video extends Base implements Shortcodes
 	{
 	}
 
+	private function video_content()
+	{
+		$this->start_controls_section(
+			'wpe_st_video_content',
+			[
+				'label' => esc_html__('Video Content', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->add_control(
+			'wpe_st_video_type',
+			[
+				'label' => esc_html__( 'Source', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'youtube',
+				'options' => [
+					'youtube' => esc_html__( 'YouTube', 'elementor' ),
+					'vimeo' => esc_html__( 'Vimeo', 'elementor' ),
+					'dailymotion' => esc_html__( 'Dailymotion', 'elementor' ),
+					'videopress' => esc_html__( 'VideoPress', 'elementor' ),
+					'hosted' => esc_html__( 'Self Hosted', 'elementor' ),
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_youtube_url',
+			[
+				'label' => esc_html__( 'Link', 'elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::POST_META_CATEGORY,
+						TagsModule::URL_CATEGORY,
+					],
+				],
+				'placeholder' => esc_html__( 'Enter your URL', 'elementor' ) . ' (YouTube)',
+				'default' => 'https://www.youtube.com/watch?v=XHOmBV4js_E',
+				'label_block' => true,
+				'condition' => [
+					'wpe_st_video_type' => 'youtube',
+				],
+				'ai' => [
+					'active' => false,
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_vimeo_url',
+			[
+				'label' => esc_html__( 'Link', 'elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::POST_META_CATEGORY,
+						TagsModule::URL_CATEGORY,
+					],
+				],
+				'placeholder' => esc_html__( 'Enter your URL', 'elementor' ) . ' (Vimeo)',
+				'default' => 'https://vimeo.com/235215203',
+				'label_block' => true,
+				'condition' => [
+					'wpe_st_video_type' => 'vimeo',
+				],
+				'ai' => [
+					'active' => false,
+				],
+			]
+		);
+
+		$this->add_control(
+			'dailymotion_url',
+			[
+				'label' => esc_html__( 'Link', 'elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::POST_META_CATEGORY,
+						TagsModule::URL_CATEGORY,
+					],
+				],
+				'placeholder' => esc_html__( 'Enter your URL', 'elementor' ) . ' (Dailymotion)',
+				'default' => 'https://www.dailymotion.com/video/x6tqhqb',
+				'label_block' => true,
+				'condition' => [
+					'wpe_st_video_type' => 'dailymotion',
+				],
+				'ai' => [
+					'active' => false,
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_insert_url',
+			[
+				'label' => esc_html__( 'External URL', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'condition' => [
+					'wpe_st_video_type' => [ 'hosted', 'videopress' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_hosted_url',
+			[
+				'label' => esc_html__( 'Choose Video File', 'elementor' ),
+				'type' => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::MEDIA_CATEGORY,
+					],
+				],
+				'media_types' => [
+					'video',
+				],
+				'condition' => [
+					'wpe_st_video_type' => [ 'hosted', 'videopress' ],
+					'wpe_st_insert_url' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_external_url',
+			[
+				'label' => esc_html__( 'URL', 'elementor' ),
+				'type' => Controls_Manager::URL,
+				'autocomplete' => false,
+				'options' => false,
+				'label_block' => true,
+				'show_label' => false,
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::POST_META_CATEGORY,
+						TagsModule::URL_CATEGORY,
+					],
+				],
+				'placeholder' => esc_html__( 'Enter your URL', 'elementor' ),
+				'condition' => [
+					'wpe_st_video_type' => 'hosted',
+					'wpe_st_insert_url' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_videopress_url',
+			[
+				'label' => esc_html__( 'URL', 'elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+				'show_label' => false,
+				'default' => 'https://videopress.com/v/ZCAOzTNk',
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::POST_META_CATEGORY,
+						TagsModule::URL_CATEGORY,
+					],
+				],
+				'placeholder' => esc_html__( 'VideoPress URL', 'elementor' ),
+				'ai' => [
+					'active' => false,
+				],
+				'condition' => [
+					'wpe_st_video_type' => 'videopress',
+					'wpe_st_insert_url' => 'yes',
+				],
+
+			]
+		);
+
+		$this->add_control(
+			'start',
+			[
+				'label' => esc_html__( 'Start Time', 'elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'description' => esc_html__( 'Specify a start time (in seconds)', 'elementor' ),
+				'frontend_available' => true,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'end',
+			[
+				'label' => esc_html__( 'End Time', 'elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'description' => esc_html__( 'Specify an end time (in seconds)', 'elementor' ),
+				'condition' => [
+					'wpe_st_video_type' => [ 'youtube', 'hosted' ],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_video_options',
+			[
+				'label' => esc_html__( 'Video Options', 'elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_autoplay',
+			[
+				'label' => esc_html__( 'Autoplay', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'frontend_available' => true,
+				'conditions' => [
+					'wpe_st_relation' => 'or',
+					'wpe_st_terms' => [
+						[
+							'name' => 'show_image_overlay',
+							'value' => '',
+						],
+						[
+							'name' => 'image_overlay[url]',
+							'value' => '',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_play_on_mobile',
+			[
+				'label' => esc_html__( 'Play On Mobile', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'condition' => [
+					'wpe_st_autoplay' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_mute',
+			[
+				'label' => esc_html__( 'Mute', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'loop',
+			[
+				'label' => esc_html__( 'Loop', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'condition' => [
+					'wpe_st_video_type!' => 'dailymotion',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_controls',
+			[
+				'label' => esc_html__( 'Player Controls', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_video_type!' => 'vimeo',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_showinfo',
+			[
+				'label' => esc_html__( 'Video Info', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_video_type' => [ 'dailymotion' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_modestbranding',
+			[
+				'label' => esc_html__( 'Modest Branding', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'condition' => [
+					'wpe_st_video_type' => [ 'youtube' ],
+					'wpe_st_controls' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_logo',
+			[
+				'label' => esc_html__( 'Logo', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_video_type' => [ 'dailymotion' ],
+				],
+			]
+		);
+
+		// YouTube.
+		$this->add_control(
+			'wpe_st_yt_privacy',
+			[
+				'label' => esc_html__( 'Privacy Mode', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'description' => esc_html__( 'When you turn on privacy mode, YouTube/Vimeo won\'t store information about visitors on your website unless they play the video.', 'elementor' ),
+				'condition' => [
+					'vwpe_st_ideo_type' => [ 'youtube', 'vimeo' ],
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_lazy_load',
+			[
+				'label' => esc_html__( 'Lazy Load', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'conditions' => [
+					'relation' => 'or',
+					'terms' => [
+						[
+							'name' => 'wpe_st_video_type',
+							'operator' => '===',
+							'value' => 'youtube',
+						],
+						[
+							'relation' => 'and',
+							'terms' => [
+								[
+									'name' => 'wpe_st_show_image_overlay',
+									'operator' => '===',
+									'value' => 'yes',
+								],
+								[
+									'name' => 'wpe_st_video_type',
+									'operator' => '!==',
+									'value' => 'hosted',
+								],
+							],
+						],
+					],
+				],
+				'frontend_available' => true,
+			]
+		);
+		$this->add_control(
+			'wpe_st_rel',
+			[
+				'label' => esc_html__( 'Suggested Videos', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => esc_html__( 'Current Video Channel', 'elementor' ),
+					'yes' => esc_html__( 'Any Video', 'elementor' ),
+				],
+				'condition' => [
+					'wpe_st_video_type' => 'youtube',
+				],
+			]
+		);
+
+		// Vimeo.
+		$this->add_control(
+			'wpe_st_vimeo_title',
+			[
+				'label' => esc_html__( 'Intro Title', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_video_type' => 'vimeo',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_vimeo_portrait',
+			[
+				'label' => esc_html__( 'Intro Portrait', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_video_type' => 'vimeo',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_vimeo_byline',
+			[
+				'label' => esc_html__( 'Intro Byline', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'default' => 'yes',
+				'condition' => [
+					'wpe_st_video_type' => 'vimeo',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_color',
+			[
+				'label' => esc_html__( 'Controls Color', 'elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'condition' => [
+					'wpe_st_video_type' => [ 'vimeo', 'dailymotion' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_download_button',
+			[
+				'label' => esc_html__( 'Download Button', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'condition' => [
+					'wpe_st_video_type' => 'hosted',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_preload',
+			[
+				'label' => esc_html__( 'Preload', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'metadata' => esc_html__( 'Metadata', 'elementor' ),
+					'auto' => esc_html__( 'Auto', 'elementor' ),
+					'none' => esc_html__( 'None', 'elementor' ),
+				],
+				'description' => sprintf(
+					esc_html__( 'Preload attribute lets you specify how the video should be loaded when the page loads. %1$sLearn More%2$s', 'elementor' ),
+					'<a target="_blank" href="https://go.elementor.com/preload-video/">',
+					'</a>'
+				),
+				'default' => 'metadata',
+				'condition' => [
+					'wpe_st_video_type' => 'hosted',
+					'wpe_st_autoplay' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_poster',
+			[
+				'label' => esc_html__( 'Poster', 'elementor' ),
+				'type' => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				],
+				'condition' => [
+					'wpe_st_video_type' => 'hosted',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_view',
+			[
+				'label' => esc_html__( 'View', 'elementor' ),
+				'type' => Controls_Manager::HIDDEN,
+				'default' => 'youtube',
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_image_overlay',
+			[
+				'label' => esc_html__( 'Image Overlay', 'elementor' ),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_image_overlay',
+			[
+				'label' => esc_html__( 'Image Overlay', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_image_overlay',
+			[
+				'label' => esc_html__( 'Choose Image', 'elementor' ),
+				'type' => Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+				'dynamic' => [
+					'active' => true,
+				],
+				'condition' => [
+					'wpe_st_show_image_overlay' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'image_overlay', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_overlay_size` and `image_overlay_custom_dimension`.
+				'default' => 'full',
+				'separator' => 'none',
+				'condition' => [
+					'wpe_st_show_image_overlay' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_show_play_icon',
+			[
+				'label' => esc_html__( 'Play Icon', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'label_off' => esc_html__( 'Hide', 'elementor' ),
+				'label_on' => esc_html__( 'Show', 'elementor' ),
+				'separator' => 'before',
+				'condition' => [
+					'show_image_overlay' => 'yes',
+					'image_overlay[url]!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_play_icon',
+			[
+				'label' => esc_html__( 'Icon', 'elementor' ),
+				'type' => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'skin' => 'inline',
+				'label_block' => false,
+				'skin_settings' => [
+					'inline' => [
+						'none' => [
+							'label' => 'Default',
+							'icon' => 'eicon-play',
+						],
+						'icon' => [
+							'icon' => 'eicon-star',
+						],
+					],
+				],
+				'recommended' => [
+					'fa-regular' => [
+						'play-circle',
+					],
+					'fa-solid' => [
+						'play',
+						'play-circle',
+					],
+				],
+				'condition' => [
+					'wpe_st_show_image_overlay' => 'yes',
+					'wpe_st_show_play_icon!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_lightbox',
+			[
+				'label' => esc_html__( 'Lightbox', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'frontend_available' => true,
+				'label_off' => esc_html__( 'Off', 'elementor' ),
+				'label_on' => esc_html__( 'On', 'elementor' ),
+				'condition' => [
+					'wpe_st_show_image_overlay' => 'yes',
+					'wpe_st_image_overlay[url]!' => '',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->end_controls_section();
+
+
+	}
 	private function video_style()
 	{
 		// this will be contain two tabs normal and hover inside

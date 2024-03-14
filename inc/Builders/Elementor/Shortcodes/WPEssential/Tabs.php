@@ -51,7 +51,7 @@ class Tabs extends Base implements Shortcodes
 
 	public function get_title ()
 	{
-		return esc_html__( 'Tabsooo', 'wpessential-elementor-blocks' );
+		return esc_html__( 'Tabs', 'wpessential-elementor-blocks' );
 	}
 
 	/**
@@ -65,6 +65,16 @@ class Tabs extends Base implements Shortcodes
 	public function register_controls ()
 	{
 		$this->start_controls_section(
+			'wpe_st_tabs',
+			[
+				'label' => esc_html__( 'Tabs Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->tabs_content();
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'wpe_st_tabs_style',
 			[
 				'label' => esc_html__( 'Tabs', 'wpessential-elementor-blocks' ),
@@ -74,10 +84,11 @@ class Tabs extends Base implements Shortcodes
 		$this->tabs_style();
 		$this->end_controls_section();
 
+
 		$this->start_controls_section(
 			'wpe_st_title_style',
 			[
-				'label' => esc_html__( 'titlte', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -104,6 +115,158 @@ class Tabs extends Base implements Shortcodes
 		$this->icon_style();
 		$this->end_controls_section();
 
+
+	}
+
+	private function tabs_content ()
+	{
+		$start = is_rtl() ? 'end' : 'start';
+		$end = is_rtl() ? 'start' : 'end';
+		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'wpe_st_tab_title',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Tab Title', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__( 'Tab Title', 'wpessential-elementor-blocks' ),
+				'label_block' => true,
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'wpe_st_tab_content',
+			[
+				'label' => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
+				'default' => esc_html__( 'Tab Content', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__( 'Tab Content', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::WYSIWYG,
+			]
+		);
+
+		// $is_nested_tabs_active = Plugin::$instance->widgets_manager->get_widget_types( 'nested-tabs' );
+
+		// if ( $is_nested_tabs_active ) {
+		// 	$this->add_deprecation_message(
+		// 		'3.8.0',
+		// 		esc_html__(
+		// 			'You are currently editing a Tabs Widget in its old version. Any new tabs widget dragged into the canvas will be the new Tab widget, with the improved Nested capabilities.',
+		// 			'wpessential-elementor-blocks'
+		// 		),
+		// 		'nested-tabs'
+		// 	);
+		// }
+
+		$this->add_control(
+			'wpe_st_tabs_content',
+			[
+				'label' => esc_html__( 'Tabs Items', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'tab_title' => esc_html__( 'Tab #1', 'wpessential-elementor-blocks' ),
+						'tab_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
+					],
+					[
+						'tab_title' => esc_html__( 'Tab #2', 'wpessential-elementor-blocks' ),
+						'tab_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
+					],
+				],
+				'title_field' => '{{{ wpe_st_tab_title }}}',
+			]
+		);
+
+		
+		
+
+		$this->add_control(
+			'wpe_st_view',
+			[
+				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::HIDDEN,
+				'default' => 'traditional',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_type',
+			[
+				'label' => esc_html__( 'Position', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'horizontal',
+				'options' => [
+					'horizontal' => esc_html__( 'Horizontal', 'wpessential-elementor-blocks' ),
+					'vertical' => esc_html__( 'Vertical', 'wpessential-elementor-blocks' ),
+				],
+				'prefix_class' => 'elementor-tabs-view-',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_tabs_align_horizontal',
+			[
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'' => [
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
+						'icon' => "eicon-align-$start-h",
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-align-center-h',
+					],
+					'end' => [
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
+						'icon' => "eicon-align-$end-h",
+					],
+					'stretch' => [
+						'title' => esc_html__( 'Stretch', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-align-stretch-h',
+					],
+				],
+				'prefix_class' => 'elementor-tabs-alignment-',
+				'condition' => [
+					'wpe_st_type' => 'horizontal',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_tabs_align_vertical',
+			[
+				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'' => [
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-align-start-v',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-align-center-v',
+					],
+					'end' => [
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-align-end-v',
+					],
+					'stretch' => [
+						'title' => esc_html__( 'Stretch', 'wpessential-elementor-blocks' ),
+						'icon' => 'eicon-align-stretch-v',
+					],
+				],
+				'prefix_class' => 'elementor-tabs-alignment-',
+				'condition' => [
+					'wpe_st_type' => 'vertical',
+				],
+			]
+		);
 
 	}
 
