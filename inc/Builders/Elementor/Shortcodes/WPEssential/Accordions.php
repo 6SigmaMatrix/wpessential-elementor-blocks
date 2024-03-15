@@ -73,8 +73,43 @@ class Accordions extends Base implements Shortcodes
 		);
 		$this->accordion_content_tab();
 		$this->end_controls_section();
+		$this->start_controls_section(
+			'wpe_st_accordion_style_tab',
+			[
+				'label' => esc_html__( 'Accordion', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->accordion_style();
+		$this->end_controls_section();
 
-		$accordions->anchor_style('ert','tuyt',false);
+		$this->start_controls_section(
+			'wpe_st_title_style',
+			[
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->title_style();
+		$this->end_controls_section();
+		$this->start_controls_section(
+			'wpe_st_icon_style',
+			[
+				'label' => esc_html__( 'Iocn', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->icon_style();
+		$this->end_controls_section();
+		$this->start_controls_section(
+			'wpe_st_content_style',
+			[
+				'label' => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->content_style();
+		$this->end_controls_section();
 
 	
 
@@ -205,7 +240,7 @@ class Accordions extends Base implements Shortcodes
 		
 
 
-		$this->end_controls_section();
+		
 
 
 	}

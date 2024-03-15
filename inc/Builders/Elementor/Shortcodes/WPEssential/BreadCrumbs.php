@@ -60,6 +60,27 @@ class BreadCrumbs extends Base implements Shortcodes
 	public function register_controls () {
 
 		$this->start_controls_section(
+			'wpe_st_breadcrumb_content',
+			[
+				'label' => esc_html__('Breadcrumb Content', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->add_control(
+            "wpe_st_breadcrumb_html_tag",
+            [
+                'label' => esc_html__('HTML tags', 'wpessential-elementor-blocks'),
+                'type' => Controls_Manager::SELECT,
+                'options' => wpe_heading_tags (),
+                'default' => 'none',
+                // 'selectors' => [
+                //     "{{WRAPPER}} {$css_selector}"  => 'text-decoration: {{VALUE}};',
+                // ]
+            ]
+        );
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'wpe_st_breadcrumb_style',
 			[
 				'label' => esc_html__('Breadcrumb', 'wpessential-elementor-blocks'),

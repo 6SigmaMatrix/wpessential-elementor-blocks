@@ -142,7 +142,7 @@ class Slider extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_slider_content',
 			[
-				'label' => esc_html__('contnt', 'wpessential-elementor-blocks'),
+				'label' => esc_html__('Content', 'wpessential-elementor-blocks'),
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);

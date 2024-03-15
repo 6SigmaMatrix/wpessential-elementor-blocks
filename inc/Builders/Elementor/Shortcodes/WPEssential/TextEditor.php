@@ -151,8 +151,7 @@ class TextEditor extends Base implements Shortcodes
 		$text->video_style();
 		$text->block_qoute_style();
 		$text->hr_style();
-		$text->table_style
-		();
+		$text->table_style();
 		
 
 	

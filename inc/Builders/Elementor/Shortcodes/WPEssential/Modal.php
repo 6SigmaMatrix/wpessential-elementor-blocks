@@ -69,6 +69,16 @@ class Modal extends Base implements Shortcodes
 
 		
 		$this->start_controls_section(
+			'wpe_st_modal content',
+			[
+				'label' => esc_html__('Modal Content', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		$this->modal_content();
+		$this->end_controls_section();
+		
+		$this->start_controls_section(
 			'wpe_st_trigger_style',
 			[
 				'label' => esc_html__('Trigger', 'wpessential-elementor-blocks'),
@@ -142,6 +152,188 @@ class Modal extends Base implements Shortcodes
 	public function render () {}
 
 
+
+	private function modal_content()
+	{
+		
+
+		$this->add_control(
+			'wpe_st_button_heading',
+			[
+				'label' => esc_html__('Button', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'seperator'=> 'before',
+
+			],
+		);
+		$this->add_control(
+			'wpe_st_wpe_st_button_title',
+			[
+				'label' => esc_html__('Button', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Button', 'wpessential-elementor-blocks'),
+				'placeholder' => esc_html__('Button title', 'wpessential-elementor-blocks'),
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_align',
+			[
+				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__('Center', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__('Right', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => esc_html__('Justified', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				'prefix_class' => 'elementor%s-align-',
+				'default' => 'left',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_button_css_id',
+			[
+				'label' => esc_html__('Button ID', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
+				],
+				'default' => '',
+				'title' => esc_html__('Add your custom id WITHOUT the Pound key. e.g: my-id', 'wpessential-elementor-blocks'),
+				'description' => sprintf(
+					esc_html__('Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows %1$sA-z 0-9%2$s & underscore chars without spaces.', 'wpessential-elementor-blocks'),
+					'<code>',
+					'</code>'
+				),
+				'separator' => 'before',
+			]
+		);
+		$this->add_control(
+			'wpe_st_icon',
+			[
+				'label' => esc_html__('Icon', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'seperator'=> 'before',
+
+			],
+		);
+		// Icon Control
+		$this->add_control(
+			'wpe_st_selected_icon',
+			[
+				'label' => esc_html__('Icon', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'skin' => 'inline',
+				'label_block' => false,
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_icon_align',
+			[
+				'label' => esc_html__('Icon Position', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left' => esc_html__('Before', 'wpessential-elementor-blocks'),
+					'right' => esc_html__('After', 'wpessential-elementor-blocks'),
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_icon_indent',
+			[
+				'label' => esc_html__('Icon Spacing', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wpe-popup-btn span' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_control(
+			'wpe_st_view',
+			[
+				'label' => esc_html__('View', 'elementor'),
+				'type' => \Elementor\Controls_Manager::HIDDEN,
+				'default' => 'traditional',
+			]
+		);
+
+		
+
+		$this->add_control(
+			'wpe_st_popup',
+			[
+				'label' => esc_html__('Popup', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'seperator'=> 'before',
+
+			],
+		);
+
+		$this->add_control(
+			'wpe_st_item_description',
+			[
+				'label' => esc_html__('Description', 'wpessential-elemetnor-modal'),
+				'type' => \Elementor\Controls_Manager::WYSIWYG,
+				'rows' => 10,
+				'default' => '<p>Default description</p>',
+				'placeholder' => esc_html__('Type your description here', 'wpessential-elementor-blocks'),
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_media_content',
+			[
+				'label' => esc_html__('Media', 'wpessential-elementor-blocks'),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'seperator'=> 'before',
+			],
+		);
+		
+		
+		$this->add_control(
+			'wpe_st_image',
+			[
+				'label'   => esc_html__( 'Choose Image', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				],
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+	
+		
+		
+
+	}
 
 	private function trigger_style()
 	{

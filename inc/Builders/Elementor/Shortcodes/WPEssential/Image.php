@@ -71,14 +71,14 @@ class Image extends Base implements Shortcodes
    // CONTENT TAB
 
 		$this->start_controls_section(
-			'section_image',
+			'wpe_st_section_image',
 			[
 				'label' => esc_html__( 'Image ', 'wpessential-elementor-blocks' ),
 			]
 		);
 
 		$this->add_control(
-			'image',
+			'wpe_st_image',
 			[
 				'label'   => esc_html__( 'Choose Image', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::MEDIA,
@@ -94,14 +94,14 @@ class Image extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name'      => 'image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
+				'name'      => 'wpe_st_image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
 				'default'   => 'large',
 				'separator' => 'none',
 			]
 		);
 
 		$this->add_responsive_control(
-			'align',
+			'wpe_st_align',
 			[
 				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::CHOOSE,
@@ -126,7 +126,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'caption_source',
+			'wpe_st_caption_source',
 			[
 				'label'   => esc_html__( 'Caption', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
@@ -140,7 +140,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'caption',
+			'wpe_st_caption',
 			[
 				'label'       => esc_html__( 'Custom Caption', 'wpessential-elementor-blocks' ),
 				'type'        => Controls_Manager::TEXT,
@@ -156,7 +156,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'link_to',
+			'wpe_st_link_to',
 			[
 				'label'   => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
@@ -170,7 +170,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'link',
+			'wpe_st_link',
 			[
 				'label'      => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type'       => Controls_Manager::URL,
@@ -185,7 +185,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'open_lightbox',
+			'wpe_st_open_lightbox',
 			[
 				'label'       => esc_html__( 'Lightbox', 'wpessential-elementor-blocks' ),
 				'type'        => Controls_Manager::SELECT,
@@ -208,7 +208,7 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'view',
+			'wpe_st_view',
 			[
 				'label'   => esc_html__( 'View', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::HIDDEN,
