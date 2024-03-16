@@ -43,14 +43,9 @@ class Video extends Base implements Shortcodes
 		return ['Video', 'title', 'text'];
 	}
 
-	public function get_icon()
+	public function set_icon()
 	{
 		return 'eicon-slider-video';
-	}
-
-	public function get_keywords()
-	{
-		return ['video', 'player', 'embed', 'youtube', 'vimeo', 'dailymotion', 'videopress'];
 	}
 	/**
 	 * Register widget controls.
@@ -63,19 +58,9 @@ class Video extends Base implements Shortcodes
 	public function register_controls()
 	{
 
-		
-		//$this->video_content();
-	
+		$this->video_content();
 
-		$this->start_controls_section(
-			'wpe_st_video_style',
-			[
-				'label' => esc_html__('Video', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->video_style();
-		$this->end_controls_section();
+		$this->video_style(); // Add this line to include the controls for video style
 	}
 
 	/**
@@ -91,7 +76,7 @@ class Video extends Base implements Shortcodes
 	}
 
 	private function video_content()
-	{   
+	{
 		$this->start_controls_section(
 			'wpe_st_video_content',
 			[
@@ -102,15 +87,15 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_type',
 			[
-				'label' => esc_html__( 'Source', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Source', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'youtube',
 				'options' => [
-					'youtube' => esc_html__( 'YouTube', 'wpessential-elementor-blocks' ),
-					'vimeo' => esc_html__( 'Vimeo', 'wpessential-elementor-blocks' ),
-					'dailymotion' => esc_html__( 'Dailymotion', 'wpessential-elementor-blocks' ),
-					'videopress' => esc_html__( 'VideoPress', 'wpessential-elementor-blocks' ),
-					'hosted' => esc_html__( 'Self Hosted', 'wpessential-elementor-blocks' ),
+					'youtube' => esc_html__('YouTube', 'wpessential-elementor-blocks'),
+					'vimeo' => esc_html__('Vimeo', 'wpessential-elementor-blocks'),
+					'dailymotion' => esc_html__('Dailymotion', 'wpessential-elementor-blocks'),
+					'videopress' => esc_html__('VideoPress', 'wpessential-elementor-blocks'),
+					'hosted' => esc_html__('Self Hosted', 'wpessential-elementor-blocks'),
 				],
 				'frontend_available' => true,
 			]
@@ -119,16 +104,16 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_youtube_url',
 			[
-				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Link', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
-					'categories' => [
-						TagsModule::POST_META_CATEGORY,
-						TagsModule::URL_CATEGORY,
-					],
+					// 'categories' => [
+					// 	TagsModule::POST_META_CATEGORY,
+					// 	TagsModule::URL_CATEGORY,
+					// ],
 				],
-				'placeholder' => esc_html__( 'Enter your URL', 'wpessential-elementor-blocks' ) . ' (YouTube)',
+				'placeholder' => esc_html__('Enter your URL', 'wpessential-elementor-blocks') . ' (YouTube)',
 				'default' => 'https://www.youtube.com/watch?v=XHOmBV4js_E',
 				'label_block' => true,
 				'condition' => [
@@ -144,16 +129,16 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_vimeo_url',
 			[
-				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Link', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
-					'categories' => [
-						TagsModule::POST_META_CATEGORY,
-						TagsModule::URL_CATEGORY,
-					],
+					// 'categories' => [
+					// 	TagsModule::POST_META_CATEGORY,
+					// 	TagsModule::URL_CATEGORY,
+					// ],
 				],
-				'placeholder' => esc_html__( 'Enter your URL', 'wpessential-elementor-blocks' ) . ' (Vimeo)',
+				'placeholder' => esc_html__('Enter your URL', 'wpessential-elementor-blocks') . ' (Vimeo)',
 				'default' => 'https://vimeo.com/235215203',
 				'label_block' => true,
 				'condition' => [
@@ -166,18 +151,18 @@ class Video extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'dailymotion_url',
+			'wpe_st_dailymotion_url',
 			[
-				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Link', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
-					'categories' => [
-						TagsModule::POST_META_CATEGORY,
-						TagsModule::URL_CATEGORY,
-					],
+					// 'categories' => [
+					// 	TagsModule::POST_META_CATEGORY,
+					// 	TagsModule::URL_CATEGORY,
+					// ],
 				],
-				'placeholder' => esc_html__( 'Enter your URL', 'wpessential-elementor-blocks' ) . ' (Dailymotion)',
+				'placeholder' => esc_html__('Enter your URL', 'wpessential-elementor-blocks') . ' (Dailymotion)',
 				'default' => 'https://www.dailymotion.com/video/x6tqhqb',
 				'label_block' => true,
 				'condition' => [
@@ -192,10 +177,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_insert_url',
 			[
-				'label' => esc_html__( 'External URL', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('External URL', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
-					'wpe_st_video_type' => [ 'hosted', 'videopress' ],
+					'wpe_st_video_type' => ['hosted', 'videopress'],
 				],
 			]
 		);
@@ -203,19 +188,19 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_hosted_url',
 			[
-				'label' => esc_html__( 'Choose Video File', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Choose Video File', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
-					'categories' => [
-						TagsModule::MEDIA_CATEGORY,
-					],
+					// 'categories' => [
+					// 	TagsModule::MEDIA_CATEGORY,
+					// ],
 				],
 				'media_types' => [
 					'video',
 				],
 				'condition' => [
-					'wpe_st_video_type' => [ 'hosted', 'videopress' ],
+					'wpe_st_video_type' => ['hosted', 'videopress'],
 					'wpe_st_insert_url' => '',
 				],
 			]
@@ -224,7 +209,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_external_url',
 			[
-				'label' => esc_html__( 'URL', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('URL', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::URL,
 				'autocomplete' => false,
 				'options' => false,
@@ -232,12 +217,12 @@ class Video extends Base implements Shortcodes
 				'show_label' => false,
 				'dynamic' => [
 					'active' => true,
-					'categories' => [
-						TagsModule::POST_META_CATEGORY,
-						TagsModule::URL_CATEGORY,
-					],
+					// 'categories' => [
+					// 	TagsModule::POST_META_CATEGORY,
+					// 	TagsModule::URL_CATEGORY,
+					// ],
 				],
-				'placeholder' => esc_html__( 'Enter your URL', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__('Enter your URL', 'wpessential-elementor-blocks'),
 				'condition' => [
 					'wpe_st_video_type' => 'hosted',
 					'wpe_st_insert_url' => 'yes',
@@ -248,19 +233,19 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_videopress_url',
 			[
-				'label' => esc_html__( 'URL', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('URL', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'show_label' => false,
 				'default' => 'https://videopress.com/v/ZCAOzTNk',
 				'dynamic' => [
 					'active' => true,
-					'categories' => [
-						TagsModule::POST_META_CATEGORY,
-						TagsModule::URL_CATEGORY,
-					],
+					// 'categories' => [
+					// 	TagsModule::POST_META_CATEGORY,
+					// 	TagsModule::URL_CATEGORY,
+					// ],
 				],
-				'placeholder' => esc_html__( 'VideoPress URL', 'wpessential-elementor-blocks' ),
+				'placeholder' => esc_html__('VideoPress URL', 'wpessential-elementor-blocks'),
 				'ai' => [
 					'active' => false,
 				],
@@ -273,24 +258,24 @@ class Video extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'start',
+			'wpe_st_start',
 			[
-				'label' => esc_html__( 'Start Time', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Start Time', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::NUMBER,
-				'description' => esc_html__( 'Specify a start time (in seconds)', 'wpessential-elementor-blocks' ),
+				'description' => esc_html__('Specify a start time (in seconds)', 'wpessential-elementor-blocks'),
 				'frontend_available' => true,
 				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
-			'end',
+			'wpe_st_end',
 			[
-				'label' => esc_html__( 'End Time', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('End Time', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::NUMBER,
-				'description' => esc_html__( 'Specify an end time (in seconds)', 'wpessential-elementor-blocks' ),
+				'description' => esc_html__('Specify an end time (in seconds)', 'wpessential-elementor-blocks'),
 				'condition' => [
-					'wpe_st_video_type' => [ 'youtube', 'hosted' ],
+					'wpe_st_video_type' => ['youtube', 'hosted'],
 				],
 				'frontend_available' => true,
 			]
@@ -299,7 +284,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_video_options',
 			[
-				'label' => esc_html__( 'Video Options', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Video Options', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -308,12 +293,12 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_autoplay',
 			[
-				'label' => esc_html__( 'Autoplay', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Autoplay', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
 				'conditions' => [
-					'wpe_st_relation' => 'or',
-					'wpe_st_terms' => [
+					'relation' => 'or',
+					'terms' => [
 						[
 							'name' => 'wpe_st_show_image_overlay',
 							'value' => '',
@@ -330,7 +315,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_play_on_mobile',
 			[
-				'label' => esc_html__( 'Play On Mobile', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Play On Mobile', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
 					'wpe_st_autoplay' => 'yes',
@@ -342,16 +327,16 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_mute',
 			[
-				'label' => esc_html__( 'Mute', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Mute', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
 			]
 		);
 
 		$this->add_control(
-			'loop',
+			'wpe_st_loop',
 			[
-				'label' => esc_html__( 'Loop', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Loop', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
 					'wpe_st_video_type!' => 'dailymotion',
@@ -363,10 +348,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_controls',
 			[
-				'label' => esc_html__( 'Player Controls', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Player Controls', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 				'condition' => [
 					'wpe_st_video_type!' => 'vimeo',
@@ -378,13 +363,13 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_showinfo',
 			[
-				'label' => esc_html__( 'Video Info', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Video Info', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 				'condition' => [
-					'wpe_st_video_type' => [ 'dailymotion' ],
+					'wpe_st_video_type' => ['dailymotion'],
 				],
 			]
 		);
@@ -392,10 +377,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_modestbranding',
 			[
-				'label' => esc_html__( 'Modest Branding', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Modest Branding', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
-					'wpe_st_video_type' => [ 'youtube' ],
+					'wpe_st_video_type' => ['youtube'],
 					'wpe_st_controls' => 'yes',
 				],
 				'frontend_available' => true,
@@ -405,13 +390,13 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_logo',
 			[
-				'label' => esc_html__( 'Logo', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Logo', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 				'condition' => [
-					'wpe_st_video_type' => [ 'dailymotion' ],
+					'wpe_st_video_type' => ['dailymotion'],
 				],
 			]
 		);
@@ -420,11 +405,11 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_yt_privacy',
 			[
-				'label' => esc_html__( 'Privacy Mode', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Privacy Mode', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'description' => esc_html__( 'When you turn on privacy mode, YouTube/Vimeo won\'t store information about visitors on your website unless they play the video.', 'wpessential-elementor-blocks' ),
+				'description' => esc_html__('When you turn on privacy mode, YouTube/Vimeo won\'t store information about visitors on your website unless they play the video.', 'wpessential-elementor-blocks'),
 				'condition' => [
-					'vwpe_st_ideo_type' => [ 'youtube', 'vimeo' ],
+					'vwpe_st_ideo_type' => ['youtube', 'vimeo'],
 				],
 				'frontend_available' => true,
 			]
@@ -433,7 +418,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_lazy_load',
 			[
-				'label' => esc_html__( 'Lazy Load', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Lazy Load', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'conditions' => [
 					'relation' => 'or',
@@ -463,14 +448,15 @@ class Video extends Base implements Shortcodes
 				'frontend_available' => true,
 			]
 		);
+
 		$this->add_control(
 			'wpe_st_rel',
 			[
-				'label' => esc_html__( 'Suggested Videos', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Suggested Videos', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Current Video Channel', 'wpessential-elementor-blocks' ),
-					'yes' => esc_html__( 'Any Video', 'wpessential-elementor-blocks' ),
+					'' => esc_html__('Current Video Channel', 'wpessential-elementor-blocks'),
+					'yes' => esc_html__('Any Video', 'wpessential-elementor-blocks'),
 				],
 				'condition' => [
 					'wpe_st_video_type' => 'youtube',
@@ -482,10 +468,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_vimeo_title',
 			[
-				'label' => esc_html__( 'Intro Title', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Intro Title', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 				'condition' => [
 					'wpe_st_video_type' => 'vimeo',
@@ -496,10 +482,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_vimeo_portrait',
 			[
-				'label' => esc_html__( 'Intro Portrait', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Intro Portrait', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 				'condition' => [
 					'wpe_st_video_type' => 'vimeo',
@@ -510,10 +496,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_vimeo_byline',
 			[
-				'label' => esc_html__( 'Intro Byline', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Intro Byline', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 				'condition' => [
 					'wpe_st_video_type' => 'vimeo',
@@ -524,11 +510,11 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_color',
 			[
-				'label' => esc_html__( 'Controls Color', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Controls Color', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
-					'wpe_st_video_type' => [ 'vimeo', 'dailymotion' ],
+					'wpe_st_video_type' => ['vimeo', 'dailymotion'],
 				],
 			]
 		);
@@ -536,10 +522,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_download_button',
 			[
-				'label' => esc_html__( 'Download Button', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Download Button', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'condition' => [
 					'wpe_st_video_type' => 'hosted',
 				],
@@ -549,15 +535,15 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_preload',
 			[
-				'label' => esc_html__( 'Preload', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Preload', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'metadata' => esc_html__( 'Metadata', 'wpessential-elementor-blocks' ),
-					'auto' => esc_html__( 'Auto', 'wpessential-elementor-blocks' ),
-					'none' => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'metadata' => esc_html__('Metadata', 'wpessential-elementor-blocks'),
+					'auto' => esc_html__('Auto', 'wpessential-elementor-blocks'),
+					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
 				],
 				'description' => sprintf(
-					esc_html__( 'Preload attribute lets you specify how the video should be loaded when the page loads. %1$sLearn More%2$s', 'wpessential-elementor-blocks' ),
+					esc_html__('Preload attribute lets you specify how the video should be loaded when the page loads. %1$sLearn More%2$s', 'wpessential-elementor-blocks'),
 					'<a target="_blank" href="https://go.elementor.com/preload-video/">',
 					'</a>'
 				),
@@ -572,7 +558,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_poster',
 			[
-				'label' => esc_html__( 'Poster', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Poster', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -586,7 +572,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_view',
 			[
-				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('View', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'youtube',
 			]
@@ -595,9 +581,9 @@ class Video extends Base implements Shortcodes
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_image_overlay',
+			'wpe_st_section_image_overlay',
 			[
-				'label' => esc_html__( 'Image Overlay', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Image Overlay', 'wpessential-elementor-blocks'),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -605,10 +591,10 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_show_image_overlay',
 			[
-				'label' => esc_html__( 'Image Overlay', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Image Overlay', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'frontend_available' => true,
 			]
 		);
@@ -616,7 +602,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_image_overlay',
 			[
-				'label' => esc_html__( 'Choose Image', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Choose Image', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -634,7 +620,7 @@ class Video extends Base implements Shortcodes
 		$this->add_group_control(
 			\Elementor\Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'image_overlay', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_overlay_size` and `image_overlay_custom_dimension`.
+				'name' => 'wpe_st_image_overlay', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_overlay_size` and `image_overlay_custom_dimension`.
 				'default' => 'full',
 				'separator' => 'none',
 				'condition' => [
@@ -646,15 +632,15 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_show_play_icon',
 			[
-				'label' => esc_html__( 'Play Icon', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Play Icon', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
 				'separator' => 'before',
 				'condition' => [
-					'show_image_overlay' => 'yes',
-					'image_overlay[url]!' => '',
+					'wpe_st_show_image_overlay' => 'yes',
+					'wpe_st_image_overlay[url]!' => '',
 				],
 			]
 		);
@@ -662,7 +648,7 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_play_icon',
 			[
-				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Icon', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'skin' => 'inline',
@@ -697,11 +683,11 @@ class Video extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_lightbox',
 			[
-				'label' => esc_html__( 'Lightbox', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Lightbox', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
-				'label_off' => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
-				'label_on' => esc_html__( 'On', 'wpessential-elementor-blocks' ),
+				'label_off' => esc_html__('Off', 'wpessential-elementor-blocks'),
+				'label_on' => esc_html__('On', 'wpessential-elementor-blocks'),
 				'condition' => [
 					'wpe_st_show_image_overlay' => 'yes',
 					'wpe_st_image_overlay[url]!' => '',
@@ -716,6 +702,15 @@ class Video extends Base implements Shortcodes
 	}
 	private function video_style()
 	{
+
+		$this->start_controls_section(
+			'wpe_st_video_style',
+			[
+				'label' => esc_html__('Video', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
 		// this will be contain two tabs normal and hover inside
 		$this->start_controls_tabs('tabs_video_style');
 		// this is the start of normal tab
@@ -1395,8 +1390,10 @@ class Video extends Base implements Shortcodes
 
 		$this->end_controls_tabs();
 
+
+
+		$this->end_controls_section();
+
 	}
-
-
 
 }

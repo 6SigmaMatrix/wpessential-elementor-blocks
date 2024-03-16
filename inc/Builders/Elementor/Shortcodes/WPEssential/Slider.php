@@ -146,6 +146,7 @@ class Slider extends Base implements Shortcodes
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);
+
 		$this->add_control(
 			'wpe_st_skin',
 			[
@@ -274,9 +275,9 @@ class Slider extends Base implements Shortcodes
 
 		// Slideshow
 
-		$this->start_injection( [
-			'of' => 'wpe_st_effect',
-		] );
+		// $this->start_injection( [
+		// 	'of' => 'wpe_st_effect',
+		// ] );
 
 		$this->add_responsive_control(
 			'slideshow_height',
@@ -310,11 +311,11 @@ class Slider extends Base implements Shortcodes
 			]
 		);
 
-		$this->end_injection();
+		// $this->end_injection();
 
-		$this->start_injection( [
-			'of' => 'wpe_st_slides_per_view',
-		] );
+		// $this->start_injection( [
+		// 	'of' => 'wpe_st_slides_per_view',
+		// ] );
 
 		$this->add_control(
 			'wpe_st_thumbs_ratio',
@@ -355,11 +356,11 @@ class Slider extends Base implements Shortcodes
 			]
 		);
 		
-		$this->end_injection();
+		// $this->end_injection();
 
-		$this->start_injection( [
-			'of' => 'wpe_st_slides_per_view',
-		] );
+		// $this->start_injection( [
+		// 	'of' => 'wpe_st_slides_per_view',
+		// ] );
 
 		$slides_per_view = range( 1, 10 );
 
@@ -371,14 +372,12 @@ class Slider extends Base implements Shortcodes
 				'type' => Controls_Manager::SELECT,
 				'label' => esc_html__( 'Slides Per View', 'wpessential-elementor-blocks' ),
 				'options' => [ '' => esc_html__( 'Default', 'wpessential-elementor-blocks' ) ] + $slides_per_view,
-				'condition' => [
-					'wpe_st_skin' => 'slideshow',
-				],
+				
 				'frontend_available' => true,
 			]
 		);
 
-		$this->end_injection();
+		//$this->end_injection();
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -514,17 +513,6 @@ class Slider extends Base implements Shortcodes
 			]
 		);
 		$this->end_controls_section();
-
-
-
-	
-
-
-
-
-
-
-
 	}
 
 	private function image_style()

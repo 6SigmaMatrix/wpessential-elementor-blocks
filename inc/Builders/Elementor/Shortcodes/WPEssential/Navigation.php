@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -39,12 +39,13 @@ class Navigation extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @public
 	 */
-	public function set_keywords ()
+	public function set_keywords()
 	{
-		return [ 'Navigation', 'title', 'text' ];
+		return ['Navigation', 'title', 'text'];
 	}
 
-	public function get_icon() {
+	public function get_icon()
+	{
 		return 'eicon-navigation-horizontal';
 	}
 
@@ -57,13 +58,14 @@ class Navigation extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls () {
+	public function register_controls()
+	{
 
 		$this->start_controls_section(
 			'wpe_st_navigation_content',
 			[
-				'label' => esc_html__( 'Navigation Content', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_CONTENT,
+				'label' => esc_html__('Navigation Content', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 		$this->navigation_content();
@@ -71,8 +73,8 @@ class Navigation extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_label_style',
 			[
-				'label' => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__('Label', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->label_style();
@@ -81,8 +83,8 @@ class Navigation extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_title_style',
 			[
-				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__('Title', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->title_style();
@@ -91,8 +93,8 @@ class Navigation extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_navigation_icon_style',
 			[
-				'label' => esc_html__( 'Navigation Icons', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__('Navigation Icons', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->navigation_style();
@@ -101,8 +103,8 @@ class Navigation extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_navigation_border_style',
 			[
-				'label' => esc_html__( 'Borders', 'wpessential-elementor-blocks' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__('Borders', 'wpessential-elementor-blocks'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->borders_style();
@@ -120,16 +122,19 @@ class Navigation extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function render () {}
+	public function render()
+	{
+	}
 
-	private function navigation_content(){
+	private function navigation_content()
+	{
 		$this->add_control(
 			'wpe_st_show_label',
 			[
-				'label' => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Label', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 			]
 		);
@@ -137,12 +142,12 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_prev_label',
 			[
-				'label' => esc_html__( 'Previous Label', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Previous Label', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => esc_html__( 'Previous', 'wpessential-elementor-blocks' ),
+				'default' => esc_html__('Previous', 'wpessential-elementor-blocks'),
 				'condition' => [
 					'wpe_st_show_label' => 'yes',
 				],
@@ -152,9 +157,9 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_next_label',
 			[
-				'label' => esc_html__( 'Next Label', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Next Label', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Next', 'wpessential-elementor-blocks' ),
+				'default' => esc_html__('Next', 'wpessential-elementor-blocks'),
 				'condition' => [
 					'wpe_st_show_label' => 'yes',
 				],
@@ -167,10 +172,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_show_arrow',
 			[
-				'label' => esc_html__( 'Arrows', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Arrows', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 			]
 		);
@@ -178,18 +183,18 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_arrow',
 			[
-				'label' => esc_html__( 'Arrows Type', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Arrows Type', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'fa fa-angle-left' => esc_html__( 'Angle', 'wpessential-elementor-blocks' ),
-					'fa fa-angle-double-left' => esc_html__( 'Double Angle', 'wpessential-elementor-blocks' ),
-					'fa fa-chevron-left' => esc_html__( 'Chevron', 'wpessential-elementor-blocks' ),
-					'fa fa-chevron-circle-left' => esc_html__( 'Chevron Circle', 'wpessential-elementor-blocks' ),
-					'fa fa-caret-left' => esc_html__( 'Caret', 'wpessential-elementor-blocks' ),
-					'fa fa-arrow-left' => esc_html__( 'Arrow', 'wpessential-elementor-blocks' ),
-					'fa fa-long-arrow-left' => esc_html__( 'Long Arrow', 'wpessential-elementor-blocks' ),
-					'fa fa-arrow-circle-left' => esc_html__( 'Arrow Circle', 'wpessential-elementor-blocks' ),
-					'fa fa-arrow-circle-o-left' => esc_html__( 'Arrow Circle Negative', 'wpessential-elementor-blocks' ),
+					'fa fa-angle-left' => esc_html__('Angle', 'wpessential-elementor-blocks'),
+					'fa fa-angle-double-left' => esc_html__('Double Angle', 'wpessential-elementor-blocks'),
+					'fa fa-chevron-left' => esc_html__('Chevron', 'wpessential-elementor-blocks'),
+					'fa fa-chevron-circle-left' => esc_html__('Chevron Circle', 'wpessential-elementor-blocks'),
+					'fa fa-caret-left' => esc_html__('Caret', 'wpessential-elementor-blocks'),
+					'fa fa-arrow-left' => esc_html__('Arrow', 'wpessential-elementor-blocks'),
+					'fa fa-long-arrow-left' => esc_html__('Long Arrow', 'wpessential-elementor-blocks'),
+					'fa fa-arrow-circle-left' => esc_html__('Arrow Circle', 'wpessential-elementor-blocks'),
+					'fa fa-arrow-circle-o-left' => esc_html__('Arrow Circle Negative', 'wpessential-elementor-blocks'),
 				],
 				'default' => 'fa fa-angle-left',
 				'condition' => [
@@ -201,81 +206,73 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_show_title',
 			[
-				'label' => esc_html__( 'Post Title', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Post Title', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
+				'label_on' => esc_html__('Show', 'wpessential-elementor-blocks'),
+				'label_off' => esc_html__('Hide', 'wpessential-elementor-blocks'),
 				'default' => 'yes',
 			]
 		);
+
+
+		//Filter out post type without taxonomies
+		$post_type_options = wpe_get_post_types();
+		$post_type_taxonomies = [];
+		foreach ($post_type_options as $post_type => $post_type_label) {
+			$taxonomies = wpe_get_taxonomies(['object_type' => [$post_type]]);
+			if (empty ($taxonomies)) {
+				continue;
+			}
+
+			$post_type_taxonomies[$post_type] = [];
+			foreach ($taxonomies as $taxonomy => $name) {
+				if ($taxonomy === 'no') {
+					unset($post_type_taxonomies[$post_type], $post_type_options[$post_type]);
+					continue;
+				}
+				$post_type_taxonomies[$post_type][$taxonomy] = $name;
+			}
+		}
 
 		$this->add_control(
-			'wpe_st_show_borders',
+			'wpe_st_in_same_term',
 			[
-				'label' => esc_html__( 'Borders', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
-				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'default' => 'yes',
-				'prefix_class' => 'elementor-post-navigation-borders-',
+				'label' => esc_html__('In same Term', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT2,
+				'options' => $post_type_options,
+				'default' => '',
+				'multiple' => true,
+				'label_block' => true,
+				'description' => esc_html__('Indicates whether next post must be within the same taxonomy term as the current post, this lets you set a taxonomy per each post type', 'wpessential-elementor-blocks'),
 			]
 		);
 
-		// Filter out post type without taxonomies
-		// $post_type_options = [];
-		// $post_type_taxonomies = [];
-		// foreach ( \Elementor\Utils::get_public_post_types() as $post_type => $post_type_label ) {
-		// 	$taxonomies = Utils::get_taxonomies( [ 'object_type' => $post_type ], false );
-		// 	if ( empty( $taxonomies ) ) {
-		// 		continue;
-		// 	}
-
-		// 	$post_type_options[ $post_type ] = $post_type_label;
-		// 	$post_type_taxonomies[ $post_type ] = [];
-		// 	foreach ( $taxonomies as $taxonomy ) {
-		// 		$post_type_taxonomies[ $post_type ][ $taxonomy->name ] = $taxonomy->label;
-		// 	}
-		// }
-
-		// $this->add_control(
-		// 	'in_same_term',
-		// 	[
-		// 		'label' => esc_html__( 'In same Term', 'wpessential-elementor-blocks' ),
-		// 		'type' => Controls_Manager::SELECT2,
-		// 		'options' => $post_type_options,
-		// 		'default' => '',
-		// 		'multiple' => true,
-		// 		'label_block' => true,
-		// 		'description' => esc_html__( 'Indicates whether next post must be within the same taxonomy term as the current post, this lets you set a taxonomy per each post type', 'wpessential-elementor-blocks' ),
-		// 	]
-		// );
-
-		// foreach ( $post_type_options as $post_type => $post_type_label ) {
-		// 	$this->add_control(
-		// 		$post_type . '_taxonomy',
-		// 		[
-		// 			'label' => $post_type_label . ' ' . esc_html__( 'Taxonomy', 'wpessential-elementor-blocks' ),
-		// 			'type' => Controls_Manager::SELECT,
-		// 			'options' => $post_type_taxonomies[ $post_type ],
-		// 			'default' => '',
-		// 			'condition' => [
-		// 				'in_same_term' => $post_type,
-		// 			],
-		// 		]
-		// 	);
-		// }
+		foreach ($post_type_options as $post_type => $post_type_label) {
+			$this->add_control(
+				"wpe_st_{$post_type}_taxonomy",
+				[
+					'label' => $post_type_label . ' ' . esc_html__('Taxonomy', 'wpessential-elementor-blocks'),
+					'type' => Controls_Manager::SELECT,
+					'options' => wpe_array_get($post_type_taxonomies, $post_type),
+					'default' => '',
+					'condition' => [
+						'wpe_st_in_same_term' => $post_type,
+					],
+				]
+			);
+		}
 	}
-	
-	private function title_style ()
+
+	private function title_style()
 	{
 
-		$this->start_controls_tabs( 'tabs_title_style' );/* this will create a tab in which we can make two tabs
-		normal and hover*/
+		$this->start_controls_tabs('tabs_title_style');/* this will create a tab in which we can make two tabs
+normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_title_normal',
 			[
-				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
 			]
 		);
 
@@ -283,8 +280,8 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'wpe_st_title_background_normal',
-				'types'    => [ 'classic', 'gradient', 'video' ],
+				'name' => 'wpe_st_title_background_normal',
+				'types' => ['classic', 'gradient', 'video'],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -293,13 +290,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_color_normal',
 			[
-				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion-icon, {{WRAPPER}} .elementor-accordion-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-icon svg'                                     => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
-				'global'    => [
+				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
@@ -307,9 +304,9 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_normal',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
+				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
@@ -318,13 +315,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_active_color_normal',
 			[
-				'label'     => esc_html__( 'Active Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Active Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-active .elementor-accordion-icon, {{WRAPPER}} .elementor-active .elementor-accordion-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-active .elementor-accordion-icon svg'                                                       => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-active .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
-				'global'    => [
+				'global' => [
 					'default' => Global_Colors::COLOR_ACCENT,
 				],
 			]
@@ -333,7 +330,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'wpe_st_title_typograpgy_normal',
+				'name' => 'wpe_st_title_typograpgy_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -342,7 +339,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
-				'name'     => 'wpe_st_title_text_stroke_normal',
+				'name' => 'wpe_st_title_text_stroke_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -350,7 +347,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_title_shadow_normal',
+				'name' => 'wpe_st_title_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -358,10 +355,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_title_padding_normal',
 			[
-				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -369,30 +366,30 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_margin_normal',
 			[
-				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'range' => [
 					'px' => [
-						'min'  => 10,
-						'max'  => 50,
+						'min' => 10,
+						'max' => 50,
 						'step' => 5,
 					],
 					'em' => [
-						'min'  => 1,
-						'max'  => 5,
+						'min' => 1,
+						'max' => 5,
 						'step' => 0.5,
 					],
 				],
-				'default'    => [
-					'top'      => 2,
-					'right'    => 0,
-					'bottom'   => 2,
-					'left'     => 0,
-					'unit'     => 'em',
+				'default' => [
+					'top' => 2,
+					'right' => 0,
+					'bottom' => 2,
+					'left' => 0,
+					'unit' => 'em',
 					'isLinked' => false,
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -401,7 +398,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_title_border_normal',
+				'name' => 'wpe_st_title_border_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -410,13 +407,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_decoration_noraml',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
+					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
+					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
+					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
+					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
 				],
 				'default' => 'none',
 			]
@@ -425,27 +422,27 @@ class Navigation extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_title_alignment_normal',
 			[
-				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'    => [
-						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-left',
+				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-left',
 					],
-					'center'  => [
-						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-center',
+					'center' => [
+						'title' => esc_html__('Center', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-center',
 					],
-					'right'   => [
-						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-right',
+					'right' => [
+						'title' => esc_html__('Right', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-justify',
+						'title' => esc_html__('Justified', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'default'   => '',
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
@@ -456,7 +453,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_title_box_shadow_normal',
+				'name' => 'wpe_st_title_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -464,10 +461,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_border_width_normal',
 			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
 					'px' => [
 						'max' => 20,
 					],
@@ -475,9 +472,9 @@ class Navigation extends Base implements Shortcodes
 						'max' => 2,
 					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -486,11 +483,11 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_border_color_normal',
 			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -502,23 +499,23 @@ class Navigation extends Base implements Shortcodes
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_title_hover',
 			[
-				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
 			]
 		);
 		$this->add_control(
 			'wpe_st_title_hover_animation_hover',
 			[
-				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
-				'type'  => Controls_Manager::HOVER_ANIMATION,
+				'label' => esc_html__('Hover Animation', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_title_text_color_hover',
 			[
-				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
+				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
@@ -527,13 +524,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_color_hover',
 			[
-				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion-icon, {{WRAPPER}} .elementor-accordion-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-icon svg'                                     => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
-				'global'    => [
+				'global' => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
@@ -541,29 +538,29 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
-				'name'     => 'wpe_st_title_text_stroke_hover',
+				'name' => 'wpe_st_title_text_stroke_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_title_shadow_hover',
+				'name' => 'wpe_st_title_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'wpe_st_title_background_hover',
-				'types'    => [ 'classic', 'gradient', 'video' ],
+				'name' => 'wpe_st_title_background_hover',
+				'types' => ['classic', 'gradient', 'video'],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_title_border_hover',
+				'name' => 'wpe_st_title_border_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -573,13 +570,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_decoration_hover',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
+					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
+					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
+					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
+					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
 				],
 				'default' => 'none',
 			]
@@ -587,10 +584,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_title_border_radius_hover',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -598,10 +595,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_border_width_hover',
 			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
 					'px' => [
 						'max' => 20,
 					],
@@ -609,9 +606,9 @@ class Navigation extends Base implements Shortcodes
 						'max' => 2,
 					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -620,11 +617,11 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_border_color_hover',
 			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -637,35 +634,35 @@ class Navigation extends Base implements Shortcodes
 
 
 	}
-	private function label_style ()
+	private function label_style()
 	{
 
-		$this->start_controls_tabs( 'tabs_label_style' );/* this will create a tab in which we can make two tabs
-		normal and hover*/
+		$this->start_controls_tabs('tabs_label_style');/* this will create a tab in which we can make two tabs
+normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_label_normal',
 			[
-				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_label_color_normal',
 			[
-				'label'     => esc_html__( 'Label Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Label Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'color: {{VALUE}}',
 				],
-				'condition' =>['wpe_st_general_setting_color'=>'custom'],
+				'condition' => ['wpe_st_general_setting_color' => 'custom'],
 			]
 		);
-	
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'wpe_st_label_typograpgy_normal',
+				'name' => 'wpe_st_label_typograpgy_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -673,17 +670,17 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_label_text_shadow_normal',
+				'name' => 'wpe_st_label_text_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_label_padding_normal',
 			[
-				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -691,30 +688,30 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_margin_normal',
 			[
-				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'range' => [
 					'px' => [
-						'min'  => 10,
-						'max'  => 50,
+						'min' => 10,
+						'max' => 50,
 						'step' => 5,
 					],
 					'em' => [
-						'min'  => 1,
-						'max'  => 5,
+						'min' => 1,
+						'max' => 5,
 						'step' => 0.5,
 					],
 				],
-				'default'    => [
-					'top'      => 2,
-					'right'    => 0,
-					'bottom'   => 2,
-					'left'     => 0,
-					'unit'     => 'em',
+				'default' => [
+					'top' => 2,
+					'right' => 0,
+					'bottom' => 2,
+					'left' => 0,
+					'unit' => 'em',
 					'isLinked' => false,
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -722,14 +719,14 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
-				'name'     => 'wpe_st_label_text_stroke_normal',
+				'name' => 'wpe_st_label_text_stroke_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_label_border_normal',
+				'name' => 'wpe_st_label_border_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -737,10 +734,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_label_border_radius_normal',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -748,13 +745,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_text_decoration_noraml',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
+					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
+					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
+					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
+					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
 				],
 				'default' => 'none',
 			]
@@ -763,10 +760,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_border_width_normal',
 			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
 					'px' => [
 						'max' => 20,
 					],
@@ -774,9 +771,9 @@ class Navigation extends Base implements Shortcodes
 						'max' => 2,
 					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -785,11 +782,11 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_border_color_normal',
 			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -798,34 +795,34 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_label_box_shadow_normal',
+				'name' => 'wpe_st_label_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_label_alignment_normal',
 			[
-				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'    => [
-						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-left',
+				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-left',
 					],
-					'center'  => [
-						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-center',
+					'center' => [
+						'title' => esc_html__('Center', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-center',
 					],
-					'right'   => [
-						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-right',
+					'right' => [
+						'title' => esc_html__('Right', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
-						'icon'  => 'eicon-text-align-justify',
+						'title' => esc_html__('Justified', 'wpessential-elementor-blocks'),
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'default'   => '',
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
@@ -838,7 +835,7 @@ class Navigation extends Base implements Shortcodes
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_label_hover',
 			[
-				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
 			]
 		);
 
@@ -846,19 +843,19 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_text_color_hover',
 			[
-				'label'     => esc_html__( 'Label Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Label Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'color: {{VALUE}}',
 				],
-				'condition' =>['wpe_st_general_setting_color'=>'custom'],
+				'condition' => ['wpe_st_general_setting_color' => 'custom'],
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_label_text_shadow_hover',
+				'name' => 'wpe_st_label_text_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -867,10 +864,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_border_width_hover',
 			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
 					'px' => [
 						'max' => 20,
 					],
@@ -878,9 +875,9 @@ class Navigation extends Base implements Shortcodes
 						'max' => 2,
 					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -889,11 +886,11 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_border_color_hover',
 			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -901,7 +898,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
-				'name'     => 'wpe_st_label_text_stroke_hover',
+				'name' => 'wpe_st_label_text_stroke_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -910,7 +907,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_label_border_hover',
+				'name' => 'wpe_st_label_border_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -918,10 +915,10 @@ class Navigation extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_label_border_radius_hover',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -929,13 +926,13 @@ class Navigation extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_label_text_decoration_hover',
 			[
-				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
-					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
-					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
-					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
+					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
+					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
+					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
+					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
 				],
 				'default' => 'none',
 			]
@@ -944,7 +941,7 @@ class Navigation extends Base implements Shortcodes
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'wpe_st_label_box_shadow_hover',
+				'name' => 'wpe_st_label_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -1351,22 +1348,23 @@ normal and hover*/
 		$this->end_controls_tabs(); // the tab in which normal and hover are present .that tab ends here
 	}
 
-	private function borders_style(){
+	private function borders_style()
+	{
 
-		$this->start_controls_tabs( 'tabs_border_style' );/* this will create a tab in which we can make two tabs
-		normal and hover*/
+		$this->start_controls_tabs('tabs_border_style');/* this will create a tab in which we can make two tabs
+normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_border_normal',
 			[
-				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_border_border_type_normal',
+				'name' => 'wpe_st_border_border_type_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -1374,11 +1372,11 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_border_border_color_normal',
 			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -1387,10 +1385,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_border_border_width_normal',
 			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1398,9 +1396,9 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1409,10 +1407,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_border_border_radius_normal',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1421,9 +1419,9 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_border_border_gap_normal',
 			[
-				'label' => esc_html__( 'Border Gap', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Border Gap', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-blockquote__content +.e-q-footer' => 'margin-top: {{SIZE}}{{UNIT}}',
 				],
@@ -1434,14 +1432,14 @@ normal and hover*/
 		$this->start_controls_tab(
 			'tab_border_hover',
 			[
-				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'wpe_st_border_border_type_hover',
+				'name' => 'wpe_st_border_border_type_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -1449,11 +1447,11 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_border_border_color_hover',
 			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -1462,10 +1460,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_border_border_width_hover',
 			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
+				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+				'range' => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1473,9 +1471,9 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1484,10 +1482,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_border_border_radius_hover',
 			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
+				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1496,9 +1494,9 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_border_border_gap_hover',
 			[
-				'label' => esc_html__( 'Border Gap', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__('Border Gap', 'wpessential-elementor-blocks'),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-blockquote__content +.e-q-footer' => 'margin-top: {{SIZE}}{{UNIT}}',
 				],

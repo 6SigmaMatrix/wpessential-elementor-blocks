@@ -82,7 +82,7 @@ class Button extends Base implements Shortcodes
 		
 		$args = wp_parse_args( $args, $default_args ); 
 		$this->add_control(
-			'button_type',
+			'wpe_st_button_type',
 			[
 				'label' => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SELECT,
@@ -100,7 +100,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'text',
+			'wpe_st_text',
 			[
 				'label' => $args['text_control_label'],
 				'type' => Controls_Manager::TEXT,
@@ -114,7 +114,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'link',
+			'wpe_st_link',
 			[
 				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::URL,
@@ -129,7 +129,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_responsive_control(
-			'align',
+			'wpe_st_align',
 			[
 				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::CHOOSE,
@@ -158,7 +158,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'size',
+			'wpe_st_size',
 			[
 				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SELECT,
@@ -170,7 +170,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'selected_icon',
+			'wpe_st_selected_icon',
 			[
 				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::ICONS,
@@ -183,7 +183,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'icon_align',
+			'wpe_st_icon_align',
 			[
 				'label' => esc_html__( 'Icon Position', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SELECT,
@@ -197,7 +197,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'icon_indent',
+			'wpe_st_icon_indent',
 			[
 				'label' => esc_html__( 'Icon Spacing', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::SLIDER,
@@ -215,7 +215,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'view',
+			'wpe_st_view',
 			[
 				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::HIDDEN,
@@ -225,7 +225,7 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			'button_css_id',
+			'wpe_st_button_css_id',
 			[
 				'label' => esc_html__( 'Button ID', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::TEXT,
