@@ -80,14 +80,14 @@ final class Widgets implements ShortcodeInit
 			'Image'      => Image::class,
 			'Gallery'    => Gallery::class,
 			'PriceTable' => PriceTable::class,
-			'Table'      => Table::class,
-			'Share'      => Share::class,
+			//'Table'      => Table::class,     PENDING
+			//'Share'      => Share::class,     PENDING  icons like fb,wa,twitter
 		 	'Video'      => Video::class,
 			'Slider'     => Slider::class,
 			'Navigation' => Navigation::class,
 			'Search'     => Search::class,
 			'BreadCrumbs'=> BreadCrumbs::class,
-			'Modal'      => Modal::class,
+			//'Modal'      => Modal::class,        PENDING
 		 ];
 
 
