@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -91,15 +91,15 @@ class Counter extends Base implements Shortcodes
 
 	}
 
-	private function counter_content(){
+	private function counter_content ()
+	{
 
-		
 
 		$this->add_control(
 			'starting_number',
 			[
-				'label' => esc_html__( 'Starting Number', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::NUMBER,
+				'label'   => esc_html__( 'Starting Number', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::NUMBER,
 				'default' => 0,
 				'dynamic' => [
 					'active' => true,
@@ -110,8 +110,8 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'ending_number',
 			[
-				'label' => esc_html__( 'Ending Number', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::NUMBER,
+				'label'   => esc_html__( 'Ending Number', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::NUMBER,
 				'default' => 100,
 				'dynamic' => [
 					'active' => true,
@@ -122,12 +122,12 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'prefix',
 			[
-				'label' => esc_html__( 'Number Prefix', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
-				'dynamic' => [
+				'label'       => esc_html__( 'Number Prefix', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [
 					'active' => true,
 				],
-				'default' => '',
+				'default'     => '',
 				'placeholder' => 1,
 			]
 		);
@@ -135,12 +135,12 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'suffix',
 			[
-				'label' => esc_html__( 'Number Suffix', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
-				'dynamic' => [
+				'label'       => esc_html__( 'Number Suffix', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [
 					'active' => true,
 				],
-				'default' => '',
+				'default'     => '',
 				'placeholder' => esc_html__( 'Plus', 'wpessential-elementor-blocks' ),
 			]
 		);
@@ -148,21 +148,21 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'duration',
 			[
-				'label' => esc_html__( 'Animation Duration', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::NUMBER,
+				'label'   => esc_html__( 'Animation Duration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::NUMBER,
 				'default' => 2000,
-				'min' => 100,
-				'step' => 100,
+				'min'     => 100,
+				'step'    => 100,
 			]
 		);
 
 		$this->add_control(
 			'thousand_separator',
 			[
-				'label' => esc_html__( 'Thousand Separator', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label'     => esc_html__( 'Thousand Separator', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'label_on'  => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
 				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
 			]
 		);
@@ -170,13 +170,13 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'thousand_separator_char',
 			[
-				'label' => esc_html__( 'Separator', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
+				'label'     => esc_html__( 'Separator', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SELECT,
 				'condition' => [
 					'thousand_separator' => 'yes',
 				],
-				'options' => [
-					'' => 'Default',
+				'options'   => [
+					''  => 'Default',
 					'.' => 'Dot',
 					' ' => 'Space',
 					'_' => 'Underline',
@@ -188,13 +188,13 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'title',
 			[
-				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
+				'label'       => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'dynamic' => [
+				'dynamic'     => [
 					'active' => true,
 				],
-				'default' => esc_html__( 'Cool Number', 'wpessential-elementor-blocks' ),
+				'default'     => esc_html__( 'Cool Number', 'wpessential-elementor-blocks' ),
 				'placeholder' => esc_html__( 'Cool Number', 'wpessential-elementor-blocks' ),
 			]
 		);
@@ -202,14 +202,11 @@ class Counter extends Base implements Shortcodes
 		$this->add_control(
 			'view',
 			[
-				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::HIDDEN,
+				'label'   => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
 		);
-
-		
-
 
 
 	}

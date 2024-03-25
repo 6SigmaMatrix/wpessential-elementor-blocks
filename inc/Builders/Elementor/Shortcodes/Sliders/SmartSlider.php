@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 

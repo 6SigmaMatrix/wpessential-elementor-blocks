@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -45,7 +45,8 @@ class BreadCrumbs extends Base implements Shortcodes
 		return [ 'BreadCrumbs', 'title', 'text' ];
 	}
 
-	public function get_icon() {
+	public function get_icon ()
+	{
 		return 'eicon-breadcrumbs';
 	}
 
@@ -57,34 +58,35 @@ class BreadCrumbs extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls () {
+	public function register_controls ()
+	{
 
 		$this->start_controls_section(
 			'wpe_st_breadcrumb_content',
 			[
-				'label' => esc_html__('Breadcrumb Content', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_CONTENT,
+				'label' => esc_html__( 'Breadcrumb Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
 		$this->add_control(
-            "wpe_st_breadcrumb_html_tag",
-            [
-                'label' => esc_html__('HTML tags', 'wpessential-elementor-blocks'),
-                'type' => Controls_Manager::SELECT,
-                'options' => wpe_heading_tags (),
-                'default' => 'none',
-                // 'selectors' => [
-                //     "{{WRAPPER}} {$css_selector}"  => 'text-decoration: {{VALUE}};',
-                // ]
-            ]
-        );
+			"wpe_st_breadcrumb_html_tag",
+			[
+				'label'   => esc_html__( 'HTML tags', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => wpe_heading_tags(),
+				'default' => 'none',
+				// 'selectors' => [
+				//     "{{WRAPPER}} {$css_selector}"  => 'text-decoration: {{VALUE}};',
+				// ]
+			]
+		);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'wpe_st_breadcrumb_style',
 			[
-				'label' => esc_html__('Breadcrumb', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Breadcrumb', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->breadcrumb_style();
@@ -103,23 +105,23 @@ class BreadCrumbs extends Base implements Shortcodes
 	public function render () {}
 
 
-	private function breadcrumb_style()
+	private function breadcrumb_style ()
 	{
 
-		$this->start_controls_tabs('tabs_breadcrumb_style'); /* this will create a tab in which we can make two tabs
+		$this->start_controls_tabs( 'tabs_breadcrumb_style' ); /* this will create a tab in which we can make two tabs
 normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_breadcrumb_normal',
 			[
-				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_background_normal',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'     => 'wpe_st_breadcrumb_background_normal',
+				'types'    => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
@@ -128,9 +130,9 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_text_color_normal',
 			[
-				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
@@ -139,7 +141,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_typograpgy_normal',
+				'name'     => 'wpe_st_breadcrumb_typograpgy_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -147,17 +149,17 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_text_shadow_normal',
+				'name'     => 'wpe_st_breadcrumb_text_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_breadcrumb_padding_normal',
 			[
-				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -165,30 +167,30 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_margin_normal',
 			[
-				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
 					'px' => [
-						'min' => 10,
-						'max' => 50,
+						'min'  => 10,
+						'max'  => 50,
 						'step' => 5,
 					],
 					'em' => [
-						'min' => 1,
-						'max' => 5,
+						'min'  => 1,
+						'max'  => 5,
 						'step' => 0.5,
 					],
 				],
-				'default' => [
-					'top' => 2,
-					'right' => 0,
-					'bottom' => 2,
-					'left' => 0,
-					'unit' => 'em',
+				'default'    => [
+					'top'      => 2,
+					'right'    => 0,
+					'bottom'   => 2,
+					'left'     => 0,
+					'unit'     => 'em',
 					'isLinked' => false,
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -196,14 +198,14 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_text_stroke_normal',
+				'name'     => 'wpe_st_breadcrumb_text_stroke_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_border_normal',
+				'name'     => 'wpe_st_breadcrumb_border_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -211,9 +213,9 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_link_color_normal',
 			[
-				'label' => esc_html__( 'Link Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__( 'Link Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} a' => 'color: {{VALUE}};',
 				],
@@ -222,10 +224,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_breadcrumb_border_radius_normal',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -233,13 +235,13 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_text_decoration_noraml',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -248,10 +250,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_border_width_normal',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -259,9 +261,9 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -270,11 +272,11 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_border_color_normal',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -283,34 +285,34 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_box_shadow_normal',
+				'name'     => 'wpe_st_breadcrumb_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_breadcrumb_alignment_normal',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-left',
+				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'    => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-left',
 					],
-					'center' => [
-						'title' => esc_html__('Center', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-center',
+					'center'  => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
-						'title' => esc_html__('Right', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-right',
+					'right'   => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__('Justified', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-justify',
+						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
-				'default' => '',
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
@@ -323,19 +325,19 @@ normal and hover*/
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_breadcrumb_hover',
 			[
-				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_control(
 			'wpe_st_breadcrumb_text_color_hover',
 			[
-				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion-icon, {{WRAPPER}} .elementor-accordion-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-icon svg'                                     => 'fill: {{VALUE}};',
 				],
-				'global' => [
+				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
@@ -343,9 +345,9 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_link_color_hover',
 			[
-				'label' => esc_html__( 'Link Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__( 'Link Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} a' => 'color: {{VALUE}};',
 				],
@@ -355,7 +357,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_text_shadow_hover',
+				'name'     => 'wpe_st_breadcrumb_text_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -364,10 +366,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_border_width_hover',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -375,9 +377,9 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -386,11 +388,11 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_border_color_hover',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -398,7 +400,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_text_stroke_hover',
+				'name'     => 'wpe_st_breadcrumb_text_stroke_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -406,8 +408,8 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_background_hover',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'     => 'wpe_st_breadcrumb_background_hover',
+				'types'    => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -415,7 +417,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_border_hover',
+				'name'     => 'wpe_st_breadcrumb_border_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 
@@ -423,10 +425,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_breadcrumb_border_radius_hover',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -434,13 +436,13 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_breadcrumb_text_decoration_hover',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -449,7 +451,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_breadcrumb_box_shadow_hover',
+				'name'     => 'wpe_st_breadcrumb_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);

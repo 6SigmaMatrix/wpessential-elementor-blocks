@@ -3,7 +3,7 @@
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -21,8 +21,8 @@ use function defined;
 
 class TextEditor extends Base implements Shortcodes
 {
-	use Text; 
-	
+	use Text;
+
 	/**
 	 * Set widget skings.
 	 *
@@ -129,7 +129,7 @@ class TextEditor extends Base implements Shortcodes
 		);
 
 		$this->end_controls_section();
-		
+
 		$text->anchor_style();
 		$text->paragraph_style();
 		$text->button_style();
@@ -152,9 +152,8 @@ class TextEditor extends Base implements Shortcodes
 		$text->block_qoute_style();
 		$text->hr_style();
 		$text->table_style();
-		
 
-	
+
 	}
 
 
@@ -173,12 +172,4 @@ class TextEditor extends Base implements Shortcodes
 	}
 
 
-
-	}
-
-
-
-
-
-
-
+}

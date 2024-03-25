@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -49,7 +49,8 @@ class Share extends Base implements Shortcodes
 		return [ 'Share', 'title', 'text' ];
 	}
 
-	public function get_icon() {
+	public function get_icon ()
+	{
 		return 'eicon-share-arrow';
 	}
 
@@ -61,7 +62,8 @@ class Share extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls () {
+	public function register_controls ()
+	{
 
 		$this->start_controls_section(
 			'wpe_st_share_content',
@@ -115,14 +117,14 @@ class Share extends Base implements Shortcodes
 	 * @access public
 	 */
 	public function render () {}
-	
 
-	private function share_content()
+
+	private function share_content ()
 	{
 		$repeater = new \Elementor\Repeater();
 
 		// Kindly check this control the dropdown list of social icons names
- 
+
 		// $repeater->add_control(
 		// 	'wpe_st_button',
 		// 	[
@@ -140,8 +142,8 @@ class Share extends Base implements Shortcodes
 		$repeater->add_control(
 			'wpe_st_text',
 			[
-				'label' => esc_html__( 'Custom Label', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
+				'label'   => esc_html__( 'Custom Label', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -151,9 +153,9 @@ class Share extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_share_buttons',
 			[
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => [
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => [
 					[
 						'button' => 'facebook',
 					],
@@ -171,28 +173,28 @@ class Share extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_view',
 			[
-				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
+				'label'        => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => [
 					'icon-text' => 'Icon & Text',
-					'icon' => 'Icon',
-					'text' => 'Text',
+					'icon'      => 'Icon',
+					'text'      => 'Text',
 				],
-				'default' => 'icon-text',
-				'separator' => 'before',
+				'default'      => 'icon-text',
+				'separator'    => 'before',
 				'prefix_class' => 'elementor-share-buttons--view-',
-				'render_type' => 'template',
+				'render_type'  => 'template',
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_show_label',
 			[
-				'label' => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
+				'label'     => esc_html__( 'Label', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'Show', 'wpessential-elementor-blocks' ),
 				'label_off' => esc_html__( 'Hide', 'wpessential-elementor-blocks' ),
-				'default' => 'yes',
+				'default'   => 'yes',
 				'condition' => [
 					'wpe_st_view' => 'icon-text',
 				],
@@ -202,16 +204,16 @@ class Share extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_skin',
 			[
-				'label' => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
+				'label'        => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => [
 					'gradient' => esc_html__( 'Gradient', 'wpessential-elementor-blocks' ),
-					'minimal' => esc_html__( 'Minimal', 'wpessential-elementor-blocks' ),
-					'framed' => esc_html__( 'Framed', 'wpessential-elementor-blocks' ),
-					'boxed' => esc_html__( 'Boxed Icon', 'wpessential-elementor-blocks' ),
-					'flat' => esc_html__( 'Flat', 'wpessential-elementor-blocks' ),
+					'minimal'  => esc_html__( 'Minimal', 'wpessential-elementor-blocks' ),
+					'framed'   => esc_html__( 'Framed', 'wpessential-elementor-blocks' ),
+					'boxed'    => esc_html__( 'Boxed Icon', 'wpessential-elementor-blocks' ),
+					'flat'     => esc_html__( 'Flat', 'wpessential-elementor-blocks' ),
 				],
-				'default' => 'gradient',
+				'default'      => 'gradient',
 				'prefix_class' => 'elementor-share-buttons--skin-',
 			]
 		);
@@ -219,14 +221,14 @@ class Share extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_shape',
 			[
-				'label' => esc_html__( 'Shape', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'square' => esc_html__( 'Square', 'wpessential-elementor-blocks' ),
+				'label'        => esc_html__( 'Shape', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => [
+					'square'  => esc_html__( 'Square', 'wpessential-elementor-blocks' ),
 					'rounded' => esc_html__( 'Rounded', 'wpessential-elementor-blocks' ),
-					'circle' => esc_html__( 'Circle', 'wpessential-elementor-blocks' ),
+					'circle'  => esc_html__( 'Circle', 'wpessential-elementor-blocks' ),
 				],
-				'default' => 'square',
+				'default'      => 'square',
 				'prefix_class' => 'elementor-share-buttons--shape-',
 			]
 		);
@@ -234,10 +236,10 @@ class Share extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_columns',
 			[
-				'label' => esc_html__( 'Columns', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '0',
-				'options' => [
+				'label'        => esc_html__( 'Columns', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => '0',
+				'options'      => [
 					'0' => 'Auto',
 					'1' => '1',
 					'2' => '2',
@@ -253,24 +255,24 @@ class Share extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'wpe_st_alignment',
 			[
-				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
+				'label'        => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					'left'    => [
 						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
-					'center' => [
+					'center'  => [
 						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
+					'right'   => [
 						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => esc_html__( 'Justify', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-text-align-justify',
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
 				/* TODO: `prefix_class` is redundant since v3.1.0
@@ -279,11 +281,11 @@ class Share extends Base implements Shortcodes
 				 */
 				'prefix_class' => 'elementor-share-buttons%s--align-',
 				/*---------------------------------------------------*/
-				'condition' => [
+				'condition'    => [
 					'wpe_st_columns' => '0',
 				],
 				/* `selectors` was added on v3.1.0 as a superior alternative to the previous `prefix_class` solution */
-				'selectors' => [
+				'selectors'    => [
 					'{{WRAPPER}}' => '--alignment: {{VALUE}}',
 				],
 			]
@@ -292,13 +294,13 @@ class Share extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_share_url_type',
 			[
-				'label' => esc_html__( 'Target URL', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
+				'label'     => esc_html__( 'Target URL', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
 					'current_page' => esc_html__( 'Current Page', 'wpessential-elementor-blocks' ),
-					'custom' => esc_html__( 'Custom', 'wpessential-elementor-blocks' ),
+					'custom'       => esc_html__( 'Custom', 'wpessential-elementor-blocks' ),
 				],
-				'default' => 'current_page',
+				'default'   => 'current_page',
 				'separator' => 'before',
 			]
 		);
@@ -306,56 +308,57 @@ class Share extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_share_url',
 			[
-				'label' => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::URL,
-				'dynamic' => [
+				'label'              => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
+				'type'               => Controls_Manager::URL,
+				'dynamic'            => [
 					'active' => true,
 				],
-				'options' => false,
-				'placeholder' => esc_html__( 'https://your-link.com', 'wpessential-elementor-blocks' ),
-				'condition' => [
+				'options'            => false,
+				'placeholder'        => esc_html__( 'https://your-link.com', 'wpessential-elementor-blocks' ),
+				'condition'          => [
 					'wpe_st_share_url_type' => 'custom',
 				],
-				'show_label' => false,
+				'show_label'         => false,
 				'frontend_available' => true,
 			]
 		);
 
 	}
-	private function icon_style()
+
+	private function icon_style ()
 	{
-		$this->start_controls_tabs('tabs_iocn_style'); /* this will create a tab in which we can make two tabs
+		$this->start_controls_tabs( 'tabs_iocn_style' ); /* this will create a tab in which we can make two tabs
 normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			[
-				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_control(
 			'wpe_st_icon_primary_color_normal',
 			[
-				'label' => esc_html__('Primary Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__( 'Primary Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}}.elementor-view-stacked .elementor-icon:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}}.elementor-view-framed .elementor-icon:hover, {{WRAPPER}}.elementor-view-default .elementor-icon:hover' => 'color: {{VALUE}}; border-color: {{VALUE}};',
+					'{{WRAPPER}}.elementor-view-stacked .elementor-icon:hover'                                                              => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.elementor-view-framed .elementor-icon:hover, {{WRAPPER}}.elementor-view-default .elementor-icon:hover'     => 'color: {{VALUE}}; border-color: {{VALUE}};',
 					'{{WRAPPER}}.elementor-view-framed .elementor-icon:hover, {{WRAPPER}}.elementor-view-default .elementor-icon:hover svg' => 'fill: {{VALUE}};',
 				],
-				'condition' =>[
-					'wpe_st_general_setting_color'=>'custom'
+				'condition' => [
+					'wpe_st_general_setting_color' => 'custom'
 				],
 			]
 		);
 		$this->add_control(
 			'wpe_st_icon_border_width_normal',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -363,9 +366,9 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -374,11 +377,11 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_border_color_normal',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
@@ -386,24 +389,22 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_align_normal',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
-						'title' => esc_html__('Start', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-left',
+					'left'  => [
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => esc_html__('End', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-right',
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'default' => is_rtl() ? 'right' : 'left',
-				'toggle' => false,
+				'toggle'  => false,
 			]
 		);
-
-
 
 
 		// $this->add_control(
@@ -421,16 +422,16 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_icon_spacing_normal',
 			[
-				'label' => esc_html__('Spacing', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => esc_html__( 'Spacing', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 0,
 						'max' => 100,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-icon.elementor-accordion-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-icon.elementor-accordion-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-icon.elementor-accordion-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -438,30 +439,30 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_margin_normal',
 			[
-				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
 					'px' => [
-						'min' => 10,
-						'max' => 50,
+						'min'  => 10,
+						'max'  => 50,
 						'step' => 5,
 					],
 					'em' => [
-						'min' => 1,
-						'max' => 5,
+						'min'  => 1,
+						'max'  => 5,
 						'step' => 0.5,
 					],
 				],
-				'default' => [
-					'top' => 2,
-					'right' => 0,
-					'bottom' => 2,
-					'left' => 0,
-					'unit' => 'em',
+				'default'    => [
+					'top'      => 2,
+					'right'    => 0,
+					'bottom'   => 2,
+					'left'     => 0,
+					'unit'     => 'em',
 					'isLinked' => false,
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -471,29 +472,29 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
 			[
-				'label' => esc_html__('Size', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'min' => 6,
 						'max' => 300,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-icon'     => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-icon svg' => 'height: {{SIZE}}{{UNIT}};',
 				],
-				'separator' => 'before',
+				'separator'  => 'before',
 			]
 		);
 		$this->add_responsive_control(
 			'wpe_st_icon_rotate_normal',
 			[
-				'label' => esc_html__('Rotate', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['deg', 'grad', 'rad', 'turn', 'custom'],
-				'default' => [
+				'label'          => esc_html__( 'Rotate', 'wpessential-elementor-blocks' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => [ 'deg', 'grad', 'rad', 'turn', 'custom' ],
+				'default'        => [
 					'unit' => 'deg',
 				],
 				'tablet_default' => [
@@ -502,7 +503,7 @@ normal and hover*/
 				'mobile_default' => [
 					'unit' => 'deg',
 				],
-				'selectors' => [
+				'selectors'      => [
 					'{{WRAPPER}} .elementor-icon i, {{WRAPPER}} .elementor-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
@@ -511,15 +512,15 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_fit_to_size_normal',
 			[
-				'label' => esc_html__('Fit to Size', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SWITCHER,
+				'label'       => esc_html__( 'Fit to Size', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::SWITCHER,
 				'description' => 'Avoid gaps around icons when width and height aren\'t equal',
-				'label_off' => esc_html__('Off', 'wpessential-elementor-blocks'),
-				'label_on' => esc_html__('On', 'wpessential-elementor-blocks'),
+				'label_off'   => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
+				'label_on'    => esc_html__( 'On', 'wpessential-elementor-blocks' ),
 				// 'condition' => [
 				// 	'selected_icon[library]' => 'svg',
 				// ],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .elementor-icon-wrapper svg' => 'width: 100%;',
 				],
 			]
@@ -540,7 +541,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wpe_st_icon_border_normal',
+				'name'     => 'wpe_st_icon_border_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor icon',
 			]
 		);
@@ -548,10 +549,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_icon_border_radius_normal',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -559,8 +560,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_normal',
 			[
-				'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::TEXT_SHADOW,
+				'label'     => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor iocn' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -569,7 +570,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_icon_box_shadow_normal',
+				'name'     => 'wpe_st_icon_box_shadow_normal',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -581,30 +582,30 @@ normal and hover*/
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_icon_hover',
 			[
-				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_icon_color_hover',
 			[
-				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon svg'      => 'fill: {{VALUE}};',
 				],
-				'condition' =>['wpe_st_general_setting_color'=>'custom'],
+				'condition' => [ 'wpe_st_general_setting_color' => 'custom' ],
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_icon_border_width_hover',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -612,9 +613,9 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -623,24 +624,24 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_border_color_hover',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                                       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content'                => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
-	
+
 
 		$this->add_responsive_control(
 			'wpe_st_icon_rotate_hover',
 			[
-				'label' => esc_html__('Rotate', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['deg', 'grad', 'rad', 'turn', 'custom'],
-				'default' => [
+				'label'          => esc_html__( 'Rotate', 'wpessential-elementor-blocks' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => [ 'deg', 'grad', 'rad', 'turn', 'custom' ],
+				'default'        => [
 					'unit' => 'deg',
 				],
 				'tablet_default' => [
@@ -649,7 +650,7 @@ normal and hover*/
 				'mobile_default' => [
 					'unit' => 'deg',
 				],
-				'selectors' => [
+				'selectors'      => [
 					'{{WRAPPER}} .elementor-icon i, {{WRAPPER}} .elementor-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
@@ -658,18 +659,18 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon__animation_hover',
 			[
-				'label' => esc_html__('Hover Animation', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::HOVER_ANIMATION,
+				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
 		$this->add_responsive_control(
 			'wpe_st_icon_border_radius_hover',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -679,7 +680,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wpe_st_icon_border_hover',
+				'name'     => 'wpe_st_icon_border_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor icon',
 			]
 		);
@@ -688,8 +689,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_hover',
 			[
-				'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::TEXT_SHADOW,
+				'label'     => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor iocn' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -698,7 +699,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'wpe_st_icon_box_shadow_hover',
+				'name'     => 'wpe_st_icon_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
@@ -707,42 +708,44 @@ normal and hover*/
 		$this->end_controls_tab();
 		$this->end_controls_tabs(); // the tab in which normal and hover are present .that tab ends here
 	}
-	private function general_style(){
 
-			$this->add_control(
+	private function general_style ()
+	{
+
+		$this->add_control(
 			'wpe_st_general_setting_layout',
 			[
-				'label' => esc_html__( 'Layout', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'traditional',
-				'options' => [
+				'label'          => esc_html__( 'Layout', 'wpessential-elementor-blocks' ),
+				'type'           => Controls_Manager::CHOOSE,
+				'default'        => 'traditional',
+				'options'        => [
 					'traditional' => [
 						'title' => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-editor-list-ul',
+						'icon'  => 'eicon-editor-list-ul',
 					],
-					'inline' => [
+					'inline'      => [
 						'title' => esc_html__( 'Inline', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-ellipsis-h',
+						'icon'  => 'eicon-ellipsis-h',
 					],
 				],
-				'render_type' => 'template',
-				'classes' => 'elementor-control-start-end',
+				'render_type'    => 'template',
+				'classes'        => 'elementor-control-start-end',
 				'style_transfer' => true,
-				'prefix_class' => 'elementor-icon-list--layout-',
+				'prefix_class'   => 'elementor-icon-list--layout-',
 			]
 		);
 
 		$this->add_responsive_control(
 			'wpe_st_general_setting_coloumn_gap',
 			[
-				'label' => esc_html__( 'Columns Gap', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Columns Gap', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
-				'default' => [
+				'default'    => [
 					'size' => 10,
 				],
-				'selectors' => [
-					'{{WRAPPER}}' => '--grid-side-margin: {{SIZE}}{{UNIT}}; --grid-column-gap: {{SIZE}}{{UNIT}}; --grid-row-gap: {{SIZE}}{{UNIT}}',
+				'selectors'  => [
+					'{{WRAPPER}}'          => '--grid-side-margin: {{SIZE}}{{UNIT}}; --grid-column-gap: {{SIZE}}{{UNIT}}; --grid-row-gap: {{SIZE}}{{UNIT}}',
 					'(tablet) {{WRAPPER}}' => '--grid-side-margin: {{SIZE}}{{UNIT}}; --grid-column-gap: {{SIZE}}{{UNIT}}',
 					'(mobile) {{WRAPPER}}' => '--grid-side-margin: {{SIZE}}{{UNIT}}; --grid-column-gap: {{SIZE}}{{UNIT}}',
 				],
@@ -752,14 +755,14 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_general_setting_row_gap',
 			[
-				'label' => esc_html__( 'Rows Gap', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'      => esc_html__( 'Rows Gap', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
-				'default' => [
+				'default'    => [
 					'size' => 10,
 				],
-				'selectors' => [
-					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}; --grid-bottom-margin: {{SIZE}}{{UNIT}}',
+				'selectors'  => [
+					'{{WRAPPER}}'          => '--grid-row-gap: {{SIZE}}{{UNIT}}; --grid-bottom-margin: {{SIZE}}{{UNIT}}',
 					'(tablet) {{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}; --grid-bottom-margin: {{SIZE}}{{UNIT}}',
 					'(mobile) {{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}; --grid-bottom-margin: {{SIZE}}{{UNIT}}',
 				],
@@ -769,12 +772,12 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_general_setting_general_setting_size',
 			[
-				'label' => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
-						'min' => 0.5,
-						'max' => 2,
+						'min'  => 0.5,
+						'max'  => 2,
 						'step' => 0.05,
 					],
 				],
@@ -787,13 +790,13 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_general_setting_general_setting_height',
 			[
-				'label' => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'em', 'rem', 'vh', 'custom' ],
-				'range' => [
+				'label'          => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'range'          => [
 					'em' => [
-						'min' => 1,
-						'max' => 7,
+						'min'  => 1,
+						'max'  => 7,
 						'step' => 0.1,
 					],
 					'px' => [
@@ -801,7 +804,7 @@ normal and hover*/
 						'max' => 100,
 					],
 				],
-				'default' => [
+				'default'        => [
 					'unit' => 'em',
 				],
 				'tablet_default' => [
@@ -810,7 +813,7 @@ normal and hover*/
 				'mobile_default' => [
 					'unit' => 'em',
 				],
-				'selectors' => [
+				'selectors'      => [
 					'{{WRAPPER}} .elementor-share-btn' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -819,25 +822,25 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_general_setting_color',
 			[
-				'label' => esc_html__( 'Icon/Label Color', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
+				'label'        => esc_html__( 'Icon/Label Color', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => [
 					'official' => esc_html__( 'Official', 'wpessential-elementor-blocks' ),
-					'custom' => esc_html__( 'Custom', 'wpessential-elementor-blocks' ),
+					'custom'   => esc_html__( 'Custom', 'wpessential-elementor-blocks' ),
 				],
-				'default' => 'official',
-				'return_value'=> 'custom',
+				'default'      => 'official',
+				'return_value' => 'custom',
 				'prefix_class' => 'elementor-share-buttons--color-',
-				'separator' => 'before',
+				'separator'    => 'before',
 			]
 		);
 		$this->add_control(
 			'wpe_st_general_setting_color_description',
 			[
-				'type' => \Elementor\Controls_Manager::RAW_HTML,
-				'raw' => esc_html__( 'Visit Icon and Label setting for custom color related settings 
+				'type'      => \Elementor\Controls_Manager::RAW_HTML,
+				'raw'       => esc_html__( 'Visit Icon and Label setting for custom color related settings 
 				and you can set background in general settings also. ', 'wpessential-elementor-blocks' ),
-				'condition' =>['wpe_st_general_setting_color'=>'custom'],
+				'condition' => [ 'wpe_st_general_setting_color' => 'custom' ],
 			]
 		);
 
@@ -850,20 +853,20 @@ normal and hover*/
 				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
-	
-				$this->add_group_control(
-					Group_Control_Background::get_type(),
-					[
-						'name' => 'wpe_st_general_setting_background_normal',
-						'types' => ['classic', 'gradient', 'video'],
-						'selector' => '{{WRAPPER}} .wpe-text-editor title',
-						'condition' =>[
-							'wpe_st_general_setting_color'=>'custom'
-						],
-					]
 
-				);
-		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'wpe_st_general_setting_background_normal',
+				'types'     => [ 'classic', 'gradient', 'video' ],
+				'selector'  => '{{WRAPPER}} .wpe-text-editor title',
+				'condition' => [
+					'wpe_st_general_setting_color' => 'custom'
+				],
+			]
+
+		);
+
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
@@ -940,8 +943,6 @@ normal and hover*/
 			]
 		);
 
-	
-
 
 		$this->add_control(
 			'wpe_st_general_setting_border_color_normal',
@@ -967,17 +968,16 @@ normal and hover*/
 				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
-	
-	
-	
+
+
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_general_setting_background_hover',
-				'types' => ['classic', 'gradient', 'video'],
-				'selector' => '{{WRAPPER}} .wpe-text-editor title',
-				'condition' =>[
-					'wpe_st_general_setting_color'=>'custom'
+				'name'      => 'wpe_st_general_setting_background_hover',
+				'types'     => [ 'classic', 'gradient', 'video' ],
+				'selector'  => '{{WRAPPER}} .wpe-text-editor title',
+				'condition' => [
+					'wpe_st_general_setting_color' => 'custom'
 				],
 			]
 		);
@@ -1033,9 +1033,6 @@ normal and hover*/
 			]
 		);
 
-	
-
-	
 
 		$this->add_control(
 			'wpe_st_general_setting_border_color_hover',
@@ -1077,10 +1074,10 @@ normal and hover*/
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'color: {{VALUE}}',
 				],
-				'condition' =>['wpe_st_general_setting_color'=>'custom'],
+				'condition' => [ 'wpe_st_general_setting_color' => 'custom' ],
 			]
 		);
-	
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -1270,7 +1267,7 @@ normal and hover*/
 				'selectors' => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'color: {{VALUE}}',
 				],
-				'condition' =>['wpe_st_general_setting_color'=>'custom'],
+				'condition' => [ 'wpe_st_general_setting_color' => 'custom' ],
 			]
 		);
 

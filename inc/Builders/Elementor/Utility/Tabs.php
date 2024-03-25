@@ -5,7 +5,7 @@ namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 use Elementor\Controls_Manager;
 use function defined;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 

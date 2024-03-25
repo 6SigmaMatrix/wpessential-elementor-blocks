@@ -5,7 +5,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls\Helper;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 

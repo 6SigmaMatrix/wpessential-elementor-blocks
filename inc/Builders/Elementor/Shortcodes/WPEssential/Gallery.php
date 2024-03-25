@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -48,7 +48,8 @@ class Gallery extends Base implements Shortcodes
 		return 'eicon-gallery-justified';
 	}
 
-	public function set_title(){
+	public function set_title ()
+	{
 		return "Gallery";
 	}
 
@@ -105,20 +106,18 @@ class Gallery extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function render () {
+	public function render () {}
 
-
-	}
-
-	private function gallery_content(){
+	private function gallery_content ()
+	{
 		$this->add_control(
 			'gallery_type',
 			[
-				'type' => Controls_Manager::SELECT,
-				'label' => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
 				'default' => 'single',
 				'options' => [
-					'single' => esc_html__( 'Single', 'wpessential-elementor-blocks' ),
+					'single'   => esc_html__( 'Single', 'wpessential-elementor-blocks' ),
 					'multiple' => esc_html__( 'Multiple', 'wpessential-elementor-blocks' ),
 				],
 			]
@@ -127,11 +126,11 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'gallery',
 			[
-				'type' => Controls_Manager::GALLERY,
+				'type'      => Controls_Manager::GALLERY,
 				'condition' => [
 					'gallery_type' => 'single',
 				],
-				'dynamic' => [
+				'dynamic'   => [
 					'active' => true,
 				],
 			]
@@ -142,8 +141,8 @@ class Gallery extends Base implements Shortcodes
 		$repeater->add_control(
 			'gallery_title',
 			[
-				'type' => Controls_Manager::TEXT,
-				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::TEXT,
+				'label'   => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
 				'default' => esc_html__( 'New Gallery', 'wpessential-elementor-blocks' ),
 				'dynamic' => [
 					'active' => true,
@@ -154,7 +153,7 @@ class Gallery extends Base implements Shortcodes
 		$repeater->add_control(
 			'multiple_gallery',
 			[
-				'type' => Controls_Manager::GALLERY,
+				'type'    => Controls_Manager::GALLERY,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -164,16 +163,16 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'galleries',
 			[
-				'type' => Controls_Manager::REPEATER,
-				'label' => esc_html__( 'Galleries', 'wpessential-elementor-blocks' ),
-				'fields' => $repeater->get_controls(),
+				'type'        => Controls_Manager::REPEATER,
+				'label'       => esc_html__( 'Galleries', 'wpessential-elementor-blocks' ),
+				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ gallery_title }}}',
-				'default' => [
+				'default'     => [
 					[
 						'gallery_title' => esc_html__( 'New Gallery', 'wpessential-elementor-blocks' ),
 					],
 				],
-				'condition' => [
+				'condition'   => [
 					'gallery_type' => 'multiple',
 				],
 			]
@@ -182,10 +181,10 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'order_by',
 			[
-				'type' => Controls_Manager::SELECT,
-				'label' => esc_html__( 'Order By', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Order By', 'wpessential-elementor-blocks' ),
 				'options' => [
-					'' => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					''       => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
 					'random' => esc_html__( 'Random', 'wpessential-elementor-blocks' ),
 				],
 				'default' => '',
@@ -195,10 +194,10 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'lazyload',
 			[
-				'type' => Controls_Manager::SWITCHER,
-				'label' => esc_html__( 'Lazy Load', 'wpessential-elementor-blocks' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
+				'type'               => Controls_Manager::SWITCHER,
+				'label'              => esc_html__( 'Lazy Load', 'wpessential-elementor-blocks' ),
+				'return_value'       => 'yes',
+				'default'            => 'yes',
 				'frontend_available' => true,
 			]
 		);
@@ -206,15 +205,15 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'gallery_layout',
 			[
-				'type' => Controls_Manager::SELECT,
-				'label' => esc_html__( 'Layout', 'wpessential-elementor-blocks' ),
-				'default' => 'grid',
-				'options' => [
-					'grid' => esc_html__( 'Grid', 'wpessential-elementor-blocks' ),
+				'type'               => Controls_Manager::SELECT,
+				'label'              => esc_html__( 'Layout', 'wpessential-elementor-blocks' ),
+				'default'            => 'grid',
+				'options'            => [
+					'grid'      => esc_html__( 'Grid', 'wpessential-elementor-blocks' ),
 					'justified' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
-					'masonry' => esc_html__( 'Masonry', 'wpessential-elementor-blocks' ),
+					'masonry'   => esc_html__( 'Masonry', 'wpessential-elementor-blocks' ),
 				],
-				'separator' => 'before',
+				'separator'          => 'before',
 				'frontend_available' => true,
 			]
 		);
@@ -222,40 +221,40 @@ class Gallery extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label' => esc_html__( 'Columns', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 4,
-				'tablet_default' => 2,
-				'mobile_default' => 1,
-				'min' => 1,
-				'max' => 24,
-				'condition' => [
+				'label'              => esc_html__( 'Columns', 'wpessential-elementor-blocks' ),
+				'type'               => Controls_Manager::NUMBER,
+				'default'            => 4,
+				'tablet_default'     => 2,
+				'mobile_default'     => 1,
+				'min'                => 1,
+				'max'                => 24,
+				'condition'          => [
 					'gallery_layout!' => 'justified',
 				],
-				'render_type' => 'none',
+				'render_type'        => 'none',
 				'frontend_available' => true,
 			]
 		);
 		$this->add_responsive_control(
 			'ideal_row_height',
 			[
-				'label' => esc_html__( 'Row Height', 'elementor-pro' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'              => esc_html__( 'Row Height', 'elementor-pro' ),
+				'type'               => Controls_Manager::SLIDER,
+				'range'              => [
 					'px' => [
 						'min' => 50,
 						'max' => 500,
 					],
 				],
-				'default' => [
+				'default'            => [
 					'size' => 200,
 				],
 				//'device_args' => $ideal_row_height_device_args,
-				'condition' => [
+				'condition'          => [
 					'gallery_layout' => 'justified',
 				],
-				'required' => true,
-				'render_type' => 'none',
+				'required'           => true,
+				'render_type'        => 'none',
 				'frontend_available' => true,
 			]
 		);
@@ -263,14 +262,14 @@ class Gallery extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'gap',
 			[
-				'label' => esc_html__( 'Spacing', 'elementor-pro' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'              => esc_html__( 'Spacing', 'elementor-pro' ),
+				'type'               => Controls_Manager::SLIDER,
+				'default'            => [
 					'size' => 10,
 				],
 				//'device_args' => $gap_device_args,
-				'required' => true,
-				'render_type' => 'none',
+				'required'           => true,
+				'render_type'        => 'none',
 				'frontend_available' => true,
 			]
 		);
@@ -278,12 +277,12 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'link_to',
 			[
-				'label' => esc_html__( 'Link', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'file',
-				'options' => [
-					'' => esc_html__( 'None', 'elementor-pro' ),
-					'file' => esc_html__( 'Media File', 'elementor-pro' ),
+				'label'              => esc_html__( 'Link', 'elementor-pro' ),
+				'type'               => Controls_Manager::SELECT,
+				'default'            => 'file',
+				'options'            => [
+					''       => esc_html__( 'None', 'elementor-pro' ),
+					'file'   => esc_html__( 'Media File', 'elementor-pro' ),
 					'custom' => esc_html__( 'Custom URL', 'elementor-pro' ),
 				],
 				'frontend_available' => true,
@@ -293,13 +292,13 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'url',
 			[
-				'label' => esc_html__( 'URL', 'elementor-pro' ),
-				'type' => Controls_Manager::URL,
-				'condition' => [
+				'label'              => esc_html__( 'URL', 'elementor-pro' ),
+				'type'               => Controls_Manager::URL,
+				'condition'          => [
 					'link_to' => 'custom',
 				],
 				'frontend_available' => true,
-				'dynamic' => [
+				'dynamic'            => [
 					'active' => true,
 				],
 			]
@@ -308,21 +307,21 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label' => esc_html__( 'Lightbox', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT,
+				'label'       => esc_html__( 'Lightbox', 'elementor-pro' ),
+				'type'        => Controls_Manager::SELECT,
 				'description' => sprintf(
-					/* translators: 1: Link open tag, 2: Link close tag. */
+				/* translators: 1: Link open tag, 2: Link close tag. */
 					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'elementor-pro' ),
 					'<a href="javascript: $e.run( \'panel/global/open\' ).then( () => $e.route( \'panel/global/settings-lightbox\' ) )">',
 					'</a>'
 				),
-				'default' => 'default',
-				'options' => [
+				'default'     => 'default',
+				'options'     => [
 					'default' => esc_html__( 'Default', 'elementor-pro' ),
-					'yes' => esc_html__( 'Yes', 'elementor-pro' ),
-					'no' => esc_html__( 'No', 'elementor-pro' ),
+					'yes'     => esc_html__( 'Yes', 'elementor-pro' ),
+					'no'      => esc_html__( 'No', 'elementor-pro' ),
 				],
-				'condition' => [
+				'condition'   => [
 					'link_to' => 'file',
 				],
 			]
@@ -331,21 +330,21 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'aspect_ratio',
 			[
-				'type' => Controls_Manager::SELECT,
-				'label' => esc_html__( 'Aspect Ratio', 'elementor-pro' ),
-				'default' => '3:2',
-				'options' => [
-					'1:1' => '1:1',
-					'3:2' => '3:2',
-					'4:3' => '4:3',
+				'type'               => Controls_Manager::SELECT,
+				'label'              => esc_html__( 'Aspect Ratio', 'elementor-pro' ),
+				'default'            => '3:2',
+				'options'            => [
+					'1:1'  => '1:1',
+					'3:2'  => '3:2',
+					'4:3'  => '4:3',
 					'9:16' => '9:16',
 					'16:9' => '16:9',
 					'21:9' => '21:9',
 				],
-				'condition' => [
+				'condition'          => [
 					'gallery_layout' => 'grid',
 				],
-				'render_type' => 'none',
+				'render_type'        => 'none',
 				'frontend_available' => true,
 			]
 		);
@@ -353,7 +352,7 @@ class Gallery extends Base implements Shortcodes
 		$this->add_group_control(
 			\Elementor\Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'thumbnail_image',
+				'name'    => 'thumbnail_image',
 				'default' => 'medium',
 			]
 		);
@@ -1295,5 +1294,5 @@ class Gallery extends Base implements Shortcodes
 
 	}
 
-	
+
 }

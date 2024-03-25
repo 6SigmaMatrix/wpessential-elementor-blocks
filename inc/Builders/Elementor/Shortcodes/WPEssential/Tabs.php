@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -120,19 +120,19 @@ class Tabs extends Base implements Shortcodes
 
 	private function tabs_content ()
 	{
-		$start = is_rtl() ? 'end' : 'start';
-		$end = is_rtl() ? 'start' : 'end';
+		$start    = is_rtl() ? 'end' : 'start';
+		$end      = is_rtl() ? 'start' : 'end';
 		$repeater = new \Elementor\Repeater();
 
 		$repeater->add_control(
 			'wpe_st_tab_title',
 			[
-				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Tab Title', 'wpessential-elementor-blocks' ),
+				'label'       => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Tab Title', 'wpessential-elementor-blocks' ),
 				'placeholder' => esc_html__( 'Tab Title', 'wpessential-elementor-blocks' ),
 				'label_block' => true,
-				'dynamic' => [
+				'dynamic'     => [
 					'active' => true,
 				],
 			]
@@ -141,10 +141,10 @@ class Tabs extends Base implements Shortcodes
 		$repeater->add_control(
 			'wpe_st_tab_content',
 			[
-				'label' => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
-				'default' => esc_html__( 'Tab Content', 'wpessential-elementor-blocks' ),
+				'label'       => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
+				'default'     => esc_html__( 'Tab Content', 'wpessential-elementor-blocks' ),
 				'placeholder' => esc_html__( 'Tab Content', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::WYSIWYG,
+				'type'        => Controls_Manager::WYSIWYG,
 			]
 		);
 
@@ -164,16 +164,16 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_tabs_content',
 			[
-				'label' => esc_html__( 'Tabs Items', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => [
+				'label'       => esc_html__( 'Tabs Items', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => [
 					[
-						'tab_title' => esc_html__( 'Tab #1', 'wpessential-elementor-blocks' ),
+						'tab_title'   => esc_html__( 'Tab #1', 'wpessential-elementor-blocks' ),
 						'tab_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
 					],
 					[
-						'tab_title' => esc_html__( 'Tab #2', 'wpessential-elementor-blocks' ),
+						'tab_title'   => esc_html__( 'Tab #2', 'wpessential-elementor-blocks' ),
 						'tab_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
 					],
 				],
@@ -181,14 +181,12 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-		
-		
 
 		$this->add_control(
 			'wpe_st_view',
 			[
-				'label' => esc_html__( 'View', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::HIDDEN,
+				'label'   => esc_html__( 'View', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
 		);
@@ -196,43 +194,43 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_type',
 			[
-				'label' => esc_html__( 'Position', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'horizontal',
-				'options' => [
+				'label'        => esc_html__( 'Position', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'horizontal',
+				'options'      => [
 					'horizontal' => esc_html__( 'Horizontal', 'wpessential-elementor-blocks' ),
-					'vertical' => esc_html__( 'Vertical', 'wpessential-elementor-blocks' ),
+					'vertical'   => esc_html__( 'Vertical', 'wpessential-elementor-blocks' ),
 				],
 				'prefix_class' => 'elementor-tabs-view-',
-				'separator' => 'before',
+				'separator'    => 'before',
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_tabs_align_horizontal',
 			[
-				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'' => [
+				'label'        => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					''        => [
 						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
-						'icon' => "eicon-align-$start-h",
+						'icon'  => "eicon-align-$start-h",
 					],
-					'center' => [
+					'center'  => [
 						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-align-center-h',
+						'icon'  => 'eicon-align-center-h',
 					],
-					'end' => [
+					'end'     => [
 						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
-						'icon' => "eicon-align-$end-h",
+						'icon'  => "eicon-align-$end-h",
 					],
 					'stretch' => [
 						'title' => esc_html__( 'Stretch', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-align-stretch-h',
+						'icon'  => 'eicon-align-stretch-h',
 					],
 				],
 				'prefix_class' => 'elementor-tabs-alignment-',
-				'condition' => [
+				'condition'    => [
 					'wpe_st_type' => 'horizontal',
 				],
 			]
@@ -241,28 +239,28 @@ class Tabs extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_tabs_align_vertical',
 			[
-				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'' => [
+				'label'        => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					''        => [
 						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-align-start-v',
+						'icon'  => 'eicon-align-start-v',
 					],
-					'center' => [
+					'center'  => [
 						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-align-center-v',
+						'icon'  => 'eicon-align-center-v',
 					],
-					'end' => [
+					'end'     => [
 						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-align-end-v',
+						'icon'  => 'eicon-align-end-v',
 					],
 					'stretch' => [
 						'title' => esc_html__( 'Stretch', 'wpessential-elementor-blocks' ),
-						'icon' => 'eicon-align-stretch-v',
+						'icon'  => 'eicon-align-stretch-v',
 					],
 				],
 				'prefix_class' => 'elementor-tabs-alignment-',
-				'condition' => [
+				'condition'    => [
 					'wpe_st_type' => 'vertical',
 				],
 			]

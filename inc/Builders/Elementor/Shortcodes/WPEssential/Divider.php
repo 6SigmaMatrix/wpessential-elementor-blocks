@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -48,7 +48,8 @@ class Divider extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls () {
+	public function register_controls ()
+	{
 		$this->start_controls_section(
 			'section_divider',
 			[
@@ -68,9 +69,6 @@ class Divider extends Base implements Shortcodes
 	 * @access public
 	 */
 	public function render () {}
-	private function divider_content(){
 
-
-		
-	}
+	private function divider_content () {}
 }

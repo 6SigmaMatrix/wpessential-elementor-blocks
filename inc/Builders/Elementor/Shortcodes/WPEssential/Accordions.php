@@ -2,7 +2,7 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
@@ -23,6 +23,7 @@ use function defined;
 class Accordions extends Base implements Shortcodes
 {
 	use TextEditor;
+
 	/**
 	 * Set widget skings.
 	 *
@@ -63,7 +64,7 @@ class Accordions extends Base implements Shortcodes
 	{
 
 		$accordions = new Accordions;
-		
+
 		$this->start_controls_section(
 			'wpe_st_accordion_content_tab',
 			[
@@ -111,24 +112,23 @@ class Accordions extends Base implements Shortcodes
 		$this->content_style();
 		$this->end_controls_section();
 
-	
-
 
 	}
 
 
-	private function accordion_content_tab(){
-		
+	private function accordion_content_tab ()
+	{
+
 
 		$repeater = new \Elementor\Repeater();
 
 		$repeater->add_control(
 			'wpe_st_content_tab_accordion_title',
 			[
-				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Accordion Title', 'wpessential-elementor-blocks' ),
-				'dynamic' => [
+				'label'       => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Accordion Title', 'wpessential-elementor-blocks' ),
+				'dynamic'     => [
 					'active' => true,
 				],
 				'label_block' => true,
@@ -138,24 +138,24 @@ class Accordions extends Base implements Shortcodes
 		$repeater->add_control(
 			'wpe_st_content_tab_accordion_content',
 			[
-				'label' => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::WYSIWYG,
+				'label'   => esc_html__( 'Content', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::WYSIWYG,
 				'default' => esc_html__( 'Accordion Content', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_control(
 			'wpe_st_content_tab_accordion_tabs',
 			[
-				'label' => esc_html__( 'Accordion Items', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => [
+				'label'       => esc_html__( 'Accordion Items', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => [
 					[
-						'wpe_st_content_tab_accordion_title' => esc_html__( 'Accordion #1', 'wpessential-elementor-blocks' ),
+						'wpe_st_content_tab_accordion_title'   => esc_html__( 'Accordion #1', 'wpessential-elementor-blocks' ),
 						'wpe_st_content_tab_accordion_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
 					],
 					[
-						'wpe_st_content_tab_accordion_title' => esc_html__( 'Accordion #2', 'wpessential-elementor-blocks' ),
+						'wpe_st_content_tab_accordion_title'   => esc_html__( 'Accordion #2', 'wpessential-elementor-blocks' ),
 						'wpe_st_content_tab_accordion_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ),
 					],
 				],
@@ -164,28 +164,28 @@ class Accordions extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-            "wpe_st_content_tab_html_tag_options",
-            [
-                'label' => esc_html__('HTML tags', 'wpessential-elementor-blocks'),
-                'type' => Controls_Manager::SELECT,
-                'options' => wpe_heading_tags (),
-                'default' => 'none',
-                // 'selectors' => [
-                //     "{{WRAPPER}} {$css_selector}"  => 'text-decoration: {{VALUE}};',
-                // ]
-            ]
-        );
+			"wpe_st_content_tab_html_tag_options",
+			[
+				'label'   => esc_html__( 'HTML tags', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => wpe_heading_tags(),
+				'default' => 'none',
+				// 'selectors' => [
+				//     "{{WRAPPER}} {$css_selector}"  => 'text-decoration: {{VALUE}};',
+				// ]
+			]
+		);
 		$this->add_control(
 			'wpe_st_content_tab_collapse_iocn',
 			[
-				'label' => esc_html__( 'Collpase Icon', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-circle',
+				'label'       => esc_html__( 'Collpase Icon', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fas fa-circle',
 					'library' => 'fa-solid',
 				],
 				'recommended' => [
-					'fa-solid' => [
+					'fa-solid'   => [
 						'circle',
 						'dot-circle',
 						'square-full',
@@ -202,14 +202,14 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_tab_extended_iocn',
 			[
-				'label' => esc_html__( 'Extended Icon', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-circle',
+				'label'       => esc_html__( 'Extended Icon', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fas fa-circle',
 					'library' => 'fa-solid',
 				],
 				'recommended' => [
-					'fa-solid' => [
+					'fa-solid'   => [
 						'circle',
 						'dot-circle',
 						'square-full',
@@ -226,24 +226,20 @@ class Accordions extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_content_tab_iocn_align',
 			[
-				'label' => esc_html__( 'Icon Position', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Icon Position', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'left' => esc_html__( 'Before', 'wpessential-elementor-blocks' ),
+					'left'  => esc_html__( 'Before', 'wpessential-elementor-blocks' ),
 					'right' => esc_html__( 'After', 'wpessential-elementor-blocks' ),
 				],
 				//'condition' => array_merge( $args['section_condition'], [ 'selected_icon[value]!' => '' ] ),
 			]
 		);
 
-		
-
-
-		
-
 
 	}
+
 	private function accordion_style ()
 	{
 		$this->add_control(
@@ -1081,7 +1077,7 @@ class Accordions extends Base implements Shortcodes
 				],
 			]
 		);
-	
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[

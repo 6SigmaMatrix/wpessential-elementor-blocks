@@ -2,22 +2,23 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Stack;
 use Elementor\Plugin;
 use Elementor\Widget_Base;
-use WPEssential\Plugins\Helper\ElementRender;
+use WPEssential\Plugins\Builders\Fields\Hidden;
+use WPEssential\Plugins\Builders\Fields\Select;
 use WPEssential\Plugins\Helper\GetShortcodeBase;
 use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
 abstract class Base extends Widget_Base
 {
-	use ElementRender;
 	use GetShortcodeBase;
+
+	private $is_first_section = true;
 
 	public function __construct ( $data = [], $args = null )
 	{
@@ -26,14 +27,12 @@ abstract class Base extends Widget_Base
 		}
 
 		parent::__construct( $data, $args );
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'shortcode' ] );
 
-	}
+		add_action( 'elementor/widgets/widgets_registered', function () {
+			$widget = \get_class( $this );
+			Plugin::instance()->widgets_manager->register( new $widget() );
+		} );
 
-	public function shortcode ()
-	{
-		$widget = get_class( $this );
-		Plugin::instance()->widgets_manager->register( new $widget() );
 	}
 
 	/**
@@ -48,7 +47,7 @@ abstract class Base extends Widget_Base
 	 */
 	public function get_current_skin_id ()
 	{
-		return $this->get_settings( 'blog_style' );
+		return $this->get_settings( 'wpe_skin_style' );
 	}
 
 	/**
@@ -69,14 +68,12 @@ abstract class Base extends Widget_Base
 	 */
 	public function start_controls_section ( $section_id, array $args = [] )
 	{
-		Controls_Stack::start_controls_section( $section_id, $args );
+		parent::start_controls_section( $section_id, $args );
 
-		static $is_first_section = true;
-
-		if ( $is_first_section ) {
+		if ( $this->is_first_section ) {
 			$this->register_skin_control();
 
-			$is_first_section = false;
+			$this->is_first_section = false;
 		}
 	}
 
@@ -89,7 +86,7 @@ abstract class Base extends Widget_Base
 	 * @since  2.0.0
 	 * @access private
 	 */
-	public function register_skin_control ()
+	private function register_skin_control ()
 	{
 		$skins = $this->get_skins();
 		if ( ! empty( $skins ) ) {
@@ -107,26 +104,16 @@ abstract class Base extends Widget_Base
 			$default_value = array_keys( $skin_options );
 			$default_value = array_shift( $default_value );
 
-			if ( 1 >= count( $skin_options ) ) {
-				$this->add_control(
-					'style',
-					[
-						'label'   => __( 'Skin', 'wpessential-elementor-blocks' ),
-						'type'    => 'hidden',
-						'default' => $default_value,
-					]
-				);
+			if ( ! empty( $skin_options ) && 1 >= \count( $skin_options ) ) {
+				$opt = Hidden::make( __( 'Skin', 'wpessential-elementor-blocks' ), 'style' );
+				$opt->default( $default_value );
+				$this->add_control( $opt->key, $opt->toArray() );
 			}
 			else {
-				$this->add_control(
-					'style',
-					[
-						'label'   => __( 'Skin', 'wpessential-elementor-blocks' ),
-						'type'    => 'select',
-						'default' => $default_value,
-						'options' => $skin_options,
-					]
-				);
+				$opt = Select::make( __( 'Skin', 'wpessential-elementor-blocks' ), 'style' );
+				$opt->default( $default_value );
+				$opt->options( $skin_options );
+				$this->add_control( $opt->key, $opt->toArray() );
 			}
 		}
 	}
@@ -139,21 +126,13 @@ abstract class Base extends Widget_Base
 	 * @since  1.0.0
 	 * @access protected
 	 */
-	protected function _add_render_attributes ()
+	protected function add_render_attributes ()
 	{
 		parent::add_render_attributes();
 
-		$this->add_render_attribute(
-			'_wrapper', 'class', [
-				'elementor-widget',
-				'wpe-widget',
-				$this->get_html_wrapper_class(),
-			]
-		);
-
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute( '_wrapper', 'data-widget_type', $this->get_name() . '.' . ( ! empty( $settings[ 'style' ] ) ? $settings[ 'style' ] : 'default' ) );
+		$this->add_render_attribute( '_wrapper', 'data-widget_type', $this->get_name() . '.' . wpe_array_get( $settings, wpe_editor_key( 'style', 'default' ) ) );
 	}
 
 }
