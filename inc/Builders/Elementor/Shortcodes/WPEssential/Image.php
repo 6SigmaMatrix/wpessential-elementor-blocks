@@ -598,7 +598,7 @@ class Image extends Base implements Shortcodes
 		$this->start_controls_tab(
 			'tab_image_normal',
 			[
-				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' )
 			]
 		);
 
@@ -627,9 +627,9 @@ class Image extends Base implements Shortcodes
 					],
 				],
 				'selectors'      => [
-					'{{WRAPPER}} span.wpe-image-span-wrapper'                => 'width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} span.wpe-image-span-wrapper > figure > img' => 'width: {{SIZE}}{{UNIT}};',
 				],
+				'condition' => [ 'wpe_st_caption_source!' => 'none' ]
 			]
 		);
 
@@ -657,9 +657,9 @@ class Image extends Base implements Shortcodes
 					],
 				],
 				'selectors'      => [
-					'{{WRAPPER}} span.wpe-image-span-wrapper'                => 'max-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} span.wpe-image-span-wrapper > figure > img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
+				'condition' => [ 'wpe_st_caption_source!' => 'none' ]
 			]
 		);
 
@@ -680,29 +680,40 @@ class Image extends Base implements Shortcodes
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} span.wpe-image-span-wrapper'                => 'height: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} span.wpe-image-span-wrapper > figure > img' => 'height: {{SIZE}}{{UNIT}};',
 				],
+				'condition' => [ 'wpe_st_caption_source!' => 'none' ]
 			]
 		);
 
 		$this->add_responsive_control(
 			'wpe_st_image_object_fit_normal',
 			[
-				'label'     => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::SELECT,
-				'condition' => [
-					'height[size]!' => '',
+				'label'      => esc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SELECT,
+				'conditions' => [
+					'relation' => 'and',
+					'terms'    => [
+						[
+							'name'     => 'wpe_st_caption_source',
+							'operator' => '!',
+							'value'    => 'none',
+						],
+						[
+							'name'     => 'wpe_st_image_height_normal',
+							'operator' => '!',
+							'value'    => '',
+						]
+					]
 				],
-				'options'   => [
+				'options'    => [
 					''        => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
 					'fill'    => esc_html__( 'Fill', 'wpessential-elementor-blocks' ),
 					'cover'   => esc_html__( 'Cover', 'wpessential-elementor-blocks' ),
 					'contain' => esc_html__( 'Contain', 'wpessential-elementor-blocks' ),
 				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} span.wpe-image-span-wrapper'                => 'object-fit: {{VALUE}};',
+				'default'    => '',
+				'selectors'  => [
 					'{{WRAPPER}} span.wpe-image-span-wrapper > figure > img' => 'object-fit: {{VALUE}};',
 				],
 			]
@@ -726,11 +737,11 @@ class Image extends Base implements Shortcodes
 				],
 				'default'   => 'center center',
 				'selectors' => [
-					'{{WRAPPER}} span.wpe-image-span-wrapper'                => 'object-position: {{VALUE}};',
 					'{{WRAPPER}} span.wpe-image-span-wrapper > figure > img' => 'object-position: {{VALUE}};',
 				],
 				'condition' => [
-					'object-fit' => 'cover',
+					'object-fit'             => 'cover',
+					'wpe_st_caption_source!' => 'none'
 				],
 			]
 		);
