@@ -1,11 +1,11 @@
 <?php
 
-namespace WPEssential\Plugins\ElementorBlocks;
+namespace WPEssential\Plugins;
 
 use WPEssential\Plugins\ElementorBlocks\Assets\AssetsInit;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\ElementorInit;
 
-final class Loader
+final class ElementorBlocksInit
 {
 	public static function init ()
 	{
@@ -34,7 +34,7 @@ final class Loader
 
 	public static function load_files ()
 	{
-		require_once WPEELBLOCK_DIR . '/inc/Functions/general.php';
+		require_once WPEELBLOCK_DIR . '/inc/Plugins/ElementorBlocks/Functions/general.php';
 	}
 
 	public static function start ()

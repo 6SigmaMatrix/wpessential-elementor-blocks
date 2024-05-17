@@ -4,15 +4,75 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77d92fa6aba47a1d58b5015e7877eeff",
-    "packages": [],
+	"content-hash"       : "5f4ef141770bcfd6e3337a1c8bee6802",
+	"packages"           : [
+		{
+			"name"             : "wpessential/wpessential-require-notifier",
+			"version"          : "1.0.0",
+			"source"           : {
+				"type"      : "git",
+				"url"       : "https://github.com/wpessential/wpessential-require-notifier.git",
+				"reference" : "8c22e2f8f972d5a32e93b0586331d336b31bb6cd"
+			},
+			"dist"             : {
+				"type"      : "zip",
+				"url"       : "https://api.github.com/repos/wpessential/wpessential-require-notifier/zipball/8c22e2f8f972d5a32e93b0586331d336b31bb6cd",
+				"reference" : "8c22e2f8f972d5a32e93b0586331d336b31bb6cd",
+				"shasum"    : ""
+			},
+			"require"          : {
+				"php" : ">=7.4"
+			},
+			"type"             : "library",
+			"autoload"         : {
+				"psr-4" : {
+					"WPEssentialRequireNotifier\\" : "src/"
+				}
+			},
+			"notification-url" : "https://packagist.org/downloads/",
+			"license"          : [
+				"GPL-3.0-or-later"
+			],
+			"authors"          : [
+				{
+					"name"     : "WPEssential",
+					"email"    : "wordpress.essential@gmail.com",
+					"homepage" : "https://wpessential.org",
+					"role"     : "CEO"
+				}
+			],
+			"description"      : "Its open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.",
+			"homepage"         : "https://wpessential.org/",
+			"keywords"         : [
+				"fire",
+				"require",
+				"require-notifire"
+			],
+			"support"          : {
+				"docs"   : "https://github.com/wpessential/wpessential-require-notifier",
+				"forum"  : "https://github.com/wpessential/wpessential-require-notifier/discussions",
+				"issues" : "https://github.com/wpessential/wpessential-require-notifier/issues",
+				"source" : "https://github.com/wpessential/wpessential-require-notifier.git",
+				"wiki"   : "https://github.com/wpessential/wpessential-require-notifier/wiki"
+			},
+			"funding"          : [
+				{
+					"url"  : "https://www.patreon.com/WPEssential",
+					"type" : "patreon"
+				}
+			],
+			"time"             : "2023-11-14T17:53:47+00:00"
+		}
+	],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+	"platform"           : {
+		"php" : ">=7.4"
+	},
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+	"plugin-api-version" : "2.6.0"
 }

@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'WPEssential\\Plugins\\ElementorBlocks\\' => array($baseDir . '/inc'),
+	'WPEssential\\'                => array( $baseDir . '/inc' ),
+	'WPEssentialRequireNotifier\\' => array( $vendorDir . '/wpessential/wpessential-require-notifier/src' ),
 );

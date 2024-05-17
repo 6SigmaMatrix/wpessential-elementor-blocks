@@ -9,15 +9,20 @@ class ComposerStaticInitecf8ce2460a47fe231277e171bdf47fc
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
-            'WPEssential\\Plugins\\ElementorBlocks\\' => 36,
+			'WPEssential\\'                => 12,
+			'WPEssentialRequireNotifier\\' => 27,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'WPEssential\\Plugins\\ElementorBlocks\\' => 
+		'WPEssential\\'                =>
         array (
             0 => __DIR__ . '/../..' . '/inc',
         ),
+		'WPEssentialRequireNotifier\\' =>
+			array(
+				0 => __DIR__ . '/..' . '/wpessential/wpessential-require-notifier/src',
+			),
     );
 
     public static $classMap = array (
