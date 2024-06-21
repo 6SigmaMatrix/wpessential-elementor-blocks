@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -14,10 +15,11 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
+use Elementor\Repeater;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
+use function defined;
 
 class Tabs extends Base implements Shortcodes
 {
@@ -84,7 +86,6 @@ class Tabs extends Base implements Shortcodes
 		$this->tabs_style();
 		$this->end_controls_section();
 
-
 		$this->start_controls_section(
 			'wpe_st_title_style',
 			[
@@ -115,14 +116,13 @@ class Tabs extends Base implements Shortcodes
 		$this->icon_style();
 		$this->end_controls_section();
 
-
 	}
 
 	private function tabs_content ()
 	{
 		$start    = is_rtl() ? 'end' : 'start';
 		$end      = is_rtl() ? 'start' : 'end';
-		$repeater = new \Elementor\Repeater();
+		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'wpe_st_tab_title',
@@ -180,7 +180,6 @@ class Tabs extends Base implements Shortcodes
 				'title_field' => '{{{ wpe_st_tab_title }}}',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_view',
@@ -271,7 +270,6 @@ class Tabs extends Base implements Shortcodes
 	private function tabs_style ()
 	{
 
-
 		$this->add_control(
 			'wpe_st_tab_navigation_width_normal',
 			[
@@ -329,7 +327,6 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -354,7 +351,6 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -363,7 +359,6 @@ class Tabs extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_title_color_normal',
@@ -412,7 +407,6 @@ class Tabs extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -527,7 +521,6 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -572,7 +565,6 @@ class Tabs extends Base implements Shortcodes
 		);
 
 		$this->end_controls_tab();// normal tabs end here
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_title_hover',
@@ -644,7 +636,6 @@ class Tabs extends Base implements Shortcodes
 
 		);
 
-
 		$this->add_control(
 			'wpe_st_title_text_decoration_hover',
 			[
@@ -705,11 +696,9 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
 
 	}
 
@@ -927,7 +916,6 @@ class Tabs extends Base implements Shortcodes
 
 		$this->end_controls_tab();
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_content_hover',
 			[
@@ -955,7 +943,6 @@ class Tabs extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_content_border_width_hover',
@@ -1050,7 +1037,6 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
@@ -1134,7 +1120,6 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_icon_color_normal',
 			[
@@ -1146,7 +1131,6 @@ class Tabs extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
@@ -1208,7 +1192,6 @@ class Tabs extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
@@ -1312,9 +1295,7 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_icon_hover',
@@ -1419,7 +1400,6 @@ class Tabs extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -1427,7 +1407,6 @@ class Tabs extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor icon',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_hover',
@@ -1446,7 +1425,6 @@ class Tabs extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
-
 
 		$this->end_controls_tab();
 		$this->end_controls_tabs();// the tab in which normal and hover are present .that tab ends here

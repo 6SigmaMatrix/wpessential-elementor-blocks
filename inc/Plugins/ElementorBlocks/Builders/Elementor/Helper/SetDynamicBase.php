@@ -5,7 +5,6 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper;
 
-
 use function get_class;
 
 trait SetDynamicBase
@@ -18,6 +17,6 @@ trait SetDynamicBase
 
 	public function set_title ()
 	{
-		return sprintf( __( '%s', 'wpessential-pro' ), str_replace( 'WPEssential', '', preg_replace( '/(?<!\ )[A-Z]/', ' $0', substr( strrchr( get_class( $this ), "\\" ), 1 ) ) ) );
+		return str_replace( 'WPEssential', '', preg_replace( '/(?<!\ )[A-Z]/', ' $0', substr( strrchr( get_class( $this ), "\\" ), 1 ) ) );
 	}
 }

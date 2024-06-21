@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -18,8 +19,8 @@ use WPEssential\Plugins\Builders\Fields\Text;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
 use WPEssential\Plugins\Loader;
-use function defined;
 
+use function defined;
 
 class GoogleMaps extends Base implements Shortcodes
 {
@@ -66,19 +67,22 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->start_controls_section(
 			'section_map',
 			[
-				'label' => esc_html__( 'Map', 'elementor' ),
+				'label' => esc_html__( 'Map', 'wpessential-elementor-blocks' ),
 			]
 		);
 
-		if ( Plugin::$instance->editor->is_edit_mode() ) {
+		if ( Plugin::$instance->editor->is_edit_mode() )
+		{
 			$api_key = get_option( 'elementor_google_maps_api_key' );
 
-			if ( ! $api_key ) {
-				$opt = RawHtml::make( __( 'Warning', 'wpessential-elementor-blocks' ) );
+			if ( ! $api_key )
+			{
+				$opt = RawHtml::make( esc_html__( 'Warning', 'wpessential-elementor-blocks' ) );
 				$opt->data( sprintf(
-					esc_html__( 'Set your Google Maps API Key in Elementor\'s %1$sIntegrations Settings%3$s page. Create your key %2$shere.%3$s', 'elementor' ),
+				/* translators: %1$s %2$s %3$s: HTML tags */
+					esc_html__( 'Set your Google Maps API Key in Elementor\'s %1$sIntegrations Settings%3$s page. Create your key %2$shere.%3$s', 'wpessential-elementor-blocks' ),
 					'<a href="' . Settings::get_url() . '#tab-integrations" target="_blank">',
-					'<a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank">',
+					'<a href="#" target="_blank">',
 					'</a>'
 				) );
 				$opt->contentClasses( 'elementor-panel-alert elementor-panel-alert-info' );
@@ -86,16 +90,16 @@ class GoogleMaps extends Base implements Shortcodes
 			}
 		}
 
-		$default_address = __( 'London Eye, London, United Kingdom', 'elementor' );
+		$default_address = esc_html__( 'London Eye, London, United Kingdom', 'wpessential-elementor-blocks' );
 
-		$opt = Text::make( __( 'Location', 'wpessential-elementor-blocks' ), 'address' );
+		$opt = Text::make( esc_html__( 'Location', 'wpessential-elementor-blocks' ), 'address' );
 		$opt->dynamic( true, '', [ TagsModule::POST_META_CATEGORY, ] );
 		$opt->placeholder( $default_address );
 		$opt->default( $default_address );
 		$opt->label_block( true );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Slider::make( __( 'Zoom', 'wpessential-elementor-blocks' ) );
+		$opt = Slider::make( esc_html__( 'Zoom', 'wpessential-elementor-blocks' ) );
 		$opt->default( [ 'size' => 10 ] );
 		$opt->separator( true );
 		$opt->max( 20 );
@@ -107,7 +111,7 @@ class GoogleMaps extends Base implements Shortcodes
 		] );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Slider::make( __( 'Height', 'wpessential-elementor-blocks' ) );
+		$opt = Slider::make( esc_html__( 'Height', 'wpessential-elementor-blocks' ) );
 		$opt->default( [ 'size' => 10 ] );
 		$opt->separator( true );
 		$opt->max( 20 );
@@ -126,7 +130,7 @@ class GoogleMaps extends Base implements Shortcodes
 		// $this->add_responsive_control(
 		// 	'height',
 		// 	[
-		// 		'label'      => esc_html__( 'Height', 'elementor' ),
+		// 		'label'      => esc_html__( 'Height', 'wpessential-elementor-blocks' ),
 		// 		'type'       => Controls_Manager::SLIDER,
 		// 		'range'      => [
 		// 			'px' => [
@@ -150,7 +154,7 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->start_controls_section(
 			'section_map_style',
 			[
-				'label' => esc_html__( 'Map', 'elementor' ),
+				'label' => esc_html__( 'Map', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -159,7 +163,7 @@ class GoogleMaps extends Base implements Shortcodes
 
 		$this->start_controls_tab( 'normal',
 			[
-				'label' => esc_html__( 'Normal', 'elementor' ),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
 
@@ -174,7 +178,7 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'width',
 			[
-				'label'          => esc_html__( 'Width', 'elementor' ),
+				'label' => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
 				'type'           => Controls_Manager::SLIDER,
 				'size_units'     => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range'          => [
@@ -200,19 +204,19 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => esc_html__( 'Alignment', 'elementor' ),
+				'label'     => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'   => [
-						'title' => esc_html__( 'Left', 'elementor' ),
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'elementor' ),
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'  => [
-						'title' => esc_html__( 'Right', 'elementor' ),
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -253,7 +257,7 @@ class GoogleMaps extends Base implements Shortcodes
 
 		$this->start_controls_tab( 'hover',
 			[
-				'label' => esc_html__( 'Hover', 'elementor' ),
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
 
@@ -268,7 +272,7 @@ class GoogleMaps extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_hover_transition',
 			[
-				'label'     => esc_html__( 'Transition Duration', 'elementor' ),
+				'label' => esc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -307,7 +311,6 @@ class GoogleMaps extends Base implements Shortcodes
 
 		$this->end_controls_section();
 
-
 	}
 
 	/**
@@ -323,12 +326,14 @@ class GoogleMaps extends Base implements Shortcodes
 		$settings = $this->get_settings_for_display();
 		$address  = wpe_array_get( $settings, 'address' );
 
-		if ( ! $address ) {
+		if ( ! $address )
+		{
 			return;
 		}
 
 		$zoom = wpe_array_get( $settings, 'zoom.size' );
-		if ( absint( $zoom ) === 0 ) {
+		if ( absint( $zoom ) === 0 )
+		{
 			$zoom = 10;
 		}
 
@@ -339,12 +344,14 @@ class GoogleMaps extends Base implements Shortcodes
 			absint( $zoom ),
 		];
 
-		if ( $api_key ) {
+		if ( $api_key )
+		{
 			$params[] = $api_key;
-			$url      = 'https://www.google.com/maps/embed/v1/place?key=%3$s&q=%1$s&amp;zoom=%2$d';
+			$url = '#';
 		}
-		else {
-			$url = 'https://maps.google.com/maps?q=%1$s&amp;t=m&amp;z=%2$d&amp;output=embed&amp;iwloc=near';
+		else
+		{
+			$url = '#';
 		}
 
 		?>
@@ -353,6 +360,5 @@ class GoogleMaps extends Base implements Shortcodes
 		</div>
 		<?php
 	}
-
 
 }

@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -12,6 +13,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class Icons extends Base implements Shortcodes
@@ -44,11 +46,10 @@ class Icons extends Base implements Shortcodes
 		return esc_html__( 'Icon', 'wpessential-elementor-blocks' );
 	}
 
-	public function get_icon ()
+	public function set_widget_icon ()
 	{
 		return 'eicon-favorite';
 	}
-
 
 	/**
 	 * Register widget controls.
@@ -274,7 +275,6 @@ class Icons extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_icon_color_normal',
 			[
@@ -286,7 +286,6 @@ class Icons extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
@@ -348,7 +347,6 @@ class Icons extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
@@ -452,9 +450,7 @@ class Icons extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_icon_hover',
@@ -559,7 +555,6 @@ class Icons extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -567,7 +562,6 @@ class Icons extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor icon',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_hover',
@@ -587,7 +581,6 @@ class Icons extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();// the tab in which normal and hover are present .that tab ends here
 	}
@@ -601,6 +594,5 @@ class Icons extends Base implements Shortcodes
 	 * @access public
 	 */
 	public function render () {}
-
 
 }

@@ -1,15 +1,17 @@
 <?php
-/*
- * Copyright (c) 2021. This file is copyright by WPEssential.
- */
+if ( ! \defined( 'ABSPATH' ) )
+{
+	exit; // Exit if accessed directly.
+}
 
 /**
  * Plugin Version
  *
  * @since  1.0.0
  */
-if ( ! defined( 'WPEELBLOCK_VERSION' ) ) {
-	define( 'WPEELBLOCK_VERSION', '1.0.0' );
+if ( ! defined( 'WPEELB_VERSION' ) )
+{
+	define( 'WPEELB_VERSION', '1.0.0' );
 }
 
 /**
@@ -17,8 +19,9 @@ if ( ! defined( 'WPEELBLOCK_VERSION' ) ) {
  *
  * @since  1.0.0
  */
-if ( ! defined( 'WPEELBLOCK_DIR' ) ) {
-	define( 'WPEELBLOCK_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'WPEELB_DIR' ) )
+{
+	define( 'WPEELB_DIR', plugin_dir_path( __FILE__ ) );
 }
 
 /**
@@ -26,6 +29,7 @@ if ( ! defined( 'WPEELBLOCK_DIR' ) ) {
  *
  * @since  1.0.0
  */
-if ( ! defined( 'WPEELBLOCK_URL' ) ) {
-	define( 'WPEELBLOCK_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'WPEELB_URL' ) )
+{
+	define( 'WPEELB_URL', plugin_dir_url( __FILE__ ) );
 }

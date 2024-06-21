@@ -2,12 +2,14 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class SliderCategory extends Base implements Shortcodes

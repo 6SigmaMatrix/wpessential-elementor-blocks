@@ -2,13 +2,10 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
-
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
-use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
@@ -18,7 +15,10 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
+use WPEssential\Plugins\Implement\Shortcodes;
+
+use function defined;
 
 class BreadCrumbs extends Base implements Shortcodes
 {
@@ -45,7 +45,7 @@ class BreadCrumbs extends Base implements Shortcodes
 		return [ 'BreadCrumbs', 'title', 'text' ];
 	}
 
-	public function get_icon ()
+	public function set_widget_icon ()
 	{
 		return 'eicon-breadcrumbs';
 	}
@@ -69,7 +69,7 @@ class BreadCrumbs extends Base implements Shortcodes
 			]
 		);
 		$this->add_control(
-			"wpe_st_breadcrumb_html_tag",
+			'wpe_st_breadcrumb_html_tag',
 			[
 				'label'   => esc_html__( 'HTML tags', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
@@ -94,17 +94,6 @@ class BreadCrumbs extends Base implements Shortcodes
 
 	}
 
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render () {}
-
-
 	private function breadcrumb_style ()
 	{
 
@@ -125,7 +114,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_breadcrumb_text_color_normal',
@@ -321,7 +309,6 @@ normal and hover*/
 
 		$this->end_controls_tab();
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_breadcrumb_hover',
 			[
@@ -361,7 +348,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_breadcrumb_border_width_hover',
@@ -456,10 +442,19 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
 	}
+
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {}
 
 }

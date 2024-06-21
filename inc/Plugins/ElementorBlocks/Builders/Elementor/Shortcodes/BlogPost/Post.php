@@ -2,13 +2,15 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\BlogPost;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\Number;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class Post extends Base implements Shortcodes
@@ -52,16 +54,16 @@ class Post extends Base implements Shortcodes
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Post Settings', 'wpessential-blog-post' )
+				'label' => esc_html__( 'Post Settings', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = Number::make( __( 'Posts Per Page', 'wpessential-blog-post' ) )
-		             ->min( 1 )
-		             ->step( 1 )
-		             ->desc( __( 'Enter the number of post to display on frontend.', 'wpessential-blog-post' ) )
-		             ->default( 4 )
-		             ->toArray();
+		$opt = Number::make( esc_html__( 'Posts Per Page', 'wpessential-elementor-blocks' ) )
+					 ->min( 1 )
+					 ->step( 1 )
+					 ->desc( esc_html__( 'Enter the number of post to display on frontend.', 'wpessential-elementor-blocks' ) )
+					 ->default( 4 )
+					 ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
 		$this->end_controls_section();

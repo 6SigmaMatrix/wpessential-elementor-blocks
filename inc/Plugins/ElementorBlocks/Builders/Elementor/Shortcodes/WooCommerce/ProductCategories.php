@@ -2,11 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\RawHtml;
+
 use function defined;
 
 class ProductCategories extends WCCategory
@@ -38,13 +40,13 @@ class ProductCategories extends WCCategory
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Shortcode', 'wpessential' )
+				'label' => esc_html__( 'Shortcode', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = RawHtml::make( __( 'WooCommerce', 'wpessential' ) )
-		              ->data( __( 'There are no option found. If you want more options, then please try the Pro version.', 'wpessential' ), )
-		              ->toArray();
+		$opt = RawHtml::make( esc_html__( 'WooCommerce', 'wpessential-elementor-blocks' ) )
+					  ->data( esc_html__( 'There are no option found. If you want more options, then please try the Pro version.', 'wpessential-elementor-blocks' ), )
+					  ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
 		$this->end_controls_section();

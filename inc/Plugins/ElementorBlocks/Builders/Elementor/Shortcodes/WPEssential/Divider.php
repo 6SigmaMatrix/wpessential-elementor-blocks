@@ -2,12 +2,14 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class Divider extends Base implements Shortcodes
@@ -53,12 +55,14 @@ class Divider extends Base implements Shortcodes
 		$this->start_controls_section(
 			'section_divider',
 			[
-				'label' => esc_html__( 'Divider', 'elementor' ),
+				'label' => esc_html__( 'Divider', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->divider_content();
 		$this->end_controls_section();
 	}
+
+	private function divider_content () {}
 
 	/**
 	 * Render widget output on the frontend.
@@ -69,6 +73,4 @@ class Divider extends Base implements Shortcodes
 	 * @access public
 	 */
 	public function render () {}
-
-	private function divider_content () {}
 }

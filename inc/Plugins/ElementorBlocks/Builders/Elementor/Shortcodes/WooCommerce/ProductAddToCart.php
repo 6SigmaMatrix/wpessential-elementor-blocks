@@ -2,12 +2,14 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
 use WPEssential\Plugins\Builders\Fields\RawHtml;
+
 use function defined;
 
 class ProductAddToCart extends WCCategory
@@ -39,14 +41,14 @@ class ProductAddToCart extends WCCategory
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Layout', 'wpessential' )
+				'label' => esc_html__( 'Layout', 'wpessential-elementor-blocks' )
 			]
 		);
 
 		$this->add_control(
 			'product_id',
 			[
-				'label'   => esc_html__( 'Product', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Product', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => wpe_get_posts( [ 'post_type' => 'product', 'posts_per_page' => - 1 ] ),
 			]
@@ -57,13 +59,13 @@ class ProductAddToCart extends WCCategory
 		$this->start_controls_section(
 			'section_pro_wc',
 			[
-				'label' => __( 'Pro', 'wpessential' )
+				'label' => esc_html__( 'Pro', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = RawHtml::make( __( 'WooCommerce', 'wpessential' ) )
-		              ->data( __( 'There are no option found. If you want more options, then please try the Pro version.', 'wpessential' ), )
-		              ->toArray();
+		$opt = RawHtml::make( esc_html__( 'WooCommerce', 'wpessential-elementor-blocks' ) )
+					  ->data( esc_html__( 'There are no option found. If you want more options, then please try the Pro version.', 'wpessential-elementor-blocks' ), )
+					  ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
 		$this->end_controls_section();
@@ -82,16 +84,19 @@ class ProductAddToCart extends WCCategory
 	{
 		global $product;
 
-		if ( ! is_product() ) {
+		if ( ! is_product() )
+		{
 			global $post;
 			$product = wc_get_product( $this->get_settings( 'product_id' ) );
 			$post    = get_post( $product->get_id() );
 		}
-		else {
+		else
+		{
 			$product = wc_get_product();
 		}
 
-		if ( empty( $product ) ) {
+		if ( empty( $product ) )
+		{
 			return;
 		}
 		?>

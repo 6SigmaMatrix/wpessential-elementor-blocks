@@ -123,7 +123,7 @@ final class RequireNotifier
 				return $this;
 			}
 
-			$this->link_title( sprintf( __( 'Activate %s', 'wpessential' ), $name ) );
+			$this->link_title( sprintf( esc_html__( 'Activate %s', 'wpessential-elementor-blocks' ), $name ) );
 			$this->link( wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin ) );
 		}
 		else {
@@ -133,7 +133,7 @@ final class RequireNotifier
 
 			$plugin = str_replace( '.php', '', basename( $plugin ) );
 
-			$this->link_title( sprintf( __( 'Install %s', 'wpessential' ), $name ) );
+			$this->link_title( sprintf( esc_html__( 'Install %s', 'wpessential-elementor-blocks' ), $name ) );
 			$this->link( wp_nonce_url( self_admin_url( "update.php?action=install-plugin&plugin={$plugin}" ), "install-plugin_{$plugin}" ) );
 		}
 
@@ -166,14 +166,14 @@ final class RequireNotifier
                     <img src="<?php echo esc_url( $this->icon ); ?>" alt="<?php echo esc_attr( $this->icon_alt ); ?>" />
                 </div>
                 <div class="wpessential-notice-content">
-                    <h3><?php echo esc_html__( $this->title ); ?></h3>
+                    <h3><?php echo esc_htmlesc_html__( $this->title ); ?></h3>
                     <p>
-						<?php _e( $this->desc, 'wpessential' ); ?>
+						<?php _e( $this->desc, 'wpessential-elementor-blocks' ); ?>
                     </p>
 					<?php
 					if ( $this->learn_link && $this->learn_desc ) {
 						?>
-						<a target="_blank" href="<?php echo esc_url( $this->learn_link ) ?>" title="<?php echo esc_attr( $this->learn_desc ) ?>"><?php _e( $this->learn_desc, 'wpessential' ); ?></a>
+						<a target="_blank" href="<?php echo esc_url( $this->learn_link ) ?>" title="<?php echo esc_attr( $this->learn_desc ) ?>"><?php _e( $this->learn_desc, 'wpessential-elementor-blocks' ); ?></a>
 						<?php
 					}
 					?>
@@ -182,7 +182,7 @@ final class RequireNotifier
 				if ( $this->link && $this->link_title ) {
 					?>
 					<div class="wpessneital-install-now">
-                        <a class="button button-primary wpessneital-install-install-button" target="_blank" href="<?php echo esc_url( $this->link ) ?>" title="<?php echo esc_attr( $this->link_title ) ?>"><i class="dashicons dashicons-download"></i><?php _e( $this->link_title, 'wpessential' ); ?>
+                        <a class="button button-primary wpessneital-install-install-button" target="_blank" href="<?php echo esc_url( $this->link ) ?>" title="<?php echo esc_attr( $this->link_title ) ?>"><i class="dashicons dashicons-download"></i><?php _e( $this->link_title, 'wpessential-elementor-blocks' ); ?>
                         </a>
                     </div>
 					<?php

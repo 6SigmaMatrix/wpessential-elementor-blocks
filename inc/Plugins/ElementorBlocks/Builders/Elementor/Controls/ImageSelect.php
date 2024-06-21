@@ -2,12 +2,12 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Controls;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! \defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Base_Data_Control;
-use function defined;
 
 class ImageSelect extends Base_Data_Control
 {
@@ -30,8 +30,7 @@ class ImageSelect extends Base_Data_Control
 	public function enqueue ()
 	{
 		// Styles
-		wp_register_style( 'wpessential-imageselect', WPE_URL . 'assets/css/controls/imageselect.css' );
-		wp_enqueue_style( 'wpessential-imageselect' );
+		wp_enqueue_style( 'wpessential-elementor-blocks-imageselect' );
 	}
 
 	/**
@@ -50,7 +49,7 @@ class ImageSelect extends Base_Data_Control
 		?>
 		<div class="elementor-control-field">
 			<# if ( data.label ) {#>
-			<label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
+			<label for="<?php echo esc_attr( $control_uid ); ?>" class="elementor-control-title">{{{ data.label }}}</label>
 			<# } #>
 
 			<div class="webinane-elementor-control-imageselect-wrapper">

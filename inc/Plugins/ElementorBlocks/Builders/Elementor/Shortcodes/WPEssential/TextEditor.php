@@ -2,21 +2,18 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Text_Stroke;
-use Elementor\Group_Control_Typography;
 use WPEssential\Plugins\Builders\Fields\Switcher;
 use WPEssential\Plugins\Builders\Fields\Wysiwyg;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper\TextEditor as Text;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper\TextEditor as Text;
+
 use function defined;
 
 class TextEditor extends Base implements Shortcodes
@@ -71,25 +68,25 @@ class TextEditor extends Base implements Shortcodes
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
-		$opt = Wysiwyg::make( __( 'Text Editor', 'wpessential-elementor-blocks' ) );
+		$opt = Wysiwyg::make( esc_html__( 'Text Editor', 'wpessential-elementor-blocks' ) );
 		$opt->label_block( true );
-		$opt->default( '<p>' . __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ) . '</p>' );
+		$opt->default( '<p>' . esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'wpessential-elementor-blocks' ) . '</p>' );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Switcher::make( __( 'Drop Cap', 'wpessential-elementor-blocks' ) );
-		$opt->label_off( esc_html__( 'Off', 'elementor' ) );
-		$opt->label_on( esc_html__( 'On', 'elementor' ) );
+		$opt                = Switcher::make( esc_html__( 'Drop Cap', 'wpessential-elementor-blocks' ) );
+		$opt->label_off( esc_html__( 'Off', 'wpessential-elementor-blocks' ) );
+		$opt->label_on( esc_html__( 'On', 'wpessential-elementor-blocks' ) );
 		$opt->prefix_class( 'wpe-drop-cap-' );
 		$this->add_control( $opt->key, $opt->toArray() );
 
 		$text_columns       = range( 1, 10 );
 		$text_columns       = array_combine( $text_columns, $text_columns );
-		$text_columns[ '' ] = esc_html__( 'Default', 'elementor' );
+		$text_columns[ '' ] = esc_html__( 'Default', 'wpessential-elementor-blocks' );
 
 		$this->add_responsive_control(
 			'text_columns',
 			[
-				'label'     => esc_html__( 'Columns', 'elementor' ),
+				'label' => esc_html__( 'Columns', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'options'   => $text_columns,
@@ -102,7 +99,7 @@ class TextEditor extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'column_gap',
 			[
-				'label'      => esc_html__( 'Columns Gap', 'elementor' ),
+				'label' => esc_html__( 'Columns Gap', 'wpessential-elementor-blocks' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range'      => [
@@ -153,9 +150,7 @@ class TextEditor extends Base implements Shortcodes
 		$text->hr_style();
 		$text->table_style();
 
-
 	}
-
 
 	/**
 	 * Render widget output on the frontend.
@@ -170,6 +165,5 @@ class TextEditor extends Base implements Shortcodes
 		$settings = wpe_gen_attr( $this->get_settings_for_display() );
 		echo do_shortcode( "[{$this->get_base_name()} {$settings}']" );
 	}
-
 
 }

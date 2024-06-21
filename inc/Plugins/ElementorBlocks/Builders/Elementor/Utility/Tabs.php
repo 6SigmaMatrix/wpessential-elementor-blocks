@@ -3,9 +3,11 @@
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 
 use Elementor\Controls_Manager;
+
 use function defined;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -28,14 +30,16 @@ final class Tabs
 	protected static function register_tabs ()
 	{
 		$categories = apply_filters(
-			'wpe/elementor/tabs',
+			'wpeeb/elementor/tabs',
 			[
-				'loop' => __( 'Loop', 'wpessential' )
+				'loop' => esc_html__( 'Loop', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		if ( ! empty( $categories ) ) {
-			foreach ( $categories as $key => $name ) {
+		if ( ! empty( $categories ) )
+		{
+			foreach ( $categories as $key => $name )
+			{
 				Controls_Manager::add_tab( $key, $name );
 			}
 		}

@@ -2,24 +2,22 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
 use Elementor\Utils;
-use Elementor\Group_Control_Background;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class Image extends Base implements Shortcodes
@@ -56,7 +54,6 @@ class Image extends Base implements Shortcodes
 	{
 		return 'eicon-image';
 	}
-
 
 	/**
 	 * Register widget controls.
@@ -161,7 +158,7 @@ class Image extends Base implements Shortcodes
 				'label'   => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
-				'options' => apply_filters( 'wpe/elementor/image/link_opt', [
+				'options' => apply_filters( 'wpeeb/elementor/image/link_opt', [
 					'none'   => esc_html__( 'None', 'wpessential-elementor-blocks' ),
 					'file'   => esc_html__( 'Media File', 'wpessential-elementor-blocks' ),
 					'custom' => esc_html__( 'Custom URL', 'wpessential-elementor-blocks' )
@@ -185,7 +182,6 @@ class Image extends Base implements Shortcodes
 		);
 
 		$this->end_controls_section();
-
 
 		//   FOT STYLE TAB
 		$this->start_controls_section(
@@ -602,7 +598,6 @@ class Image extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_responsive_control(
 			'wpe_st_image_width_normal',
 			[
@@ -835,7 +830,6 @@ class Image extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
@@ -917,7 +911,6 @@ class Image extends Base implements Shortcodes
 				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_image_width_hover',
@@ -1185,7 +1178,6 @@ class Image extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor img',
 			]
 		);
-
 
 		$this->end_controls_tab();
 

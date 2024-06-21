@@ -2,17 +2,21 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
-use Elementor\Controls_Stack;
 use Elementor\Plugin;
 use Elementor\Widget_Base;
 use WPEssential\Plugins\Builders\Fields\Hidden;
 use WPEssential\Plugins\Builders\Fields\Select;
 use WPEssential\Plugins\Helper\GetShortcodeBase;
 use WPEssential\Plugins\Implement\Shortcodes;
+
+use function count;
+use function defined;
+use function get_class;
 
 abstract class Base extends Widget_Base
 {
@@ -22,14 +26,17 @@ abstract class Base extends Widget_Base
 
 	public function __construct ( $data = [], $args = null )
 	{
-		if ( ! ( $this instanceof Shortcodes ) ) {
-			wp_die( __( 'Elementor element ' . $this->get_name() . ' has not interface.', 'wpessential' ) );
+		if ( ! ( $this instanceof Shortcodes ) )
+		{
+			$msg = esc_html__( 'Elementor element ', 'wpessential-elementor-blocks' ) . $this->get_name() . esc_html__( ' has not interface.', 'wpessential-elementor-blocks' );
+			wp_die( esc_html( $msg ) );
 		}
 
 		parent::__construct( $data, $args );
 
-		add_action( 'elementor/widgets/widgets_registered', function () {
-			$widget = \get_class( $this );
+		add_action( 'elementor/widgets/widgets_registered', function ()
+		{
+			$widget = get_class( $this );
 			Plugin::instance()->widgets_manager->register( new $widget() );
 		} );
 
@@ -70,7 +77,8 @@ abstract class Base extends Widget_Base
 	{
 		parent::start_controls_section( $section_id, $args );
 
-		if ( $this->is_first_section ) {
+		if ( $this->is_first_section )
+		{
 			$this->register_skin_control();
 
 			$this->is_first_section = false;
@@ -89,14 +97,17 @@ abstract class Base extends Widget_Base
 	private function register_skin_control ()
 	{
 		$skins = $this->get_skins();
-		if ( ! empty( $skins ) ) {
+		if ( ! empty( $skins ) )
+		{
 			$skin_options = [];
 
-			if ( $this->_has_template_content ) {
-				$skin_options[ '' ] = __( 'Default', 'wpessential-elementor-blocks' );
+			if ( $this->_has_template_content )
+			{
+				$skin_options[ '' ] = esc_html__( 'Default', 'wpessential-elementor-blocks' );
 			}
 
-			foreach ( $skins as $skin_id => $skin ) {
+			foreach ( $skins as $skin_id => $skin )
+			{
 				$skin_options[ $skin_id ] = $skin->get_title();
 			}
 
@@ -104,13 +115,15 @@ abstract class Base extends Widget_Base
 			$default_value = array_keys( $skin_options );
 			$default_value = array_shift( $default_value );
 
-			if ( ! empty( $skin_options ) && 1 >= \count( $skin_options ) ) {
-				$opt = Hidden::make( __( 'Skin', 'wpessential-elementor-blocks' ), 'style' );
+			if ( ! empty( $skin_options ) && 1 >= count( $skin_options ) )
+			{
+				$opt = Hidden::make( esc_html__( 'Skin', 'wpessential-elementor-blocks' ), 'style' );
 				$opt->default( $default_value );
 				$this->add_control( $opt->key, $opt->toArray() );
 			}
-			else {
-				$opt = Select::make( __( 'Skin', 'wpessential-elementor-blocks' ), 'style' );
+			else
+			{
+				$opt = Select::make( esc_html__( 'Skin', 'wpessential-elementor-blocks' ), 'style' );
 				$opt->default( $default_value );
 				$opt->options( $skin_options );
 				$this->add_control( $opt->key, $opt->toArray() );
@@ -134,5 +147,4 @@ abstract class Base extends Widget_Base
 
 		$this->add_render_attribute( '_wrapper', 'data-widget_type', $this->get_name() . '.' . wpe_array_get( $settings, wpe_editor_key( 'style', 'default' ) ) );
 	}
-
 }

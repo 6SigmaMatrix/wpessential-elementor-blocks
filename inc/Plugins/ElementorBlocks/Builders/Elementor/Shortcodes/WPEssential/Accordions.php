@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -14,11 +15,12 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
+use Elementor\Repeater;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Helper\TextEditor;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
+use function defined;
 
 class Accordions extends Base implements Shortcodes
 {
@@ -63,7 +65,7 @@ class Accordions extends Base implements Shortcodes
 	public function register_controls ()
 	{
 
-		$accordions = new Accordions;
+		$accordions = new Accordions();
 
 		$this->start_controls_section(
 			'wpe_st_accordion_content_tab',
@@ -112,15 +114,12 @@ class Accordions extends Base implements Shortcodes
 		$this->content_style();
 		$this->end_controls_section();
 
-
 	}
-
 
 	private function accordion_content_tab ()
 	{
 
-
-		$repeater = new \Elementor\Repeater();
+		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'wpe_st_content_tab_accordion_title',
@@ -164,7 +163,7 @@ class Accordions extends Base implements Shortcodes
 		);
 
 		$this->add_control(
-			"wpe_st_content_tab_html_tag_options",
+			'wpe_st_content_tab_html_tag_options',
 			[
 				'label'   => esc_html__( 'HTML tags', 'wpessential-elementor-blocks' ),
 				'type'    => Controls_Manager::SELECT,
@@ -237,7 +236,6 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 	}
 
 	private function accordion_style ()
@@ -291,7 +289,6 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -300,7 +297,6 @@ class Accordions extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_title_color_normal',
@@ -349,7 +345,6 @@ class Accordions extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -464,7 +459,6 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -509,7 +503,6 @@ class Accordions extends Base implements Shortcodes
 		);
 
 		$this->end_controls_tab();// normal tabs end here
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_title_hover',
@@ -581,7 +574,6 @@ class Accordions extends Base implements Shortcodes
 
 		);
 
-
 		$this->add_control(
 			'wpe_st_title_text_decoration_hover',
 			[
@@ -642,11 +634,9 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
 
 	}
 
@@ -728,7 +718,6 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_icon_color_normal',
 			[
@@ -740,7 +729,6 @@ class Accordions extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
@@ -802,7 +790,6 @@ class Accordions extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
@@ -906,9 +893,7 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_icon_hover',
@@ -1013,7 +998,6 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -1021,7 +1005,6 @@ class Accordions extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor icon',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_hover',
@@ -1040,7 +1023,6 @@ class Accordions extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
-
 
 		$this->end_controls_tab();
 		$this->end_controls_tabs();// the tab in which normal and hover are present .that tab ends here
@@ -1250,7 +1232,6 @@ class Accordions extends Base implements Shortcodes
 
 		$this->end_controls_tab();
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_content_hover',
 			[
@@ -1278,7 +1259,6 @@ class Accordions extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_content_border_width_hover',
@@ -1373,7 +1353,6 @@ class Accordions extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
@@ -1394,6 +1373,5 @@ class Accordions extends Base implements Shortcodes
 		echo do_shortcode( "[{$this->get_base_name()} {$settings}']" );
 
 	}
-
 
 }

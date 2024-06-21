@@ -21,7 +21,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_anchor_style{$prefix}",
 			[
-				'label' => esc_html__( 'Anchor', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Anchor', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -32,7 +32,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_anchor_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -46,7 +46,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_anchor_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -59,7 +59,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_anchor_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -100,7 +100,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_anchor_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -127,7 +127,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_anchor_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -138,7 +138,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_anchor_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -149,13 +149,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_anchor_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -169,13 +169,13 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_anchor_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_control(
             "wpe_st_anchor_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -200,13 +200,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_anchor_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -217,7 +217,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_anchor_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -227,7 +227,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_anchor_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -252,14 +252,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_anchor_style{$prefix}",
 			[
-				'label' => esc_html__( 'Anchor', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Anchor', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
         $this->add_control(
 			'anchor_heading',
 			[
-				'label' => esc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -275,7 +275,7 @@ trait TextEditor
 		$this->start_controls_section(
 			"wpe_st_paragraph_style{$prefix}",
 			[
-				'label' => esc_html__( 'Paragraph', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Paragraph', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -285,7 +285,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_paragraph_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -299,7 +299,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_paragraph_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -312,7 +312,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_paragraph_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -353,7 +353,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_paragraph_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -380,7 +380,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_paragraph_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"=> 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -391,7 +391,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_paragraph_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -402,13 +402,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_paragraph_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -422,14 +422,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_paragraph_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_paragraph_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -454,13 +454,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_paragraph_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -471,7 +471,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_paragraph_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -481,7 +481,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_paragraph_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -508,14 +508,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_paragraph_style{$prefix}",
 			[
-				'label' => esc_html__( 'Paragraph', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Paragraph', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'paragraph_heading',
                 [
-                    'label' => esc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Anchor Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -529,7 +529,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_button_style{$prefix}",
 			[
-				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Button', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -539,7 +539,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_button_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -553,7 +553,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_button_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -566,7 +566,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_button_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -607,7 +607,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_button_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -634,7 +634,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_button_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"=> 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -645,7 +645,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_button_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -656,13 +656,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_button_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -677,14 +677,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_button_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_button_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -709,13 +709,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_button_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -726,7 +726,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_button_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -737,7 +737,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_button_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -764,14 +764,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_button_style{$prefix}",
 			[
-				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Button', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'button_heading',
                 [
-                    'label' => esc_html__( 'Button Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Button Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -786,7 +786,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_heading_1_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 1', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 1', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -796,7 +796,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_heading_1_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -810,7 +810,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_1_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -823,7 +823,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_1_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -864,7 +864,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_1_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -891,7 +891,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_1_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -902,7 +902,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_1_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -913,13 +913,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_1_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -933,14 +933,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_heading_1_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_heading_1_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -965,13 +965,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_1_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -982,7 +982,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_1_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -992,7 +992,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_1_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1019,14 +1019,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_h1_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 1', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 1', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'h1_heading',
                 [
-                    'label' => esc_html__( 'Heading 1 Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Heading 1 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -1041,7 +1041,7 @@ trait TextEditor
         $this->start_controls_section(
         "wpe_st_heading_2_style{$prefix}",
         [
-            'label' => esc_html__( 'Heading 2', 'wpessential-elementor-blocks' ),
+			'label' => esc_htmlesc_html__( 'Heading 2', 'wpessential-elementor-blocks' ),
             'tab'   => Controls_Manager::TAB_STYLE,
         ]
     );
@@ -1051,7 +1051,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_heading_2_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -1065,7 +1065,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_2_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -1078,7 +1078,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_2_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -1119,7 +1119,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_2_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -1146,7 +1146,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_2_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1157,7 +1157,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_2_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1168,13 +1168,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_2_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1188,14 +1188,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_heading_2_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_heading_2_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -1220,13 +1220,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_2_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1237,7 +1237,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_2_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1247,7 +1247,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_2_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1274,14 +1274,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_h2_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 2', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 2', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'h2_heading',
                 [
-                    'label' => esc_html__( 'Heading 2 Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Heading 2 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -1296,7 +1296,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_heading_3_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 3', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 3', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1306,7 +1306,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_heading_3_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -1320,7 +1320,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_3_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -1333,7 +1333,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_3_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -1374,7 +1374,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_3_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -1401,7 +1401,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_3_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     '{{WRAPPER}} .wpe-text-editor h3' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1412,7 +1412,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_3_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1423,13 +1423,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_3_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1443,14 +1443,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_heading_3_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_heading_3_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -1475,13 +1475,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_3_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1492,7 +1492,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_3_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1502,7 +1502,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_3_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1528,14 +1528,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_h3_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 3', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 3', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'h3_heading',
                 [
-                    'label' => esc_html__( 'Heading 3 Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Heading 3 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -1550,7 +1550,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_heading_4_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 4', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 4', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1560,7 +1560,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_heading_4_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -1574,7 +1574,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_4_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -1587,7 +1587,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_4_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -1628,7 +1628,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_4_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -1655,7 +1655,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_4_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1666,7 +1666,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_4_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1677,13 +1677,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_4_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1697,14 +1697,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_heading_4_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_heading_4_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -1729,13 +1729,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_4_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1746,7 +1746,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_4_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1757,7 +1757,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_4_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1784,14 +1784,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_h4_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 4', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 4', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'h4_heading',
                 [
-                    'label' => esc_html__( 'Heading 4 Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Heading 4 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -1806,7 +1806,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_heading_5_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 5', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 5', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1816,7 +1816,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_heading_5_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -1830,7 +1830,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_5_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -1843,7 +1843,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_5_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -1884,7 +1884,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_5_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'color: {{VALUE}}',
@@ -1911,7 +1911,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_5_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}"  => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -1922,7 +1922,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_5_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1933,13 +1933,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_5_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -1953,14 +1953,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_heading_5_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_heading_5_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -1985,13 +1985,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_5_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2002,7 +2002,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_5_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2012,7 +2012,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_5_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2039,14 +2039,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_h5_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 5', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 5', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'h5_heading',
                 [
-                    'label' => esc_html__( 'Heading 5 Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Heading 5 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -2061,7 +2061,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_heading_6_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 6', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 6', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -2071,7 +2071,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_heading_6_norma{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -2085,7 +2085,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_6_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -2098,7 +2098,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_6_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -2139,7 +2139,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_6_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2166,7 +2166,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_6_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2177,7 +2177,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_6_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2188,13 +2188,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_6_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2208,14 +2208,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_heading_6_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_heading_6_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2240,13 +2240,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_6_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2257,7 +2257,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_heading_6_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2267,7 +2267,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_heading_6_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2294,14 +2294,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_h6_style{$prefix}",
 			[
-				'label' => esc_html__( 'Heading 6', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Heading 6', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'h6_heading',
                 [
-                    'label' => esc_html__( 'Heading 6 Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Heading 6 Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -2316,7 +2316,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_pre_tag_style{$prefix}",
 			[
-				'label' => esc_html__( 'Pre tag', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Pre tag', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -2326,7 +2326,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_pre_tag_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -2340,7 +2340,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_pre_tag_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -2353,7 +2353,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_pre_tag_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -2394,7 +2394,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_pre_tag_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2421,7 +2421,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_pre_tag_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2432,7 +2432,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_pre_tag_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2443,13 +2443,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_pre_tag_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2463,14 +2463,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_pre_tag_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_pre_tag_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2495,13 +2495,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_pre_tag_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2512,7 +2512,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_pre_tag_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2522,7 +2522,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_pre_tag_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2549,14 +2549,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_pre_style{$prefix}",
 			[
-				'label' => esc_html__( 'Pre', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Pre', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'pre_heading',
                 [
-                    'label' => esc_html__( 'Pre Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Pre Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -2572,7 +2572,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_figure_style{$prefix}",
 			[
-				'label' => esc_html__( 'Figure', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Figure', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -2582,7 +2582,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_figure_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -2596,7 +2596,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_figure_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -2609,7 +2609,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_figure_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -2650,7 +2650,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_figure_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2677,7 +2677,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_figure_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2688,7 +2688,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_figure_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2699,13 +2699,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_figure_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2719,14 +2719,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_figure_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_figure_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2751,13 +2751,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_figure_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2768,7 +2768,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_figure_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2778,7 +2778,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_figure_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2804,14 +2804,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_fig_style{$prefix}",
 			[
-				'label' => esc_html__( 'Figure', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Figure', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'fig_heading',
                 [
-                    'label' => esc_html__( 'Figure Caption Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Figure Caption Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -2826,7 +2826,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_data_list_style{$prefix}",
 			[
-				'label' => esc_html__( 'Data list', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Data list', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -2836,7 +2836,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_data_list_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -2850,7 +2850,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_data_list_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -2863,7 +2863,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_data_list_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -2904,7 +2904,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_data_list_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -2931,7 +2931,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_data_list_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -2942,7 +2942,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_data_list_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -2953,13 +2953,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_data_list_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -2973,14 +2973,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_data_list_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_data_list_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -3005,13 +3005,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_data_list_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -3022,7 +3022,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_data_list_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -3032,7 +3032,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_data_list_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -3059,14 +3059,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_dl_style{$prefix}",
 			[
-				'label' => esc_html__( 'Data List', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Data List', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'dl_heading',
                 [
-                    'label' => esc_html__( 'Data List Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Data List Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -3081,7 +3081,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_order_list_style{$prefix}",
 			[
-				'label' => esc_html__( 'Order List', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Order List', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -3091,7 +3091,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_order_list_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -3106,7 +3106,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_order_list_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -3119,7 +3119,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_order_list_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -3160,7 +3160,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_order_list_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -3187,7 +3187,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_order_list_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -3198,7 +3198,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_order_list_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -3209,13 +3209,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_order_list_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -3229,14 +3229,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_order_list_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_order_list_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -3261,13 +3261,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_order_list_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -3278,7 +3278,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_order_list_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -3288,7 +3288,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_order_list_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -3316,14 +3316,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_ol_style{$prefix}",
 			[
-				'label' => esc_html__( 'Order List', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Order List', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'ol_heading',
                 [
-                    'label' => esc_html__( 'Oder List Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Oder List Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -3339,7 +3339,7 @@ trait TextEditor
 		$this->start_controls_section(
 			"wpe_st_unorder_list_style{$prefix}",
 			[
-				'label' => esc_html__( 'Unorder List', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Unorder List', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -3349,7 +3349,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_unorder_list_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -3364,7 +3364,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_unorder_list_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -3377,7 +3377,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_unorder_list_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -3418,7 +3418,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_unorder_list_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -3445,7 +3445,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_unorder_list_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -3456,7 +3456,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_unorder_list_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -3467,13 +3467,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_unorder_list_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -3487,14 +3487,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_unorder_list_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_unorder_list_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -3519,13 +3519,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_unorder_list_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -3536,7 +3536,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_unorder_list_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -3546,7 +3546,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_unorder_list_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -3573,14 +3573,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_ul_style{$prefix}",
 			[
-				'label' => esc_html__( 'Onorder List', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Onorder List', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'unorder_heading',
                 [
-                    'label' => esc_html__( 'Unorder Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Unorder Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -3595,7 +3595,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_image_style{$prefix}",
 			[
-				'label' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Image', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -3605,7 +3605,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_image_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -3621,7 +3621,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_width_normal{$prefix}",
             [
-                'label' => esc_html__('Width', 'wpessential'),
+				'label' => esc_htmlesc_html__( 'Width', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'unit' => '%',
@@ -3656,7 +3656,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_space_normal{$prefix}",
             [
-                'label' => esc_html__('Max Width', 'wpessential'),
+				'label' => esc_htmlesc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'unit' => '%',
@@ -3691,7 +3691,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_height_normal{$prefix}",
             [
-                'label' => esc_html__('Height', 'wpessential'),
+				'label' => esc_htmlesc_html__( 'Height', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em', 'rem', 'vh', 'custom'],
                 'range' => [
@@ -3713,16 +3713,16 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_object_fit_normal{$prefix}",
             [
-                'label' => esc_html__('Object Fit', 'wpessential'),
+				'label'   => esc_htmlesc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'condition' => [
                     'height[size]!' => '',
                 ],
                 'options' => [
-                    '' => esc_html__('Default', 'wpessential'),
-                    'fill' => esc_html__('Fill', 'wpessential'),
-                    'cover' => esc_html__('Cover', 'wpessential'),
-                    'contain' => esc_html__('Contain', 'wpessential'),
+					''        => esc_htmlesc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'fill'    => esc_htmlesc_html__( 'Fill', 'wpessential-elementor-blocks' ),
+					'cover'   => esc_htmlesc_html__( 'Cover', 'wpessential-elementor-blocks' ),
+					'contain' => esc_htmlesc_html__( 'Contain', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => '',
                 'selectors' => [
@@ -3734,18 +3734,18 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_object_position_normal{$prefix}",
             [
-                'label' => esc_html__('Object Position', 'wpessential'),
+				'label'   => esc_htmlesc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'center center' => esc_html__('Center Center', 'wpessential'),
-                    'center left' => esc_html__('Center Left', 'wpessential'),
-                    'center right' => esc_html__('Center Right', 'wpessential'),
-                    'top center' => esc_html__('Top Center', 'wpessential'),
-                    'top left' => esc_html__('Top Left', 'wpessential'),
-                    'top right' => esc_html__('Top Right', 'wpessential'),
-                    'bottom center' => esc_html__('Bottom Center', 'wpessential'),
-                    'bottom left' => esc_html__('Bottom Left', 'wpessential'),
-                    'bottom right' => esc_html__('Bottom Right', 'wpessential'),
+					'center center' => esc_htmlesc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
+					'center left'   => esc_htmlesc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
+					'center right'  => esc_htmlesc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
+					'top center'    => esc_htmlesc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
+					'top left'      => esc_htmlesc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
+					'top right'     => esc_htmlesc_html__( 'Top Right', 'wpessential-elementor-blocks' ),
+					'bottom center' => esc_htmlesc_html__( 'Bottom Center', 'wpessential-elementor-blocks' ),
+					'bottom left'   => esc_htmlesc_html__( 'Bottom Left', 'wpessential-elementor-blocks' ),
+					'bottom right'  => esc_htmlesc_html__( 'Bottom Right', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'center center',
                 'selectors' => [
@@ -3767,7 +3767,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_opacity_normal{$prefix}",
             [
-                'label' => esc_html__('Opacity', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -3785,7 +3785,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -3798,7 +3798,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -3839,7 +3839,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -3866,7 +3866,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -3877,7 +3877,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -3888,13 +3888,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -3908,7 +3908,7 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_image_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -3916,7 +3916,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_width_hover{$prefix}",
             [
-                'label' => esc_html__('Width', 'wpessential'),
+				'label' => esc_htmlesc_html__( 'Width', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'unit' => '%',
@@ -3951,7 +3951,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_space_hover{$prefix}",
             [
-                'label' => esc_html__('Max Width', 'wpessential'),
+				'label' => esc_htmlesc_html__( 'Max Width', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'unit' => '%',
@@ -3986,7 +3986,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_height_hover{$prefix}",
             [
-                'label' => esc_html__('Height', 'wpessential'),
+				'label' => esc_htmlesc_html__( 'Height', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em', 'rem', 'vh', 'custom'],
                 'range' => [
@@ -4008,16 +4008,16 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_object_fit_hover{$prefix}",
             [
-                'label' => esc_html__('Object Fit', 'wpessential'),
+				'label'   => esc_htmlesc_html__( 'Object Fit', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'condition' => [
                     'height[size]!' => '',
                 ],
                 'options' => [
-                    '' => esc_html__('Default', 'wpessential'),
-                    'fill' => esc_html__('Fill', 'wpessential'),
-                    'cover' => esc_html__('Cover', 'wpessential'),
-                    'contain' => esc_html__('Contain', 'wpessential'),
+					''        => esc_htmlesc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'fill'    => esc_htmlesc_html__( 'Fill', 'wpessential-elementor-blocks' ),
+					'cover'   => esc_htmlesc_html__( 'Cover', 'wpessential-elementor-blocks' ),
+					'contain' => esc_htmlesc_html__( 'Contain', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => '',
                 'selectors' => [
@@ -4029,18 +4029,18 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_object_position_hover{$prefix}",
             [
-                'label' => esc_html__('Object Position', 'wpessential'),
+				'label'   => esc_htmlesc_html__( 'Object Position', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'center center' => esc_html__('Center Center', 'wpessential'),
-                    'center left' => esc_html__('Center Left', 'wpessential'),
-                    'center right' => esc_html__('Center Right', 'wpessential'),
-                    'top center' => esc_html__('Top Center', 'wpessential'),
-                    'top left' => esc_html__('Top Left', 'wpessential'),
-                    'top right' => esc_html__('Top Right', 'wpessential'),
-                    'bottom center' => esc_html__('Bottom Center', 'wpessential'),
-                    'bottom left' => esc_html__('Bottom Left', 'wpessential'),
-                    'bottom right' => esc_html__('Bottom Right', 'wpessential'),
+					'center center' => esc_htmlesc_html__( 'Center Center', 'wpessential-elementor-blocks' ),
+					'center left'   => esc_htmlesc_html__( 'Center Left', 'wpessential-elementor-blocks' ),
+					'center right'  => esc_htmlesc_html__( 'Center Right', 'wpessential-elementor-blocks' ),
+					'top center'    => esc_htmlesc_html__( 'Top Center', 'wpessential-elementor-blocks' ),
+					'top left'      => esc_htmlesc_html__( 'Top Left', 'wpessential-elementor-blocks' ),
+					'top right'     => esc_htmlesc_html__( 'Top Right', 'wpessential' ),
+					'bottom center' => esc_htmlesc_html__( 'Bottom Center', 'wpessential' ),
+					'bottom left'   => esc_htmlesc_html__( 'Bottom Left', 'wpessential' ),
+					'bottom right'  => esc_htmlesc_html__( 'Bottom Right', 'wpessential' ),
                 ],
                 'default' => 'center center',
                 'selectors' => [
@@ -4063,14 +4063,14 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_hover_animation_hover{$prefix}",
             [
-                'label' => esc_html__('Hover Animation', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
         $this->add_control(
             "wpe_st_image_opacity_hover{$prefix}",
             [
-                'label' => esc_html__('Opacity', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Opacity', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -4088,7 +4088,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_transion_hover{$prefix}",
             [
-                'label' => esc_html__('Transition Duration', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Transition Duration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0.3,
@@ -4110,7 +4110,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4135,13 +4135,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4152,7 +4152,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_image_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4162,7 +4162,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_image_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4189,14 +4189,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_image_style{$prefix}",
 			[
-				'label' => esc_html__( 'Image', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Image', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'image_heading',
                 [
-                    'label' => esc_html__( 'Image Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Image Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -4211,7 +4211,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_address_style{$prefix}",
 			[
-				'label' => esc_html__( 'Address', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Address', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -4221,7 +4221,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_address_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -4237,7 +4237,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_address_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -4250,7 +4250,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_address_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -4291,7 +4291,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_address_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4319,7 +4319,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_address_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4330,7 +4330,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_address_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4341,13 +4341,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_address_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4361,14 +4361,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_address_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_address_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4393,13 +4393,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_address_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4410,7 +4410,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_address_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4420,7 +4420,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_address_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4448,14 +4448,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_address_style{$prefix}",
 			[
-				'label' => esc_html__( 'Address', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Address', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'address_heading',
                 [
-                    'label' => esc_html__( 'Address Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Address Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -4470,7 +4470,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_fig_caption_style{$prefix}",
 			[
-				'label' => esc_html__( 'Fig caption', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Fig caption', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -4480,7 +4480,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_fig_caption_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -4495,7 +4495,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_fig_caption_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -4508,7 +4508,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_fig_caption_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -4549,7 +4549,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_fig_caption_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4577,7 +4577,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_fig_caption_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4588,7 +4588,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_fig_caption_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4599,13 +4599,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_fig_caption_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4619,14 +4619,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_fig_caption_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_fig_caption_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4651,13 +4651,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_fig_caption_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4668,7 +4668,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_fig_caption_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4678,7 +4678,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_fig_caption_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4705,14 +4705,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_fig_cap_style{$prefix}",
 			[
-				'label' => esc_html__( 'Figure Caption', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Figure Caption', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'fig_caption_heading',
                 [
-                    'label' => esc_html__( 'Figure Caption Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Figure Caption Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -4727,7 +4727,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_sub_script_style{$prefix}",
 			[
-				'label' => esc_html__( 'Sub script', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Sub script', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -4737,7 +4737,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_sub_script_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -4752,7 +4752,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_sub_script_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -4765,7 +4765,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_sub_script_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -4806,7 +4806,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_sub_script_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4834,7 +4834,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_sub_script_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4845,7 +4845,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_sub_script_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4856,13 +4856,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_sub_script_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4876,14 +4876,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_sub_script_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_sub_script_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -4908,13 +4908,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_sub_script_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -4925,7 +4925,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_sub_script_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -4935,7 +4935,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_sub_script_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -4961,14 +4961,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_sub_style{$prefix}",
 			[
-				'label' => esc_html__( 'Sub Script', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Sub Script', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'sub_heading',
                 [
-                    'label' => esc_html__( 'Sub Script Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Sub Script Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -4983,7 +4983,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_super_script_style{$prefix}",
 			[
-				'label' => esc_html__( 'Super script', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Super script', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -4993,7 +4993,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_super_script_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -5008,7 +5008,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_super_script_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -5021,7 +5021,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_super_script_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -5062,7 +5062,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_super_script_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5090,7 +5090,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_super_script_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5101,7 +5101,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_super_script_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -5112,13 +5112,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_super_script_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5132,14 +5132,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_super_script_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_super_script_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5164,13 +5164,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_super_script_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5181,7 +5181,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_super_script_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5191,7 +5191,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_super_script_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -5218,14 +5218,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_sup_style{$prefix}",
 			[
-				'label' => esc_html__( 'Super Script', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Super Script', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'sup_heading',
                 [
-                    'label' => esc_html__( 'Super Script Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Super Script Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -5240,7 +5240,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_audio_style{$prefix}",
 			[
-				'label' => esc_html__( 'Audio', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Audio', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -5255,7 +5255,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_audio_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -5268,7 +5268,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_audio_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -5309,7 +5309,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_audio_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5336,7 +5336,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_audio_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5347,7 +5347,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_audio_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -5358,13 +5358,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_audio_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5380,14 +5380,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_audio_style{$prefix}",
 			[
-				'label' => esc_html__( 'Audio', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Audio', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'audio_heading',
                 [
-                    'label' => esc_html__( 'Audio Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Audio Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -5402,7 +5402,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_video_style{$prefix}",
 			[
-				'label' => esc_html__( 'Video', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Video', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -5417,7 +5417,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_video_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -5430,7 +5430,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_video_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -5471,7 +5471,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_video_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5498,7 +5498,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_video_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5509,7 +5509,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_video_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -5520,13 +5520,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_video_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5541,14 +5541,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_video_style{$prefix}",
 			[
-				'label' => esc_html__( 'Video', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Video', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'video_heading',
                 [
-                    'label' => esc_html__( 'Video Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Video Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -5564,7 +5564,7 @@ trait TextEditor
 		$this->start_controls_section(
 			"wpe_st_iframe_style{$prefix}",
 			[
-				'label' => esc_html__( 'iframe', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'iframe', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -5579,7 +5579,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_iframe_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -5592,7 +5592,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_iframe_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -5633,7 +5633,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_iframe_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5660,7 +5660,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_iframe_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5671,7 +5671,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_iframe_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -5682,13 +5682,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_iframe_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5704,14 +5704,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_iframe_style{$prefix}",
 			[
-				'label' => esc_html__( 'iFrame', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'iFrame', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'iframe_heading',
                 [
-                    'label' => esc_html__( 'iframe Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'iframe Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -5726,7 +5726,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_block_qoute_style{$prefix}",
 			[
-				'label' => esc_html__( 'Block Qoute', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Block Qoute', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -5736,7 +5736,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_block_qoute_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -5750,7 +5750,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_block_qoute_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -5763,7 +5763,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_block_qoute_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -5804,7 +5804,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_block_qoute_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5831,7 +5831,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_block_qoute_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5842,7 +5842,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_block_qoute_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -5853,13 +5853,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_block_qoute_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5873,14 +5873,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_block_qoute_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_block_qoute_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -5905,13 +5905,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_block_qoute_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -5922,7 +5922,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_block_qoute_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -5948,14 +5948,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_block_qoute_style{$prefix}",
 			[
-				'label' => esc_html__( 'Block Qoute', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Block Qoute', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'block_qoute_heading',
                 [
-                    'label' => esc_html__( 'Block Qoute Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Block Qoute Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -5970,7 +5970,7 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_hr_style{$prefix}",
 			[
-				'label' => esc_html__( 'hr', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'hr', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -5980,7 +5980,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_hr_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
         $this->add_group_control(
@@ -5994,7 +5994,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_hr_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -6007,7 +6007,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_hr_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -6048,7 +6048,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_hr_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -6075,7 +6075,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_hr_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -6086,7 +6086,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_hr_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -6097,13 +6097,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_hr_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -6117,14 +6117,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_hr_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_hr_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -6149,13 +6149,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_hr_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -6166,7 +6166,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_hr_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -6176,7 +6176,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_hr_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -6203,14 +6203,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_hr_style{$prefix}",
 			[
-				'label' => esc_html__( 'Hr', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Hr', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'hr_heading',
                 [
-                    'label' => esc_html__( 'Hr Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Hr Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -6225,7 +6225,7 @@ trait TextEditor
 		$this->start_controls_section(
 			"wpe_st_table_style{$prefix}",
 			[
-				'label' => esc_html__( 'Table', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Table', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -6235,7 +6235,7 @@ trait TextEditor
         $this->start_controls_tab(
             "tab_table_normal{$prefix}",
             [
-                'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Normal', 'wpessential-elementor-blocks' ),
             ]
         );
 
@@ -6250,7 +6250,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_table_text_padding{$prefix}",
             [
-                'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Padding', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -6263,7 +6263,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_table_margin{$prefix}",
             [
-                'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Margin', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -6304,7 +6304,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_table_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -6331,7 +6331,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_table_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -6342,7 +6342,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_table_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -6353,13 +6353,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_table_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
             ]
@@ -6370,14 +6370,14 @@ trait TextEditor
         $this->start_controls_tab(
             "wpe_st_tab_table_hover{$prefix}",
             [
-                'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Hover', 'wpessential-elementor-blocks' ),
             ]
         );
 
         $this->add_control(
             "wpe_st_table_hover_text_color{$prefix}",
             [
-                'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'color: {{VALUE}}',
@@ -6402,13 +6402,13 @@ trait TextEditor
         $this->add_control(
             "wpe_st_table_hover_text_decoration{$prefix}",
             [
-                'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
+				'label'   => esc_htmlesc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-                    'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-                    'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-                    'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_htmlesc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_htmlesc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_htmlesc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_htmlesc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
                 ],
                 'default' => 'none',
                 'selectors' => [
@@ -6419,7 +6419,7 @@ trait TextEditor
         $this->add_control(
             "wpe_st_table_hover_text_shadow{$prefix}",
             [
-                'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::TEXT_SHADOW,
                 'selectors' => [
                     "{{WRAPPER}} {$css_selector}" => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
@@ -6429,7 +6429,7 @@ trait TextEditor
         $this->add_responsive_control(
             "wpe_st_table_hover_border_radius{$prefix}",
             [
-                'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
+				'label' => esc_htmlesc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -6457,14 +6457,14 @@ trait TextEditor
         $this->start_controls_section(
 			"wpe_st_table_style{$prefix}",
 			[
-				'label' => esc_html__( 'Table', 'wpessential-elementor-blocks' ),
+				'label' => esc_htmlesc_html__( 'Table', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
             $this->add_control(
                 'table_heading',
                 [
-                    'label' => esc_html__( 'Table Style', 'wpessential-elementor-blocks' ),
+					'label' => esc_htmlesc_html__( 'Table Style', 'wpessential-elementor-blocks' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]

@@ -2,23 +2,21 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
-use WPEssential\Plugins\Implement\Shortcodes;
-
-
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Border;
-
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
+use WPEssential\Plugins\Implement\Shortcodes;
 
 use function defined;
 
@@ -47,11 +45,10 @@ class Table extends Base implements Shortcodes
 		return [ 'Table', 'title', 'text' ];
 	}
 
-	public function get_icon ()
+	public function set_widget_icon ()
 	{
 		return 'eicon-table';
 	}
-
 
 	/**
 	 * Register widget controls.
@@ -64,7 +61,6 @@ class Table extends Base implements Shortcodes
 	public function register_controls ()
 	{
 
-
 		// $this->start_controls_section(
 		// 	'wpe_st_box_style',
 		// 	[
@@ -74,7 +70,6 @@ class Table extends Base implements Shortcodes
 		// );
 		// $this->box_style();
 		// $this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'wpe_st_table_style',
@@ -118,129 +113,8 @@ class Table extends Base implements Shortcodes
 
 	}
 
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render () {}
-
-	private function box_style ()
-	{
-
-
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name'     => 'wpe_st_box_bg_normal',
-				'types'    => [ 'classic', 'gradient', 'video' ],
-				'selector' => '{{WRAPPER}} .wpe-text-editor title',
-			]
-		);;
-
-		$this->add_control(
-			'wpe_st_box_border_color_normal',
-			[
-				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}}' => '--box-border-color: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->add_control(
-			'wpe_st_box_loader_color_normal',
-			[
-				'label'     => esc_html__( 'Loader Color', 'wpessential-elementor-blocks' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					// Not using CSS var for BC, when not configured: the loader should get the color from the body tag.
-					'{{WRAPPER}} .elementor-toc__spinner' => 'color: {{VALUE}}; fill: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'wpe_st_box_border_width_normal',
-			[
-				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'range'      => [
-					'px' => [
-						'max' => 20,
-					],
-					'em' => [
-						'max' => 2,
-					],
-				],
-				'selectors'  => [
-					'{{WRAPPER}}' => '--box-border-width: {{SIZE}}{{UNIT}}',
-				],
-			]
-		);
-
-		$this->add_control(
-			'wpe_st_box_border_radius_normal',
-			[
-				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors'  => [
-					'{{WRAPPER}}' => '--box-border-radius: {{SIZE}}{{UNIT}}',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'wpe_st_box_padding_normal',
-			[
-				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-				'selectors'  => [
-					'{{WRAPPER}}' => '--box-padding: {{SIZE}}{{UNIT}}',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'wpe_st_box_min_height_normal',
-			[
-				'label'              => esc_html__( 'Min Height', 'wpessential-elementor-blocks' ),
-				'type'               => Controls_Manager::SLIDER,
-				'size_units'         => [ 'px', 'em', 'rem', 'vh', 'custom' ],
-				'range'              => [
-					'px' => [
-						'min' => 0,
-						'max' => 1000,
-					],
-				],
-				'selectors'          => [
-					'{{WRAPPER}}' => '--box-min-height: {{SIZE}}{{UNIT}}',
-				],
-				'frontend_available' => true,
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name'     => 'wpe_st_box_box_shadow_normal',
-				'selector' => '{{WRAPPER}}',
-			]
-		);
-
-
-	}
-
 	private function table_style ()
 	{
-
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -360,7 +234,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -369,7 +242,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_header_color_normal',
@@ -388,14 +260,14 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_header_text_color_normal',
 			[
-				'label'     => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
 				],
 			]
-		);;
+		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -404,7 +276,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -519,7 +390,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -565,7 +435,6 @@ normal and hover*/
 
 		$this->end_controls_tab(); // normal tabs end here
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_header_hover',
 			[
@@ -583,7 +452,7 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_header_text_color_hover',
 			[
-				'label'     => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -635,7 +504,6 @@ normal and hover*/
 			]
 
 		);
-
 
 		$this->add_control(
 			'wpe_st_header_text_decoration_hover',
@@ -697,11 +565,9 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
 
 	}
 
@@ -712,14 +578,13 @@ normal and hover*/
 			'wpe_st_body_rows_strips_normal',
 			[
 				'label'        => esc_html__( 'Row Strips', 'wpessential-elementor-blocks' ),
-				'type'         => \Elementor\Controls_Manager::SWITCHER,
+				'type' => Controls_Manager::SWITCHER,
 				'label_on'     => esc_html__( 'On', 'wpessential-elementor-blocks' ),
 				'label_off'    => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -761,14 +626,12 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'wpe_st_body_bg_normal',
 				'types'    => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
-
 
 			]
 		);
@@ -852,7 +715,6 @@ normal and hover*/
 				'types'    => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 
-
 			]
 		);
 		$this->add_group_control(
@@ -877,10 +739,8 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
-
 
 	}
 
@@ -897,7 +757,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -906,7 +765,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_footer_color_normal',
@@ -925,7 +783,7 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_footer_text_color_normal',
 			[
-				'label'     => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -934,7 +792,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -942,7 +799,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -1057,7 +913,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -1103,7 +958,6 @@ normal and hover*/
 
 		$this->end_controls_tab(); // normal tabs end here
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_footer_hover',
 			[
@@ -1121,7 +975,7 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_footer_text_color_hover',
 			[
-				'label'     => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -1173,7 +1027,6 @@ normal and hover*/
 			]
 
 		);
-
 
 		$this->add_control(
 			'wpe_st_footer_text_decoration_hover',
@@ -1235,13 +1088,128 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
 
-
 	}
 
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {}
+
+	private function box_style ()
+	{
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'     => 'wpe_st_box_bg_normal',
+				'types'    => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .wpe-text-editor title',
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_box_border_color_normal',
+			[
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}}' => '--box-border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_box_loader_color_normal',
+			[
+				'label'     => esc_html__( 'Loader Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					// Not using CSS var for BC, when not configured: the loader should get the color from the body tag.
+					'{{WRAPPER}} .elementor-toc__spinner' => 'color: {{VALUE}}; fill: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_box_border_width_normal',
+			[
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
+					'px' => [
+						'max' => 20,
+					],
+					'em' => [
+						'max' => 2,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}}' => '--box-border-width: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'wpe_st_box_border_radius_normal',
+			[
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}}' => '--box-border-radius: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_box_padding_normal',
+			[
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
+					'{{WRAPPER}}' => '--box-padding: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'wpe_st_box_min_height_normal',
+			[
+				'label'              => esc_html__( 'Min Height', 'wpessential-elementor-blocks' ),
+				'type'               => Controls_Manager::SLIDER,
+				'size_units'         => [ 'px', 'em', 'rem', 'vh', 'custom' ],
+				'range'              => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+					],
+				],
+				'selectors'          => [
+					'{{WRAPPER}}' => '--box-min-height: {{SIZE}}{{UNIT}}',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'wpe_st_box_box_shadow_normal',
+				'selector' => '{{WRAPPER}}',
+			]
+		);
+
+	}
 
 }

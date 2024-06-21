@@ -2,20 +2,24 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
+use Elementor\Repeater;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class Gallery extends Base implements Shortcodes
@@ -50,9 +54,8 @@ class Gallery extends Base implements Shortcodes
 
 	public function set_title ()
 	{
-		return "Gallery";
+		return 'Gallery';
 	}
-
 
 	/**
 	 * Register widget controls.
@@ -94,19 +97,7 @@ class Gallery extends Base implements Shortcodes
 		$this->caption_style();
 		$this->end_controls_section();
 
-
 	}
-
-
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render () {}
 
 	private function gallery_content ()
 	{
@@ -136,7 +127,7 @@ class Gallery extends Base implements Shortcodes
 			]
 		);
 
-		$repeater = new \Elementor\Repeater();
+		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'gallery_title',
@@ -238,7 +229,7 @@ class Gallery extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'ideal_row_height',
 			[
-				'label'              => esc_html__( 'Row Height', 'elementor-pro' ),
+				'label' => esc_html__( 'Row Height', 'wpessential-elementor-blocks' ),
 				'type'               => Controls_Manager::SLIDER,
 				'range'              => [
 					'px' => [
@@ -262,7 +253,7 @@ class Gallery extends Base implements Shortcodes
 		$this->add_responsive_control(
 			'gap',
 			[
-				'label'              => esc_html__( 'Spacing', 'elementor-pro' ),
+				'label' => esc_html__( 'Spacing', 'wpessential-elementor-blocks' ),
 				'type'               => Controls_Manager::SLIDER,
 				'default'            => [
 					'size' => 10,
@@ -277,13 +268,13 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'link_to',
 			[
-				'label'              => esc_html__( 'Link', 'elementor-pro' ),
+				'label'              => esc_html__( 'Link', 'wpessential-elementor-blocks' ),
 				'type'               => Controls_Manager::SELECT,
 				'default'            => 'file',
 				'options'            => [
-					''       => esc_html__( 'None', 'elementor-pro' ),
-					'file'   => esc_html__( 'Media File', 'elementor-pro' ),
-					'custom' => esc_html__( 'Custom URL', 'elementor-pro' ),
+					''       => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'file'   => esc_html__( 'Media File', 'wpessential-elementor-blocks' ),
+					'custom' => esc_html__( 'Custom URL', 'wpessential-elementor-blocks' ),
 				],
 				'frontend_available' => true,
 			]
@@ -292,7 +283,7 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'url',
 			[
-				'label'              => esc_html__( 'URL', 'elementor-pro' ),
+				'label' => esc_html__( 'URL', 'wpessential-elementor-blocks' ),
 				'type'               => Controls_Manager::URL,
 				'condition'          => [
 					'link_to' => 'custom',
@@ -307,19 +298,19 @@ class Gallery extends Base implements Shortcodes
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label'       => esc_html__( 'Lightbox', 'elementor-pro' ),
+				'label'       => esc_html__( 'Lightbox', 'wpessential-elementor-blocks' ),
 				'type'        => Controls_Manager::SELECT,
 				'description' => sprintf(
 				/* translators: 1: Link open tag, 2: Link close tag. */
-					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'elementor-pro' ),
+					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'wpessential-elementor-blocks' ),
 					'<a href="javascript: $e.run( \'panel/global/open\' ).then( () => $e.route( \'panel/global/settings-lightbox\' ) )">',
 					'</a>'
 				),
 				'default'     => 'default',
 				'options'     => [
-					'default' => esc_html__( 'Default', 'elementor-pro' ),
-					'yes'     => esc_html__( 'Yes', 'elementor-pro' ),
-					'no'      => esc_html__( 'No', 'elementor-pro' ),
+					'default' => esc_html__( 'Default', 'wpessential-elementor-blocks' ),
+					'yes'     => esc_html__( 'Yes', 'wpessential-elementor-blocks' ),
+					'no'      => esc_html__( 'No', 'wpessential-elementor-blocks' ),
 				],
 				'condition'   => [
 					'link_to' => 'file',
@@ -331,7 +322,7 @@ class Gallery extends Base implements Shortcodes
 			'aspect_ratio',
 			[
 				'type'               => Controls_Manager::SELECT,
-				'label'              => esc_html__( 'Aspect Ratio', 'elementor-pro' ),
+				'label' => esc_html__( 'Aspect Ratio', 'wpessential-elementor-blocks' ),
 				'default'            => '3:2',
 				'options'            => [
 					'1:1'  => '1:1',
@@ -350,7 +341,7 @@ class Gallery extends Base implements Shortcodes
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Image_Size::get_type(),
+			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'thumbnail_image',
 				'default' => 'medium',
@@ -369,7 +360,6 @@ class Gallery extends Base implements Shortcodes
 				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_image_width_normal',
@@ -588,7 +578,6 @@ class Gallery extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
@@ -676,7 +665,6 @@ class Gallery extends Base implements Shortcodes
 				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_image_width_hover',
@@ -944,7 +932,6 @@ class Gallery extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -1165,7 +1152,6 @@ class Gallery extends Base implements Shortcodes
 
 		$this->end_controls_tab();
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_caption_hover',
 			[
@@ -1193,7 +1179,6 @@ class Gallery extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_caption_border_width_hover',
@@ -1288,11 +1273,19 @@ class Gallery extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
 	}
 
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {}
 
 }

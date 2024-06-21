@@ -105,7 +105,7 @@ final class ElementorInit
 				}
 				break;
 			default:
-				$results = apply_filters( 'wpessential/query_control/get_value_titles/' . $request[ 'filter_type' ], [], $request );
+				$results = apply_filters( 'wpeeb/query_control/get_value_titles/' . $request[ 'filter_type' ], [], $request );
 		}
 
 		return $results;
@@ -114,7 +114,7 @@ final class ElementorInit
 	public static function ajax_posts_filter_autocomplete ( array $data )
 	{
 		if ( empty( $data[ 'filter_type' ] ) || empty( $data[ 'q' ] ) ) {
-			throw new Exception( 'Bad Request' );
+			throw new \RuntimeException( 'Bad Request' );
 		}
 
 		$results = [];
@@ -203,7 +203,7 @@ final class ElementorInit
 				}
 				break;
 			default:
-				$results = apply_filters( 'wpessential/query_control/get_autocomplete/' . $data[ 'filter_type' ], [], $data );
+				$results = apply_filters( 'wpeeb/query_control/get_autocomplete/' . $data[ 'filter_type' ], [], $data );
 		}
 
 		return [

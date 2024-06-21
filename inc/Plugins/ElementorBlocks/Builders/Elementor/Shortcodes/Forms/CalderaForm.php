@@ -2,11 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\Select;
+
 use function defined;
 
 class CalderaForm extends FormCategory
@@ -52,13 +54,13 @@ class CalderaForm extends FormCategory
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Shortcode', 'wpessential' )
+				'label' => esc_html__( 'Shortcode', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = Select::make( __( 'Forms List', 'wpessential' ) )
-		             ->options( wpe_caldera_table_query() )
-		             ->toArray();
+		$opt = Select::make( esc_html__( 'Forms List', 'wpessential-elementor-blocks' ) )
+					 ->options( wpe_caldera_table_query() )
+					 ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
 		$this->end_controls_section();

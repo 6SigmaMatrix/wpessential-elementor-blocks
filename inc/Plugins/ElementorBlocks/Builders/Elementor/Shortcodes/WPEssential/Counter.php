@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -16,8 +17,8 @@ use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
+use function defined;
 
 class Counter extends Base implements Shortcodes
 {
@@ -88,12 +89,10 @@ class Counter extends Base implements Shortcodes
 		$this->number_style();
 		$this->end_controls_section();
 
-
 	}
 
 	private function counter_content ()
 	{
-
 
 		$this->add_control(
 			'starting_number',
@@ -208,7 +207,6 @@ class Counter extends Base implements Shortcodes
 			]
 		);
 
-
 	}
 
 	private function title_style ()
@@ -224,7 +222,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -233,7 +230,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_title_color_normal',
@@ -282,7 +278,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -396,7 +391,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -441,7 +435,6 @@ normal and hover*/
 		);
 
 		$this->end_controls_tab(); // normal tabs end here
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_title_hover',
@@ -513,7 +506,6 @@ normal and hover*/
 
 		);
 
-
 		$this->add_control(
 			'wpe_st_title_text_decoration_hover',
 			[
@@ -574,11 +566,9 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
 
 	}
 
@@ -595,7 +585,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -604,7 +593,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_number_color_normal',
@@ -653,7 +641,6 @@ normal and hover*/
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -768,7 +755,6 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -813,7 +799,6 @@ normal and hover*/
 		);
 
 		$this->end_controls_tab(); // normal tabs end here
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_number_hover',
@@ -885,7 +870,6 @@ normal and hover*/
 
 		);
 
-
 		$this->add_control(
 			'wpe_st_number_text_decoration_hover',
 			[
@@ -946,11 +930,9 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
 
 	}
 

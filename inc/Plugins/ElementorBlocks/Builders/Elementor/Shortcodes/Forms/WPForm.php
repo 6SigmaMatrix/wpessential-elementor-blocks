@@ -2,11 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Forms;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\Select;
+
 use function defined;
 
 class WPForm extends FormCategory
@@ -38,13 +40,13 @@ class WPForm extends FormCategory
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Shortcode', 'wpessential' )
+				'label' => esc_html__( 'Shortcode', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = Select::make( __( 'Forms List', 'wpessential' ) )
-		             ->options( wpe_get_posts( [ 'post_type' => 'wpforms', 'posts_per_page' => - 1 ] ) )
-		             ->toArray();
+		$opt = Select::make( esc_html__( 'Forms List', 'wpessential-elementor-blocks' ) )
+					 ->options( wpe_get_posts( [ 'post_type' => 'wpforms', 'posts_per_page' => - 1 ] ) )
+					 ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
 		$this->end_controls_section();

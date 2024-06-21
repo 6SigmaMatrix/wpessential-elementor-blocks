@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -11,13 +12,15 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
+use Elementor\Utils;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
+use function defined;
 
 class ImageBox extends Base implements Shortcodes
 {
@@ -44,7 +47,7 @@ class ImageBox extends Base implements Shortcodes
 		return [ 'ImageBox', 'title', 'text', 'Image' ];
 	}
 
-	public function get_icon ()
+	public function set_widget_icon ()
 	{
 		return 'eicon-image-box';
 	}
@@ -101,18 +104,6 @@ class ImageBox extends Base implements Shortcodes
 
 	}
 
-
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render () {}
-
-
 	private function image_box_content ()
 	{
 
@@ -125,13 +116,13 @@ class ImageBox extends Base implements Shortcodes
 					'active' => true,
 				],
 				'default' => [
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
+					'url' => Utils::get_placeholder_image_src(),
 				],
 			]
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Image_Size::get_type(),
+			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'wpe_st_thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
 				'default'   => 'full',
@@ -206,7 +197,6 @@ class ImageBox extends Base implements Shortcodes
 	private function box_style ()
 	{
 
-
 		$this->start_controls_tabs( 'tabs_button_styles' );/* this will create a tab in which we can make two tabs
 		normal and hover*/
 		// for normal controls
@@ -267,7 +257,6 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tabs();
 
 	}
@@ -283,7 +272,6 @@ class ImageBox extends Base implements Shortcodes
 				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_image_width_normal',
@@ -510,7 +498,6 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
 			[
@@ -591,7 +578,6 @@ class ImageBox extends Base implements Shortcodes
 				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_image_width_hover',
@@ -860,7 +846,6 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -1081,7 +1066,6 @@ class ImageBox extends Base implements Shortcodes
 
 		$this->end_controls_tab();
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_content_hover',
 			[
@@ -1109,7 +1093,6 @@ class ImageBox extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_content_border_width_hover',
@@ -1204,11 +1187,19 @@ class ImageBox extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
 	}
 
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {}
 
 }

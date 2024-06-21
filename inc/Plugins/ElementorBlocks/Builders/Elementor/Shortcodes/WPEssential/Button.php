@@ -2,14 +2,14 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_TypograpShortcodeshy;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -18,6 +18,7 @@ use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
+
 use function defined;
 
 class Button extends Base implements Shortcodes
@@ -45,7 +46,7 @@ class Button extends Base implements Shortcodes
 		return [ 'Button', 'title', 'text' ];
 	}
 
-	public function get_icon ()
+	public function set_widget_icon ()
 	{
 		return 'eicon-button';
 	}
@@ -60,7 +61,6 @@ class Button extends Base implements Shortcodes
 	 */
 	public function register_controls ()
 	{
-
 
 		$this->start_controls_section(
 			'wpe_st_button_tab_content',
@@ -78,7 +78,6 @@ class Button extends Base implements Shortcodes
 			'alignment_default'              => '',
 			'icon_exclude_inline_options'    => [],
 		];
-
 
 		$args = wp_parse_args( $args, $default_args );
 		$this->add_control(
@@ -238,6 +237,7 @@ class Button extends Base implements Shortcodes
 				'default'     => '',
 				'title'       => esc_html__( 'Add your custom id WITHOUT the Pound key. e.g: my-id', 'wpessential-elementor-blocks' ),
 				'description' => sprintf(
+				/* translators: %1$s %2$s: HTML tags */
 					esc_html__( 'Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows %1$sA-z 0-9%2$s & underscore chars without spaces.', 'wpessential-elementor-blocks' ),
 					'<code>',
 					'</code>'
@@ -248,7 +248,6 @@ class Button extends Base implements Shortcodes
 		);
 
 		$this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'wpe_st_button_style',
@@ -270,12 +269,10 @@ class Button extends Base implements Shortcodes
 		$this->icon_style();
 		$this->end_controls_section();
 
-
 	}
 
 	private function button_style ()
 	{
-
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -321,7 +318,7 @@ class Button extends Base implements Shortcodes
 			]
 		);
 
-
+		// @codingStandardsIgnoreStart
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -342,6 +339,7 @@ class Button extends Base implements Shortcodes
 				//'condition' => $args['section_condition'],
 			]
 		);
+		// @codingStandardsIgnoreEnd
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
@@ -465,7 +463,6 @@ class Button extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -487,6 +484,7 @@ class Button extends Base implements Shortcodes
 			]
 		);
 
+		// @codingStandardsIgnoreStart
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -502,7 +500,7 @@ class Button extends Base implements Shortcodes
 				//'condition' => $args['section_condition'],
 			]
 		);
-
+		// @codingStandardsIgnoreEnd
 
 		$this->add_control(
 			'wpe_st_button_animation_hover',
@@ -674,7 +672,6 @@ class Button extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_icon_color_normal',
 			[
@@ -686,7 +683,6 @@ class Button extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_icon_active_color_normal',
@@ -748,7 +744,6 @@ class Button extends Base implements Shortcodes
 				],
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'wpe_st_icon_size_normal',
@@ -852,9 +847,7 @@ class Button extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_icon_hover',
@@ -959,7 +952,6 @@ class Button extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -967,7 +959,6 @@ class Button extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor icon',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_hover',
@@ -986,7 +977,6 @@ class Button extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor ',
 			]
 		);
-
 
 		$this->end_controls_tab();
 		$this->end_controls_tabs();// the tab in which normal and hover are present .that tab ends here

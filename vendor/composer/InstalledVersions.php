@@ -350,10 +350,11 @@ class InstalledVersions
             }
         }
 
-		if ( self::$installed !== [] ) {
+		if ( self::$installed !== [] )
+		{
 			$installed[] = self::$installed;
 		}
 
 		return $installed;
-    }
+	}
 }

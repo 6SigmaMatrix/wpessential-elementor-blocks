@@ -6,8 +6,8 @@ Requires at least: 6.4
 Tested up to: 6.5
 WC requires at least: 6.0
 Stable tag: 1.0
-License: GPL v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 WPEssential Elementor Blocks is a flexible extension of WordPress. It is open-source page builder solution in WordPress. Create any theme, anywhere and make your way. There is no `PHP`, `CSS`, `HTML` and `Javascript` coding knowledge need.
 

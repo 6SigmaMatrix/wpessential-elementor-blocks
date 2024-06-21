@@ -2,27 +2,24 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
-use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
-use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
-
-
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
+use WPEssential\Plugins\Implement\Shortcodes;
 
-
-
+use function defined;
 
 class Search extends Base implements Shortcodes
 {
@@ -44,15 +41,15 @@ class Search extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @public
 	 */
-	public function set_keywords()
+	public function set_keywords ()
 	{
-		return ['Search', 'title', 'text'];
+		return [ 'Search', 'title', 'text' ];
 	}
-	public function get_icon()
+
+	public function set_widget_icon ()
 	{
 		return 'eicon-search-bold';
 	}
-
 
 	/**
 	 * Register widget controls.
@@ -62,14 +59,14 @@ class Search extends Base implements Shortcodes
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function register_controls()
+	public function register_controls ()
 	{
 
 		$this->start_controls_section(
 			'wpe_st_search_content',
 			[
-				'label' => esc_html__('Search Content', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_CONTENT,
+				'label' => esc_html__( 'Search Content', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
 		$this->search_content();
@@ -78,8 +75,8 @@ class Search extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_input_style',
 			[
-				'label' => esc_html__('Input Field', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Input Field', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->input_style();
@@ -88,20 +85,18 @@ class Search extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_input_focus_style',
 			[
-				'label' => esc_html__('Input Focus', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Input Focus', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->input_focus_style();
 		$this->end_controls_section();
 
-
-
 		$this->start_controls_section(
 			'wpe_st_text_button_style',
 			[
-				'label' => esc_html__('Text Button', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Text Button', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->text_button_style();
@@ -110,8 +105,8 @@ class Search extends Base implements Shortcodes
 		$this->start_controls_section(
 			'wpe_st_icon_button_style',
 			[
-				'label' => esc_html__('Icon Button', 'wpessential-elementor-blocks'),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Icon Button', 'wpessential-elementor-blocks' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->icon_button_style();
@@ -119,33 +114,21 @@ class Search extends Base implements Shortcodes
 
 	}
 
-	/**
-	 * Render widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function render()
-	{
-	}
-
-	private function search_content()
+	private function search_content ()
 	{
 		$this->add_control(
 			'wpe_st_skin',
 			[
-				'label' => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'classic',
-				'options' => [
+				'label'        => esc_html__( 'Skin', 'wpessential-elementor-blocks' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'classic',
+				'options'      => [
 					'classic' => esc_html__( 'Classic', 'wpessential-elementor-blocks' ),
 					'minimal' => esc_html__( 'Minimal', 'wpessential-elementor-blocks' ),
 					'full_screen' => esc_html__( 'Full Screen', 'wpessential-elementor-blocks' ),
 				],
 				'prefix_class' => 'elementor-search-form--skin-',
-				'render_type' => 'template',
+				'render_type'  => 'template',
 				'frontend_available' => true,
 			]
 		);
@@ -153,8 +136,8 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_placeholder',
 			[
-				'label' => esc_html__( 'Placeholder', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
+				'label'   => esc_html__( 'Placeholder', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::TEXT,
 				'separator' => 'before',
 				'default' => esc_html__( 'Search', 'wpessential-elementor-blocks' ) . '...',
 				'dynamic' => [
@@ -167,7 +150,7 @@ class Search extends Base implements Shortcodes
 			'wpe_st_heading_button_content',
 			[
 				'label' => esc_html__( 'Button', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::HEADING,
+				'type'  => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
 					'wpe_st_skin' => 'classic',
@@ -178,16 +161,16 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_button_type',
 			[
-				'label' => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'icon',
-				'options' => [
+				'label'       => esc_html__( 'Type', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'icon',
+				'options'     => [
 					'icon' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
 					'text' => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
 				],
 				'prefix_class' => 'elementor-search-form--button-type-',
 				'render_type' => 'template',
-				'condition' => [
+				'condition'   => [
 					'wpe_st_skin' => 'classic',
 				],
 			]
@@ -196,9 +179,9 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_button_text',
 			[
-				'label' => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Search', 'wpessential-elementor-blocks' ),
+				'label'     => esc_html__( 'Text', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => esc_html__( 'Search', 'wpessential-elementor-blocks' ),
 				'condition' => [
 					'wpe_st_button_type' => 'text',
 					'wpe_st_skin' => 'classic',
@@ -209,22 +192,22 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_icon',
 			[
-				'label' => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'search',
-				'options' => [
+				'label'       => esc_html__( 'Icon', 'wpessential-elementor-blocks' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'default'     => 'search',
+				'options'     => [
 					'search' => [
 						'title' => esc_html__( 'Search', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-search',
 					],
-					'arrow' => [
+					'arrow'  => [
 						'title' => esc_html__( 'Arrow', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-arrow-right',
 					],
 				],
 				'render_type' => 'template',
 				'prefix_class' => 'elementor-search-form--icon-',
-				'condition' => [
+				'condition'   => [
 					'wpe_st_button_type' => 'icon',
 					'wpe_st_skin' => 'classic',
 				],
@@ -234,17 +217,17 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_size',
 			[
-				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'     => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
-				'default' => [
+				'default'   => [
 					'wpe_st_size' => 50,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .elementor-search-form__submit' => 'min-width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .elementor-search-form__container'           => 'min-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .elementor-search-form__submit'              => 'min-width: {{SIZE}}{{UNIT}}',
 					'body:not(.rtl) {{WRAPPER}} .elementor-search-form__icon' => 'padding-left: calc({{SIZE}}{{UNIT}} / 3)',
-					'body.rtl {{WRAPPER}} .elementor-search-form__icon' => 'padding-right: calc({{SIZE}}{{UNIT}} / 3)',
+					'body.rtl {{WRAPPER}} .elementor-search-form__icon'       => 'padding-right: calc({{SIZE}}{{UNIT}} / 3)',
 					'{{WRAPPER}} .elementor-search-form__input, {{WRAPPER}}.elementor-search-form--button-type-text .elementor-search-form__submit' => 'padding-left: calc({{SIZE}}{{UNIT}} / 3); padding-right: calc({{SIZE}}{{UNIT}} / 3)',
 				],
 				'condition' => [
@@ -258,7 +241,7 @@ class Search extends Base implements Shortcodes
 			'wpe_st_toggle_button_content',
 			[
 				'label' => esc_html__( 'Toggle', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::HEADING,
+				'type'  => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
 					'wpe_st_skin' => 'full_screen',
@@ -269,11 +252,11 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_toggle_align',
 			[
-				'label' => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
-					'left' => [
+					'left'   => [
 						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-left',
 					],
@@ -281,7 +264,7 @@ class Search extends Base implements Shortcodes
 						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-center',
 					],
-					'right' => [
+					'right'  => [
 						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
 						'icon' => 'eicon-h-align-right',
 					],
@@ -298,8 +281,8 @@ class Search extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_toggle_size',
 			[
-				'label' => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'   => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'wpe_st_size' => 33,
 				],
@@ -312,36 +295,34 @@ class Search extends Base implements Shortcodes
 			]
 		);
 
-	
 	}
 
-	private function input_style()
+	private function input_style ()
 	{
 
-		$this->start_controls_tabs('tabs_input_style'); /* this will create a tab in which we can make two tabs
+		$this->start_controls_tabs( 'tabs_input_style' ); /* this will create a tab in which we can make two tabs
 normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_input_normal',
 			[
-				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_input_background_normal',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_input_background_normal',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_input_text_color_normal',
 			[
-				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'   => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
@@ -366,10 +347,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_padding_normal',
 			[
-				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -377,10 +358,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_margin_normal',
 			[
-				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
 					'px' => [
 						'min' => 10,
 						'max' => 50,
@@ -392,15 +373,15 @@ normal and hover*/
 						'step' => 0.5,
 					],
 				],
-				'default' => [
-					'top' => 2,
-					'right' => 0,
+				'default'    => [
+					'top'    => 2,
+					'right'  => 0,
 					'bottom' => 2,
-					'left' => 0,
-					'unit' => 'em',
+					'left'   => 0,
+					'unit'   => 'em',
 					'isLinked' => false,
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -423,10 +404,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_border_radius_normal',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -434,13 +415,13 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_text_decoration_noraml',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -449,10 +430,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_border_width_normal',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -460,8 +441,8 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
@@ -471,10 +452,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_border_color_normal',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
@@ -491,24 +472,24 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_alignment_normal',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-left',
+					'left'    => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-left',
 					],
-					'center' => [
-						'title' => esc_html__('Center', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-center',
+					'center'  => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
-						'title' => esc_html__('Right', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-right',
+					'right'   => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__('Justified', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-justify',
+						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
 				'default' => '',
@@ -520,23 +501,22 @@ normal and hover*/
 
 		$this->end_controls_tab();
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_input_hover',
 			[
-				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_control(
 			'wpe_st_input_text_color_hover',
 			[
-				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion-icon, {{WRAPPER}} .elementor-accordion-title' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
-				'global' => [
+				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
@@ -549,14 +529,13 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_input_border_width_hover',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -564,8 +543,8 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
@@ -575,10 +554,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_border_color_hover',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
@@ -595,8 +574,8 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_input_background_hover',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_input_background_hover',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -612,10 +591,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_border_radius_hover',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -623,13 +602,13 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_text_decoration_hover',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -643,41 +622,38 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
 	}
 
-	private function input_focus_style()
+	private function input_focus_style ()
 	{
 
-// 		$this->start_controls_tabs('tabs_input_focus_style'); /* this will create a tab in which we can make two tabs
-// normal and hover*/
-// 		// for normal controls
-// 		$this->start_controls_tab(
-// 			'tab_input_focus_normal',
-// 			[
-// 				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
-// 			]
-// 		);
-
+		// 		$this->start_controls_tabs('tabs_input_focus_style'); /* this will create a tab in which we can make two tabs
+		// normal and hover*/
+		// 		// for normal controls
+		// 		$this->start_controls_tab(
+		// 			'tab_input_focus_normal',
+		// 			[
+		// 				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+		// 			]
+		// 		);
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_input_focus_background_normal',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_input_focus_background_normal',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_input_focus_text_color_normal',
 			[
-				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'   => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
@@ -702,10 +678,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_focus_padding_normal',
 			[
-				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -713,10 +689,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_focus_margin_normal',
 			[
-				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
 					'px' => [
 						'min' => 10,
 						'max' => 50,
@@ -728,15 +704,15 @@ normal and hover*/
 						'step' => 0.5,
 					],
 				],
-				'default' => [
-					'top' => 2,
-					'right' => 0,
+				'default'    => [
+					'top'    => 2,
+					'right'  => 0,
 					'bottom' => 2,
-					'left' => 0,
-					'unit' => 'em',
+					'left'   => 0,
+					'unit'   => 'em',
 					'isLinked' => false,
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -759,10 +735,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_focus_border_radius_normal',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -770,13 +746,13 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_focus_text_decoration_noraml',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -785,10 +761,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_input_focus_border_width_normal',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -796,22 +772,21 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
-		
 		$this->add_control(
 			'wpe_st_input_focus_border_color_normal',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
@@ -828,24 +803,24 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_input_focus_alignment_normal',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-left',
+					'left'    => [
+						'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-left',
 					],
-					'center' => [
-						'title' => esc_html__('Center', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-center',
+					'center'  => [
+						'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
-						'title' => esc_html__('Right', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-right',
+					'right'   => [
+						'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__('Justified', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-text-align-justify',
+						'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
 				'default' => '',
@@ -855,21 +830,19 @@ normal and hover*/
 			]
 		);
 
-	
 		// $this->end_controls_tab();
-	
+
 		// $this->end_controls_tabs();
 
 	}
-// If the user select to display the text button it will show text biutton cntrols text_button_style()
-	private function text_button_style()
-	{
 
+	private function text_button_style ()
+	{
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'wpe_st_text_button_typography',
+				'name'   => 'wpe_st_text_button_typography',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 
@@ -878,23 +851,21 @@ normal and hover*/
 			]
 		);
 
-
-
-		$this->start_controls_tabs('tabs_text_button_styles'); /* this will create a tab in which we can make two tabs
+		$this->start_controls_tabs( 'tabs_text_button_styles' ); /* this will create a tab in which we can make two tabs
 normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'wpe_st_tab_text_button_normal',
 			[
-				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_text_button_text_color_normal',
 			[
-				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'   => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
@@ -903,21 +874,19 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_text_button_background_normal',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_text_button_background_normal',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
-	
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wpe_st_text_button_border_type_normal',
+				'name'     => 'wpe_st_text_button_border_type_normal',
 				'selector' => '{{WRAPPER}} .elementor-button',
 				'separator' => 'before',
 				//'condition' => $args['section_condition'],
@@ -926,10 +895,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_text_button_border_radius_normal',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				//'condition' => $args['section_condition'],
@@ -947,23 +916,23 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_text_button_text_padding_normal',
 			[
-				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'separator' => 'before',
+				'separator'  => 'before',
 				//'condition' => $args['section_condition'],
 			]
 		);
 		$this->add_control(
 			'wpe_st_text_button_margin_normal',
 			[
-				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
 					'px' => [
 						'min' => 10,
 						'max' => 50,
@@ -975,15 +944,15 @@ normal and hover*/
 						'step' => 0.5,
 					],
 				],
-				'default' => [
-					'top' => 2,
-					'right' => 0,
+				'default'    => [
+					'top'    => 2,
+					'right'  => 0,
 					'bottom' => 2,
-					'left' => 0,
-					'unit' => 'em',
+					'left'   => 0,
+					'unit'   => 'em',
 					'isLinked' => false,
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -991,8 +960,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_text_shadow_normal',
 			[
-				'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::TEXT_SHADOW,
+				'label' => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}}' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -1001,9 +970,9 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_text_button_width_normal',
 			[
-				'label' => esc_html__('Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'      => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => [
 					'unit' => '%',
 				],
 				'tablet_default' => [
@@ -1012,8 +981,8 @@ normal and hover*/
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'%' => [
 						'min' => 1,
 						'max' => 100,
@@ -1027,7 +996,7 @@ normal and hover*/
 						'max' => 100,
 					],
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1043,13 +1012,13 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_text_decoration_noraml',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
@@ -1058,10 +1027,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_border_width_normal',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1069,8 +1038,8 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
@@ -1079,8 +1048,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_border_color_normal',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label' => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::COLOR,
 				//'condition' => [
 				//	'border_border!' => '',
 				//],
@@ -1093,37 +1062,36 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_align_normal',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
-						'title' => esc_html__('Start', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-left',
+					'left'  => [
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => esc_html__('End', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-right',
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'default' => is_rtl() ? 'right' : 'left',
-				'toggle' => false,
+				'toggle'  => false,
 			]
 		);
-
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_text_button_hover',
 			[
-				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_control(
 			'wpe_st_text_button_text_color_hover',
 			[
-				'label' => esc_html__('Text Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button:hover, {{WRAPPER}} .elementor-button:focus' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-button:hover svg, {{WRAPPER}} .elementor-button:focus svg' => 'fill: {{VALUE}};',
@@ -1135,18 +1103,17 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_text_button_background_hover',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_text_button_background_hover',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-accordion content',
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_text_button_animation_hover',
 			[
-				'label' => esc_html__('Hover Animation', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::HOVER_ANIMATION,
+				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::HOVER_ANIMATION,
 				//'condition' => $args['section_condition'],
 			]
 		);
@@ -1154,7 +1121,7 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'wpe_st_text_button_border_type_hover',
+				'name'     => 'wpe_st_text_button_border_type_hover',
 				'selector' => '{{WRAPPER}} .elementor-button',
 				'separator' => 'before',
 				//'condition' => $args['section_condition'],
@@ -1164,9 +1131,9 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_text_button_width_hover',
 			[
-				'label' => esc_html__('Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'      => esc_html__( 'Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => [
 					'unit' => '%',
 				],
 				'tablet_default' => [
@@ -1175,8 +1142,8 @@ normal and hover*/
 				'mobile_default' => [
 					'unit' => '%',
 				],
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'%' => [
 						'min' => 1,
 						'max' => 100,
@@ -1190,7 +1157,7 @@ normal and hover*/
 						'max' => 100,
 					],
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -1198,10 +1165,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_text_button_border_radius_hover',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				//'condition' => $args['section_condition'],
@@ -1237,25 +1204,25 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_text_decoration_hover',
 			[
-				'label' => esc_html__('Text Decoration', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Text Decoration', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__('None', 'wpessential-elementor-blocks'),
-					'underline' => esc_html__('Underline', 'wpessential-elementor-blocks'),
-					'overline' => esc_html__('Overline', 'wpessential-elementor-blocks'),
-					'line-through' => esc_html__('Line Through', 'wpessential-elementor-blocks'),
+					'none'         => esc_html__( 'None', 'wpessential-elementor-blocks' ),
+					'underline'    => esc_html__( 'Underline', 'wpessential-elementor-blocks' ),
+					'overline'     => esc_html__( 'Overline', 'wpessential-elementor-blocks' ),
+					'line-through' => esc_html__( 'Line Through', 'wpessential-elementor-blocks' ),
 				],
 				'default' => 'none',
 			]
 		);
-		
+
 		$this->add_control(
 			'wpe_st_text_button_border_width_hover',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1263,8 +1230,8 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
@@ -1274,8 +1241,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_border_color_hover',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label' => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::COLOR,
 				//'condition' => [
 				//	'border_border!' => '',
 				//],
@@ -1288,20 +1255,20 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_text_button_align_hover',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
-						'title' => esc_html__('Start', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-left',
+					'left'  => [
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => esc_html__('End', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-right',
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'default' => is_rtl() ? 'right' : 'left',
-				'toggle' => false,
+				'toggle'  => false,
 			]
 		);
 		$this->end_controls_tab();
@@ -1309,27 +1276,27 @@ normal and hover*/
 
 	}
 
-	// If the user select to display the icon button it will show text biutton cntrols icon_button_style()
+	// If the user select to display the text button it will show text biutton cntrols text_button_style()
 
-	private function icon_button_style()
+	private function icon_button_style ()
 	{
-		$this->start_controls_tabs('tabs_iocn_button_style'); /* this will create a tab in which we can make two tabs
+		$this->start_controls_tabs( 'tabs_iocn_button_style' ); /* this will create a tab in which we can make two tabs
 normal and hover*/
 		// for normal controls
 		$this->start_controls_tab(
 			'tab_icon_button_normal',
 			[
-				'label' => esc_html__('Normal', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Normal', 'wpessential-elementor-blocks' ),
 			]
 		);
 		$this->add_control(
 			'wpe_st_icon_button_primary_color_normal',
 			[
-				'label' => esc_html__('Primary Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => esc_html__( 'Primary Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}}.elementor-view-stacked .elementor-icon:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.elementor-view-stacked .elementor-icon:hover'                                                          => 'background-color: {{VALUE}};',
 					'{{WRAPPER}}.elementor-view-framed .elementor-icon:hover, {{WRAPPER}}.elementor-view-default .elementor-icon:hover' => 'color: {{VALUE}}; border-color: {{VALUE}};',
 					'{{WRAPPER}}.elementor-view-framed .elementor-icon:hover, {{WRAPPER}}.elementor-view-default .elementor-icon:hover svg' => 'fill: {{VALUE}};',
 				],
@@ -1338,10 +1305,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_border_width_normal',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1349,8 +1316,8 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
@@ -1360,10 +1327,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_border_color_normal',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
@@ -1372,29 +1339,28 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_align_normal',
 			[
-				'label' => esc_html__('Alignment', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => esc_html__( 'Alignment', 'wpessential-elementor-blocks' ),
+				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
-						'title' => esc_html__('Start', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-left',
+					'left'  => [
+						'title' => esc_html__( 'Start', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => esc_html__('End', 'wpessential-elementor-blocks'),
-						'icon' => 'eicon-h-align-right',
+						'title' => esc_html__( 'End', 'wpessential-elementor-blocks' ),
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'default' => is_rtl() ? 'right' : 'left',
-				'toggle' => false,
+				'toggle'  => false,
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_icon_button_color_normal',
 			[
-				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
@@ -1402,12 +1368,11 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_icon_button_active_color_normal',
 			[
-				'label' => esc_html__('Active Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Active Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title.elementor-active .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-tab-title.elementor-active .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
@@ -1418,9 +1383,9 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_icon_button_spacing_normal',
 			[
-				'label' => esc_html__('Spacing', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => esc_html__( 'Spacing', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 0,
 						'max' => 100,
@@ -1435,10 +1400,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_margin_normal',
 			[
-				'label' => esc_html__('Margin', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Margin', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'      => [
 					'px' => [
 						'min' => 10,
 						'max' => 50,
@@ -1450,49 +1415,48 @@ normal and hover*/
 						'step' => 0.5,
 					],
 				],
-				'default' => [
-					'top' => 2,
-					'right' => 0,
+				'default'    => [
+					'top'    => 2,
+					'right'  => 0,
 					'bottom' => 2,
-					'left' => 0,
-					'unit' => 'em',
+					'left'   => 0,
+					'unit'   => 'em',
 					'isLinked' => false,
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
-
 		$this->add_responsive_control(
 			'wpe_st_icon_button_size_normal',
 			[
-				'label' => esc_html__('Size', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Size', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'min' => 6,
 						'max' => 300,
 					],
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .elementor-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-icon svg' => 'height: {{SIZE}}{{UNIT}};',
 				],
-				'separator' => 'before',
+				'separator'  => 'before',
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_icon_button_fit_to_size_normal',
 			[
-				'label' => esc_html__('Fit to Size', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SWITCHER,
+				'label'     => esc_html__( 'Fit to Size', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::SWITCHER,
 				'description' => 'Avoid gaps around icons when width and height aren\'t equal',
-				'label_off' => esc_html__('Off', 'wpessential-elementor-blocks'),
-				'label_on' => esc_html__('On', 'wpessential-elementor-blocks'),
+				'label_off' => esc_html__( 'Off', 'wpessential-elementor-blocks' ),
+				'label_on'  => esc_html__( 'On', 'wpessential-elementor-blocks' ),
 				'condition' => [
 					'selected_icon[library]' => 'svg',
 				],
@@ -1505,8 +1469,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_padding_normal',
 			[
-				'label' => esc_html__('Padding', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
+				'label' => esc_html__( 'Padding', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
 				],
@@ -1524,8 +1488,8 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_icon_button_background_normal',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_icon_button_background_normal',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -1541,10 +1505,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_icon_button_border_radius_normal',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -1552,8 +1516,8 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_normal',
 			[
-				'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::TEXT_SHADOW,
+				'label' => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor iocn' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -1567,22 +1531,20 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
-
 
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_icon_button_hover',
 			[
-				'label' => esc_html__('Hover', 'wpessential-elementor-blocks'),
+				'label' => esc_html__( 'Hover', 'wpessential-elementor-blocks' ),
 			]
 		);
 
 		$this->add_control(
 			'wpe_st_icon_button_color_hover',
 			[
-				'label' => esc_html__('Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon i:before' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-tab-title .elementor-accordion-icon svg' => 'fill: {{VALUE}};',
@@ -1593,10 +1555,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_border_width_hover',
 			[
-				'label' => esc_html__('Border Width', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
-				'range' => [
+				'label'      => esc_html__( 'Border Width', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range'      => [
 					'px' => [
 						'max' => 20,
 					],
@@ -1604,8 +1566,8 @@ normal and hover*/
 						'max' => 2,
 					],
 				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-width: {{SIZE}}{{UNIT}};',
+				'selectors'  => [
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
@@ -1615,10 +1577,10 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_border_color_hover',
 			[
-				'label' => esc_html__('Border Color', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::COLOR,
+				'label'     => esc_html__( 'Border Color', 'wpessential-elementor-blocks' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-accordion-item' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-accordion-item'                        => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-content' => 'border-top-color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-accordion-item .elementor-tab-title.elementor-active' => 'border-bottom-color: {{VALUE}};',
 				],
@@ -1627,8 +1589,8 @@ normal and hover*/
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'wpe_st_icon_button_background_hover',
-				'types' => ['classic', 'gradient', 'video'],
+				'name'  => 'wpe_st_icon_button_background_hover',
+				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
@@ -1636,10 +1598,10 @@ normal and hover*/
 		$this->add_responsive_control(
 			'wpe_st_icon_button_rotate_hover',
 			[
-				'label' => esc_html__('Rotate', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['deg', 'grad', 'rad', 'turn', 'custom'],
-				'default' => [
+				'label'      => esc_html__( 'Rotate', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'deg', 'grad', 'rad', 'turn', 'custom' ],
+				'default'    => [
 					'unit' => 'deg',
 				],
 				'tablet_default' => [
@@ -1648,7 +1610,7 @@ normal and hover*/
 				'mobile_default' => [
 					'unit' => 'deg',
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .elementor-icon i, {{WRAPPER}} .elementor-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
@@ -1657,23 +1619,22 @@ normal and hover*/
 		$this->add_control(
 			'wpe_st_icon_button_animation_hover',
 			[
-				'label' => esc_html__('Hover Animation', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::HOVER_ANIMATION,
+				'label' => esc_html__( 'Hover Animation', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
 		$this->add_responsive_control(
 			'wpe_st_icon_button_border_radius_hover',
 			[
-				'label' => esc_html__('Border Radius', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-				'selectors' => [
+				'label'      => esc_html__( 'Border Radius', 'wpessential-elementor-blocks' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors'  => [
 					'{{WRAPPER}} .wpe-text-editor icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
@@ -1683,12 +1644,11 @@ normal and hover*/
 			]
 		);
 
-
 		$this->add_control(
 			'wpe_st_iocn_text_shadow_hover',
 			[
-				'label' => esc_html__('Text Shadow', 'wpessential-elementor-blocks'),
-				'type' => Controls_Manager::TEXT_SHADOW,
+				'label' => esc_html__( 'Text Shadow', 'wpessential-elementor-blocks' ),
+				'type'  => Controls_Manager::TEXT_SHADOW,
 				'selectors' => [
 					'{{SELECTOR}} .wpe-text-editor iocn' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 				],
@@ -1702,9 +1662,20 @@ normal and hover*/
 			]
 		);
 
-
 		$this->end_controls_tab();
 		$this->end_controls_tabs(); // the tab in which normal and hover are present .that tab ends here
 	}
+
+	// If the user select to display the icon button it will show text biutton cntrols icon_button_style()
+
+	/**
+	 * Render widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+	public function render () {}
 
 }

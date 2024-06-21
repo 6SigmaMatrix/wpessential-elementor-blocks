@@ -2,11 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WooCommerce;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\Text;
+
 use function defined;
 
 class ProductSingle extends WCCategory
@@ -38,13 +40,13 @@ class ProductSingle extends WCCategory
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Shortcode', 'wpessential' )
+				'label' => esc_html__( 'Shortcode', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$post_opt = Text::make( __( 'Product ID', 'wpessential-blog-post' ) )
-		                ->desc( __( 'Enter the product id to display product on frontend.', 'wpessential-blog-post' ) )
-		                ->toArray();
+		$post_opt = Text::make( esc_html__( 'Product ID', 'wpessential-elementor-blocks' ) )
+						->desc( esc_html__( 'Enter the product id to display product on frontend.', 'wpessential-elementor-blocks' ) )
+						->toArray();
 		$this->add_control( $post_opt[ 'id' ], $post_opt );
 
 		$this->end_controls_section();

@@ -223,26 +223,27 @@ class ClassLoader
 	 * @param list<string>|string $paths   The PSR-4 base directories
 	 * @param bool                $prepend Whether to prepend the directories
      *
-     * @return void
-     *@throws \InvalidArgumentException
-     *
-     */
+	 * @return void
+	 * @throws \InvalidArgumentException
+	 *
+	 */
     public function addPsr4($prefix, $paths, $prepend = false)
     {
 		$paths                               = (array) $paths;
-		if (!$prefix) {
-            // Register directories for the root namespace.
+		if ( ! $prefix )
+		{
+			// Register directories for the root namespace.
             if ($prepend) {
                 $this->fallbackDirsPsr4 = array_merge(
 					$paths,
 					$this->fallbackDirsPsr4
-                );
+				);
             } else {
                 $this->fallbackDirsPsr4 = array_merge(
                     $this->fallbackDirsPsr4,
 					$paths
 				);
-            }
+			}
         } elseif (!isset($this->prefixDirsPsr4[$prefix])) {
             // Register directories for a new namespace.
             $length = strlen($prefix);
@@ -251,19 +252,21 @@ class ClassLoader
             }
             $this->prefixLengthsPsr4[$prefix[0]][$prefix] = $length;
 			$this->prefixDirsPsr4[ $prefix ] = $paths;
-		} elseif ($prepend) {
-            // Prepend directories for an already registered namespace.
+		}
+		elseif ( $prepend )
+		{
+			// Prepend directories for an already registered namespace.
             $this->prefixDirsPsr4[$prefix] = array_merge(
 				$paths,
-				$this->prefixDirsPsr4[$prefix]
-            );
+				$this->prefixDirsPsr4[ $prefix ]
+			);
         } else {
             // Append directories for an already registered namespace.
             $this->prefixDirsPsr4[$prefix] = array_merge(
                 $this->prefixDirsPsr4[$prefix],
 				$paths
 			);
-        }
+		}
     }
 
     /**
@@ -273,7 +276,7 @@ class ClassLoader
 	 * @param string              $prefix The prefix
 	 * @param list<string>|string $paths  The PSR-0 base directories
 	 *
-     * @return void
+	 * @return void
      */
     public function set($prefix, $paths)
     {
@@ -291,10 +294,10 @@ class ClassLoader
 	 * @param string              $prefix The prefix/namespace, with trailing '\\'
 	 * @param list<string>|string $paths  The PSR-4 base directories
      *
-     * @return void
-     *@throws \InvalidArgumentException
-     *
-     */
+	 * @return void
+	 * @throws \InvalidArgumentException
+	 *
+	 */
     public function setPsr4($prefix, $paths)
     {
         if (!$prefix) {
@@ -479,7 +482,7 @@ class ClassLoader
 	 *
 	 * @return array<string, self>
 	 */
-    public static function getRegisteredLoaders()
+	public static function getRegisteredLoaders()
     {
         return self::$registeredLoaders;
     }

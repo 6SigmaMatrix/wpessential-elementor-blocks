@@ -2,7 +2,8 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\WPEssential;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -22,8 +23,8 @@ use WPEssential\Plugins\Builders\Fields\Typography;
 use WPEssential\Plugins\Builders\Fields\Url;
 use WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility\Base;
 use WPEssential\Plugins\Implement\Shortcodes;
-use function defined;
 
+use function defined;
 
 class Heading extends Base implements Shortcodes
 {
@@ -50,7 +51,7 @@ class Heading extends Base implements Shortcodes
 		return [ 'heading', 'title', 'text' ];
 	}
 
-	public function get_icon ()
+	public function set_widget_icon ()
 	{
 		return 'eicon-t-letter';
 	}
@@ -68,48 +69,48 @@ class Heading extends Base implements Shortcodes
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Heading Settings', 'wpessential' )
+				'label' => esc_html__( 'Heading Settings', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = Textarea::make( __( 'Title', 'wpessential' ) );
+		$opt = Textarea::make( esc_html__( 'Title', 'wpessential-elementor-blocks' ) );
 		$opt->dynamic( true );
-		$opt->placeholder( __( 'Enter your title', 'wpessential' ) );
-		$opt->default( __( 'Add Your Heading Text Here', 'wpessential' ) );
+		$opt->placeholder( esc_html__( 'Enter your title', 'wpessential-elementor-blocks' ) );
+		$opt->default( esc_html__( 'Add Your Heading Text Here', 'wpessential-elementor-blocks' ) );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Url::make( __( 'Link', 'wpessential' ) );
+		$opt = Url::make( esc_html__( 'Link', 'wpessential-elementor-blocks' ) );
 		$opt->dynamic( true );
 		$opt->default( [ 'url' => '' ] );
 		$opt->separator( 'before' );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Select::make( __( 'Size', 'wpessential' ) );
+		$opt = Select::make( esc_html__( 'Size', 'wpessential-elementor-blocks' ) );
 		$opt->options( wpe_element_size() );
 		$opt->default( 'default' );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Select::make( __( 'HTML Tag', 'wpessential' ) );
+		$opt = Select::make( esc_html__( 'HTML Tag', 'wpessential-elementor-blocks' ) );
 		$opt->options( wpe_heading_tags() );
 		$opt->default( 'h2' );
 		$this->add_control( $opt->key, $opt->toArray() );
 
-		$opt = Choose::make( __( 'Alignment', 'wpessential' ) );
+		$opt = Choose::make( esc_html__( 'Alignment', 'wpessential-elementor-blocks' ) );
 		$opt->options( [
 			'left'    => [
-				'title' => __( 'Left', 'wpessential' ),
+				'title' => esc_html__( 'Left', 'wpessential-elementor-blocks' ),
 				'icon'  => 'eicon-text-align-left',
 			],
 			'center'  => [
-				'title' => __( 'Center', 'wpessential' ),
+				'title' => esc_html__( 'Center', 'wpessential-elementor-blocks' ),
 				'icon'  => 'eicon-text-align-center',
 			],
 			'right'   => [
-				'title' => __( 'Right', 'wpessential' ),
+				'title' => esc_html__( 'Right', 'wpessential-elementor-blocks' ),
 				'icon'  => 'eicon-text-align-right',
 			],
 			'justify' => [
-				'title' => __( 'Justified', 'wpessential' ),
+				'title' => esc_html__( 'Justified', 'wpessential-elementor-blocks' ),
 				'icon'  => 'eicon-text-align-justify',
 			],
 		] );
@@ -122,26 +123,26 @@ class Heading extends Base implements Shortcodes
 		$this->start_controls_section(
 			'section_2',
 			[
-				'label' => __( 'Title', 'wpessential' ),
+				'label' => esc_html__( 'Title', 'wpessential-elementor-blocks' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
-		$opt = PopoverToggle::make( __( 'Typography', 'wpessential' ) );
+		$opt = PopoverToggle::make( esc_html__( 'Typography', 'wpessential-elementor-blocks' ) );
 		$this->add_control( $opt->key, $opt->toArray() );
 		$this->start_popover();
 
 		$opts = Typography::make();
 		$opts->wrap_selector( '.wpe-heading-title' );
 		$opts = $opts->typography();
-		foreach ( $opts as $opt ) {
+		foreach ( $opts as $opt )
+		{
 			$this->add_control( $opt->key, $opt->toArray() );
 		}
 
 		$this->end_popover();
 
 		$this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'wpe_st_title_style',
@@ -167,7 +168,6 @@ class Heading extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -176,7 +176,6 @@ class Heading extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_control(
 			'wpe_st_title_color_normal',
@@ -195,7 +194,7 @@ class Heading extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_normal',
 			[
-				'label'     => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -225,7 +224,6 @@ class Heading extends Base implements Shortcodes
 				'selector' => '{{WRAPPER}} .wpe-text-editor title',
 			]
 		);
-
 
 		$this->add_group_control(
 			Group_Control_Text_Stroke::get_type(),
@@ -340,7 +338,6 @@ class Heading extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -386,7 +383,6 @@ class Heading extends Base implements Shortcodes
 
 		$this->end_controls_tab();// normal tabs end here
 
-
 		$this->start_controls_tab(   // hover tab starts here
 			'wpe_st_tab_title_hover',
 			[
@@ -404,7 +400,7 @@ class Heading extends Base implements Shortcodes
 		$this->add_control(
 			'wpe_st_title_text_color_hover',
 			[
-				'label'     => esc_html__( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'wpessential-elementor-blocks' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -456,7 +452,6 @@ class Heading extends Base implements Shortcodes
 			]
 
 		);
-
 
 		$this->add_control(
 			'wpe_st_title_text_decoration_hover',
@@ -518,11 +513,9 @@ class Heading extends Base implements Shortcodes
 			]
 		);
 
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
 
 	}
 

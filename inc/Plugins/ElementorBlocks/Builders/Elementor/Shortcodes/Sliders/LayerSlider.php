@@ -2,11 +2,13 @@
 
 namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Shortcodes\Sliders;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
 use WPEssential\Plugins\Builders\Fields\Select;
+
 use function defined;
 
 class LayerSlider extends SliderCategory
@@ -38,13 +40,13 @@ class LayerSlider extends SliderCategory
 		$this->start_controls_section(
 			'section_1',
 			[
-				'label' => __( 'Shortcode', 'wpessential' )
+				'label' => esc_html__( 'Shortcode', 'wpessential-elementor-blocks' )
 			]
 		);
 
-		$opt = Select::make( __( 'Slider List', 'wpessential' ) )
-		             ->options( wpe_layer_slider_table_query() )
-		             ->toArray();
+		$opt = Select::make( esc_html__( 'Slider List', 'wpessential-elementor-blocks' ) )
+					 ->options( wpe_layer_slider_table_query() )
+					 ->toArray();
 		$this->add_control( $opt[ 'id' ], $opt );
 
 		$this->end_controls_section();

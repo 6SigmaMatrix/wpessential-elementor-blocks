@@ -4,7 +4,8 @@ namespace WPEssential\Plugins\ElementorBlocks\Builders\Elementor\Utility;
 
 use function defined;
 
-if ( ! \defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) )
+{
 	exit; // Exit if accessed directly.
 }
 
@@ -27,38 +28,38 @@ class Categories
 	public static function register_categories ( $elements_manager )
 	{
 		$categories = apply_filters(
-			'wpe/elementor/categories',
+			'wpeeb/elementor/categories',
 			[
 				'wpessential'            => [
-					'title'     => __( 'WPEssential', 'wpessential' ),
+					'title' => esc_html__( 'WPEssential', 'wpessential-elementor-blocks' ),
 					'icon'      => 'wpe-icons wpe',
 					'promotion' => [
 						'url' => ''
 					],
 				],
 				'wpessential-wc'         => [
-					'title'     => __( 'WPEssential WC', 'wpessential' ),
+					'title' => esc_html__( 'WPEssential WC', 'wpessential-elementor-blocks' ),
 					'icon'      => 'wpe-icons wpe',
 					'promotion' => [
 						'url' => ''
 					],
 				],
 				'wpessential-wc-archive' => [
-					'title'     => __( 'WPEssential WC Archive', 'wpessential' ),
+					'title' => esc_html__( 'WPEssential WC Archive', 'wpessential-elementor-blocks' ),
 					'icon'      => 'wpe-icons wpe',
 					'promotion' => [
 						'url' => ''
 					],
 				],
 				'wpessential-form'       => [
-					'title'     => __( 'WPEssential Form', 'wpessential' ),
+					'title' => esc_html__( 'WPEssential Form', 'wpessential-elementor-blocks' ),
 					'icon'      => 'wpe-icons wpe',
 					'promotion' => [
 						'url' => ''
 					],
 				],
 				'wpessential-slider'     => [
-					'title'     => __( 'WPEssential Slider', 'wpessential' ),
+					'title' => esc_html__( 'WPEssential Slider', 'wpessential-elementor-blocks' ),
 					'icon'      => 'wpe-icons wpe',
 					'promotion' => [
 						'url' => ''
@@ -68,8 +69,10 @@ class Categories
 		);
 		$categories = wp_parse_args( $elements_manager->get_categories(), $categories );
 
-		if ( ! empty( $categories ) ) {
-			foreach ( $categories as $key => $name ) {
+		if ( ! empty( $categories ) )
+		{
+			foreach ( $categories as $key => $name )
+			{
 				$elements_manager->add_category( $key, $name );
 			}
 		}
